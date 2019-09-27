@@ -66,7 +66,7 @@
 
   <body>
 
-    <div class="row">
+  <div class="row">
   <h2>Destacados</h2>
   <div class="large-3 small-6 columns">
     

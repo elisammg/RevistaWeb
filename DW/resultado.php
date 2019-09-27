@@ -1,3 +1,10 @@
+<?php require_once('config.php') ?>
+<?php require_once( ROOT_PATH . '/includes/public_functions.php') ?>
+
+<!-- Retrieve all posts from database  -->
+<?php $posts = getPublishedPosts(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -59,6 +66,35 @@
   </header>
   <body>
 
+  <div class="row">
+  <h2>Destacados</h2>
+  <div class="large-3 small-6 columns">
+    <?php foreach ($posts as $post): ?>
+      <div class="post" style="margin-left: 0px;">
+          <img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" class="post_image" alt="">
+          
+          <!-- Added this if statement... -->
+          <?php if (isset($post['topic']['name'])): ?>
+              <a 
+                  href=""
+                  class="btn category">
+                  <?php echo $post['topic']['name'] ?>
+              </a>
+          <?php endif ?>
+
+          <a href="">
+              <div class="post_info">
+                  <h3><?php echo $post['title'] ?></h3>
+                  <div class="info">
+                      <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
+                      <span><?php echo $post['username'] ?></span>
+                  </div>
+              </div>
+          </a>
+      </div>
+    <?php endforeach ?>
+  </div>
+  
   </body>
   <footer>
     <div class="large-12 columns">
