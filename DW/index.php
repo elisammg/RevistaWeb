@@ -1,3 +1,9 @@
+<?php require_once('config.php') ?>
+<?php require_once( ROOT_PATH . '/includes/public_functions.php') ?>
+
+<!-- Retrieve all posts from database  -->
+<?php $posts = getPublishedPosts(); ?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -63,6 +69,20 @@
     <div class="row">
   <h2>Destacados</h2>
   <div class="large-3 small-6 columns">
+    <?php foreach ($posts as $post): ?>
+      <div class="post" style="margin-left: 0px;">
+        <img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" class="post_image" alt="">
+        <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
+          <div class="post_info">
+            <h3><?php echo $post['title'] ?></h3>
+            <div class="info">
+              <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
+              <span class="read_more">Read more...</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    <?php endforeach ?>
     <img src="https://images.ctfassets.net/ooa29xqb8tix/27MAsquoEoIIayoYkkmsuI/891876a6e0c917fc884fe58ec9ce55ed/5K_Wallpaper_14.png">
     <h5 class="panel">Título</h5>
     <p class="panel">Resumen</p>
