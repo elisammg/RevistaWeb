@@ -58,6 +58,13 @@
             <input class="login-box-input" type="email" name="email" placeholder="E-mail" />
             <input class="login-box-input" type="password" name="password" placeholder="Password" />
             <input class="login-box-input" type="password" name="password2" placeholder="Retype password" />
+            <fieldset class="cell large-6">
+               <legend>Tipo de Perfil</legend>
+               <input type="radio" name="pokemon" value="Administrador" id="admin" required><label for="admin">Administrador</label>
+               <input type="radio" name="pokemon" value="Autor" id="autor"><label for="autor">Autor</label>
+               <input type="radio" name="pokemon" value="Moderador" id="moderador" required><label for="moderador">Moderador</label>
+               <input type="radio" name="pokemon" value="Lector" id="lector"><label for="lector">Lector</label>
+             </fieldset>
             <div class="row columns">
               <a href="perfil.html">
               <div class="panel callout radius">
