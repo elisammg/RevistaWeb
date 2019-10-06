@@ -13,10 +13,10 @@
 </header>
   <body>
   	<br>
-    	<div class="grid-container">
+  	<form class="log-in-form" action="db_insertar.php" method="get" enctype="multipart/form-data">
+    <div class="grid-container">
       <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-		<form class="log-in-form" action="db_insertar.php" method="get" enctype="multipart/form-data">
+        <div class="large-12 cell">		
 		  <h4 class="text-center">Sign up with you email account</h4>
 		  <label for="nombre">Nombre
 		    <input type="text" name="nombre" required placeholder="Ingrese nombre">

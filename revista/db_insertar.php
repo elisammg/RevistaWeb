@@ -20,8 +20,4 @@
     echo "no se ingresaron los datos";
   }
 
-
-
-
-
 ?>
