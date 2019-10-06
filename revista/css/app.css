@@ -41,7 +41,7 @@
 .subnav-hero-section {
   text-align: center;
   /*background-image: url("https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg");*/
-  background-color: pink;
+  background-color: skyblue;
   background-size: cover;
   position: relative;
   overflow: visible;
@@ -101,7 +101,7 @@
 /*footer*/
 #footer
 {
-  background-color: pink;
+  background-color: skyblue;
 }
 
 /*login*/
