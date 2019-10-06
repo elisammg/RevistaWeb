@@ -14,7 +14,7 @@
   <?php require_once('includes/header.php') ?>
 </header>
   <body>
-
+<br>
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-9 cell">
@@ -37,7 +37,7 @@
   </div>
     <div class="grid-container">
     <div class="grid-x grid-padding-x">
-      <div class="large-12 cell">
+      <div class="large-8 cell">
         <div class="news-image-gallery-container">
   <div class="row">
     <div class="small-12 medium-12 large-8 columns">
@@ -72,9 +72,103 @@
     </div>    
   </div>
 </div>
- </div>    
+ </div>
+    <div class="large-4">
+      <div class="callout">
+      <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+          </p>
+        </div>
+    </div>    
   </div>
 </div>
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <div class="callout">
+     <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            <hr>
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            <hr>
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+          </p>
+      </div>
+      </div>
+    </div>
+  </div>
+
 
 
     <script src="js/vendor/jquery.js"></script>

@@ -14,6 +14,7 @@
   <?php require_once('includes/header.php') ?>
 </header>
   <body>
+    <br>
 <div class="grid-container">
   <div class="grid-x grid-padding-x">
     <div class="large-4 cell">
@@ -72,6 +73,8 @@
     </div>
     <div class="large-4 cell">
       <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+      <h4>Titulo imagen</h4>
+      <label>Descripcion</label>
     </div>
   </div>
 </div>
@@ -79,6 +82,8 @@
   <div class="grid-x grid-padding-x">
     <div class="large-4 cell">
       <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+      <h4>Titulo imagen</h4>
+      <label>Descripcion</label>
     </div>
     <div class="large-8 cell">
       <div class="callout">
