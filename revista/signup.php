@@ -10,13 +10,15 @@
   </head>
 <header>
   <?php require_once('includes/navbar.php') ?>
+  <?php require_once('includes/header.php') ?>
 </header>
   <body>
   	<br>
-  	<form class="log-in-form" action="db_insertar.php" method="get" enctype="multipart/form-data">
+  	
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">		
+        <div class="large-12 cell">	
+        <form class="log-in-form" action="registrar.php" method="get" enctype="multipart/form-data">	
 		  <h4 class="text-center">Registrate</h4>
 		  <label for="nombre">Nombre</label>
 		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
