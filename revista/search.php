@@ -18,7 +18,7 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">	
-        <form class="log-in-form">	
+        <form class="log-in-form" action="buscar.php" method="get" enctype="multipart/form-data">	
 		  <h4 class="text-center">Buscar</h4>
 		  <label for="categoria">Cateogira</label>
 		    <input type="text" name="categoria" required placeholder="Ingrese categoria">
