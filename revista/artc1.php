@@ -34,6 +34,23 @@
             Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
             Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
             Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            <hr>
+            <h2>IMÁGENES DESTACADAS</h2>
+            <div class="grid-x grid-padding-x">
+              <div class="large-4 medium-4 cell">
+                <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="Imagen 1">
+                <p> DESCRIPCION IMG 1</p>
+              </div>
+              <div class="large-4 medium-4 cell">
+                <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="Imagen 2">
+                <p> DESCRIPCION IMG 1</p>
+              </div>
+              <div class="large-4 medium-4 cell">
+                  <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="Imagen 3">
+                  <p> DESCRIPCION IMG 1</p>
+              </div>
+            </div>
+            <hr>
             Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
             Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
             Short ribs sirloin beef ribs, flank capicola ribeye turducken.
@@ -43,43 +60,12 @@
             Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
           </p>
           <hr>
-          <h2>IMÁGENES DESTACADAS</h2>
-          <div class="grid-x grid-padding-x">
-            <div class="large-4 medium-4 cell">
-              <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="Imagen 1">
-              <p> DESCRIPCION IMG 1</p>
-            </div>
-            <div class="large-4 medium-4 cell">
-              <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="Imagen 2">
-              <p> DESCRIPCION IMG 1</p>
-            </div>
-            <div class="large-4 medium-4 cell">
-                <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="Imagen 3">
-                <p> DESCRIPCION IMG 1</p>
-            </div>
-          </div>
+
         </div>
       </div>
-      <hr>
-      <p>
-        Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-        Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-        Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-        Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-        Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-        Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-        Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-        Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-        Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-        Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-        Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-        Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-        Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-        Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-        Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-      </p>
-      <hr>
+
         </div>
+          <?php require_once('includes/comentarios.php') ?>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>

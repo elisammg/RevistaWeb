@@ -25,7 +25,6 @@
 		  <label>Password
 		    <input type="password" placeholder="Password">
 		  </label>
-		  <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
 		  <p><input type="submit" class="button expanded" value="Log in"></input></p>
 		</form>
 		</div>

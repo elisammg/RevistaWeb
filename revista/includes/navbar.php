@@ -3,7 +3,7 @@
     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
       <button class="menu-icon" type="button" data-toggle></button>
     </span>
-    <a href="index.php"><strong>UNIS</strong></a>
+    <strong>UNIS</strong>
   </div>
   <div id="responsive-menu">
     <div class="top-bar-left">
