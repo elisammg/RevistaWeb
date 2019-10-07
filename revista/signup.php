@@ -32,7 +32,7 @@
 		  <label for="email">Email</label>
 		    <input type="email" name="email" required placeholder="Ingrese email">
 
-		  <label for="contraseña">Contrsaeña</label>
+		  <label for="contraseña">contraseña</label>
 		    <input type="password" name="contraseña" required placeholder="Ingrese contraseña">
 
 		   <!-- <label for="suscripcion">Ingrese numero de suscripcion</label>

@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New article</title>
+    <title>Cambio de datos</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
 <header>
   <?php require_once('includes/navbar.php') ?>
+  <?php require_once('includes/header.php') ?>
 </header>
   <body>
   	<br>
@@ -18,7 +19,7 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
         <form class="log-in-form" action="perfil.php" method="post" enctype="multipart/form-data">
-		  <h4 class="text-center">NUEVO ARTICULO</h4>
+		  <h4 class="text-center">Cambio de datos</h4>
 		  <label for="nombre">Nombre</label>
 		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
 
