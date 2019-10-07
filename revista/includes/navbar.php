@@ -9,24 +9,24 @@
     <div class="top-bar-left">
       <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown" data-auto-height="true" data-animate-height="true">
         <li>
-          <a href="#">DEPORTES</a>
+          <a href="categorias.php">DEPORTES</a>
           <ul class="menu">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
+            <li><a href="sub1.php">Natacion</a></li>
+            <li><a href="sub2.php">Futbol</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">ENTRETENIMIENTO</a>
+          <a href="categorias.php">ENTRETENIMIENTO</a>
           <ul class="menu">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
+            <li><a href="sub2.php">Cine</a></li>
+            <li><a href="sub1.php">Teatro</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">ALIMENTOS</a>
+          <a href="categorias.php">ALIMENTOS</a>
           <ul class="menu">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
+            <li><a href="sub1.php">Ensaladas</a></li>
+            <li><a href="sub2.php">Pasteles</a></li>
           </ul>
         </li>
       </ul>

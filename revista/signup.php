@@ -17,7 +17,7 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">		
-		  <h4 class="text-center">Sign up with you email account</h4>
+		  <h4 class="text-center">Registrate</h4>
 		  <label for="nombre">Nombre</label>
 		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
 		  
@@ -31,7 +31,7 @@
 		    <input type="email" name="email" required placeholder="Ingrese email">
 		  
 		  <label for="contraseña">Contrsaeña</label>
-		    <input type="text" name="contraseña" required placeholder="Ingrese contraseña">
+		    <input type="password" name="contraseña" required placeholder="Ingrese contraseña">
 		  
 		   <label for="suscripcion">Ingrese numero de suscripcion</label>
 		    <input type="numero" name="suscripcion" required placeholder="Ingrese suscripcion">
