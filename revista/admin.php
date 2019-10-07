@@ -38,14 +38,12 @@
     <div class="large-8 cell">
       <div class="callout">
       <h3>ADMINISTRAR USUARIOS</h3>
-      <div class="grid-x grid-padding-x">
-        <div class="large-6 medium-6 cell">
-          <p><a href="http:0//github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-        </div>
-        <div class="large-6 medium-6 cell">
-          <p><a href="https://twitter.com/ZURBfoundation">@zurbfoundation</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-        </div>
-      </div>
+      <ul>
+        <li>NOMBRE USUARIO</li>
+        <li>ROL</li>
+        <li>SUSCRIPCION</li>
+        <a href="#" class="button">CONFIGURAR</a>
+      </ul>
       </div>
     </div>
     <div class="large-12 cell">
@@ -89,6 +87,32 @@
           </ul>
           <a href="newsub.php" class="button">NUEVA SUBCATEGORIA</a></div>
       </div>
+      </div>
+    </div>
+    <div class="large-12 cell">
+      <div class="callout">
+        <h3>ANUNCIOS</h3>
+        <hr>
+        <div class="grid-x grid-padding-x">
+          <div class="large-4 medium-4 cell">
+            <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+            <h4>TITULO ANUNCIO</h4>
+            <p>Veces visto</p>
+            <a href="#" class="button">Seleccionar</a>
+          </div>
+          <div class="large-4 medium-4 cell">
+            <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+            <h4>TITULO ANUNCIO</h4>
+            <p>Veces visto</p>
+            <a href="#" class="button">Seleccionar</a>
+          </div>
+          <div class="large-4 medium-4 cell">
+            <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+            <h4>TITULO ANUNCIO</h4>
+            <p>Veces visto</p>
+            <a href="#" class="button">Seleccionar</a>
+          </div>
+        </div>
       </div>
     </div>
     </div>
