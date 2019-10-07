@@ -1,12 +1,12 @@
 <?php 
 	session_start();
     // connect to database
-	$conn = mysqli_connect("localhost", "root", "AlexanderLeo22", "myBlog");
+	$conn = mysqli_connect("localhost", "root", "", "myblog");
 
 	if (!$conn) {
 		die("Error connecting to database: " . mysqli_connect_error());
 	}
     // define global constants
 	define ('ROOT_PATH', realpath(dirname(__FILE__)));
-	define('BASE_URL', 'http://localhost/myBlog/');
+	define('BASE_URL', 'http://localhost/RevistaWeb/revista/');
 ?>
