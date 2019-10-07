@@ -3,7 +3,7 @@
   $servername= "localhost";
   $user="root";
   $pass="";
-  $dbname="mydb";
+  $dbname="revista";
 
   $conexion = new mysqli ($servername, $user, $pass, $dbname);
 

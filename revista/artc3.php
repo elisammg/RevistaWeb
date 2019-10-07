@@ -69,7 +69,7 @@
           <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
         </nav>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
  </div>
@@ -88,7 +88,7 @@
             Short ribs sirloin beef ribs, flank capicola ribeye turducken.
           </p>
         </div>
-    </div>    
+    </div>
   </div>
 </div>
 <div class="grid-container">
@@ -169,7 +169,7 @@
     </div>
   </div>
 
-
+  <?php require_once('includes/comentarios.php') ?>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

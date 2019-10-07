@@ -2,12 +2,12 @@
 /*nav */
 
 .foundation-5-top-bar {
-  background: aliceblue;
+  background: cornflowerblue;
   color: #f6f6f6;
 }
 
 .foundation-5-top-bar .menu {
-  background: aliceblue;
+  background: cornflowerblue;
 }
 
 .foundation-5-top-bar .menu a {
@@ -111,5 +111,3 @@
   padding: 1rem;
   border-radius: 0;
 }
-
-
