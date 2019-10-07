@@ -5,7 +5,7 @@
         <div class="large-12 cell">
         <form class="log-in-form" action="buscar.php" method="get" enctype="multipart/form-data">
 		  <h4 class="text-center">Buscar</h4>
-		  <label for="categoria">Cateogira</label>
+		  <label for="categoria">Categoria</label>
 		    <input type="text" name="categoria" required placeholder="Ingrese categoria">
 
 		  <label for="autor">Autor</label>
