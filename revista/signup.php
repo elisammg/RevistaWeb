@@ -18,24 +18,24 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">		
 		  <h4 class="text-center">Sign up with you email account</h4>
-		  <label for="nombre">Nombre
+		  <label for="nombre">Nombre</label>
 		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
-		  </label>
-		  <label for="apellido">Apellido
-		    <input type="text" name="apellido" required placeholder="Apellido">
-		  </label>
-		  <label for="username">Nombre de Usuario
-		    <input type="text" name="username" required placeholder="Username">
-		  </label>
-		  <label for="email">Email
-		    <input type="email" name="email" required placeholder="somebody@example.com">
-		  </label>
-		  <label for="password">Password
-		    <input type="password" name="contraseña" required placeholder="Password">
-		  </label>
-		   <label for="suscripcion">Ingrese numero de suscripcion
-		    <input type="text" name="suscripcion" required placeholder="Password">
-		  </label>
+		  
+		  <label for="apellido">Apellido</label>
+		    <input type="text" name="apellido" required placeholder="Ingrese Apellido">
+		  
+		  <label for="username">Nombre de Usuario</label>
+		    <input type="text" name="username" required placeholder="Ingrese Username">
+		  
+		  <label for="email">Email</label>
+		    <input type="email" name="email" required placeholder="Ingrese email">
+		  
+		  <label for="contraseña">Contrsaeña</label>
+		    <input type="text" name="contraseña" required placeholder="Ingrese contraseña">
+		  
+		   <label for="suscripcion">Ingrese numero de suscripcion</label>
+		    <input type="numero" name="suscripcion" required placeholder="Ingrese suscripcion">
+		  
 		  <ol>
 		  	<li>Mensual: pago cada mes</li>
 		  	<li>Semestral: pago cada seis meses</li>

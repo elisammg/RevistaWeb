@@ -5,11 +5,11 @@
   $Apellido=$_GET['apellido'];
   $Usuario=$_GET['username'];
   $Email=$_GET['email'];
-  $Contraseña=$_GET['password'];  
+  $Contraseña=$_GET['contraseña'];  
   /*$imagen=addslashes(GET_included_files($_FILES['foto']['tmp_name']));*/
 
   $query="INSERT INTO perfil (Suscripcion_idSuscripcion, Nombre, Apellido, Usuario, Email, Contraseña)
-  VALUES('$suscripcion', '$nombre', '$apellido', '$username', '$email', '$password')";
+  VALUES('$Suscripcion_idSuscripcion', '$Nombre','$Apellido', '$Usuario','$Email','$Contraseña')";
   $resultado=$conexion ->query($query);
 
   if ($resultado)
