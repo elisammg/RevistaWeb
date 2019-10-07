@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOG IN</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -12,7 +12,7 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
-      <div class="grid-container">
+    <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
         <h1>BIENVENIDO</h1>
@@ -34,9 +34,19 @@
         </form>
       </div>
     </div>
+    <div class="large-8 cell">
+      <div class="callout">
+        <h3>SUSCRIPCION:</h3>
+        <p>DATOS SUSCRIPCION</p>
+        <a href="suscripcion.php" class="button">Suscripciones</a>
+        <p>Datos de cobro</p>
+        <a href="cobro.php" class="button">Ingresar datos de cobro</a>
+
+      </div>
+    </div>
+    </div>
   </div>
-  </div>
-  
+
 	<script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
