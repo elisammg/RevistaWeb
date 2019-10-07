@@ -13,6 +13,78 @@
     <?php require_once('includes/header.php') ?>
   </head>
   <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h1>CATEGORIAS</h1>
+        </div>
+      </div>
+<!--con un ancla poner la direccion de link a la categoria -->
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <div class="callout">
+            <h3>CATEGORIA 1</h3>
+            <div class="grid-x grid-padding-x">
+              <div class="large-6 medium-6 cell">
+                <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+              </div>
+              <div class="large-6 medium-6 cell">
+              <p>Descripcion</p>
+                <a href="#" class="button">Leer mas...</a>
+              </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+            <div class="callout">
+              <h3>CATEGORIA 1</h3>
+              <div class="grid-x grid-padding-x">
+                <div class="large-6 medium-6 cell">
+                  <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+                </div>
+                <div class="large-6 medium-6 cell">
+                <p>Descripcion</p>
+                  <a href="#" class="button">Leer mas...</a>
+                </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          <div class="grid-x grid-padding-x">
+            <div class="large-12 cell">
+              <div class="callout">
+                <h3>CATEGORIA 1</h3>
+                <div class="grid-x grid-padding-x">
+                  <div class="large-6 medium-6 cell">
+                    <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+                  </div>
+                  <div class="large-6 medium-6 cell">
+                  <p>Descripcion</p>
+                    <a href="#" class="button">Leer mas...</a>
+                  </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 cell">
+                <div class="callout">
+                  <h3>CATEGORIA 1</h3>
+                  <div class="grid-x grid-padding-x">
+                    <div class="large-6 medium-6 cell">
+                      <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+                    </div>
+                    <div class="large-6 medium-6 cell">
+                    <p>Descripcion</p>
+                      <a href="#" class="button">Leer mas...</a>
+                    </div>
+              </div>
+              </div>
+              </div>
+              </div>
+        </div>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

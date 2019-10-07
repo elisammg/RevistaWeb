@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOG IN</title>
+    <title>AUTOR</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -29,6 +29,7 @@
               <label for="nombre">APELLIDO</label>
             </li>
           </ul>
+          <a href="updatedata.php" class="button">Cambiar datos</a>
         </form>
       </div>
     </div>
@@ -61,8 +62,8 @@
         </div>
         </div>
       </div>
+      <a href="newartc.php" class="button">Nuevo Articulo</a>
     </div>
-    <a href="newartc.php" class="button">Nuevo Articulo</a>
   </div>
 
 

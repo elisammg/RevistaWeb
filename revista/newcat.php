@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New article</title>
+    <title>NUEVA CATEGORIA</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -18,7 +18,7 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
         <form class="log-in-form" action="perfil.php" method="post" enctype="multipart/form-data">
-		  <h4 class="text-center">NUEVO ARTICULO</h4>
+		  <h4 class="text-center">NUEVA CATEGORIA</h4>
 		  <label for="nombre">Nombre</label>
 		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
 
@@ -31,7 +31,7 @@
 		  <label for="email">Email</label>
 		    <input type="email" name="email" required placeholder="Ingrese email">
 
-		  <label for="contraseña">Contrsaeña</label>
+		  <label for="contraseña">contraseña</label>
 		    <input type="password" name="contraseña" required placeholder="Ingrese contraseña">
 
 		   <!-- <label for="suscripcion">Ingrese numero de suscripcion</label>
