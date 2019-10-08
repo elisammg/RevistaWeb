@@ -2,6 +2,7 @@
 	session_start();
     // connect to database
 	$conn = mysqli_connect("localhost", "root", "", "mydb");
+	//$conn = mysqli_connect("localhost", "root", "", "revista");
 
 	if (!$conn) {
 		die("Error connecting to database: " . mysqli_connect_error());

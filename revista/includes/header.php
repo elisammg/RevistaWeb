@@ -3,7 +3,7 @@
   <ul class="subnav-hero-subnav">
   	<li><a href="index.php">Inicio</a></li>
     <li>
-      <a data-open="exampleModal1">Ingresar</a>
+      <a data-open="exampleModal1" >Ingresar</a>
       <div class="reveal" id="exampleModal1" data-reveal>
         <h1>Log in</h1>
         <div class="lead">
