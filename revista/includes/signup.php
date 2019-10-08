@@ -3,7 +3,7 @@
   <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-        <form class="log-in-form" action="registrar.php" method="post" enctype="multipart/form-data">
+        <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
 		  <h4 class="text-center">Registrate</h4>
 		  <label for="nombre">Nombre</label>
 		    <input type="text" name="nombre" value="<?php echo $nombre; ?>" required placeholder="Ingrese nombre">
