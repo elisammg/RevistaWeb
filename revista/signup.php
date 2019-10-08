@@ -1,4 +1,4 @@
-<?php include('conexion.php'); ?>
+<?php include('config.php'); ?>
 <?php include('registrar_loggear.php'); ?>
   <div class="grid-container">
       <div class="grid-x grid-padding-x">

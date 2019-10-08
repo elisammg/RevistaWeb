@@ -1,6 +1,8 @@
 <?php  include('../config.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
+<link rel="stylesheet" href="/css/foundation.css">
+<link rel="stylesheet" href="/css/app.css">
 <?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
 
 <!-- Get all admin posts from DB -->
