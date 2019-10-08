@@ -41,8 +41,14 @@
         <a href="suscripcion.php" class="button">Suscripciones</a>
         <p>Datos de cobro</p>
         <a href="cobro.php" class="button">Ingresar datos de cobro</a>
-
       </div>
+    </div>
+    <div class="large-12 cell">
+      <div class="callout">
+      <h6>¿Quieres ser autor, moderador o administrador?</h6>
+      <p>Da click en enviar solicitud para cambio de rol!</p>
+      <button type="submit" name="button" class="button">Eviar solicitud</button>
+        </div>
     </div>
     </div>
   </div>

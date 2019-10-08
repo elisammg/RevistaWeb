@@ -20,7 +20,7 @@
 		  <label for="password">contraseña</label>
 		    <input type="password" name="password" value="<?php echo $password; ?>" required placeholder="Ingrese contraseña">
 
-		  <button type="submit" class="btn" name="reg_user">Register</button>
+		  <button type="submit" class="button">Register</button>
 		</form>
 		</div>
 	</div>
