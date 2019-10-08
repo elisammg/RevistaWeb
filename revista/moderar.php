@@ -12,7 +12,7 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
-      <div class="grid-container">
+  <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
         <h1>BIENVENIDO</h1>
@@ -32,6 +32,26 @@
           </ul>
           <a href="updatedata.php" class="button">Cambiar datos</a>
         </form>
+      </div>
+    </div>
+    <div class="large-12 cell">
+      <div class="callout">
+      <h3>Modulo de moderación</h3>
+      <hr>
+      <div class="grid-x grid-padding-x">
+        <div class="large-6 medium-6 cell">
+          <h4>Moderación de articulos</h4>
+          <form>
+            <ul>
+              <li><h5>Titulo artículo</h5>
+              </li>
+            </ul>
+          </form>
+        </div>
+        <div class="large-6 medium-6 cell">
+          <h4>Moderación de comentarios</h4>
+        </div>
+      </div>
       </div>
     </div>
   </div>

@@ -26,15 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-      <div class="large-12 cell">
-        <div class="callout">
-      <p>Resumen</p>
-      </div>
-      </div>
-    </div>
-  </div>
+  <hr>
     <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-8 cell">
@@ -75,7 +67,8 @@
  </div>
     <div class="large-4">
       <div class="callout">
-      <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+      <p>RESUMEN
+        Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
             Short ribs sirloin beef ribs, flank capicola ribeye turducken.
             Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
             Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
@@ -167,6 +160,10 @@
       </div>
       </div>
     </div>
+    <hr>
+    <p>¿Consideras que este articulo puede dañar la sensibilidad del lector?</p>
+      <p>Puedes dar click al boton "revisión" y será evaluado por un moderador</p>
+      <a href="#" class="button">Revision</a>
   </div>
 
   <?php require_once('includes/comentarios.php') ?>
