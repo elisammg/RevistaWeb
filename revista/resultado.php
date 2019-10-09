@@ -30,7 +30,7 @@ if($_GET['buscar'])
        </tr> 
        <?php
        //obtenemos la información introducida anteriormente desde nuestro buscador PHP
-       $buscar = $_GET["categoria"] or ["autor"] or ["fecha"] or ["texto"];
+       $search = $_GET["categoria"] or ["autor"] or ["fecha"] or ["texto"];
        /* ahora ejecutamos nuestra sentencia SQL, lo que hemos vamos a hacer es usar el 
        comando like para comprobar si existe alguna coincidencia de la cadena insertada 
        en nuestro campo del formulario con nuestros datos almacenados en nuestra base de 
@@ -42,7 +42,8 @@ if($_GET['buscar'])
        caso de cumplirse las dos condiciones */
       // "SELECT first_name, last_name, dept_no, s.emp_no FROM employees e INNER JOIN dept_emp d ON e.emp_no = d.emp_no INNER JOIN salaries s ON s.emp_no = d.emp_no WHERE salary = $Salary LIMIT 5;";
  
-       $sql= "SELECT * FROM users WHERE username like '%$buscar%'";
+       //$sql= "SELECT * FROM users WHERE username like '%$buscar%'";
+       $sql = "SELECT 'posts.body', 'users.username' FROM posts INNER JOIN users ON 'posts.user_id' = 'users.id' WHERE username like '%$search%' or body like '%$search%'";
        $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0){ 
@@ -81,4 +82,11 @@ if($_GET['buscar'])
 </footer>
 </html>
 
-               <!--<td class=”estilo-tabla” align="center"><?=$registro['apellidos']?></td>-->
+               <!--(SELECT posts.body, users.username FROM mydb.posts INNER JOIN mydb.users ON posts.user_id = users.id WHERE username = "champ" or body = "Read every day");
+
+(SELECT post_topic.post_id, topics.name FROM mydb.post_topic INNER JOIN mydb.topics ON post_topic.topic_id = topics.id);
+
+(SELECT posts.body, users.username FROM mydb.posts INNER JOIN mydb.users ON posts.user_id = users.id);  
+(SELECT post_topic.post_id, topics.name FROM mydb.post_topic INNER JOIN mydb.topics ON post_topic.topic_id = topics.id WHERE topics.name="Web" or post_id ="20");
+
+-->
