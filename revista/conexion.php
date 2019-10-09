@@ -1,16 +1,21 @@
 <?php
+  if(!isset($_SESSION)) 
+  { 
+      session_start(); 
+  } 
 
   $servername= "localhost";
   $user="root";
   $pass="";
-  $dbname="revista";
+  $dbname="myblog";
 
-  $conexion = new mysqli ($servername, $user, $pass, $dbname);
+  // connect to database
+	$conexion = mysqli_connect($servername, $user, $pass, $dbname);
 
-  if ($conexion->connect_error)
-  {
-    die ("Conexion fallida: " . $conexion->connect_error);
-  }
-
-
- ?>
+	if (!$conexion) {
+		die("Error connecting to database: " . mysqli_connect_error());
+	}
+    // define global constants
+	//define ('ROOT_PATH', realpath(dirname(__FILE__)));
+  //define('BASE_URL', 'http://localhost/myBlog/');
+?>

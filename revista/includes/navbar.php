@@ -1,4 +1,4 @@
-    <div class="top-bar foundation-5-top-bar">
+<div class="top-bar foundation-5-top-bar">
   <div class="top-bar-title">
     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
       <button class="menu-icon" type="button" data-toggle></button>
@@ -29,6 +29,9 @@
             <li><a href="sub2.php">Pasteles</a></li>
           </ul>
         </li>
+        <div class="user-info">
+		      <span>Awa</span> &nbsp; &nbsp; <a href="<?php echo 'logout.php'; ?>" class="logout-btn">logout</a>
+	      </div>
       </ul>
     </div>
   </div>

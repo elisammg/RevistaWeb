@@ -1,3 +1,5 @@
+<?php include('conexion.php'); ?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
