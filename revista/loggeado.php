@@ -51,7 +51,7 @@
         <p>DATOS SUSCRIPCION</p>
         <a href="suscripcion.php" class="button">Suscripciones</a>
         <p>Datos de cobro</p>
-        <a href="cobro.php" class="button">Ingresar datos de cobro</a>
+        <a href="updatecobro.php" class="button">Cambiar datos</a>
       </div>
     </div>
     <div class="large-12 cell">
