@@ -18,25 +18,25 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-        <form class="log-in-form" action="perfil.php" method="post" enctype="multipart/form-data">
+        <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
 		  <h4 class="text-center">Cambio de datos</h4>
 		  <label for="nombre">Nombre</label>
-		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
+		    <input type="text" name="nombre" placeholder="Ingrese nombre">
 
 		  <label for="apellido">Apellido</label>
-		    <input type="text" name="apellido" required placeholder="Ingrese Apellido">
+		    <input type="text" name="apellido" placeholder="Ingrese Apellido">
 
 		  <label for="username">Nombre de Usuario</label>
-		    <input type="text" name="username" required placeholder="Ingrese Username">
+		    <input type="text" name="username" placeholder="Ingrese Username">
 
 		  <label for="email">Email</label>
-		    <input type="email" name="email" required placeholder="Ingrese email">
+		    <input type="email" name="email" placeholder="Ingrese email">
 
 		  <label for="contraseña">Contrsaeña</label>
-		    <input type="password" name="contraseña" required placeholder="Ingrese contraseña">
+		    <input type="password" name="contraseña" placeholder="Ingrese contraseña">
 
 		   <!-- <label for="suscripcion">Ingrese numero de suscripcion</label>
-		    <input type="numero" name="suscripcion" required placeholder="Ingrese suscripcion">
+		    <input type="numero" name="suscripcion" placeholder="Ingrese suscripcion">
 
 		  <ol>
 		  	<li>Mensual: pago cada mes</li>

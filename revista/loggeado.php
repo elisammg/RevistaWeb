@@ -12,26 +12,37 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
+    <?php  include('conexion.php') ;
+    $nombre = 'Elisa';
+    $apellido = 'Monzon';
+    $username ='elisammg';
+    ?>
     <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
-        <h1>BIENVENIDO</h1>
+        <h1>BIENVENIDO
+          <?php echo "$nombre";  ?>
+        </h1>
       </div>
       <div class="large-4 cell">
         <div class="callout">
           <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+
           <h3>DATOS USUARIO</h3>
-          <form class="" action="index.html" method="post">
+          
           <ul>
             <li>
-              <label for="nombre">NOMBRE</label>
+              <label for="nombre"><?php echo "$nombre";  ?></label>
             </li>
             <li>
-              <label for="nombre">APELLIDO</label>
+              <label for="apellido"><?php echo "$apellido";  ?></label>
+            </li>
+            <li>
+              <label for="username"><?php echo "$username";  ?></label>
             </li>
           </ul>
           <a href="updatedata.php" class="button">Cambiar datos</a>
-        </form>
+
       </div>
     </div>
     <div class="large-8 cell">
