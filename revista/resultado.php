@@ -13,6 +13,9 @@
     <?php require_once('includes/header.php') ?>
   </head>
   <body>
+  <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
 <?php
 
 if($_GET['buscar']) 
@@ -31,19 +34,20 @@ if($_GET['buscar'])
        <?php
        //obtenemos la información introducida anteriormente desde nuestro buscador PHP
        $search = $_GET["categoria"] or ["autor"] or ["fecha"] or ["texto"];
-       /* ahora ejecutamos nuestra sentencia SQL, lo que hemos vamos a hacer es usar el 
-       comando like para comprobar si existe alguna coincidencia de la cadena insertada 
-       en nuestro campo del formulario con nuestros datos almacenados en nuestra base de 
-       datos, la cadena insertada en el buscador se almacenará en la variable $buscar */
- 
-       /* hemos usado también la sentencia or para indicarle que queremos que nos encuentre
-       las coincidencias en alguno de los campos de nuestra tabla (apellidos o nombre), 
-       si hubiéramos puesto un and solo nos devolvería el resultado del filtro en el 
-       caso de cumplirse las dos condiciones */
-      // "SELECT first_name, last_name, dept_no, s.emp_no FROM employees e INNER JOIN dept_emp d ON e.emp_no = d.emp_no INNER JOIN salaries s ON s.emp_no = d.emp_no WHERE salary = $Salary LIMIT 5;";
  
        //$sql= "SELECT * FROM users WHERE username like '%$buscar%'";
-       $sql = "SELECT 'posts.body', 'users.username' FROM posts INNER JOIN users ON 'posts.user_id' = 'users.id' WHERE username like '%$search%' or body like '%$search%'";
+    $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at, posts.updated_at FROM mydb.posts \n"
+
+    . "INNER JOIN mydb.users \n"
+
+    . "ON posts.user_id = users.id\n"
+
+    . "JOIN mydb.subtopic\n"
+
+    . "ON posts.id_subtopic = subtopic.id\n"
+
+    . "WHERE username=\"Elisa\" or nombre=\"Natacion\" or body like \"Header\"";
+
        $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0){ 
@@ -53,7 +57,7 @@ if($_GET['buscar'])
            <tr>
                <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
                cadena insertada en nuestro formulario-->
-               <td class="estilo-tabla" align="center"><?=$row['name']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['nombre']?></td>
                <td class="estilo-tabla" align="center"><?=$row['username']?></td>
                <td class="estilo-tabla" align="center"><?=$row['created_at']?></td>
                <td class="estilo-tabla" align="center"><?=$row['body']?></td>
@@ -70,6 +74,9 @@ if($_GET['buscar'])
     <?php
 } // fin if 
 ?>
+  </div>
+    </div>
+      </div>
 
 
     <script src="js/vendor/jquery.js"></script>
