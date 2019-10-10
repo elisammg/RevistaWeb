@@ -49,12 +49,42 @@ if (isset($_POST['reg_user'])) {
 
   	$query = "INSERT INTO users (nombre, apellido, username, email, role, password, created_at, updated_at) 
   			  VALUES('$nombre', '$apellido', '$username', '$email', 'Lector', '$password', now(), now())";
-  	mysqli_query($conexion, $query);
-  	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: loggeado.php');
+    mysqli_query($conexion, $query);
+    
+    // get id of created user
+    $reg_user_id = mysqli_insert_id($conexion);
+      
+    $sql = "SELECT * FROM users WHERE id=$reg_user_id LIMIT 1";
+    $results_reg = mysqli_query($conexion, $sql);
+
+    $user = mysqli_fetch_assoc($results_reg);
+    $_SESSION['username'] = $user;
+    
+    if ( in_array($_SESSION['username']['role'], ["Lector"])) {
+      $_SESSION['message'] = "You are now logged in";
+      // redirect to admin area
+      header('location: loggeado.php');
+      exit(0);
+    } else if (in_array($_SESSION['username']['role'], ["Author"])){
+      $_SESSION['message'] = "You are now logged in";
+      // redirect to public area
+      header('location: autor.php');				
+      exit(0);
+    } else if (in_array($_SESSION['username']['role'], ["Admin"])){
+      $_SESSION['message'] = "You are now logged in";
+      // redirect to public area
+      header('location: admin.php');				
+      exit(0);
+    } else if(in_array($_SESSION['username']['role'], ["Moderador"])){
+      $_SESSION['message'] = "You are now logged in";
+      // redirect to public area
+      header('location: moderar.php');				
+      exit(0);
+    } else {
+      array_push($errors, "No se pudo reenviar a la página.");
+    }
   }else{
-      echo "No se pudo ingresar usuarios.";
+    echo "No se pudo ingresar usuarios.";
   }
 }
 
@@ -73,10 +103,10 @@ if (isset($_POST['login_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password);
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $results = mysqli_query($conexion, $query);
+    $results_log = mysqli_query($conexion, $query);
     
-  	if (mysqli_num_rows($results) == 1) {
-      $user = mysqli_fetch_assoc($results);
+  	if (mysqli_num_rows($results_log) == 1) {
+      $user = mysqli_fetch_assoc($results_log);
       $_SESSION['username'] = $user;
       
       if ( in_array($_SESSION['username']['role'], ["Lector"])) {
