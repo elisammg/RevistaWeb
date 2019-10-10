@@ -17,7 +17,10 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
 <?php
-
+$categoria=$_GET['nombre'];
+$autor=$_GET['username'];
+$creado=$_GET['created_at'];
+$texto=$_GET['body'];
 
 if($_GET['buscar']) 
 {   
@@ -35,7 +38,7 @@ if($_GET['buscar'])
     <?php
 
        //obtenemos la información introducida anteriormente desde nuestro buscador PHP
-       $search = $_GET["nombre"] or ["username"] or ["created_at"] or ["body"];
+       $search = $_GET[$categoria] or $_GET[$autor] or $_GET[$creado] or $_GET[$texto];
  
        //$sql= "SELECT * FROM users WHERE username like '%$buscar%'";
     $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
@@ -48,7 +51,7 @@ if($_GET['buscar'])
 
     . "ON posts.id_subtopic = subtopic.id\n"
 
-    . "WHERE username= '.$search.'";
+    . "WHERE username= '%$search%' or nombre= '%$search%' or body= '%$search%' or created_at= '%$search%'";
 
        $result = mysqli_query($conexion, $sql);
 

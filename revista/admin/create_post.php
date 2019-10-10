@@ -11,12 +11,13 @@
 <body>
 	<!-- admin navbar -->
 	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
-
-	<div class="container content">
 		<!-- Left side menu -->
-		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
+		<?php //include(ROOT_PATH . '/admin/includes/menu.php') ?>
 
 		<!-- Middle form - to create and edit  -->
+	  <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
 		<div class="action create-post-div">
 			<h1 class="page-title">Create/Edit Post</h1>
 			<form method="post" enctype="multipart/form-data" action="<?php echo BASE_URL . 'admin/create_post.php'; ?>" >
@@ -67,6 +68,9 @@
 			</form>
 		</div>
 		<!-- // Middle form - to create and edit -->
+	</div>
+	</div>
+	</div>
 	</div>
 </body>
 </html>

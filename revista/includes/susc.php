@@ -23,7 +23,7 @@
 			<td><?php echo $mostrar['id'] ?></td>
 			<td><?php echo $mostrar['tipo'] ?></td>
 			<td><?php echo $mostrar['descripcion'] ?></td>
-			<td>$<?php echo $mostrar['costo'] ?></td>
+			<td>Q<?php echo $mostrar['costo'] ?></td>
 		</tr>
 		<?php 
 		}

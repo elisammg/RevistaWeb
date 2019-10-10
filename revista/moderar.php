@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOG IN</title>
+    <title>Moderador Perfil</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -41,15 +41,11 @@
       <div class="grid-x grid-padding-x">
         <div class="large-6 medium-6 cell">
           <h4>Moderación de articulos</h4>
-          <form>
-            <ul>
-              <li><h5>Titulo artículo</h5>
-              </li>
-            </ul>
-          </form>
+          <?php require_once('includes/modartc.php') ?>
         </div>
         <div class="large-6 medium-6 cell">
           <h4>Moderación de comentarios</h4>
+          <?php require_once('includes/modcomment.php') ?>
         </div>
       </div>
       </div>
