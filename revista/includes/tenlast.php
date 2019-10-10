@@ -16,7 +16,7 @@
        </tr> 
        
     <?php
-    $sql = "SELECT * FROM `tenlast` ORDER BY `tenlast`.`created_at` DESC LIMIT 10";
+    $sql = "SELECT * FROM mydb.tenlast";
     
        $result = mysqli_query($conexion, $sql);
 
