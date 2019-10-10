@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUBCATEROGRÍA 2</title>
+    <title>Resultados de busqueda</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -18,25 +18,27 @@
         <div class="large-12 cell">
 <?php
 
+
 if($_GET['buscar']) 
 {   
    ?>
-   <!-- el resultado de la búsqueda lo encapsularemos en un tabla -->
-   <div class="large-12">
-   <table width="100%" border="0" align="center" cellpadding="1" cellspacing="1">
-       <tr>
+       <div class="large-12">
+       <table width="100%" border="0" align="center" cellpadding="1" cellspacing="1">
+           <tr>
             <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
             <td width="100" align="center"><strong>Categoria</strong></td>
             <td width="100" align="center"><strong>Autor</strong></td>
             <td width="100" align="center"><strong>Fecha de publicacion</strong></td>
             <td width="100" align="center"><strong>Texto</strong></td>
        </tr> 
-       <?php
+       
+    <?php
+
        //obtenemos la información introducida anteriormente desde nuestro buscador PHP
-       $search = $_GET["categoria"] or ["autor"] or ["fecha"] or ["texto"];
+       $search = $_GET["nombre"] or ["username"] or ["created_at"] or ["body"];
  
        //$sql= "SELECT * FROM users WHERE username like '%$buscar%'";
-    $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at, posts.updated_at FROM mydb.posts \n"
+    $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
 
     . "INNER JOIN mydb.users \n"
 
@@ -46,7 +48,7 @@ if($_GET['buscar'])
 
     . "ON posts.id_subtopic = subtopic.id\n"
 
-    . "WHERE username=\"Elisa\" or nombre=\"Natacion\" or body like \"Header\"";
+    . "WHERE username= '.$search.'";
 
        $result = mysqli_query($conexion, $sql);
 
@@ -89,11 +91,4 @@ if($_GET['buscar'])
 </footer>
 </html>
 
-               <!--(SELECT posts.body, users.username FROM mydb.posts INNER JOIN mydb.users ON posts.user_id = users.id WHERE username = "champ" or body = "Read every day");
-
-(SELECT post_topic.post_id, topics.name FROM mydb.post_topic INNER JOIN mydb.topics ON post_topic.topic_id = topics.id);
-
-(SELECT posts.body, users.username FROM mydb.posts INNER JOIN mydb.users ON posts.user_id = users.id);  
-(SELECT post_topic.post_id, topics.name FROM mydb.post_topic INNER JOIN mydb.topics ON post_topic.topic_id = topics.id WHERE topics.name="Web" or post_id ="20");
-
--->
+        

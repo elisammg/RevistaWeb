@@ -1,189 +1,50 @@
+<?php include('conexion.php'); ?>
+<div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+<?php
 
-    <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-    <div class="large-12 cell">
-          <h2>ULTIMOS 10 PUBLICADOS</h2>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-        <div class="grid-x grid-padding-x">
-          <div class="large-8 medium-8 small-8 cell">
-            <h3>TITULO ARTÍCULO</h3>
-            <h4>DATOS AUTOR</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-            <a href="art1.html">LEER MAS...</a>
-          </div>
-          <div class="large-4 medium-4 small-4 cell">
-            <img src="https://image.freepik.com/foto-gratis/textura-rosada-plumas-como-fondo_36860-156.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
+  ?>
+       <div class="large-12">
+       <table align="center" cellpadding="1" cellspacing="1">
+           <tr>
+            <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
+            <td width="100" align="center"><strong>Titulo</strong></td>
+            <td width="100" align="center"><strong>Autor</strong></td>
+            <td width="100" align="center"><strong>Resumen</strong></td>
+            <td width="100" align="center"><strong>Fecha de publicacion</strong></td>
+       </tr> 
+       
+    <?php
+    $sql = "SELECT * FROM `tenlast` ORDER BY `tenlast`.`created_at` DESC LIMIT 10";
+    
+       $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?> 
+           <tr>
+               <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
+               cadena insertada en nuestro formulario-->
+               <td class="estilo-tabla" align="center">
+                <a href=" "><?=$row['title']?>
+                  
+                </a>
+              </td>
+               <td class="estilo-tabla" align="center"><?=$row['username']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['slug']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['created_at']?></td>
+           </tr> 
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "0 resultados";
+      }
+    ?>
+    </table>
     </div>
   </div>
-  <hr>
+    </div>
+      </div>
