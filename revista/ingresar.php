@@ -1,3 +1,4 @@
+<?php include('conexion.php'); ?>
 <?php include('includes/registrar_loggear.php'); ?>
 	<div class="grid-container">
       <div class="grid-x grid-padding-x">
@@ -11,7 +12,7 @@
 		  <label>Password
 		    <input type="password" name="password" placeholder="Password">
 		  </label>
-		  <p><input type="submit" class="button expanded" name="login_user" value="login"></p>
+		  <p><input type="submit" class="button expanded" name="login_user"></p>
 		</form>
 		</div>
 	</div>

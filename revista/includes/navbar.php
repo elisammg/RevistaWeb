@@ -30,7 +30,15 @@
           </ul>
         </li>
         <div class="user-info">
-		      <span>Awa</span> &nbsp; &nbsp; <a href="<?php echo 'logout.php'; ?>" class="logout-btn">logout</a>
+
+        <?php if (isset($_SESSION['username'])) { ?>
+          <div class="logged_in_info">
+            <span><a href="logout.php">LOGOUT</a></span>
+          </div>
+        <?php }else{ ?>
+        
+          <?php } ?>
+
 	      </div>
       </ul>
     </div>

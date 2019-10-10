@@ -52,10 +52,9 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($conexion, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+  	header('location: loggeado.php');
   }else{
       echo "No se pudo ingresar usuarios.";
-      echo count($errors);
   }
 }
 
@@ -74,15 +73,52 @@ if (isset($_POST['login_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password);
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-  	$results = mysqli_query($conexion, $query);
+    $results = mysqli_query($conexion, $query);
+    
   	if (mysqli_num_rows($results) == 1) {
-  	  $_SESSION['username'] = $username;
-  	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: loggeado.php');
+      $user = mysqli_fetch_assoc($results);
+      $_SESSION['username'] = $user;
+      
+      if ( in_array($_SESSION['username']['role'], ["Lector"])) {
+        $_SESSION['message'] = "You are now logged in";
+        // redirect to admin area
+        header('location: loggeado.php');
+        exit(0);
+      } else if (in_array($_SESSION['username']['role'], ["Author"])){
+        $_SESSION['message'] = "You are now logged in";
+        // redirect to public area
+        header('location: autor.php');				
+        exit(0);
+      } else if (in_array($_SESSION['username']['role'], ["Admin"])){
+        $_SESSION['message'] = "You are now logged in";
+        // redirect to public area
+        header('location: admin.php');				
+        exit(0);
+      } else if(in_array($_SESSION['username']['role'], ["Moderador"])){
+        $_SESSION['message'] = "You are now logged in";
+        // redirect to public area
+        header('location: moderar.php');				
+        exit(0);
+      } else {
+        array_push($errors, "No se pudo reenviar a la página.");
+      }
   	}else {
   		array_push($errors, "Wrong username/password combination");
   	}
   }
 }
+
+/*function getUserById($id)
+	{
+		global $conn;
+		$sql = "SELECT * FROM users WHERE id=$id LIMIT 1";
+
+		$result = mysqli_query($conn, $sql);
+		$user = mysqli_fetch_assoc($result);
+
+		// returns user in an array format: 
+		// ['id'=>1 'username' => 'Awa', 'email'=>'a@a.com', 'password'=> 'mypass']
+		return $user; 
+	}*/
 
 ?>
