@@ -1,4 +1,3 @@
-<?php include('conexion.php'); ?>
 
 <div class="grid-container">
 <div class="grid-x grid-padding-x">
@@ -7,7 +6,7 @@
 <h4 class="text-center">Buscar</h4>
 
 <label>Categoria</label>
-<input type="text" name="nombre" placeholder="Ingrese categoria">
+<input type="text" name="categoria" placeholder="Ingrese categoria">
 
 <label>Autor</label>
 <input type="text" name="username" placeholder="Ingrese Autor">
@@ -18,9 +17,10 @@
 <label>Texto</label>
 <input type="text" name="body" placeholder="Ingrese texto similar">
 
-<input type="submit" value="Buscar" name="buscar">
+<input type="submit" value="Consultar" name="buscar">
 </form>
 </div>
 </div>
 </div>
+
 

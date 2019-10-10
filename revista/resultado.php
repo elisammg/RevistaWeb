@@ -13,35 +13,18 @@
     <?php require_once('includes/header.php') ?>
   </head>
   <body>
-  <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-<?php
-$categoria=$_GET['nombre'];
+
+    <?php 
+
+
+if (isset($_GET['buscar'])) 
+{
+  include('conexion.php');
+$categoria=$_GET['categoria'];
 $autor=$_GET['username'];
 $creado=$_GET['created_at'];
 $texto=$_GET['body'];
-
-if($_GET['buscar']) 
-{   
-   ?>
-       <div class="large-12">
-       <table width="100%" border="0" align="center" cellpadding="1" cellspacing="1">
-           <tr>
-            <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
-            <td width="100" align="center"><strong>Categoria</strong></td>
-            <td width="100" align="center"><strong>Autor</strong></td>
-            <td width="100" align="center"><strong>Fecha de publicacion</strong></td>
-            <td width="100" align="center"><strong>Texto</strong></td>
-       </tr> 
-       
-    <?php
-
-       //obtenemos la información introducida anteriormente desde nuestro buscador PHP
-       $search = $_GET[$categoria] or $_GET[$autor] or $_GET[$creado] or $_GET[$texto];
- 
-       //$sql= "SELECT * FROM users WHERE username like '%$buscar%'";
-    $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
+  $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
 
     . "INNER JOIN mydb.users \n"
 
@@ -51,37 +34,38 @@ if($_GET['buscar'])
 
     . "ON posts.id_subtopic = subtopic.id\n"
 
-    . "WHERE username= '%$search%' or nombre= '%$search%' or body= '%$search%' or created_at= '%$search%'";
+    . "WHERE users.username = '$autor' or subtopic.nombre = '$categoria' or posts.body = '$texto' or posts.created_at = '$creado' ";
+     $result = mysqli_query($conexion, $sql);
+     while ($consulta = mysqli_fetch_array($result)) 
+     {
+      
+      echo "
+      <table>
+    <tr>
+      <td><center>Categoria</center></td>
+      <td><center>Autor</center></td>
+      <td><center>Fecha</center></td>
+      <td><center>Texto</center></td>
+    </tr>
+    <tr>
+      <td>".$consulta['nombre']."</td>
+      <td>".$consulta['username']."</td>
+      <td>".$consulta['created_at']."</td>
+      <td>".$consulta['body']."</td>
+    </tr>
+  </table>
 
-       $result = mysqli_query($conexion, $sql);
+      ";
 
-       if (mysqli_num_rows($result) > 0){ 
-       while($row = mysqli_fetch_assoc($result)) 
-       {
-           ?> 
-           <tr>
-               <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
-               cadena insertada en nuestro formulario-->
-               <td class="estilo-tabla" align="center"><?=$row['nombre']?></td>
-               <td class="estilo-tabla" align="center"><?=$row['username']?></td>
-               <td class="estilo-tabla" align="center"><?=$row['created_at']?></td>
-               <td class="estilo-tabla" align="center"><?=$row['body']?></td>
-           </tr> 
-           <?php 
-       }//fin blucle
-      } else
-      {
-        echo "0 resultados";
-      }
-    ?>
-    </table>
-    </div>
-    <?php
-} // fin if 
+      
+     }
+}
+
+
+
 ?>
-  </div>
-    </div>
-      </div>
+  
+ 
 
 
     <script src="js/vendor/jquery.js"></script>
