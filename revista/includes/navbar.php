@@ -31,12 +31,12 @@
         </li>
         <div class="user-info">
 
-        <?php if (isset($_SESSION['username'])) { ?>
+        <?php if (isset($_SESSION['users'])) { ?>
           <div class="logged_in_info">
             <span><a href="logout.php">LOGOUT</a></span>
           </div>
         <?php }else{ ?>
-        
+          
           <?php } ?>
 
 	      </div>

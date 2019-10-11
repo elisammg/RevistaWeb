@@ -17,9 +17,9 @@
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
-        <?php if (isset($_SESSION['username'])) { ?>
+        <?php if (isset($_SESSION['users'])) { ?>
           <div class="logged_in_info">
-            <h1><span>Bienvenido <?php echo $_SESSION['username']['username'] ?></span></h1>
+            <h1><span>Bienvenido <?php echo $_SESSION['users']['username'] ?></span></h1>
           </div>
         <?php }else{ ?>
           <h1>Bienvenido</h1>
@@ -32,10 +32,10 @@
           <form class="" action="index.html" method="post">
           <ul>
             <li>
-              <label for="nombre"><?php echo $_SESSION['username']['nombre'] ?></label>
+              <label for="nombre"><?php echo $_SESSION['users']['nombre'] ?></label>
             </li>
             <li>
-              <label for="nombre"><?php echo $_SESSION['username']['apellido'] ?></label>
+              <label for="nombre"><?php echo $_SESSION['users']['apellido'] ?></label>
             </li>
           </ul>
           <a href="updatedata.php" class="button">Cambiar datos</a>
