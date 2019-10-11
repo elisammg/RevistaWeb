@@ -9,14 +9,13 @@
        <table align="center" cellpadding="1" cellspacing="1">
            <tr>
             <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
-            <td width="100" align="center"><strong>Titulo</strong></td>
-            <td width="100" align="center"><strong>Autor</strong></td>
-            <td width="100" align="center"><strong>Resumen</strong></td>
-            <td width="100" align="center"><strong>Fecha de publicacion</strong></td>
+            <td width="100" align="center"><strong>Usuario</strong></td>
+            <td width="100" align="center"><strong>Comentario</strong></td>
+            <td width="100" align="center"><strong>Articulo Ref</strong></td>
        </tr> 
        
     <?php
-    $sql = "SELECT * FROM mydb.tenlast";
+    $sql = "SELECT * FROM mydb.modcomment";
     
        $result = mysqli_query($conexion, $sql);
 
@@ -27,14 +26,9 @@
            <tr>
                <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
                cadena insertada en nuestro formulario-->
-               <td class="estilo-tabla" align="center">
-                <a href=" "><?=$row['title']?>
-                  
-                </a>
-              </td>
-               <td class="estilo-tabla" align="center"><?=$row['username']?></td>
-               <td class="estilo-tabla" align="center"><?=$row['slug']?></td>
-               <td class="estilo-tabla" align="center"><?=$row['created_at']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['Usuarios']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['Comentarios']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['Titulo Articulo']?></td>
            </tr> 
            <?php 
        }//fin blucle

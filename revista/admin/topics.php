@@ -1,5 +1,7 @@
 <?php  include('../conexion.php'); ?>
 <?php  include('includes/admin_functions.php'); ?>
+<link rel="stylesheet" href="/css/foundation.css">
+<link rel="stylesheet" href="/css/app.css">
 <?php include('includes/head_section.php'); ?>
 <!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>

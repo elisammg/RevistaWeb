@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New article</title>
+    <title>Cobro</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
 <header>
   <?php require_once('includes/navbar.php') ?>
+  <?php require_once('includes/header.php') ?>
 </header>
   <body>
   	<br>
@@ -18,21 +19,19 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
         <form class="log-in-form" action="perfil.php" method="post" enctype="multipart/form-data">
-		  <h4 class="text-center">NUEVO ARTICULO</h4>
-		  <label for="nombre">Nombre</label>
-		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
+		  <h4 class="text-center">Actualizar datos de cobro</h4>
+		  <label for="notarjeta">No. de Tarjeta</label>
+		    <input type="numero" name="notarjeta" required placeholder="Ingrese No. de Tarjeta">
 
-		  <label for="apellido">Apellido</label>
-		    <input type="text" name="apellido" required placeholder="Ingrese Apellido">
+		  <label for="fecha">Fecha de vencimiento</label>
+		    <input type="numero" name="fecha" required placeholder="Ingrese Fecha de Vencimiento">
 
-		  <label for="username">Nombre de Usuario</label>
-		    <input type="text" name="username" required placeholder="Ingrese Username">
+		  <label for="tres">Tres digitos lateral</label>
+		    <input type="numero" name="tres" required placeholder="Ingrese los tres digitos de la parte lateral">
 
-		  <label for="email">Email</label>
-		    <input type="email" name="email" required placeholder="Ingrese email">
+		  <label for="submit">Ingresar datos</label>
+		  <input type="submit" value="Enviar" name="enviar">
 
-		  <label for="contraseña">Contrsaeña</label>
-		    <input type="password" name="contraseña" required placeholder="Ingrese contraseña">
 
 		   <!-- <label for="suscripcion">Ingrese numero de suscripcion</label>
 		    <input type="numero" name="suscripcion" required placeholder="Ingrese suscripcion">
@@ -42,7 +41,7 @@
 		  	<li>Semestral: pago cada seis meses</li>
 		  	<li>Anual: pago cada año</li>
 		  </ol> -->
-		  <button type="submit" name="enviar">Enviar</button>
+		  
 		</form>
 		</div>
 	</div>

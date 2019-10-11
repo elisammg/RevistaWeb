@@ -3,8 +3,10 @@
 <?php 
 	// Get all admin users from DB
 	$admins = getAdminUsers();
-	$roles = ['Admin', 'Author'];				
+	$roles = ['Admin', 'Author'];
 ?>
+<link rel="stylesheet" href="/css/foundation.css">
+<link rel="stylesheet" href="/css/app.css">
 <?php include('includes/head_section.php'); ?>
 	<title>Admin | Manage users</title>
 </head>
@@ -40,7 +42,7 @@
 				</select>
 
 				<!-- if editing user, display the update button instead of create button -->
-				<?php if ($isEditingUser === true): ?> 
+				<?php if ($isEditingUser === true): ?>
 					<button type="submit" class="btn" name="update_admin">UPDATE</button>
 				<?php else: ?>
 					<button type="submit" class="btn" name="create_admin">Save User</button>
@@ -70,7 +72,7 @@
 							<td><?php echo $key + 1; ?></td>
 							<td>
 								<?php echo $admin['username']; ?>, &nbsp;
-								<?php echo $admin['email']; ?>	
+								<?php echo $admin['email']; ?>
 							</td>
 							<td><?php echo $admin['role']; ?></td>
 							<td>
@@ -79,7 +81,7 @@
 								</a>
 							</td>
 							<td>
-								<a class="fa fa-trash btn delete" 
+								<a class="fa fa-trash btn delete"
 								    href="users.php?delete-admin=<?php echo $admin['id'] ?>">
 								</a>
 							</td>

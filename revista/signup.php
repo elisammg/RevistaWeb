@@ -18,10 +18,10 @@
 		  <label for="email">Email</label>
 		    <input type="email" name="email" value="<?php echo $email ?>" placeholder="Ingrese email">
 
-		  <label for="password">contraseña</label>
-		    <input type="password" name="password" placeholder="Ingrese contraseña">
+		  <label for="password">Contraseña</label>
+		    <input type="password" name="password" required placeholder="Ingrese contraseña">
 
-		  <button type="submit" class="btn" name="reg_user">Register</button>
+		  <input type="submit" value="Enviar" name="enviar">
 		</form>
 		</div>
 	</div>
