@@ -16,7 +16,7 @@
   $servername= "localhost";
   $user="root";
   $pass="";
-  $dbname="myblog";
+  $dbname="mydb";
 
   // connect to database
 	$conexion = mysqli_connect($servername, $user, $pass, $dbname);
