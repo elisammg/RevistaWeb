@@ -1,18 +1,20 @@
-<?php  include('../config.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
+<?php  include('../conexion.php'); ?>
+<?php  include('includes/admin_functions.php'); ?>
+<?php  include('includes/post_functions.php'); ?>
 <link rel="stylesheet" href="/css/foundation.css">
 <link rel="stylesheet" href="/css/app.css">
-<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+<?php include('includes/head_section.php'); ?>
 <!-- Get all topics -->
 <?php $topics = getAllTopics();	?>
 	<title>Admin | Create Post</title>
 </head>
 <body>
 	<!-- admin navbar -->
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include('includes/navbar.php') ?>
+
+	<div class="container content">
 		<!-- Left side menu -->
-		<?php //include(ROOT_PATH . '/admin/includes/menu.php') ?>
+		<?php //include('includes/menu.php') ?>
 
 		<!-- Middle form - to create and edit  -->
 	  <div class="grid-container">
@@ -20,9 +22,9 @@
         <div class="large-12 cell">
 		<div class="action create-post-div">
 			<h1 class="page-title">Create/Edit Post</h1>
-			<form method="post" enctype="multipart/form-data" action="<?php echo BASE_URL . 'admin/create_post.php'; ?>" >
+			<form method="post" enctype="multipart/form-data" action="<?php echo 'create_post.php'; ?>" >
 				<!-- validation errors for the form -->
-				<?php include(ROOT_PATH . '/admin/includes/errors.php') ?>
+				<?php include('includes/errors.php') ?>
 
 				<!-- if editing post, the id is required to identify that post -->
 				<?php if ($isEditingPost === true): ?>

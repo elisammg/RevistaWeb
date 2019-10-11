@@ -1,3 +1,5 @@
+<?php include('conexion.php'); ?>
+<?php include('includes/registrar_loggear.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,7 +16,13 @@
   <body>
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
-        <h1>BIENVENIDO</h1>
+        <?php if (isset($_SESSION['username'])) { ?>
+          <div class="logged_in_info">
+            <h1><span>Bienvenido <?php echo $_SESSION['username']['username'] ?></span></h1>
+          </div>
+        <?php }else{ ?>
+          <h1>Bienvenido</h1>
+        <?php } ?>
       </div>
       <div class="large-4 cell">
         <div class="callout">
@@ -23,10 +31,10 @@
           <form class="" action="index.html" method="post">
           <ul>
             <li>
-              <label for="nombre">NOMBRE</label>
+              <label for="nombre"><?php echo $_SESSION['username']['nombre'] ?></label>
             </li>
             <li>
-              <label for="nombre">APELLIDO</label>
+              <label for="nombre"><?php echo $_SESSION['username']['apellido'] ?></label>
             </li>
           </ul>
           <a href="updatedata.php" class="button">Cambiar datos</a>

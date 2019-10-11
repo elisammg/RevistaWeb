@@ -1,3 +1,5 @@
+<?php include('conexion.php'); ?>
+<?php ßinclude('includes/registrar_loggear.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
