@@ -56,24 +56,24 @@ if (isset($_POST['reg_user'])) {
     $results_reg = mysqli_query($conexion, $sql);
 
     $user = mysqli_fetch_assoc($results_reg);
-    $_SESSION['username'] = $user;
+    $_SESSION['users'] = $user;
     
-    if ( in_array($_SESSION['username']['role'], ["Lector"])) {
+    if ( in_array($_SESSION['users']['role'], ["Lector"])) {
       $_SESSION['message'] = "You are now logged in";
       // redirect to admin area
       header('location: loggeado.php');
       exit(0);
-    } else if (in_array($_SESSION['username']['role'], ["Author"])){
+    } else if (in_array($_SESSION['users']['role'], ["Author"])){
       $_SESSION['message'] = "You are now logged in";
       // redirect to public area
       header('location: autor.php');				
       exit(0);
-    } else if (in_array($_SESSION['username']['role'], ["Admin"])){
+    } else if (in_array($_SESSION['users']['role'], ["Admin"])){
       $_SESSION['message'] = "You are now logged in";
       // redirect to public area
       header('location: admin.php');				
       exit(0);
-    } else if(in_array($_SESSION['username']['role'], ["Moderador"])){
+    } else if(in_array($_SESSION['users']['role'], ["Moderador"])){
       $_SESSION['message'] = "You are now logged in";
       // redirect to public area
       header('location: moderar.php');				
@@ -105,24 +105,24 @@ if (isset($_POST['login_user'])) {
     
   	if (mysqli_num_rows($results_log) == 1) {
       $user = mysqli_fetch_assoc($results_log);
-      $_SESSION['username'] = $user;
+      $_SESSION['users'] = $user;
       
-      if ( in_array($_SESSION['username']['role'], ["Lector"])) {
+      if ( in_array($_SESSION['users']['role'], ["Lector"])) {
         $_SESSION['message'] = "You are now logged in";
         // redirect to admin area
         header('location: loggeado.php');
         exit(0);
-      } else if (in_array($_SESSION['username']['role'], ["Author"])){
+      } else if (in_array($_SESSION['users']['role'], ["Author"])){
         $_SESSION['message'] = "You are now logged in";
         // redirect to public area
         header('location: admin/posts.php');				
         exit(0);
-      } else if (in_array($_SESSION['username']['role'], ["Admin"])){
+      } else if (in_array($_SESSION['users']['role'], ["Admin"])){
         $_SESSION['message'] = "You are now logged in";
         // redirect to public area
         header('location: admin/users.php');				
         exit(0);
-      } else if(in_array($_SESSION['username']['role'], ["Moderador"])){
+      } else if(in_array($_SESSION['users']['role'], ["Moderador"])){
         $_SESSION['message'] = "You are now logged in";
         // redirect to public area
         header('location: moderar.php');				

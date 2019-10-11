@@ -26,7 +26,7 @@ function getAllPosts()
 		$sql = "SELECT * FROM posts WHERE user_id=$user_id";
 	}
 	$result = mysqli_query($conn, $sql);
-	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	$posts = mysqli_fetch_all($result);
 
 	$final_posts = array();
 	foreach ($posts as $post) {
