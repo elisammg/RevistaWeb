@@ -20,7 +20,8 @@
     
        $result = mysqli_query($conexion, $sql);
 
-       if (mysqli_num_rows($result) > 0){ 
+       if (mysqli_num_rows($result) > 0)
+       { 
        while($row = mysqli_fetch_assoc($result)) 
        {
            ?> 
@@ -28,9 +29,7 @@
                <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
                cadena insertada en nuestro formulario-->
                <td class="estilo-tabla" align="center">
-                <a href=" "><?=$row['title']?>
-                  
-                </a>
+                <a href=" "><?=$row['title']?></a>
               </td>
                <td class="estilo-tabla" align="center"><?=$row['username']?></td>
                <td class="estilo-tabla" align="center"><?=$row['slug']?></td>
