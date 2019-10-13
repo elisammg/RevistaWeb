@@ -20,6 +20,19 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
+        	<?php 
+include('conexion.php');
+if (isset($_GET['enviar']))
+{
+$nombre=$_GET['nombre'];
+$apellido=$_GET['apellido'];
+$usuario=$_GET['username'];
+$correo=$_GET['email'];
+$contraseña=$_GET['contraseña'];
+$sql = "UPDATE `users` SET `nombre` = '$nombre', `apellido` = '$apellido', `username` = '$usuario', `email` = '$correo', `password` = '$contraseña' WHERE `users`.`id` = 10";
+$result = mysqli_query($conexion, $sql);
+
+ ?>
         <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
 		  <h4 class="text-center">Cambio de datos</h4>
 		  <label for="nombre">Nombre</label>
@@ -36,17 +49,11 @@
 
 		  <label for="contraseña">Contrsaeña</label>
 		    <input type="password" name="contraseña" placeholder="Ingrese contraseña">
-
-		   <!-- <label for="suscripcion">Ingrese numero de suscripcion</label>
-		    <input type="numero" name="suscripcion" placeholder="Ingrese suscripcion">
-
-		  <ol>
-		  	<li>Mensual: pago cada mes</li>
-		  	<li>Semestral: pago cada seis meses</li>
-		  	<li>Anual: pago cada año</li>
-		  </ol> -->
 		  <button type="submit" name="enviar">Enviar</button>
 		</form>
+		<?php 
+		}
+		 ?>
 		</div>
 	</div>
 	</div>

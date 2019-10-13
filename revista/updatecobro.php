@@ -14,11 +14,22 @@
 </header>
   <body>
   	<br>
-
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-        <form class="log-in-form" action="perfil.php" method="post" enctype="multipart/form-data">
+          <?php 
+include('conexion.php');
+if (isset($_GET['enviar']))
+{
+$numero=$_GET['notarjeta'];
+$fecha=$_GET['fecha'];
+$atras=$_GET['atras'];
+$sql = "UPDATE `cobro` SET `tarjeta` = '$numero', `vencimiento` = '$fecha', `atras` = '$atras' WHERE `cobro`.`id` = 4";
+$result = mysqli_query($conexion, $sql);
+
+ ?>
+      <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
+
 		  <h4 class="text-center">Actualizar datos de cobro</h4>
 		  <label for="notarjeta">No. de Tarjeta</label>
 		    <input type="numero" name="notarjeta" required placeholder="Ingrese No. de Tarjeta">
@@ -26,23 +37,15 @@
 		  <label for="fecha">Fecha de vencimiento</label>
 		    <input type="numero" name="fecha" required placeholder="Ingrese Fecha de Vencimiento">
 
-		  <label for="tres">Tres digitos lateral</label>
-		    <input type="numero" name="tres" required placeholder="Ingrese los tres digitos de la parte lateral">
+		  <label for="atras">Digitos lateral</label>
+		    <input type="numero" name="atras" required placeholder="Ingrese los tres digitos de la parte lateral">
 
 		  <label for="submit">Ingresar datos</label>
-		  <input type="submit" value="Enviar" name="enviar">
-
-
-		   <!-- <label for="suscripcion">Ingrese numero de suscripcion</label>
-		    <input type="numero" name="suscripcion" required placeholder="Ingrese suscripcion">
-
-		  <ol>
-		  	<li>Mensual: pago cada mes</li>
-		  	<li>Semestral: pago cada seis meses</li>
-		  	<li>Anual: pago cada año</li>
-		  </ol> -->
-		  
+		  <input type="submit" value="Enviar" name="enviar">		  
 		</form>
+    <?php 
+  }
+     ?>
 		</div>
 	</div>
 	</div>

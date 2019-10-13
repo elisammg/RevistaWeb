@@ -20,13 +20,12 @@
         <li>
           <a href="categorias.php"><?=$row['name']?></a>
           <ul class="menu">
-            <li><a href="sub1.php">Natacion</a></li>
-            <li><a href="sub2.php">Futbol</a></li>
+            <li><a href="sub1.php"> </a></li>
           </ul>
         </li>
         <?php 
-       }
-     }
+       } //end while
+     } //end if
        ?>
        <li>
         <div class="user-info">
