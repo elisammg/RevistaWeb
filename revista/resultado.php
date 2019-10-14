@@ -1,3 +1,5 @@
+<?php include('conexion.php'); ?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -19,7 +21,7 @@
 
 if (isset($_GET['buscar'])) 
 {
-  include('conexion.php');
+  
 $categoria=$_GET['categoria'];
 $autor=$_GET['username'];
 $creado=$_GET['created_at'];
