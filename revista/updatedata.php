@@ -20,33 +20,40 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-        <form class="log-in-form" action="perfil.php" method="post" enctype="multipart/form-data">
+        	<?php 
+include('conexion.php');
+if (isset($_GET['enviar']))
+{
+$nombre=$_GET['nombre'];
+$apellido=$_GET['apellido'];
+$usuario=$_GET['username'];
+$correo=$_GET['email'];
+$contraseña=$_GET['contraseña'];
+$sql = "UPDATE `users` SET `nombre` = '$nombre', `apellido` = '$apellido', `username` = '$usuario', `email` = '$correo', `password` = '$contraseña' WHERE `users`.`id` = 10";
+$result = mysqli_query($conexion, $sql);
+
+ ?>
+        <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
 		  <h4 class="text-center">Cambio de datos</h4>
 		  <label for="nombre">Nombre</label>
-		    <input type="text" name="nombre" required placeholder="Ingrese nombre">
+		    <input type="text" name="nombre" placeholder="Ingrese nombre">
 
 		  <label for="apellido">Apellido</label>
-		    <input type="text" name="apellido" required placeholder="Ingrese Apellido">
+		    <input type="text" name="apellido" placeholder="Ingrese Apellido">
 
 		  <label for="username">Nombre de Usuario</label>
-		    <input type="text" name="username" required placeholder="Ingrese Username">
+		    <input type="text" name="username" placeholder="Ingrese Username">
 
 		  <label for="email">Email</label>
-		    <input type="email" name="email" required placeholder="Ingrese email">
+		    <input type="email" name="email" placeholder="Ingrese email">
 
 		  <label for="contraseña">Contrsaeña</label>
-		    <input type="password" name="contraseña" required placeholder="Ingrese contraseña">
-
-		   <!-- <label for="suscripcion">Ingrese numero de suscripcion</label>
-		    <input type="numero" name="suscripcion" required placeholder="Ingrese suscripcion">
-
-		  <ol>
-		  	<li>Mensual: pago cada mes</li>
-		  	<li>Semestral: pago cada seis meses</li>
-		  	<li>Anual: pago cada año</li>
-		  </ol> -->
+		    <input type="password" name="contraseña" placeholder="Ingrese contraseña">
 		  <button type="submit" name="enviar">Enviar</button>
 		</form>
+		<?php 
+		}
+		 ?>
 		</div>
 	</div>
 	</div>
