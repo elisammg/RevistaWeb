@@ -1,4 +1,3 @@
-<?php include('conexion.php'); ?>
 <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
@@ -17,12 +16,11 @@
        
     <?php
     $sql = "SELECT * FROM mydb.tenlast LIMIT 10";
-    
-       $result = mysqli_query($conexion, $sql);
+    $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0)
        { 
-       while($row = mysqli_fetch_assoc($result)) 
+          while($row = mysqli_fetch_assoc($result)) 
        {
            ?> 
            <tr>

@@ -1,8 +1,6 @@
 <?php  include('../conexion.php'); ?>
 <?php  include('includes/admin_functions.php'); ?>
 <?php  include('includes/post_functions.php'); ?>
-<link rel="stylesheet" href="/css/foundation.css">
-<link rel="stylesheet" href="/css/app.css">
 <?php include('includes/head_section.php'); ?>
 <!-- Get all topics -->
 <?php $topics = getAllTopics();	?>
@@ -14,12 +12,9 @@
 
 	<div class="container content">
 		<!-- Left side menu -->
-		<?php //include('includes/menu.php') ?>
+		<?php include('includes/menu.php') ?>
 
 		<!-- Middle form - to create and edit  -->
-	  <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
 		<div class="action create-post-div">
 			<h1 class="page-title">Create/Edit Post</h1>
 			<form method="post" enctype="multipart/form-data" action="<?php echo 'create_post.php'; ?>" >
@@ -70,9 +65,6 @@
 			</form>
 		</div>
 		<!-- // Middle form - to create and edit -->
-	</div>
-	</div>
-	</div>
 	</div>
 </body>
 </html>

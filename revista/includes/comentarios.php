@@ -44,7 +44,6 @@
     <!--/comments-->
     </div>
     </li>
-  
     <li class="accordion-item" data-accordion-item>
       <a href="#" class="accordion-title">Deja un comentario</a>
       <div class="accordion-content" data-tab-content>
@@ -76,7 +75,7 @@
     </li>
     ?>
   </ul>
-<?php  
+  <?php  
 if (is_user_logged_in()) :
      ?>
      <p>Este mensaje sólo se mostrará en pantalla a los usuarios registrados e identificados. Los invitados no podrán verlo.</p>

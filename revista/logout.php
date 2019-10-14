@@ -12,7 +12,7 @@
 		session_destroy();
 		session_start();
 	}
-	session_unset($_SESSION['user']);
+	session_unset($_SESSION['users']);
 	session_destroy();
 	header('location: index.php');
 ?>

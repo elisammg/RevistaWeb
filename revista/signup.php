@@ -21,7 +21,7 @@
 		  <label for="password">Contraseña</label>
 		    <input type="password" name="password" required placeholder="Ingrese contraseña">
 
-			<button type="submit" class="btn" name="reg_user">Register</button>
+		  <button type="submit" class="btn" name="reg_user">Register</button>
 		</form>
 		</div>
 	</div>
