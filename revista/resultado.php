@@ -1,3 +1,4 @@
+<?php include('conexion.php'); ?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -19,7 +20,7 @@
 
 if (isset($_GET['buscar'])) 
 {
-  include('conexion.php');
+
 $categoria=$_GET['categoria'];
 $autor=$_GET['username'];
 $creado=$_GET['created_at'];
@@ -34,7 +35,7 @@ $texto=$_GET['body'];
 
     . "ON posts.id_subtopic = subtopic.id\n"
 
-    . "WHERE users.username LIKE '$autor' or subtopic.nombre LIKE '$categoria' or posts.body LIKE '$texto' or posts.created_at LIKE '$creado' ";
+    . "WHERE users.username LIKE '%$autor%' or subtopic.nombre LIKE '%$categoria%' or posts.body LIKE '%$texto%' or posts.created_at LIKE '%$creado%' ";
      $result = mysqli_query($conexion, $sql);
      while ($consulta = mysqli_fetch_array($result)) 
      {

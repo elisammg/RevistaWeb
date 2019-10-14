@@ -17,17 +17,7 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-          <?php 
-include('conexion.php');
-if (isset($_GET['enviar']))
-{
-$numero=$_GET['notarjeta'];
-$fecha=$_GET['fecha'];
-$atras=$_GET['atras'];
-$sql = "UPDATE `cobro` SET `tarjeta` = '$numero', `vencimiento` = '$fecha', `atras` = '$atras' WHERE `cobro`.`id` = 4";
-$result = mysqli_query($conexion, $sql);
-
- ?>
+         
       <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
 
 		  <h4 class="text-center">Actualizar datos de cobro</h4>
@@ -43,9 +33,7 @@ $result = mysqli_query($conexion, $sql);
 		  <label for="submit">Ingresar datos</label>
 		  <input type="submit" value="Enviar" name="enviar">		  
 		</form>
-    <?php 
-  }
-     ?>
+
 		</div>
 	</div>
 	</div>

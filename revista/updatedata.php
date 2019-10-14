@@ -1,5 +1,5 @@
 <?php include('conexion.php'); ?>
-<?php ßinclude('includes/registrar_loggear.php'); ?>
+<?php include('includes/registrar_loggear.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -20,8 +20,7 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-        	<?php 
-include('conexion.php');
+<?php 
 if (isset($_GET['enviar']))
 {
 $nombre=$_GET['nombre'];
@@ -31,6 +30,7 @@ $correo=$_GET['email'];
 $contraseña=$_GET['contraseña'];
 $sql = "UPDATE `users` SET `nombre` = '$nombre', `apellido` = '$apellido', `username` = '$usuario', `email` = '$correo', `password` = '$contraseña' WHERE `users`.`id` = 10";
 $result = mysqli_query($conexion, $sql);
+}
 
  ?>
         <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
@@ -51,9 +51,7 @@ $result = mysqli_query($conexion, $sql);
 		    <input type="password" name="contraseña" placeholder="Ingrese contraseña">
 		  <button type="submit" name="enviar">Enviar</button>
 		</form>
-		<?php 
-		}
-		 ?>
+	
 		</div>
 	</div>
 	</div>
