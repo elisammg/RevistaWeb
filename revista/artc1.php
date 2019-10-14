@@ -26,6 +26,14 @@
             <span class="primary label">FREE</span>
           </div>
           <p>
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
             <hr>
             <h2>IMÁGENES DESTACADAS</h2>
             <div class="grid-x grid-padding-x">
@@ -43,17 +51,20 @@
               </div>
             </div>
             <hr>
-            
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
+            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
+            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
           </p>
           <hr>
 
         </div>
       </div>
-      <p>¿Consideras que este articulo puede dañar la sensibilidad del lector?</p>
-      <p>Puedes dar click al boton "revisión" y será evaluado por un moderador</p>
-      <a href="#" class="button">Revision</a>
+
         </div>
-       
           <?php require_once('includes/comentarios.php') ?>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

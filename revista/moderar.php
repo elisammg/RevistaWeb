@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moderador Perfil</title>
+    <title>LOG IN</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -14,12 +14,12 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
-  <div class="grid-container">
+      <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
-        <?php if (isset($_SESSION['users'])) { ?>
+        <?php if (isset($_SESSION['username'])) { ?>
           <div class="logged_in_info">
-            <h1><span>Bienvenido <?php echo $_SESSION['users']['username'] ?></span></h1>
+            <h1><span>Bienvenido <?php echo $_SESSION['username']['username'] ?></span></h1>
           </div>
         <?php }else{ ?>
           <h1>Bienvenido</h1>
@@ -32,30 +32,14 @@
           <form class="" action="index.html" method="post">
           <ul>
             <li>
-              <label for="nombre"><?php echo $_SESSION['users']['nombre'] ?></label>
+              <label for="nombre"><?php echo $_SESSION['username']['nombre'] ?></label>
             </li>
             <li>
-              <label for="nombre"><?php echo $_SESSION['users']['apellido'] ?></label>
+              <label for="nombre"><?php echo $_SESSION['username']['apellido'] ?></label>
             </li>
           </ul>
           <a href="updatedata.php" class="button">Cambiar datos</a>
         </form>
-      </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-      <h3>Modulo de moderación</h3>
-      <hr>
-      <div class="grid-x grid-padding-x">
-        <div class="large-6 medium-6 cell">
-          <h4>Moderación de articulos</h4>
-          <?php require_once('includes/modartc.php') ?>
-        </div>
-        <div class="large-6 medium-6 cell">
-          <h4>Moderación de comentarios</h4>
-          <?php require_once('includes/modcomment.php') ?>
-        </div>
-      </div>
       </div>
     </div>
   </div>

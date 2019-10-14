@@ -1,4 +1,6 @@
 <?php
+//session_start();
+
 // initializing variables
 $nombre = "";
 $apellido = "";
@@ -115,12 +117,12 @@ if (isset($_POST['login_user'])) {
       } else if (in_array($_SESSION['users']['role'], ["Author"])){
         $_SESSION['message'] = "You are now logged in";
         // redirect to public area
-        header('location: admin/posts.php');				
+        header('location: autor.php');				
         exit(0);
       } else if (in_array($_SESSION['users']['role'], ["Admin"])){
         $_SESSION['message'] = "You are now logged in";
         // redirect to public area
-        header('location: admin/users.php');				
+        header('location: admin.php');				
         exit(0);
       } else if(in_array($_SESSION['users']['role'], ["Moderador"])){
         $_SESSION['message'] = "You are now logged in";

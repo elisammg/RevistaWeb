@@ -28,9 +28,8 @@
       <div class="large-4 cell">
         <div class="callout">
           <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
-
           <h3>DATOS USUARIO</h3>
-          
+          <form class="" action="index.html" method="post">
           <ul>
             <li>
               <label for="nombre"><?php echo $_SESSION['users']['nombre'] ?></label>
@@ -40,7 +39,7 @@
             </li>
           </ul>
           <a href="updatedata.php" class="button">Cambiar datos</a>
-
+        </form>
       </div>
     </div>
     <div class="large-8 cell">
@@ -49,15 +48,9 @@
         <p>DATOS SUSCRIPCION</p>
         <a href="suscripcion.php" class="button">Suscripciones</a>
         <p>Datos de cobro</p>
-        <a href="updatecobro.php" class="button">Cambiar datos</a>
+        <a href="cobro.php" class="button">Ingresar datos de cobro</a>
+
       </div>
-    </div>
-    <div class="large-12 cell">
-      <div class="callout">
-      <h6>¿Quieres ser autor, moderador o administrador?</h6>
-      <p>Da click en enviar solicitud para cambio de rol!</p>
-      <button type="submit" name="button" class="button">Eviar solicitud</button>
-        </div>
     </div>
     </div>
   </div>

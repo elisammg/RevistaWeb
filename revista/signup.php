@@ -7,21 +7,21 @@
 		  <h4 class="text-center">Registrate</h4>
           <?php include('includes/errors.php') ?>
 		  <label for="nombre">Nombre</label>
-		    <input type="text" name="nombre" value="<?php echo $nombre ?>" required placeholder="Ingrese nombre">
+		    <input type="text" name="nombre" value="<?php echo $nombre ?>" placeholder="Ingrese nombre">
 
 		  <label for="apellido">Apellido</label>
-		    <input type="text" name="apellido" value="<?php echo $apellido ?>" required placeholder="Ingrese Apellido">
+		    <input type="text" name="apellido" value="<?php echo $apellido ?>" placeholder="Ingrese Apellido">
 
 		  <label for="username">Nombre de Usuario</label>
-		    <input type="text" name="username" value="<?php echo $username ?>" required placeholder="Ingrese Username">
+		    <input type="text" name="username" value="<?php echo $username ?>" placeholder="Ingrese Username">
 
 		  <label for="email">Email</label>
-		    <input type="email" name="email" value="<?php echo $email ?>" required placeholder="Ingrese email">
+		    <input type="email" name="email" value="<?php echo $email ?>" placeholder="Ingrese email">
 
-		  <label for="password">Contraseña</label>
-		    <input type="password" name="password" required placeholder="Ingrese contraseña">
+		  <label for="password">contraseña</label>
+		    <input type="password" name="password" placeholder="Ingrese contraseña">
 
-			<button type="submit" class="btn" name="reg_user">Register</button>
+		  <button type="submit" class="btn" name="reg_user">Register</button>
 		</form>
 		</div>
 	</div>
