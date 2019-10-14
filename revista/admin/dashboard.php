@@ -1,11 +1,11 @@
 <?php  include('../conexion.php'); ?>
-	<?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-	<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+	<?php include('includes/admin_functions.php'); ?>
+	<?php include('includes/head_section.php'); ?>
 	<title>Admin | Dashboard</title>
 </head>
 <body>
 	<div class="header">
-		<?php include(ROOT_PATH . '/admin/includes/navbar.php'); ?>
+		<?php include('includes/navbar.php'); ?>
 	</div>
 	<div class="container dashboard">
 		<h1>Welcome</h1>

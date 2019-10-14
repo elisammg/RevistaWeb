@@ -20,7 +20,7 @@
 
 if (isset($_GET['buscar'])) 
 {
-
+  
 $categoria=$_GET['categoria'];
 $autor=$_GET['username'];
 $creado=$_GET['created_at'];
