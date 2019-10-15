@@ -41,7 +41,8 @@
 				<button type="submit" name="enviar">Enviar</button>
 			</form>
 
-		<?php }else {?>
+		<?php }
+    else {?>
 		<h1>Hola</h1>
 		<?php } ?>
 		
@@ -53,7 +54,7 @@
 				$usuario=$_POST['username'];
 				$correo=$_POST['email'];
 				$contraseña=$_POST['contraseña'];
-				$sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo', password = '$contraseña' WHERE users.id = 15";
+				$sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo', password = '$contraseña' WHERE users.id =' $_SESSION['users']' ";
 				$result = mysqli_query($conexion, $sql);
 			}
 		?>

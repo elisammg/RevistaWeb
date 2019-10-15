@@ -1,12 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Noto+Serif|Tangerine" rel="stylesheet">
-<!-- Font awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<!-- ckeditor -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.8.0/ckeditor.js"></script>
-<!-- Styling for public area -->
-<link rel="stylesheet" href="../static/css/admin_styling.css">
+<div class="subnav-hero-section">
+  <h1 class="subnav-hero-headline">REVISTA WEB<small>UNIS</small></h1>
+  <ul class="subnav-hero-subnav">
+  	<li><a href="index.php">Inicio</a></li>
+    <li>
+      <a data-open="exampleModal1" >Ingresar</a>
+      <div class="reveal" id="exampleModal1" data-reveal>
+        <h1>Log in</h1>
+        <div class="lead">
+          <?php require_once('ingresar.php') ?>
+        </div>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </li>
+    <li><a data-open="exampleModal2">Registrarse</a>
+      <div class="reveal" id="exampleModal2" data-reveal>
+        <h1>Sign up</h1>
+        <div class="lead">
+          <?php require_once('signup.php') ?>
+        </div>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </li>
+    <li><a data-open="exampleModal3">Buscar</a>
+      <div class="reveal" id="exampleModal3" data-reveal>
+        <h1>Buscar</h1>
+        <div class="lead">
+          <?php require_once('search.php') ?>
+        </div>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div></li>
+  </ul>
+</div>

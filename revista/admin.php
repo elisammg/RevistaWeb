@@ -97,6 +97,20 @@
       </div>
       </div>
     </div>
+       <div class="large-12 cell">
+      <div class="callout">
+        <h3>Articulos</h3>
+        <hr>
+        <div class="grid-x grid-padding-x">
+          <div class="large-6 medium-6 cell">
+            <p>Articulo nuevo</p>
+          </div>
+          <div class="large-6 medium-6 cell">
+            <p>Articulos creados</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="large-12 cell">
       <div class="callout">
         <h3>ANUNCIOS</h3>
