@@ -108,22 +108,22 @@ if (isset($_POST['login_user'])) {
       $_SESSION['users'] = $user;
       
       if ( in_array($_SESSION['users']['role'], ["Lector"])) {
-        $_SESSION['message'] = "You are now logged in";
+        //$_SESSION['message'] = "You are now logged in";
         // redirect to admin area
         header('location: loggeado.php');
         exit(0);
       } else if (in_array($_SESSION['users']['role'], ["Author"])){
-        $_SESSION['message'] = "You are now logged in";
+        //$_SESSION['message'] = "You are now logged in";
         // redirect to public area
-        header('location: admin/posts.php');				
+        header('location: autor.php');				
         exit(0);
       } else if (in_array($_SESSION['users']['role'], ["Admin"])){
-        $_SESSION['message'] = "You are now logged in";
+        //$_SESSION['message'] = "You are now logged in";
         // redirect to public area
-        header('location: admin/users.php');				
+        header('location: admin.php');				
         exit(0);
       } else if(in_array($_SESSION['users']['role'], ["Moderador"])){
-        $_SESSION['message'] = "You are now logged in";
+        //$_SESSION['message'] = "You are now logged in";
         // redirect to public area
         header('location: moderar.php');				
         exit(0);

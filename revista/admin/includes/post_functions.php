@@ -15,7 +15,7 @@ $post_topic = "";
 // get all posts from DB
 function getAllPosts()
 {
-	global $conn;
+	global $conexion;
 	
 	// Admin can view all posts
 	// Author can only view their posts
@@ -25,7 +25,7 @@ function getAllPosts()
 		$user_id = $_SESSION['users']['id'];
 		$sql = "SELECT * FROM posts WHERE user_id=$user_id";
 	}
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conexion, $sql);
 	$posts = mysqli_fetch_all($result);
 
 	$final_posts = array();
@@ -38,9 +38,9 @@ function getAllPosts()
 // get the author/username of a post
 function getPostAuthorById($user_id)
 {
-	global $conn;
+	global $conexion;
 	$sql = "SELECT username FROM users WHERE id=$user_id";
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conexion, $sql);
 	if ($result) {
 		// return username
 		return mysqli_fetch_assoc($result)['username'];
@@ -75,7 +75,7 @@ if (isset($_GET['delete-post'])) {
 - - - - - - - - - - -*/
 function createPost($request_values)
 	{
-		global $conn, $errors, $title, $featured_image, $topic_id, $body, $published;
+		global $conexion, $errors, $title, $featured_image, $topic_id, $body, $published;
 		$title = esc($request_values['title']);
 		$body = htmlentities(esc($request_values['body']));
 		if (isset($request_values['topic_id'])) {
@@ -92,7 +92,7 @@ function createPost($request_values)
 		if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
 		// Get image name
 	  	$featured_image = $_FILES['featured_image']['name'];
-	  	if (empty($featured_image)) { array_push($errors, "Featured image is required"); }
+	  	//if (empty($featured_image)) { array_push($errors, "Featured image is required"); }
 	  	// image file directory
 	  	$target = "../static/images/" . basename($featured_image);
 	  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
@@ -100,7 +100,7 @@ function createPost($request_values)
 	  	}
 		// Ensure that no post is saved twice. 
 		$post_check_query = "SELECT * FROM posts WHERE slug='$post_slug' LIMIT 1";
-		$result = mysqli_query($conn, $post_check_query);
+		$result = mysqli_query($conexion, $post_check_query);
 
 		if (mysqli_num_rows($result) > 0) { // if post exists
 			array_push($errors, "A post already exists with that title.");
@@ -108,11 +108,11 @@ function createPost($request_values)
 		// create post if there are no errors in the form
 		if (count($errors) == 0) {
 			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES(1, '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
-			if(mysqli_query($conn, $query)){ // if post created successfully
-				$inserted_post_id = mysqli_insert_id($conn);
+			if(mysqli_query($conexion, $query)){ // if post created successfully
+				$inserted_post_id = mysqli_insert_id($conexion);
 				// create relationship between post and topic
 				$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
-				mysqli_query($conn, $sql);
+				mysqli_query($conexion, $sql);
 
 				$_SESSION['message'] = "Post created successfully";
 				header('location: posts.php');
@@ -128,9 +128,9 @@ function createPost($request_values)
 	* * * * * * * * * * * * * * * * * * * * * */
 	function editPost($role_id)
 	{
-		global $conn, $title, $post_slug, $body, $published, $isEditingPost, $post_id;
+		global $conexion, $title, $post_slug, $body, $published, $isEditingPost, $post_id;
 		$sql = "SELECT * FROM posts WHERE id=$role_id LIMIT 1";
-		$result = mysqli_query($conn, $sql);
+		$result = mysqli_query($conexion, $sql);
 		$post = mysqli_fetch_assoc($result);
 		// set form values on the form to be updated
 		$title = $post['title'];
@@ -140,7 +140,7 @@ function createPost($request_values)
 
 	function updatePost($request_values)
 	{
-		global $conn, $errors, $post_id, $title, $featured_image, $topic_id, $body, $published;
+		global $conexion, $errors, $post_id, $title, $featured_image, $topic_id, $body, $published;
 
 		$title = esc($request_values['title']);
 		$body = esc($request_values['body']);
@@ -168,12 +168,12 @@ function createPost($request_values)
 		if (count($errors) == 0) {
 			$query = "UPDATE posts SET title='$title', slug='$post_slug', views=0, image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$post_id";
 			// attach topic to post on post_topic table
-			if(mysqli_query($conn, $query)){ // if post created successfully
+			if(mysqli_query($conexion, $query)){ // if post created successfully
 				if (isset($topic_id)) {
-					$inserted_post_id = mysqli_insert_id($conn);
+					$inserted_post_id = mysqli_insert_id($conexion);
 					// create relationship between post and topic
 					$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
-					mysqli_query($conn, $sql);
+					mysqli_query($conexion, $sql);
 					$_SESSION['message'] = "Post created successfully";
 					header('location: posts.php');
 					exit(0);
@@ -187,9 +187,9 @@ function createPost($request_values)
 	// delete blog post
 	function deletePost($post_id)
 	{
-		global $conn;
+		global $conexion;
 		$sql = "DELETE FROM posts WHERE id=$post_id";
-		if (mysqli_query($conn, $sql)) {
+		if (mysqli_query($conexion, $sql)) {
 			$_SESSION['message'] = "Post successfully deleted";
 			header("location: posts.php");
 			exit(0);
@@ -202,10 +202,10 @@ if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
 	if (isset($_GET['publish'])) {
 		$message = "Post published successfully";
         $post_id = $_GET['publish'];
-        global $conn;
+        global $conexion;
         $sql = "UPDATE posts SET published=1 WHERE id=$post_id";
 
-        if (mysqli_query($conn, $sql)) {
+        if (mysqli_query($conexion, $sql)) {
             $_SESSION['message'] = $message;
             header("location: posts.php");
             exit(0);
@@ -213,10 +213,10 @@ if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
 	} else if (isset($_GET['unpublish'])) {
 		$message = "Post successfully unpublished";
         $post_id = $_GET['unpublish'];
-        global $conn;
+        global $conexion;
         $sql = "UPDATE posts SET published=0 WHERE id=$post_id";
         
-        if (mysqli_query($conn, $sql)) {
+        if (mysqli_query($conexion, $sql)) {
             $_SESSION['message'] = $message;
             header("location: posts.php");
             exit(0);
@@ -227,10 +227,10 @@ if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
 // delete blog post
 function togglePublishPost($post_id, $message)
 {
-	global $conn;
+	global $conexion;
 	$sql = "UPDATE posts SET published=!published WHERE id=$post_id";
 	
-	if (mysqli_query($conn, $sql)) {
+	if (mysqli_query($conexion, $sql)) {
 		$_SESSION['message'] = $message;
 		header("location: posts.php");
 		exit(0);

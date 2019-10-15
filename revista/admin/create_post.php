@@ -61,12 +61,12 @@
 					<?php if ($published == true): ?>
 						<label for="publish">
 							Publish
-							<input type="checkbox" value="1" name="publish" checked="checked">&nbsp;
+							<input type="checkbox" value="1" name="publish" checked="checked">
 						</label>
 					<?php else: ?>
 						<label for="publish">
 							Publish
-							<input type="checkbox" value="1" name="publish">&nbsp;
+							<input type="checkbox" value="1" name="publish">
 						</label>
 					<?php endif ?>
 				<?php endif ?>
