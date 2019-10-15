@@ -210,7 +210,7 @@
                 <?php endforeach ?>
               </select>
 
-              <?php require_once('admin/includes/templates.php') ?>
+              <?php require_once('includes/templates.php') ?>
               
               <!-- Only admin users can view publish input field -->
               <?php if ($_SESSION['users']['role'] == "Admin"): ?>
