@@ -48,12 +48,13 @@
 		<?php 
 			if (isset($_POST['enviar']))
 			{
+				$id = $_SESSION['users']['id'];
 				$nombre=$_POST['nombre'];
 				$apellido=$_POST['apellido'];
 				$usuario=$_POST['username'];
 				$correo=$_POST['email'];
 				$contraseña=$_POST['contraseña'];
-				$sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo', password = '$contraseña' WHERE users.id = 15";
+				$sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo', password = '$contraseña' WHERE users.id = '$id' ";
 				$result = mysqli_query($conexion, $sql);
 			}
 		?>

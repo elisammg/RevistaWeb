@@ -38,19 +38,21 @@
 						</option>
 					<?php endforeach ?>
 				</select>
+
+				<?php require_once('includes/templates.php') ?>
 				
 				<!-- Only admin users can view publish input field -->
-				<?php if ($_SESSION['user']['role'] == "Admin"): ?>
+				<?php if ($_SESSION['users']['role'] == "Admin"): ?>
 					<!-- display checkbox according to whether post has been published or not -->
 					<?php if ($published == true): ?>
 						<label for="publish">
 							Publish
-							<input type="checkbox" value="1" name="publish" checked="checked">&nbsp;
+							<input type="checkbox" value="1" name="publish" checked="checked">
 						</label>
 					<?php else: ?>
 						<label for="publish">
 							Publish
-							<input type="checkbox" value="1" name="publish">&nbsp;
+							<input type="checkbox" value="1" name="publish">
 						</label>
 					<?php endif ?>
 				<?php endif ?>
