@@ -17,17 +17,17 @@
     </div>
       <div class="large-4 cell">
         <div class="callout">
-          <img src="p1.png">
+          <img src="includes/p1.png">
         </div>
       </div>
       <div class="large-4 cell">
         <div class="callout">
-          <img src="p2.png" alt="">
+          <img src="includes/p2.png" alt="">
         </div>
       </div>
       <div class="large-4 cell">
         <div class="callout">
-          <img src="p3.png" alt="">
+          <img src="includes/p3.png" alt="">
         </div>
       </div>      
     </div>
