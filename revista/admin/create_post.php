@@ -36,14 +36,14 @@
               <textarea name="body" id="body" cols="30" rows="10"><?php echo $body; ?></textarea>
               <select name="topic_id">
                 <option value="" selected disabled>Choose topic</option>
-                <?php foreach ($topics as $topic): ?>
+                <?php foreach ($subtopics as $topic): ?>
                   <option value="<?php echo $topic['id']; ?>">
                     <?php echo $topic['nombre']; ?>
                   </option>
                 <?php endforeach ?>
               </select>
 
-              <?php require_once('includes/templates.php') ?>
+              <?php require_once('templates.php') ?>
               
               <!-- if editing post, display the update button instead of create button -->
               <?php if ($isEditingPost === true): ?> 

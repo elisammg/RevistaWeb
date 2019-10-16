@@ -14,20 +14,20 @@
             <td width="100" align="center"><strong>Fecha de publicacion</strong></td>
        </tr> 
        
-    <?php
-    $sql = "SELECT * FROM mydb.tenlast LIMIT 10";
-    $result = mysqli_query($conexion, $sql);
+          <?php
+            $sql = "SELECT * FROM mydb.tenlast LIMIT 10";
+            $result = mysqli_query($conexion, $sql);
 
-       if (mysqli_num_rows($result) > 0)
-       { 
-          while($row = mysqli_fetch_assoc($result)) 
-       {
+              if (mysqli_num_rows($result) > 0)
+              { 
+                  while($row = mysqli_fetch_assoc($result)) 
+              {
            ?> 
            <tr>
                <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
                cadena insertada en nuestro formulario-->
                <td class="estilo-tabla" align="center">
-                <a href=" "><?=$row['title']?></a>
+                <a href="articulo.php?post-slug=<?php echo $post['slug']; ?>"><?=$row['title']?></a>
               </td>
                <td class="estilo-tabla" align="center"><?=$row['username']?></td>
                <td class="estilo-tabla" align="center"><?=$row['slug']?></td>
