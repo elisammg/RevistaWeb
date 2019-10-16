@@ -114,7 +114,7 @@ function createAdmin($request_values){
 // get all topics from DB
 function getAllTopics() {
 	global $conexion;
-	$sql = "SELECT * FROM topics";
+	$sql = "SELECT * FROM subtopic";
 	$result = mysqli_query($conexion, $sql);
 	$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	return $topics;

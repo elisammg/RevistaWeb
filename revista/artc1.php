@@ -1,3 +1,4 @@
+<?php include('conexion.php') ?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
 <header>
-  <?php require_once('includes/navbar.php') ?>
+  <?php require_once(ROOT_PATH . '/includes/navbar.php') ?>
   <?php require_once('includes/header.php') ?>
 </header>
   <body>
@@ -18,13 +19,17 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
           <h1>TÍTULO ARTÍCULO</h1>
-          <div class="callout">
-            <p>NOMBRE Y APELLIDO AUTOR</p>
-            <p>FECHA DE PUBLICACION</p>
-            <p>SUBCATEGORÍA</p>
-            <p>RESUMEN</p>
-            <span class="primary label">FREE</span>
-          </div>
+          <?php if (isset($_SESSION['users'])) { ?>
+            <div class="callout">
+              <p><?php echo $_SESSION['users']['nombre']; echo " "; echo $_SESSION['users']['apellido'];?></p>
+              <p>FECHA DE PUBLICACION</p>
+              <p>SUBCATEGORÍA</p>
+              <p>RESUMEN</p>
+              <span class="primary label">FREE</span>
+            </div>
+          <?php }else{ ?>
+            
+          <?php } ?>
           <p>
             Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
             Short ribs sirloin beef ribs, flank capicola ribeye turducken.
