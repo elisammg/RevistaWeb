@@ -116,8 +116,8 @@ function getAllTopics() {
 	global $conexion;
 	$sql = "SELECT * FROM subtopic";
 	$result = mysqli_query($conexion, $sql);
-	$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	return $topics;
+	$subtopic = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	return $subtopic;
 }
 function createTopic($request_values){
 	global $conexion, $errors, $topic_name;

@@ -1,4 +1,5 @@
-<?php include('conexion.php') ?>
+<?php include('conexion.php'); ?>
+<?php include('includes/registrar_loggear.php'); ?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -168,6 +169,10 @@
       </div>
       </div>
     </div>
+    <hr>
+  <p>¿Consideras que este articulo puede dañar la sensibilidad del lector?</p>
+      <p>Puedes dar click al boton "revisión" y será evaluado por un moderador</p>
+      <a href="#" class="button">Revision</a>
   </div>
 
   <?php require_once('includes/comentarios.php') ?>

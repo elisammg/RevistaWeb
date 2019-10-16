@@ -1,5 +1,5 @@
 <?php include('conexion.php'); ?>
-
+<?php include('includes/registrar_loggear.php'); ?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -36,7 +36,7 @@ $texto=$_GET['body'];
 
     . "ON posts.id_subtopic = subtopic.id\n"
 
-    . "WHERE users.username LIKE '$autor' or subtopic.nombre LIKE '$categoria' or posts.body LIKE '$texto' or posts.created_at LIKE '$creado' ";
+    . "WHERE users.username LIKE '%$autor%' or subtopic.nombre LIKE '%$categoria%' or posts.body LIKE '%$texto%' or posts.created_at LIKE '%$creado%' ";
      $result = mysqli_query($conexion, $sql);
      while ($consulta = mysqli_fetch_array($result)) 
      {

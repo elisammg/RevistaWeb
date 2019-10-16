@@ -4,9 +4,20 @@
 <?php  include(ROOT_PATH . '/admin/includes/topic_functions.php'); ?>
 <?php //include('includes/head_section.php'); ?>
 <!-- Get all topics -->
-<?php $topics = getAllTopics();	?>
-	<title>Admin | Create Post</title>
-</head>
+<?php $subtopics = getAllTopics();	?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear post</title>
+    <link rel="stylesheet" href="./css/foundation.css">
+    <link rel="stylesheet" href="./css/app.css">
+  </head>  
+<header>
+  <?php require_once('includes/navbar.php') ?>
+</header>
 <body>
 <div class="action create-post-div">
           <h3>Crear nuevo articulo</h3>
