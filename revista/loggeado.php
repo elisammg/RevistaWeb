@@ -14,12 +14,34 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
+    <?php 
+    if (isset($_GET['id']))
+     {
+      $id = ($_GET['id']);
+      $infouser = mysqli_query("SELECT * FROM users WHERE id = '$id'");
+      $use = mysqli_fetch_array($infouser);
+    } 
+    ?>
+
+    <?php 
+      if (isset($_POST['enviar']))
+      {
+        $id = $_SESSION['users']['id'];
+        $nombre=$_POST['nombre'];
+        $apellido=$_POST['apellido'];
+        $usuario=$_POST['username'];
+        $correo=$_POST['email'];
+        $sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo' WHERE id = '$id' ";
+        $result = mysqli_query($conexion, $sql);
+        echo ("Se ingresaron correctamente los datos");
+      }
+    ?>
     <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
         <?php if (isset($_SESSION['users'])) { ?>
           <div class="logged_in_info">
-          <h1><span>Bienvenido <?php echo $_SESSION['users']['username'] ?></span></h1>
+          <h1><span>Bienvenido <?php echo $_SESSION['users']['nombre'] ?></span></h1>
           </div>
         <?php }else{ ?>
           <h1>Bienvenido</h1>
@@ -37,8 +59,11 @@
             <li>
               <label for="nombre"><?php echo $_SESSION['users']['apellido'] ?></label>
             </li>
+            <li>
+              <label for="nombre"><?php echo $_SESSION['users']['username'] ?></label>
+            </li>
           </ul>
-          <a href="updatedata.php" class="button">Cambiar datos</a>
+          <a href="updatedata.php?id=<?php echo $_SESSION['users']['id'] ?>" class="button">Cambiar datos</a>
         </form>
       </div>
     </div>

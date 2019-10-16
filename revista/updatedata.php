@@ -15,13 +15,14 @@
   <?php require_once('includes/header.php') ?>
 </header>
   <body>
-  	<br>
 
+
+  	<br>
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
 		
-		<?php if(isset($_SESSION['users'])) { ?>
+		<?php if(isset($_SESSION['users']['id'])) { ?>
 			<form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
 				<h4 class="text-center">Cambio de datos</h4>
 				<label for="nombre">Nombre</label>
@@ -36,8 +37,7 @@
 				<label for="email">Email</label>
 					<input type="email" name="email" value="<?php echo $_SESSION['users']['email']; ?>" placeholder="Ingrese email">
 
-				<label for="contraseña">Contrsaeña</label>
-					<input type="password" name="contraseña" placeholder="Ingrese nueva contraseña">
+				
 				<button type="submit" name="enviar">Enviar</button>
 			</form>
 
@@ -45,20 +45,7 @@
     else {?>
 		<h1>Hola</h1>
 		<?php } ?>
-		
-		<?php 
-			if (isset($_POST['enviar']))
-			{
-				$id = $_SESSION['users']['id'];
-				$nombre=$_POST['nombre'];
-				$apellido=$_POST['apellido'];
-				$usuario=$_POST['username'];
-				$correo=$_POST['email'];
-				$contraseña=$_POST['contraseña'];
-				$sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo', password = '$contraseña' WHERE users.id = '$id' ";
-				$result = mysqli_query($conexion, $sql);
-			}
-		?>
+
 		
 		</div>
 	</div>
