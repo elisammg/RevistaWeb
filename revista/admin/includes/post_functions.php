@@ -66,17 +66,16 @@ function createPost($request_values)
 		// create post if there are no errors in the form
 		if (count($errors) == 0) {
 			$query = "INSERT INTO posts (user_id, id_subtopic, title, slug, image, body, published, plantilla, created_at, updated_at, premium) 
-                VALUES('$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 1, '$template', now(), now(), 0)";
+                VALUES('$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 0, '$template', now(), now(), 0)";
 			if(mysqli_query($conexion, $query)){ // if post created successfully
-				/*$inserted_post_id = mysqli_insert_id($conexion);
-				// create relationship between post and topic
+				$inserted_post_id = mysqli_insert_id($conexion);
+				//create relationship between post and topic
 				$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
 				mysqli_query($conexion, $sql);
 
 				$_SESSION['message'] = "Post created successfully";
 				//header('location: autor.php');
-                exit(0);*/
-                $_SESSION['message'] = "Post created successfully";
+                //exit(0);
 			}
 		}
 	}
