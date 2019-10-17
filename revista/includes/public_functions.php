@@ -1,32 +1,48 @@
 <?php 
-/* * * * * * * * * * * * * * *
-* Returns all published posts
-* * * * * * * * * * * * * * */
+
+//Función para tomar los articulos que han sido publicados.
 function getPublishedPosts() {
 	// use global $conn object in function
-	global $conn;
-	$sql = "SELECT * FROM posts JOIN users WHERE published=true";
-	$result = mysqli_query($conn, $sql);
+	global $conexion;
+	$sql = "SELECT * FROM posts WHERE published=true";
+	$result = mysqli_query($conexion, $sql);
 	// fetch all posts as an associative array called $posts
-	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	
+	//Arreglar lo de la referencia a la pagina articulos.-------------------------------------------------------------------------------------
+	$posts = mysqli_fetch_assoc($result);
 
 	$final_posts = array();
-	foreach ($posts as $post) {
+	/*foreach ($posts as $post) {
 		$post['topic'] = getPostTopic($post['id']); 
 		array_push($final_posts, $post);
-	}
-	return $final_posts;
+	}*/
+	return $posts;
 }
-/* * * * * * * * * * * * * * *
-* Receives a post id and
-* Returns topic of the post
-* * * * * * * * * * * * * * */
+
+//Función para tomar la categoría del artículo
 function getPostTopic($post_id){
-	global $conn;
+	global $conexion;
 	$sql = "SELECT * FROM topics WHERE id=
 			(SELECT topic_id FROM post_topic WHERE post_id=$post_id) LIMIT 1";
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conexion, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	return $topic;
+}
+
+//Funcion para verificar el slug del artículo
+function getPost($slug){
+	global $conexion;
+	// Get single post slug
+	$post_slug = $_GET['post-slug'];
+	$sql = "SELECT * FROM posts WHERE slug='$slug' AND published=true";
+	$result = mysqli_query($conexion, $sql);
+
+	// fetch query results as associative array.
+	$post = mysqli_fetch_assoc($result);
+	if ($post) {
+		// get the topic to which this post belongs
+		$post['topic'] = getPostTopic($post['id']);
+	}
+	return $post;
 }
 ?>

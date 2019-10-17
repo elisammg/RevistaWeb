@@ -1,32 +1,19 @@
-<?php include('conexion.php'); ?>
-<?php include('includes/registrar_loggear.php'); ?>
-<!doctype html>
-<html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículo 1</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-<header>
-  <?php require_once('includes/navbar.php') ?>
-  <?php require_once('includes/header.php') ?>
-</header>
-  <body>
     <br>
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
           <h1>TÍTULO ARTÍCULO</h1>
-          <div class="callout">
-            <p>NOMBRE Y APELLIDO AUTOR</p>
-            <p>FECHA DE PUBLICACION</p>
-            <p>SUBCATEGORÍA</p>
-            <p>RESUMEN</p>
-            <span class="primary label">FREE</span>
-          </div>
+          <?php if (isset($_SESSION['users'])) { ?>
+            <div class="callout">
+              <p><?php echo $_SESSION['users']['nombre']; echo " "; echo $_SESSION['users']['apellido'];?></p>
+              <p>FECHA DE PUBLICACION</p>
+              <p>SUBCATEGORÍA</p>
+              <p>RESUMEN</p>
+              <span class="primary label">FREE</span>
+            </div>
+          <?php }else{ ?>
+            
+          <?php } ?>
           <p>
             Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
             Short ribs sirloin beef ribs, flank capicola ribeye turducken.
@@ -70,13 +57,3 @@
       </div>
 
         </div>
-          <?php require_once('includes/comentarios.php') ?>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-  </body>
-<footer>
-  <?php require_once('includes/footer.php') ?>
-</footer>
-</html>
