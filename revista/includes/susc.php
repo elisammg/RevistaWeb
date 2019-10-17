@@ -39,13 +39,13 @@
 	        <h5 class="text-center">Selecciona suscripcion</h5>
 	        <ul>
 	        	<li>
-	        		<input type="radio" name="pokemon" value="<?php echo $id_susc = 1; ?>" id="pokemon1"><label for="pokemon1">Semestral</label>
+	        		<input type="radio" name="pokemon" value="1" id="pokemon1"><label for="pokemon1">Semestral</label>
 	        	</li>
 	        	<li>
-	        		<input type="radio" name="pokemon" value="<?php echo $id_susc = 2; ?>" id="pokemon2"><label for="pokemon2">Anual</label>
+	        		<input type="radio" name="pokemon" value="2" id="pokemon2"><label for="pokemon2">Anual</label>
 	        	</li>
 	        	<li>
-	        		<input type="radio" name="pokemon" value="<?php echo $id_susc = 3; ?>" id="pokemon3"><label for="pokemon3">Mensual</label>
+	        		<input type="radio" name="pokemon" value="3" id="pokemon3"><label for="pokemon3">Mensual</label>
 	        	</li>
 	        </ul>	      
 
@@ -68,30 +68,7 @@
 </div>
 </div>         
  <hr>
-  <?php 
-    if (isset($_GET['id_users']))
-     {
-      $id = ($_GET['id_users']);
-      $infosusc = mysqli_query("SELECT * FROM cobro WHERE id_users = '$id'");
-      $use = mysqli_fetch_array($infosusc);
-    } 
-    ?>
-
-    <?php 
-      if (isset($_POST['enviar']))
-      {
-        $id = $_SESSION['users']['id'];
-        $semestral=$_POST['pokemon1'];
-        $anual=$_POST['pokemon2'];
-        $mensual=$_POST['pokemon3'];
-        $numero=$_POST['notarjeta'];
-        $date=$_POST['fecha'];
-        $seguridad=$_POST['atras'];
-        $sql = "INSERT INTO cobro (id_users, id_sus, tarjeta, vencimiento, atras) VALUES ('$id', '$semestral or $anual or $mensual', '$numero', '$date', '$seguridad')";
-        $result = mysqli_query($conexion, $sql);
-        echo ("Se ingresaron correctamente los datos");
-      }
-    ?>
+  
 
 
 	

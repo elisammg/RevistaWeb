@@ -15,7 +15,7 @@
   <?php require_once('includes/header.php') ?>
 </header>
   <body>
-    <?php 
+   <?php 
     if (isset($_GET['id_users']))
      {
       $id = ($_GET['id_users']);
@@ -28,13 +28,11 @@
       if (isset($_POST['enviar']))
       {
         $id = $_SESSION['users']['id'];
-        $semestral=$_POST['pokemon'];
-        $anual=$_POST['pokemon'];
-        $mensual=$_POST['pokemon'];
+        $suscripcion=$_POST['pokemon'];
         $numero=$_POST['notarjeta'];
         $date=$_POST['fecha'];
         $seguridad=$_POST['tres'];
-        $sql = "INSERT INTO cobro (id_users, id_sus, tarjeta, vencimiento, atras) VALUES ('$id', '$semestral' or '$anual' or '$mensual', '$numero', '$date', '$seguridad')";
+        $sql = "INSERT INTO cobro (id_users, id_sus, tarjeta, vencimiento, atras, iniciosusc) VALUES ('$id', '$suscripcion', '$numero', '$date', '$seguridad')";
         $result = mysqli_query($conexion, $sql);
         echo ("Se ingresaron correctamente los datos");
       }
