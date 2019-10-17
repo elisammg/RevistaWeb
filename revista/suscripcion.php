@@ -32,7 +32,7 @@
         $numero=$_POST['notarjeta'];
         $date=$_POST['fecha'];
         $seguridad=$_POST['tres'];
-        $sql = "INSERT INTO cobro (id_users, id_sus, tarjeta, vencimiento, atras, iniciosusc) VALUES ('$id', '$suscripcion', '$numero', '$date', '$seguridad')";
+        $sql = "INSERT INTO cobro (id_users, id_sus, tarjeta, vencimiento, atras) VALUES ('$id', '$suscripcion', '$numero', '$date', '$seguridad')";
         $result = mysqli_query($conexion, $sql);
         echo ("Se ingresaron correctamente los datos");
       }
