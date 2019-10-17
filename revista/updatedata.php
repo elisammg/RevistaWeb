@@ -37,7 +37,8 @@
 				<label for="email">Email</label>
 					<input type="email" name="email" value="<?php echo $_SESSION['users']['email']; ?>" placeholder="Ingrese email">
 
-				
+				<label for="contraseña">Contrsaeña</label>
+					<input type="password" name="contraseña" placeholder="Ingrese nueva contraseña">
 				<button type="submit" name="enviar">Enviar</button>
 			</form>
 

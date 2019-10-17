@@ -31,7 +31,9 @@
         $apellido=$_POST['apellido'];
         $usuario=$_POST['username'];
         $correo=$_POST['email'];
-        $sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo' WHERE id = '$id' ";
+        $contraseña=$_POST['contraseña'];
+        $password = md5($contraseña);
+        $sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo', password = '$password' WHERE id = '$id' ";
         $result = mysqli_query($conexion, $sql);
         echo ("Se ingresaron correctamente los datos");
       }
