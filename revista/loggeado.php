@@ -73,9 +73,9 @@
       <div class="callout">
         <h3>SUSCRIPCION:</h3>
         <p>DATOS SUSCRIPCION</p>
-        <a href="suscripcion.php" class="button">Suscripciones</a>
+        <a href="suscripcion.php?id=<?php echo $_SESSION['users']['id'] ?>" class="button">Suscripciones</a>
         <p>Datos de cobro</p>
-        <a href="updatecobro.php" class="button">Cambiar datos</a>
+        <a href="updatecobro.php?id=<?php echo $_SESSION['users']['id'] ?>" class="button">Cambiar datos</a>
       </div>
     </div>
     <div class="large-12 cell">

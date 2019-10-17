@@ -20,7 +20,7 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
          
-      <form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
+      <form class="log-in-form" action="updatecobro.php" method="post" enctype="multipart/form-data">
 
 		  <h4 class="text-center">Actualizar datos de cobro</h4>
 		  <label for="notarjeta">No. de Tarjeta</label>
@@ -32,13 +32,34 @@
 		  <label for="atras">Digitos lateral</label>
 		    <input type="numero" name="atras" required placeholder="Ingrese los tres digitos de la parte lateral">
 
-		  <label for="submit">Ingresar datos</label>
+		  <label for="submit">Cambiar datos</label>
 		  <input type="submit" value="Enviar" name="enviar">		  
 		</form>
 
 		</div>
 	</div>
 	</div>
+  <?php 
+    if (isset($_GET['id_users']))
+     {
+      $id = ($_GET['id_users']);
+      $infocobro = mysqli_query("SELECT * FROM cobro WHERE id_users = '$id'");
+      $use = mysqli_fetch_array($infocobro);
+    } 
+    ?>
+
+    <?php 
+      if (isset($_POST['enviar']))
+      {
+        $id = $_SESSION['users']['id'];
+        $numero=$_POST['notarjeta'];
+        $date=$_POST['fecha'];
+        $seguridad=$_POST['atras'];
+        $sql = "UPDATE cobro SET tarjeta = '$numero', vencimiento = '$date', atras = '$seguridad'  WHERE id_users = '$id' ";
+        $result = mysqli_query($conexion, $sql);
+        echo ("Se ingresaron correctamente los datos");
+      }
+    ?>
 
 	<script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
