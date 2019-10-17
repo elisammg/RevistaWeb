@@ -34,7 +34,7 @@ function getPost($slug){
 	global $conexion;
 	// Get single post slug
 	$post_slug = $_GET['post-slug'];
-	$sql = "SELECT * FROM posts WHERE slug='$slug' AND published=true";
+	$sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
 	$result = mysqli_query($conexion, $sql);
 
 	// fetch query results as associative array.
