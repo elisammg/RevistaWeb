@@ -1,4 +1,4 @@
-<?php //include('conexion.php'); ?>
+
 <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
@@ -35,17 +35,17 @@
      <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
 	      	<div class="callout">
-<form class="log-in-form" action="loggeado.php" method="post" enctype="multipart/form-data">
+<form class="log-in-form" action="suscripcion.php" method="post" enctype="multipart/form-data">
 	        <h5 class="text-center">Selecciona suscripcion</h5>
 	        <ul>
 	        	<li>
-	        		<input type="radio" name="pokemon" value="sus1" id="pokemon1"><label for="pokemon1">Semestral</label>
+	        		<input type="radio" name="pokemon" value="1" id="pokemon1"><label for="pokemon1">Semestral</label>
 	        	</li>
 	        	<li>
-	        		<input type="radio" name="pokemon" value="sus2" id="pokemon2"><label for="pokemon2">Anual</label>
+	        		<input type="radio" name="pokemon" value="2" id="pokemon2"><label for="pokemon2">Anual</label>
 	        	</li>
 	        	<li>
-	        		<input type="radio" name="pokemon" value="sus3" id="pokemon3"><label for="pokemon3">Mensual</label>
+	        		<input type="radio" name="pokemon" value="3" id="pokemon3"><label for="pokemon3">Mensual</label>
 	        	</li>
 	        </ul>	      
 
@@ -63,16 +63,13 @@
 	    </form>
 	      </div>
 	  </div>
-
-	
-	
-
+	</div>
 </div>
 </div>
-</div>
-</div>
-         
+</div>         
  <hr>
+  
+
 
 	
 

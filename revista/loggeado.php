@@ -14,28 +14,7 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
-    <?php 
-    if (isset($_GET['id']))
-     {
-      $id = ($_GET['id']);
-      $infouser = mysqli_query("SELECT * FROM users WHERE id = '$id'");
-      $use = mysqli_fetch_array($infouser);
-    } 
-    ?>
-
-    <?php 
-      if (isset($_POST['enviar']))
-      {
-        $id = $_SESSION['users']['id'];
-        $nombre=$_POST['nombre'];
-        $apellido=$_POST['apellido'];
-        $usuario=$_POST['username'];
-        $correo=$_POST['email'];
-        $sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo' WHERE id = '$id' ";
-        $result = mysqli_query($conexion, $sql);
-        echo ("Se ingresaron correctamente los datos");
-      }
-    ?>
+    
     <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
@@ -71,9 +50,46 @@
       <div class="callout">
         <h3>SUSCRIPCION:</h3>
         <p>DATOS SUSCRIPCION</p>
-        <a href="suscripcion.php" class="button">Suscripciones</a>
-        <p>Datos de cobro</p>
-        <a href="updatecobro.php" class="button">Cambiar datos</a>
+        <a href="suscripcion.php?id=<?php echo $_SESSION['users']['id'] ?>" class="button">Suscripciones</a>
+        <h4>Datos de Cobro</h4>
+        <?php
+
+  ?>
+       <div class="large-12">
+       <table align="center" cellpadding="1" cellspacing="1">
+           <tr>
+            <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
+            <td width="100" align="center"><strong>Numero de Tarjeta</strong></td>
+            <td width="100" align="center"><strong>Fecha de vencimiento</strong></td>
+            <td width="100" align="center"><strong>Digitos laterales</strong></td>
+       </tr> 
+       
+    <?php
+    $id = $_SESSION['users']['id'];    
+    $sql = "SELECT tarjeta, vencimiento, atras FROM cobro WHERE id_users = '$id'";
+    
+       $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?> 
+           <tr>
+               <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
+               cadena insertada en nuestro formulario-->
+               <td class="estilo-tabla" align="center"><?=$row['tarjeta']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['vencimiento']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['atras']?></td>
+           </tr> 
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "0 resultados";
+      }
+    ?>
+    </table>
+        <a href="updatecobro.php?id=<?php echo $_SESSION['users']['id'] ?>" class="button">Cambiar datos</a>
       </div>
     </div>
     <div class="large-12 cell">

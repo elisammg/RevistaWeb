@@ -70,7 +70,12 @@
         </div>
         </div>
       </div>
-      <a href="newartc.php" class="button">Nuevo Articulo</a>
+      <!-- <a href="newartc.php" class="button">Nuevo Articulo</a> -->
+    </div>
+    <div class="large-12 cell">
+      <div class="callout">
+        <?php include('admin/create_post.php'); ?>
+      </div>
     </div>
   </div>
 

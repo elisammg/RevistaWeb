@@ -1,5 +1,4 @@
-<?php //include('conexion.php'); ?>
-<?php //include('includes/registrar_loggear.php'); ?>
+
 	<div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
