@@ -2,9 +2,10 @@
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
 <?php
-if (isset($_GET['post-slug'])) {
-    $post = getPost($_GET['post-slug']);
-}
+    if (isset($_GET['post-slug'])) {
+        $post = getPost($_GET['post-slug']);
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -26,12 +27,14 @@ if (isset($_GET['post-slug'])) {
 <body>
 
     <?php
-        if($post['plantilla'] === 0){
-            include('artc1.php');
-        }else if($post['plantilla'] === 1){
-            include('artc2.php');
+        if($post['plantilla'] == 0){
+            require_once('artc1.php');
+        }else if($post['plantilla'] == 1){
+            require_once('artc2.php');
+        }else if($post['plantilla'] == 2){
+            require_once('artc3.php');
         }else{
-            include('artc3.php');
+            echo "El articulo no tiene plantilla.";
         }
     ?>
 
