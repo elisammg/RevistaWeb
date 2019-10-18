@@ -1,71 +1,42 @@
-<?php  include('../conexion.php'); ?>
-<?php  include('includes/admin_functions.php'); ?>
-<?php include('includes/head_section.php'); ?>
+<?php  include('includes/topic_functions.php'); ?>
 <!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
-	<title>Admin | Manage Topics</title>
-</head>
-<body>
-	<!-- admin navbar -->
-	<?php include('includes/navbar.php') ?>
-	<div class="container content">
-		<!-- Left side menu -->
-		<?php include('includes/menu.php') ?>
 
+<body>
 		<!-- Middle form - to create and edit -->
 		<div class="action">
-			<h1 class="page-title">Create/Edit Topics</h1>
-			<form method="post" action="<?php echo 'topics.php'; ?>" >
-				<!-- validation errors for the form -->
-				<?php include('includes/errors.php') ?>
-				<!-- if editing topic, the id is required to identify that topic -->
-				<?php if ($isEditingTopic === true): ?>
-					<input type="hidden" name="topic_id" value="<?php echo $topic_id; ?>">
-				<?php endif ?>
-				<input type="text" name="topic_name" value="<?php echo $topic_name; ?>" placeholder="Topic">
-				<!-- if editing topic, display the update button instead of create button -->
-				<?php if ($isEditingTopic === true): ?> 
-					<button type="submit" class="btn" name="update_topic">UPDATE</button>
-				<?php else: ?>
-					<button type="submit" class="btn" name="create_topic">Save Topic</button>
-				<?php endif ?>
-			</form>
+			<?php if($isNewTopic === false): ?>
+				<a href="admin.php?new-topic=new" class="button">Agregar Categoría</a>
+			<?php else: ?>
+				<form role="form" method="post" action="admin.php?new-topic=new">
+					<div class="form-group">
+						<label for="name">Nueva Categoría</label>
+						<input type="text" name="topic_name" required class="form-control" id="name" placeholder="Titulo">
+					</div>
+					<div class="form-group">
+						<label for="category_id">Categoría</label>
+						<select class="form-control" name="topicID" id="category_id">
+							<option value="newCat">-- NUEVA CATEGORÍA --</option>
+							<?php if(count($topics)>0):?>
+								<?php foreach($topics as $topic):?>
+									<option value="<?php echo $topic["id"];?>" ><?php echo $topic["name"];?></option>
+									<?php topicData($topic["id"],1); ?>
+								<?php endforeach;?>
+							<?php endif;?>
+						</select>
+					</div>
+					<button type="submit" class="button">Agregar Categoría</button>
+					<a href="admin.php" class="button">Regresar</a>
+				</form>
+			<?PHP endif ?>
 		</div>
 		<!-- // Middle form - to create and edit -->
 
 		<!-- Display records from DB-->
 		<div class="table-div">
 			<!-- Display notification message -->
-			<?php include('includes/messages.php') ?>
-			<?php if (empty($topics)): ?>
-				<h1>No topics in the database.</h1>
-			<?php else: ?>
-				<table class="table">
-					<thead>
-						<th>N</th>
-						<th>Topic Name</th>
-						<th colspan="2">Action</th>
-					</thead>
-					<tbody>
-					<?php foreach ($topics as $key => $topic): ?>
-						<tr>
-							<td><?php echo $key + 1; ?></td>
-							<td><?php echo $topic['name']; ?></td>
-							<td>
-								<a class="fa fa-pencil btn edit"
-									href="topics.php?edit-topic=<?php echo $topic['id'] ?>">
-								</a>
-							</td>
-							<td>
-								<a class="fa fa-trash btn delete"								
-									href="topics.php?delete-topic=<?php echo $topic['id'] ?>">
-								</a>
-							</td>
-						</tr>
-					<?php endforeach ?>
-					</tbody>
-				</table>
-			<?php endif ?>
+			
+
 		</div>
 		<!-- // Display records from DB -->
 	</div>

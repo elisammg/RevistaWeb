@@ -32,9 +32,13 @@
         $numero=$_POST['notarjeta'];
         $date=$_POST['fecha'];
         $seguridad=$_POST['tres'];
-        $sql = "INSERT INTO cobro (id_users, id_sus, tarjeta, vencimiento, atras, iniciosusc) VALUES ('$id', '$suscripcion', '$numero', '$date', '$seguridad')";
+        $sql = "INSERT INTO cobro (id_users, id_sus, tarjeta, vencimiento, atras) VALUES ('$id', '$suscripcion', '$numero', '$date', '$seguridad')";
         $result = mysqli_query($conexion, $sql);
-        echo ("Se ingresaron correctamente los datos");
+        if($result){
+          echo ("Se ingresaron correctamente los datos");
+        }else{
+          echo "No se ingresaron los datos.";
+        }
       }
     ?>
   <?php require_once('includes/susc.php') ?>

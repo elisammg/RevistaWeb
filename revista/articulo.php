@@ -2,9 +2,10 @@
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
 <?php
-if (isset($_GET['post-slug'])) {
-    $post = getPost($_GET['post-slug']);
-}
+    if (isset($_GET['post-slug'])) {
+        $post = getPost($_GET['post-slug']);
+    }
+    
 ?>
 
 <!DOCTYPE html>
