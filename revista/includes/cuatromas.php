@@ -5,7 +5,7 @@
           <h2>LOS MAS VISTOS</h2>
     </div>
      <?php
-          $sql = "SELECT title, body, views FROM `posts` ORDER BY `posts`.`views` DESC LIMIT 4";
+          $sql = "SELECT title, body, views, slug FROM `posts` ORDER BY `posts`.`views` DESC LIMIT 4";
           $resultado = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($resultado)>0)
           {
@@ -18,7 +18,7 @@
           <h2><?=$row['title']?></h2>
           <h3>AUTOR</h3>
           <p><?=$row['body']?></p>
-          <a href="artc1.php" class="button">Leer más</a>
+          <a href="articulo.php?post-slug=<?php echo $row['slug']; ?>" class="button">Leer más</a>
          
         </div>
       </div>

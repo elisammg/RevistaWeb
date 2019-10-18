@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUBCATEROGRÍA 2</title>
+    <title>CATEROGRÍAS</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -21,12 +21,17 @@
           <h1>CATEGORIAS</h1>
         </div>
       </div>
-<?php include('conexion.php'); ?>
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
           <div class="callout">
 <?php
-$sql ="SELECT name, slug FROM mydb.topics";
+$sql = "SELECT topics.id, topics.name, topics.slug, subtopic.nombre, subtopic.plantilla\n"
+
+    . "FROM mydb.topics\n"
+
+    . "INNER JOIN mydb.subtopic\n"
+
+    . "ON subtopic.id_topic = topics.id";
 $result = mysqli_query($conexion, $sql);
     if (mysqli_num_rows($result) > 0) 
     {
@@ -40,7 +45,8 @@ $result = mysqli_query($conexion, $sql);
               </div>
               <div class="large-6 medium-6 cell">
               <p><?=$row['slug']?></p>
-                <a href="#" class="button">Leer mas...</a>
+              <hr>
+              <p><a href="subcategoria.php?subtopic-plantilla=<?php echo $row['plantilla']; ?>"><?php category_tree($row["id"]);?></a></p>
               </div>
           </div>
           <?php 

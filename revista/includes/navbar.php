@@ -1,4 +1,5 @@
-<?php //include('conexion.php') ?>
+
+<?php  include('admin/includes/topic_functions.php'); ?>
 <div class="top-bar foundation-5-top-bar">
   <div class="top-bar-title">
     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
@@ -10,7 +11,7 @@
     <div class="top-bar-left">
       <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown" data-auto-height="true" data-animate-height="true">
     <?php
-    $sql = "SELECT name FROM mydb.topics";
+    $sql = "SELECT * FROM mydb.topics";
     $result = mysqli_query($conexion, $sql);
     if (mysqli_num_rows($result) > 0)
     {
@@ -20,22 +21,9 @@
         <li>
           <a href="categorias.php"><?=$row['name']?></a>
           <ul class="menu">
-            <li><a href="sub1.php">
-            <?php  
-            $sql1 = ("SELECT topics.id,  subtopic.nombre\n"
-
-    . "FROM mydb.topics\n"
-
-    . "INNER JOIN mydb.subtopic\n"
-
-    . "ON subtopic.id_topic = topics.id\n");
-
-
-
-
-
-            ?> 
-            </a></li>
+            <li><a href="subcategoria.php?subtopic-descripcion=<?php echo $row['id']; ?>"><?php 
+            category_tree($row["id"]);
+          ?></a></li>
           </ul>
         </li>
         <?php

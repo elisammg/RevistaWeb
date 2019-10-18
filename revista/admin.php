@@ -122,7 +122,7 @@
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
   </body>
-  <footer>
-  	<?php require_once('includes/footer.php') ?>
-  </footer>
+<footer>
+  <?php require_once('includes/footer.php') ?>
+</footer>
 </html>

@@ -15,7 +15,7 @@
 		return $topics;
 	}
 
-	//Toma loas datos del topic seleccionado.
+	//Toma los datos del topic seleccionado.
 	function topicData ($id){
 		global $conexion;
 		$sql = "SELECT * FROM topics WHERE id=$id";

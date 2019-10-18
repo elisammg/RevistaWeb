@@ -14,30 +14,7 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
-    <?php 
-    if (isset($_GET['id']))
-     {
-      $id = ($_GET['id']);
-      $infouser = mysqli_query("SELECT * FROM users WHERE id = '$id'");
-      $use = mysqli_fetch_array($infouser);
-    } 
-    ?>
-
-    <?php 
-      if (isset($_POST['enviar']))
-      {
-        $id = $_SESSION['users']['id'];
-        $nombre=$_POST['nombre'];
-        $apellido=$_POST['apellido'];
-        $usuario=$_POST['username'];
-        $correo=$_POST['email'];
-        $contraseña=$_POST['contraseña'];
-        $password = md5($contraseña);
-        $sql = "UPDATE users SET nombre = '$nombre', apellido = '$apellido', username = '$usuario', email = '$correo', password = '$password' WHERE id = '$id' ";
-        $result = mysqli_query($conexion, $sql);
-        echo ("Se ingresaron correctamente los datos");
-      }
-    ?>
+    
     <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
