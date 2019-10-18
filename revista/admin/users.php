@@ -1,5 +1,4 @@
 <?php  //include('../conexion.php'); ?>
-<?php  include('includes/user_functions.php'); ?>
 <?php 
 	// Get all admin users from DB
 	$admins = getAdminUsers();

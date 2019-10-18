@@ -9,25 +9,26 @@
 	// get all topics from DB
 	function getAllTopics() {
 		global $conexion;
-		$sql = "SELECT * FROM subtopic";
+		$sql = "SELECT * FROM topics";
 		$result = mysqli_query($conexion, $sql);
 		$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
 		return $topics;
 	}
-
-	//Toma loas datos del topic seleccionado.
+	
+	function getAllSubtopics(){
+		global $conexion;
+		$sql = "SELECT * FROM subtopic";
+		$result = mysqli_query($conexion, $sql);
+		$subtopics = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		return $subtopics;
+	}
+	
+		//Toma loas datos del topic seleccionado.
 	function topicData ($id){
 		global $conexion;
 		$sql = "SELECT * FROM topics WHERE id=$id";
 		$result = mysqli_query($conexion, $sql);
 		$topicData = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	}
-
-	function getAllSubtopics(){
-		global $conexion;
-		$sql = "SELECT * FROM subtopic";
-		$result = mysqli_query($conexion, $sql);
-		$sutopics = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	}
 
 	//Despliega el arbol de categorías

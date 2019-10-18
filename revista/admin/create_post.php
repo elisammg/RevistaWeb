@@ -1,10 +1,8 @@
 <?php  //include('../conexion.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/user_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/topic_functions.php'); ?>
+
 <?php //include('includes/head_section.php'); ?>
 <!-- Get all topics -->
-<?php $subtopics = getAllTopics();	?>
+<?php $subtopics = getAllSubtopics();	?>
 <!DOCTYPE html>
 <html>
 <head>

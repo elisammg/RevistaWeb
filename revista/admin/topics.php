@@ -1,4 +1,3 @@
-<?php  include('includes/topic_functions.php'); ?>
 <!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
 <?php $subtopic = getAllSubtopics(); ?>
@@ -41,10 +40,10 @@
 						<?php endif;?>
 					</select>
 					<button type="submit" class="button">Agregar Categoría</button>
-					
+					<a href="admin.php" class="button">Regresar</a>
 				</div>
 			</form>
-			<a href="admin.php" class="button">Regresar</a>
+			
 
 		<!-- Si se edita la categoría o subcategoría -->
 		<?php }else if ($isEditingTopic === true){ 
