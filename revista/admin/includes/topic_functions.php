@@ -42,7 +42,13 @@
 				$i = 0;
 				if ($i == 0){
 					echo '<ul>';
+<<<<<<< HEAD
 						echo '<li>' . $row['nombre'] . '</li>';
+=======
+						echo '<li>' . $row['nombre'];
+							//category_tree($row['id_topic']);
+						echo '</li>';
+>>>>>>> Elisa
 				}
 				
 				$i++;
@@ -52,6 +58,16 @@
 				}
 			endwhile;
 		}
+<<<<<<< HEAD
+=======
+
+	// and returns 'some-sample-string'
+	function makeSlug(String $string){
+		$string = strtolower($string);
+		$slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+		return $slug;
+	}
+>>>>>>> Elisa
 	
 	if(isset($_GET["topic"])){
 		$isNewTopic = true;
@@ -79,9 +95,16 @@
 			if(!empty($_POST)){
 				global $conexion;
 				$topic_name = $_POST["topic_name"];
+<<<<<<< HEAD
 				$topic_slug = makeSlug($topic_name); 
 				if($topic_id == ''){
 					$sql = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE topic_name=$topic_name";
+=======
+				$topic_id = $_POST["topicID"];
+				$topic_slug = makeSlug($topic_name); 
+				if($topic_id == 'newCat'){
+					$sql = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
+>>>>>>> Elisa
 				}else {
 					$sql = "UPDATE subtopic SET id_topic='$topic_id', nombre='$topic_name' WHERE id_topic=$topic_id";
 				}

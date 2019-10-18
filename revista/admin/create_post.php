@@ -1,5 +1,4 @@
 <?php  //include('../conexion.php'); ?>
-
 <?php //include('includes/head_section.php'); ?>
 <!-- Get all topics -->
 <?php $subtopics = getAllSubtopics();	?>
