@@ -80,7 +80,6 @@ function createPost($request_values)
 		}
 	}
 
-
     function esc(String $value){
         // bring the global db conexionect object into function
         global $conexion;

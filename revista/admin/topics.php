@@ -1,7 +1,7 @@
 <?php  include('includes/topic_functions.php'); ?>
 <!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
-<?php $id_topic = topicData(); ?>
+<?php $subtopic = getAllSubtopics(); ?>
 
 <body>
 	<div class="action">
@@ -47,29 +47,18 @@
 			<a href="admin.php" class="button">Regresar</a>
 
 		<!-- Si se edita la categoría o subcategoría -->
-		<?php }else if ($isEditingTopic === true){ ?>
-			<?php //$cat = topicData($_GET["edit-topic-id"]); ?>
-			<form role="form" method="post" action="admin.php?topic=update">
+		<?php }else if ($isEditingTopic === true){ 
+			$topicID = $_GET['edit-topic-id'];
+			?>
+			<form role="form" method="post" action="admin.php">
 				<div class="form-group">
 					<label for="name">Nueva Categoría</label>
-					<input type="text" name="topic_name" value="<?php echo $topicData['name']; ?>" required class="form-control" id="name" placeholder="Titulo">
-				</div>
-				<div class="form-group">
-					<label for="category_id">Categoría</label>
-					<select class="form-control" name="topicID" id="category_id">
-						<option value="newCat">-- NUEVA CATEGORÍA --</option>
-						<?php if(count($topics)>0):?>
-						<?php foreach($topics as $topic):?>
-							<option value="<?php echo $topic["id"];?>" ><?php echo $topic["name"];?></option>
-							<?php topicData($topic["id"],1); ?>
-						<?php endforeach;?>
-						<?php endif;?>
-					</select>
-					<button type="submit" class="button">Actualizar Categoría</button>
-					
-				</div>
-			</form>
-			<a href="admin.php" class="button">Regresar</a>				
+					<input type="text" name="topic_name" required class="form-control" id="name" placeholder="Nuevo titulo">
+				</div>					
+			</form>		
+			<a href="admin.php?topic=update" type="submit" class="button">Actualizar Categoría</a>
+			<a href="admin.php?topic=delete" type="submit" class="button">Eliminar Categoría</a>
+			<a href="admin.php" class="button">Regresar</a>			
 		<?PHP } ?>
 	</div>
 </body>

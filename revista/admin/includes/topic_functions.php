@@ -9,7 +9,7 @@
 	// get all topics from DB
 	function getAllTopics() {
 		global $conexion;
-		$sql = "SELECT * FROM topics";
+		$sql = "SELECT * FROM subtopic";
 		$result = mysqli_query($conexion, $sql);
 		$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
 		return $topics;
@@ -23,6 +23,13 @@
 		$topicData = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	}
 
+	function getAllSubtopics(){
+		global $conexion;
+		$sql = "SELECT * FROM subtopic";
+		$result = mysqli_query($conexion, $sql);
+		$sutopics = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	}
+
 	//Despliega el arbol de categorías
 	function category_tree($catid){
 			global $conexion;
@@ -34,9 +41,7 @@
 				$i = 0;
 				if ($i == 0){
 					echo '<ul>';
-						echo '<li>' . $row['nombre'];
-							//category_tree($row['id_topic']);
-						echo '</li>';
+						echo '<li>' . $row['nombre'] . '</li>';
 				}
 				
 				$i++;
@@ -46,13 +51,6 @@
 				}
 			endwhile;
 		}
-
-	// and returns 'some-sample-string'
-	function makeSlug(String $string){
-		$string = strtolower($string);
-		$slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
-		return $slug;
-	}
 	
 	if(isset($_GET["topic"])){
 		$isNewTopic = true;
@@ -80,10 +78,9 @@
 			if(!empty($_POST)){
 				global $conexion;
 				$topic_name = $_POST["topic_name"];
-				$topic_id = $_POST["topicID"];
 				$topic_slug = makeSlug($topic_name); 
-				if($topic_id == 'newCat'){
-					$sql = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
+				if($topic_id == ''){
+					$sql = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE topic_name=$topic_name";
 				}else {
 					$sql = "UPDATE subtopic SET id_topic='$topic_id', nombre='$topic_name' WHERE id_topic=$topic_id";
 				}
