@@ -20,7 +20,22 @@
         <li>
           <a href="categorias.php"><?=$row['name']?></a>
           <ul class="menu">
-            <li><a href="sub1.php"> </a></li>
+            <li><a href="sub1.php">
+            <?php  
+            $sql1 = ("SELECT topics.id,  subtopic.nombre\n"
+
+    . "FROM mydb.topics\n"
+
+    . "INNER JOIN mydb.subtopic\n"
+
+    . "ON subtopic.id_topic = topics.id\n");
+
+
+
+
+
+            ?> 
+            </a></li>
           </ul>
         </li>
         <?php

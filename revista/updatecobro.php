@@ -55,7 +55,7 @@
         $numero=$_POST['notarjeta'];
         $date=$_POST['fecha'];
         $seguridad=$_POST['atras'];
-        $sql = "UPDATE cobro SET tarjeta = '$numero', vencimiento = '$date', atras = '$seguridad'  WHERE id_users = '$id' ";
+        $sql = "UPDATE `cobro` SET `tarjeta` = '$numero', `vencimiento` = '$date', `atras` = '$seguridad' WHERE `id_users = '$id'";
         $result = mysqli_query($conexion, $sql);
         echo ("Se ingresaron correctamente los datos");
       }

@@ -2,6 +2,7 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
        <div class="large-12">
+        <h2>ULTIMOS 10 PUBLICADOS</h2>
         <table align="center" cellpadding="1" cellspacing="1">
           <tr>
             <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
