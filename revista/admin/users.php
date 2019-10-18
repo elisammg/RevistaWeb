@@ -27,10 +27,7 @@
 						<?php foreach ($roles as $key => $role): ?>
 							<option value="<?php echo $role; ?>"><?php echo $role; ?></option>
 						<?php endforeach ?>
-					</select>
-				<?php endif ?>
-				<!-- if editing user, display the update button instead of create button -->
-				<?php if ($isEditingUser === true): ?> 
+					</select> 
 					<button type="submit" class="btn" name="update_admin">UPDATE</button>
 				<?php endif ?>
 			</form>
