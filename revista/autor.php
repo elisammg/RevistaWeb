@@ -1,8 +1,12 @@
 <?php include('conexion.php'); ?>
 <?php include('includes/registrar_loggear.php'); ?>
+<?php  include(ROOT_PATH . '/includes/public_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/user_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/topic_functions.php'); ?>
+
+<?php $posts = getPublishedPosts(); ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -50,27 +54,16 @@
           <div class="large-4 medium-4 cell">
             <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
             <h4>ARTICULO</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
+            <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
+                        <div class="post_info">
+                            <h3><?php echo $post['title'] ?></h3>
+                            <div class="info">
+                                <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
+                                <span class="read_more">Read more...</span>
+                            </div>
+                        </div>
+                    </a>
           </div>
-          <div class="large-4 medium-4 cell">
-            <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
-            <h4>ARTICULO</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-          </div>
-          <div class="large-4 medium-4 cell">
-            <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
-            <h4>ARTICULO</h4>
-            <p>Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-            Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-            Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-            Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.</p>
-        </div>
         </div>
       </div>
       <!-- <a href="newartc.php" class="button">Nuevo Articulo</a> -->
