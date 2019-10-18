@@ -9,10 +9,10 @@
   <div id="responsive-menu">
     <div class="top-bar-left">
       <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown" data-auto-height="true" data-animate-height="true">
-    <?php 
+    <?php
     $sql = "SELECT name FROM mydb.topics";
     $result = mysqli_query($conexion, $sql);
-    if (mysqli_num_rows($result) > 0) 
+    if (mysqli_num_rows($result) > 0)
     {
       while($row = mysqli_fetch_assoc($result))
     {
@@ -23,11 +23,11 @@
             <li><a href="sub1.php"> </a></li>
           </ul>
         </li>
-        <?php 
+        <?php
        } //end while
      } //end if
        ?>
-       <li>
+       <li>         
         <div class="user-info">
 
         <?php if (isset($_SESSION['users'])) { ?>
