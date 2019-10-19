@@ -23,7 +23,7 @@ if (isset($_GET['buscar']))
 {
   
 $categoria=$_GET['categoria'];
-$autor=$_GET['username'];
+$autor=$_GET['nombre'];
 $creado=$_GET['created_at'];
 $texto=$_GET['body'];
   $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"

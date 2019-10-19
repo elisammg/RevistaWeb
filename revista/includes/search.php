@@ -9,7 +9,7 @@
 <input type="text" name="categoria" placeholder="Ingrese categoria">
 
 <label>Autor</label>
-<input type="text" name="username" placeholder="Ingrese Autor">
+<input type="text" name="nombre" placeholder="Ingrese Autor">
 
 <label>Fecha de Publicacion</label>
 <input type="text" name="created_at" placeholder="Ingrese fecha de publicacion">

@@ -79,12 +79,4 @@
         return $users;
     }
 
-    function esc(String $value){
-        // bring the global db conexionect object into function
-        global $conexion;
-        // remove empty space sorrounding string
-        $val = trim($value); 
-        $val = mysqli_real_escape_string($conexion, $value);
-        return $val;
-    }
 ?>
