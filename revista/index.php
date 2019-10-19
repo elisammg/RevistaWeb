@@ -1,3 +1,6 @@
+<?php include('conexion.php'); ?>
+<?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>

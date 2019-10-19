@@ -73,4 +73,12 @@
         <!--/comment box-->
       </div>
     </li>
+    ?>
   </ul>
+  <?php  
+    if (is_user_logged_in()) :
+  ?>
+  <p>Este mensaje sólo se mostrará en pantalla a los usuarios registrados e identificados. Los invitados no podrán verlo.</p>
+  <?php
+    endif;
+  ?>

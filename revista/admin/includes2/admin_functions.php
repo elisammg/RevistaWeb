@@ -65,7 +65,7 @@ if (isset($_GET['delete-topic'])) {
 * - Returns all admin users with their roles 
 * * * * * * * * * * * * * * * * * * * * * * */
 function createAdmin($request_values){
-	global $conn, $errors, $role, $username, $email;
+	global $conexion, $errors, $role, $username, $email;
 	$username = esc($request_values['username']);
 	$email = esc($request_values['email']);
 	$password = esc($request_values['password']);
@@ -84,7 +84,7 @@ function createAdmin($request_values){
 	// the email and usernames should be unique
 	$user_check_query = "SELECT * FROM users WHERE username='$username' 
 							OR email='$email' LIMIT 1";
-	$result = mysqli_query($conn, $user_check_query);
+	$result = mysqli_query($conexion, $user_check_query);
 	$user = mysqli_fetch_assoc($result);
 	if ($user) { // if user exists
 		if ($user['username'] === $username) {
@@ -100,7 +100,7 @@ function createAdmin($request_values){
 		$password = md5($password);//encrypt the password before saving in the database
 		$query = "INSERT INTO users (username, email, role, password, created_at, updated_at) 
 				  VALUES('$username', '$email', '$role', '$password', now(), now())";
-		mysqli_query($conn, $query);
+		mysqli_query($conexion, $query);
 
 		$_SESSION['message'] = "Admin user created successfully";
 		header('location: users.php');
@@ -113,14 +113,14 @@ function createAdmin($request_values){
 - - - - - - - - - - -*/
 // get all topics from DB
 function getAllTopics() {
-	global $conn;
-	$sql = "SELECT * FROM topics";
-	$result = mysqli_query($conn, $sql);
-	$topics = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	return $topics;
+	global $conexion;
+	$sql = "SELECT * FROM subtopic";
+	$result = mysqli_query($conexion, $sql);
+	$subtopic = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	return $subtopic;
 }
 function createTopic($request_values){
-	global $conn, $errors, $topic_name;
+	global $conexion, $errors, $topic_name;
 	$topic_name = esc($request_values['topic_name']);
 	// create slug: if topic is "Life Advice", return "life-advice" as slug
 	$topic_slug = makeSlug($topic_name);
@@ -130,7 +130,7 @@ function createTopic($request_values){
 	}
 	// Ensure that no topic is saved twice. 
 	$topic_check_query = "SELECT * FROM topics WHERE slug='$topic_slug' LIMIT 1";
-	$result = mysqli_query($conn, $topic_check_query);
+	$result = mysqli_query($conexion, $topic_check_query);
 	if (mysqli_num_rows($result) > 0) { // if topic exists
 		array_push($errors, "Topic already exists");
 	}
@@ -138,7 +138,7 @@ function createTopic($request_values){
 	if (count($errors) == 0) {
 		$query = "INSERT INTO topics (name, slug) 
 				  VALUES('$topic_name', '$topic_slug')";
-		mysqli_query($conn, $query);
+		mysqli_query($conexion, $query);
 
 		$_SESSION['message'] = "Topic created successfully";
 		header('location: topics.php');
@@ -152,15 +152,15 @@ function createTopic($request_values){
 * - sets topic fields on form for editing
 * * * * * * * * * * * * * * * * * * * * * */
 function editTopic($topic_id) {
-	global $conn, $topic_name, $isEditingTopic, $topic_id;
+	global $conexion, $topic_name, $isEditingTopic, $topic_id;
 	$sql = "SELECT * FROM topics WHERE id=$topic_id LIMIT 1";
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conexion, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	// set form values ($topic_name) on the form to be updated
 	$topic_name = $topic['name'];
 }
 function updateTopic($request_values) {
-	global $conn, $errors, $topic_name, $topic_id;
+	global $conexion, $errors, $topic_name, $topic_id;
 	$topic_name = esc($request_values['topic_name']);
 	$topic_id = esc($request_values['topic_id']);
 	// create slug: if topic is "Life Advice", return "life-advice" as slug
@@ -172,7 +172,7 @@ function updateTopic($request_values) {
 	// register topic if there are no errors in the form
 	if (count($errors) == 0) {
 		$query = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
-		mysqli_query($conn, $query);
+		mysqli_query($conexion, $query);
 
 		$_SESSION['message'] = "Topic updated successfully";
 		header('location: topics.php');
@@ -181,9 +181,9 @@ function updateTopic($request_values) {
 }
 // delete topic 
 function deleteTopic($topic_id) {
-	global $conn;
+	global $conexion;
 	$sql = "DELETE FROM topics WHERE id=$topic_id";
-	if (mysqli_query($conn, $sql)) {
+	if (mysqli_query($conexion, $sql)) {
 		$_SESSION['message'] = "Topic successfully deleted";
 		header("location: topics.php");
 		exit(0);
@@ -197,10 +197,10 @@ function deleteTopic($topic_id) {
 * * * * * * * * * * * * * * * * * * * * * */
 function editAdmin($admin_id)
 {
-	global $conn, $username, $role, $isEditingUser, $admin_id, $email;
+	global $conexion, $username, $role, $isEditingUser, $admin_id, $email;
 
 	$sql = "SELECT * FROM users WHERE id=$admin_id LIMIT 1";
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conexion, $sql);
 	$admin = mysqli_fetch_assoc($result);
 
 	// set form values ($username and $email) on the form to be updated
@@ -212,7 +212,7 @@ function editAdmin($admin_id)
 * - Receives admin request from form and updates in database
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function updateAdmin($request_values){
-	global $conn, $errors, $role, $username, $isEditingUser, $admin_id, $email;
+	global $conexion, $errors, $role, $username, $isEditingUser, $admin_id, $email;
 	// get id of the admin to be updated
 	$admin_id = $request_values['admin_id'];
 	// set edit state to false
@@ -232,7 +232,7 @@ function updateAdmin($request_values){
 		$password = md5($password);
 
 		$query = "UPDATE users SET username='$username', email='$email', role='$role', password='$password' WHERE id=$admin_id";
-		mysqli_query($conn, $query);
+		mysqli_query($conexion, $query);
 
 		$_SESSION['message'] = "Admin user updated successfully";
 		header('location: users.php');
@@ -241,9 +241,9 @@ function updateAdmin($request_values){
 }
 // delete admin user 
 function deleteAdmin($admin_id) {
-	global $conn;
+	global $conexion;
 	$sql = "DELETE FROM users WHERE id=$admin_id";
-	if (mysqli_query($conn, $sql)) {
+	if (mysqli_query($conexion, $sql)) {
 		$_SESSION['message'] = "User successfully deleted";
 		header("location: users.php");
 		exit(0);
@@ -254,9 +254,9 @@ function deleteAdmin($admin_id) {
 * - Returns all admin users and their corresponding roles
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function getAdminUsers(){
-	global $conn, $roles;
+	global $conexion, $roles;
 	$sql = "SELECT * FROM users WHERE role IS NOT NULL";
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($conexion, $sql);
 	$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	return $users;
@@ -265,11 +265,11 @@ function getAdminUsers(){
 * - Escapes form submitted value, hence, preventing SQL injection
 * * * * * * * * * * * * * * * * * * * * * */
 function esc(String $value){
-	// bring the global db connect object into function
-	global $conn;
+	// bring the global db conexionect object into function
+	global $conexion;
 	// remove empty space sorrounding string
 	$val = trim($value); 
-	$val = mysqli_real_escape_string($conn, $value);
+	$val = mysqli_real_escape_string($conexion, $value);
 	return $val;
 }
 // Receives a string like 'Some Sample String'

@@ -1,19 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículo3</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/artc3.css">
-  </head>
-<header>
-  <?php require_once('includes/navbar.php') ?>
-  <?php require_once('includes/header.php') ?>
-</header>
-  <body>
+
 <br>
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
@@ -167,17 +152,8 @@
       </div>
       </div>
     </div>
+    <hr>
+  <p>¿Consideras que este articulo puede dañar la sensibilidad del lector?</p>
+      <p>Puedes dar click al boton "revisión" y será evaluado por un moderador</p>
+      <a href="#" class="button">Revision</a>
   </div>
-
-  <?php require_once('includes/comentarios.php') ?>
-
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-  </body>
-  <footer>
-    <?php require_once('includes/footer.php') ?>
-  </footer>
-
-</html>

@@ -1,16 +1,30 @@
 <?php
+  $status = session_status();
+  if($status == PHP_SESSION_NONE){
+      //There is no active session
+      session_start();
+  }else
+  if($status == PHP_SESSION_DISABLED){
+      //Sessions are not available
+  }else
+  if($status == PHP_SESSION_ACTIVE){
+      //Destroy current and start new one
+      session_destroy();
+      session_start();
+  }
 
   $servername= "localhost";
   $user="root";
   $pass="";
-  $dbname="revista";
+  $dbname="mydb";
 
-  $conexion = new mysqli ($servername, $user, $pass, $dbname);
+  // connect to database
+	$conexion = mysqli_connect($servername, $user, $pass, $dbname);
 
-  if ($conexion->connect_error)
-  {
-    die ("Conexion fallida: " . $conexion->connect_error);
-  }
-
-
- ?>
+	if (!$conexion) {
+		die("Error connecting to database: " . mysqli_connect_error());
+	}
+  // define global constants
+	define ('ROOT_PATH', realpath(dirname(__FILE__)));
+	define('BASE_URL', 'http://localhost/RevistaWeb/revista/')
+?>
