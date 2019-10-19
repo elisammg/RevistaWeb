@@ -1,0 +1,17 @@
+$variable1: orange;
+body{
+  background: $variable1;
+  color: black;
+  h1
+  {
+    background: purple;
+    //font-style: oblique;
+  }
+}
+
+@mixin fortable{
+  table {
+    @extend %responive-tables;
+    @include responive-tables('Heading Col 1', 'Heading Col 2', 'Heading Col 3');
+}
+}
