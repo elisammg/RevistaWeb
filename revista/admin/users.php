@@ -11,7 +11,6 @@
 		<div class="action">
 
 			<form method="post" action="<?php echo 'admin.php'; ?>" >
-
 				<!-- validation errors for the form -->
 				<?php include('includes/errors.php') ?>
 
@@ -27,7 +26,8 @@
 							<option value="<?php echo $role; ?>"><?php echo $role; ?></option>
 						<?php endforeach ?>
 					</select> 
-					<button type="submit" class="btn" name="update_admin">UPDATE</button>
+					<button type="submit" class="button" name="update_admin">Actualizar</button>
+					<a href="admin.php" type="submit" class="button">Atrar</a>
 				<?php endif ?>
 			</form>
 		</div>

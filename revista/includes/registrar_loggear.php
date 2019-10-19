@@ -45,8 +45,8 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO users (nombre, apellido, username, email, role, password, created_at, updated_at) 
-  			  VALUES('$nombre', '$apellido', '$username', '$email', 'Lector', '$password', now(), now())";
+  	$query = "INSERT INTO users (nombre, apellido, username, email, role, password, created_at, updated_at, foto, suscripcion) 
+  			  VALUES('$nombre', '$apellido', '$username', '$email', 'Lector', '$password', now(), now(), NULL, 0)";
     mysqli_query($conexion, $query);
     
     // get id of created user

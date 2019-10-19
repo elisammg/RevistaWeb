@@ -3,7 +3,7 @@
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
 <?php
     if (isset($_GET['subtopic-plantilla'])) {
-        $subtopic = ($_GET['subtopic-plantilla']);
+        $subtopic = $_GET['subtopic-plantilla'];
     }
     
 ?>
