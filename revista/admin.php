@@ -1,8 +1,5 @@
 <?php include('conexion.php'); ?>
 <?php include('includes/registrar_loggear.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/user_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/topic_functions.php'); ?>
 
 <?php 
 	// Get all admin users from DB

@@ -1,9 +1,6 @@
 <?php include('conexion.php'); ?>
 <?php include('includes/registrar_loggear.php'); ?>
 <?php  include(ROOT_PATH . '/includes/public_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/user_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/topic_functions.php'); ?>
 
 <?php $posts = getPublishedPosts(); ?>
 
@@ -55,14 +52,14 @@
             <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
             <h4>ARTICULO</h4>
             <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
-                        <div class="post_info">
-                            <h3><?php echo $post['title'] ?></h3>
-                            <div class="info">
-                                <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
-                                <span class="read_more">Read more...</span>
-                            </div>
-                        </div>
-                    </a>
+                <div class="post_info">
+                    <h3><?php echo $post['title'] ?></h3>
+                    <div class="info">
+                        <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
+                        <span class="read_more">Read more...</span>
+                    </div>
+                </div>
+            </a>
           </div>
         </div>
       </div>
