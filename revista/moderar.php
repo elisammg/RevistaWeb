@@ -42,7 +42,7 @@
         </form>
       </div>
     </div>
-    <div class="large-12 cell">
+    <div class="large-8 cell">
       <div class="callout">
       <h3>Modulo de moderación</h3>
       <hr>
@@ -53,7 +53,23 @@
         </div>
         <div class="large-6 medium-6 cell">
           <h4>Moderación de comentarios</h4>
-          <?php require_once('includes/modcomment.php') ?>
+          <?php  
+          $sql = "SELECT count(id) FROM mydb.comentarios"; 
+           $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?>
+           <p>La cantidad de comentarios reportados son: <b><?=$row['count(id)']?></b></p>
+           <a href="modcomentarios.php" class="button">Revisar</a>            
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "0 resultados";
+      }
+          ?>
         </div>
       </div>
       </div>
