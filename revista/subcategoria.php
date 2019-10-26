@@ -32,11 +32,11 @@
         }else if($subtopic == 1){
             require_once('sub2.php');
         }else{
-            echo "El articulo no tiene plantilla.";
+            echo "Sub categoria sin plantilla";
         }
     ?>
 
-    <?php require_once('includes/comentarios.php') ?>
+    
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>

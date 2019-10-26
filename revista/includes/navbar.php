@@ -22,7 +22,7 @@
         <li>
           <a href="categorias.php"><?=$row['name']?></a>
           <ul class="menu">
-            <li><a href="subcategoria.php?subtopic-plantilla=<?php echo $row['id']; ?>"><?php 
+            <li><a href="subcategoria.php?subtopic-plantilla=<?php echo $row['']; ?>"><?php 
               category_tree($row["id"]);
           ?></a></li>
           </ul>

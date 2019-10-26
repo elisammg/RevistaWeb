@@ -9,10 +9,7 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
-  <head>
-    <?php require_once('includes/navbar.php') ?>
-    <?php require_once('includes/header.php') ?>
-  </head>
+
   <body>
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
@@ -67,14 +64,7 @@
       </div>
     </div>
     <hr>
-    
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
   </body>
-<footer>
-  <?php require_once('includes/footer.php') ?>
-</footer>
+ 
 </html>
