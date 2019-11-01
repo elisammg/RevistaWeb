@@ -20,11 +20,10 @@
     {
      ?>
         <li>
-          <a href="categorias.php"><?=$row['name']?></a>
+          <a href="categorias.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a>
           <ul class="menu">
-            <li><a href="subcategoria.php?subtopic-plantilla=<?php echo $row['']; ?>"><?php 
-              category_tree($row["id"]);
-          ?></a></li>
+            <li><a href="subcategoria.php">
+              <?php category_tree($row["id"]); ?></a></li>
           </ul>
         </li>
         <?php
