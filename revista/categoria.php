@@ -26,9 +26,9 @@
 
     <?php
         if($subtopic == 0){
-            require_once('sub1.php');
+            require_once('categoria1.php');
         }else if($subtopic == 1){
-            require_once('sub2.php');
+            require_once('categoria2.php');
         }else{
             echo "Sub categoria sin plantilla";
         }
