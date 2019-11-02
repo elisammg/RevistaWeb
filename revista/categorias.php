@@ -49,10 +49,12 @@ $result = mysqli_query($conexion, $sql);
               <p><a href="subcategoria.php?subtopic-plantilla=<?php echo $row['plantilla']; ?>"><?php category_tree($row["id"]);?></a></p>
               </div>
           </div>
+          <hr>
           <?php 
        } //end while
      } //end if
        ?>
+
         </div>
       </div>
     </div>          

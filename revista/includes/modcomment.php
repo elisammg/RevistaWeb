@@ -18,6 +18,7 @@
        
     <?php
     $sql = "SELECT * FROM mydb.modcomment";
+
     
        $result = mysqli_query($conexion, $sql);
 
