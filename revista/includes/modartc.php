@@ -8,10 +8,10 @@
        <div class="large-12">
        <table align="center" cellpadding="1" cellspacing="1">
            <tr>
-            <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
             <td width="100" align="center"><strong>Titulo</strong></td>
             <td width="100" align="center"><strong>Autor</strong></td>
             <td width="100" align="center"><strong>Contenido</strong></td>
+            <td width="100" align="center"><strong>Publicar</strong></td>
        </tr> 
        
     <?php
@@ -24,11 +24,10 @@
        {
            ?> 
            <tr>
-               <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
-               cadena insertada en nuestro formulario-->
                <td class="estilo-tabla" align="center"><?=$row['Titulo']?></td>
                <td class="estilo-tabla" align="center"><?=$row['Autor']?></td>
                <td class="estilo-tabla" align="center"><?=$row['Contenido']?></td>
+               <td class="estilo-tabla" align="center"><input type="submit" value="Publicar" name="publicar"></td>
            </tr> 
            <?php 
        }//fin blucle
