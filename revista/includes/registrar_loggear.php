@@ -102,6 +102,8 @@ if (isset($_POST['login_user'])) {
   	$password = md5($password);
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
     $results_log = mysqli_query($conexion, $query);
+    $updateDate = "UPDATE users SET updated_at = now() WHERE username = '$username'";
+    $resultUpdate = mysqli_query($conexion, $updateDate);
     
   	if (mysqli_num_rows($results_log) == 1) {
       $user = mysqli_fetch_assoc($results_log);
@@ -132,7 +134,7 @@ if (isset($_POST['login_user'])) {
       }
   	}else {
   		array_push($errors, "Wrong username/password combination");
-  	}
+    }
   }
 }
 

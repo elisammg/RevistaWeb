@@ -2,6 +2,8 @@
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
 <?php
+    /* El $_GET va a dar errores debido a que la página no toma ningún parametro. 
+    Por eso puse como ejemplo el "?subtopic-plantilla=0" en navbar.php */
     if (isset($_GET['subtopic-plantilla'])) {
         $subtopic = $_GET['subtopic-plantilla'];
     }
