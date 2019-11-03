@@ -43,6 +43,7 @@ if (isset($_POST['reg_user'])) {
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
+    
   	$password = md5($password);//encrypt the password before saving in the database
 
   	$query = "INSERT INTO users (nombre, apellido, username, email, role, password, created_at, updated_at, foto, suscripcion) 
@@ -54,7 +55,13 @@ if (isset($_POST['reg_user'])) {
       
     $sql = "SELECT * FROM users WHERE id=$reg_user_id LIMIT 1";
     $results_reg = mysqli_query($conexion, $sql);
-
+  
+    /* Sending email section */
+    $to = "$email";
+    $subject = "Welcome - RevistaWeb";
+    $message = "Welcome to our page.";
+    mail($to,$subject,$message);
+    
     $user = mysqli_fetch_assoc($results_reg);
     $_SESSION['users'] = $user;
     
