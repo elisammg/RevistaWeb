@@ -75,13 +75,14 @@
           </div>
         </div>
         <?php 
-          if (isset($_POST['este']))
+          if (isset($_GET['este']))
           {
-            //se pone el post que se seleccione
-            $opcion=$_GET['opcion'];
-            $sql = "UPDATE anuncios SET id_post = '$opcion' WHERE anuncios.id = 2";
-            $result = mysqli_query($conexion, $sql);
-            if($result){
+            //se pone anuncio en el post que se seleccione
+            $opcion=$_GET['carlist'];
+            $nombre=$_GET['anuncio'];
+            $sql3 = "UPDATE anuncios SET id_post = '$opcion' WHERE anuncios.titulo = '$nombre'";
+            $result3 = mysqli_query($conexion, $sql3);
+            if($result3){
               echo "Se ingresaron correctamente los datos";
             }else{
               echo "No se ingresaron los datos.";
@@ -89,6 +90,7 @@
           }
         ?>
         <!-- //Administración de anuncios -->
+
         <!-- Administración de suscripciones -->
          <div class="large-6 cell">
           <div class="callout">
