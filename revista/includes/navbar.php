@@ -20,9 +20,11 @@
     {
      ?>
         <li>
+          <!--Navegacion categorias -->
           <a href="categoria.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a>
           <ul class="menu">
-            <li><a href="subcategoria.php">
+            <!--Navegacion subcategorias -->
+          <li><a href="subcategoria.php">
               <?php category_tree($row["id"]); ?></a></li>
           </ul>
         </li>
