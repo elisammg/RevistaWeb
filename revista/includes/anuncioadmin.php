@@ -17,11 +17,11 @@
 		}
 
 		 ?>   
-
+<!--seleccionar anuncio para articulo-->
 	<form action="admin.php" id="carform">
 	  <label>Nombre de anuncio</label>
 	  <input type="text" name="anuncio" required placeholder="Ingrese nombre de anuncio">
-	  <input type="submit" name="este">
+	  <input type="submit" class="button" name="este">
 	</form>
 	<br>
 

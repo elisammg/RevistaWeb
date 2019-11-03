@@ -6,38 +6,48 @@
           <dl>
           <dt>is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
             <br>
-            <a class="tiny success button" href="respuesta.php" name="contestar">Contestar</a> 
-            <a class="tiny alert button" href="#0" name="reportar">Reportar</a>
+            <form action="answer.php" method="get">
+            <input type="submit" class="tiny success button" name="contestar" value="Comentar">
+            <input type="submit" class="tiny alert button" name="reportar" value="Reportar">
+            </form>
           </dt>
           <hr>
           <dd>Respuestas comentario
           <ol>
             <li>Respuesta is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
               <br>
-              <a class="tiny success button" href="respuesta.php" name="contestar">Contestar</a> 
-              <a class="tiny alert button" href="#0" name="reportar">Reportar</a>
+              <form action="answer.php" method="get">
+              <input type="submit" class="tiny success button" name="contestar" value="Comentar"> 
+              <input type="submit" class="tiny alert button" name="reportar" value="Reportar">
+              </form>
               <hr> 
             </li>
             <ol type="a">
               <li>Respuesta is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
               <br> 
-                <a class="tiny success button" href="respuesta.php" name="contestar">Contestar</a>
-                <a class="tiny alert button" href="#0" name="reportar">Reportar</a>
+              <form action="answer.php" method="get">
+                <input type="submit" class="tiny success button" name="contestar" value="Comentar">
+                <input type="submit" class="tiny alert button" name="reportar" value="Reportar">
+                </form>
                 <hr>
               </li> 
               <ol type="I">
                 <li>Respuesta is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. T
                   <br>
-                  <a class="tiny success button" href="respuesta.php" name="contestar">Contestar</a>
-                  <a class="tiny alert button" href="#0" name="reportar">Reportar</a>
+                  <form action="answer.php" method="get">
+                  <input type="submit" class="tiny success button" name="contestar" value="Comentar">
+                  <input type="submit" class="tiny alert button" name="reportar" value="Reportar">
+                  </form>
                   <hr>
                 </li>
               </ol>             
             </ol>
             <li>Respuesta is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
             <br> 
-              <a class="tiny success button" href="respuesta.php" name="contestar">Contestar</a>
-              <a class="tiny alert button" href="#0" name="reportar">Reportar</a>
+            <form action="answer.php" method="get">
+              <input type="submit" class="tiny success button" name="contestar" value="Comentar">
+              <input type="submit" class="tiny alert button" name="reportar" value="Reportar">
+              </form>
               <hr>
             </li>
           </ol>

@@ -18,6 +18,7 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
+    <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
         <?php if (isset($_SESSION['users'])) { ?>
@@ -45,6 +46,7 @@
         </form>
       </div>
     </div>
+
     <div class="large-8 cell">
       <div class="callout">
         <div class="grid-x grid-padding-x">
@@ -66,11 +68,17 @@
       <!-- <a href="newartc.php" class="button">Nuevo Articulo</a> -->
     </div>
     <div class="large-12 cell">
+      <?php require_once('includes/vvartc.php') ?>
+    </div>
+    <!--crear articulo -->
+    <div class="large-12 cell">
       <div class="callout">
         <?php include('admin/create_post.php'); ?>
       </div>
     </div>
   </div>
+</div>
+
 
 
 	<script src="js/vendor/jquery.js"></script>

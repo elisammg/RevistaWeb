@@ -89,6 +89,8 @@
         </div>
       </div>
       </div>
+      <!--Veces visto articulo-->
+      <?php require_once('includes/vvartc.php') ?>
     </div>
   </div>
   </div>

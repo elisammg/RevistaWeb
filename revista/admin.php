@@ -78,8 +78,8 @@
           if (isset($_GET['este']))
           {
             //se pone anuncio en el post que se seleccione
-            $opcion=$_GET['carlist'];
-            $nombre=$_GET['anuncio'];
+            $opcion=$_GET['carlist']; //opcion de la lista
+            $nombre=$_GET['anuncio']; //nombre ingresado
             $sql3 = "UPDATE anuncios SET id_post = '$opcion' WHERE anuncios.titulo = '$nombre'";
             $result3 = mysqli_query($conexion, $sql3);
             if($result3){
@@ -146,6 +146,9 @@
 
        
         <!-- //Administración de suscripciones -->
+        <div class="large-12 cell">
+          <?php require_once('includes/vvartc.php') ?>
+        </div>
 
         <!-- Administración de categorías y subcategorías -->
         <div class="large-12 cell">
