@@ -14,9 +14,15 @@
 <header>
 </header>
   <body>
-    
     <br>
-  <?php require_once('includes/answer.php') ?>
+    <?php if (isset($_SESSION['users'])) { ?>
+          <?php require_once('includes/answer.php') ?>
+        <?php }else{
+
+          echo "Inicia sesion para comentar";
+
+          } ?>
+  
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

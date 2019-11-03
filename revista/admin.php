@@ -68,24 +68,8 @@
         </div>
         <!-- //Administración de usuarios -->
 
-        <!-- Administración de categorías y subcategorías -->
-        <div class="large-12 cell">
-          <div class="callout">
-          <h3>ADMINISTRAR CATEGORIAS</h3>
-          <hr>
-          <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-              <h4>CATEGORIAS</h4>
-
-                <?php include('admin/topics.php'); ?>
-
-            </div>
-          </div>
-        </div>
-        <!-- //Administración de categorías y subcategorías -->
-
         <!-- Administración de anuncios -->
-        <div class="large-12 cell">
+        <div class="large-6 cell">
           <div class="callout">
             <h3>ANUNCIOS</h3>
             <hr>
@@ -93,25 +77,91 @@
               <div class="large-4 medium-4 cell">
                 <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
                 <h4>TITULO ANUNCIO</h4>
-                <p>Veces visto</p>
+                <p>Veces click</p>
                 <a href="#" class="button">Seleccionar</a>
               </div>
               <div class="large-4 medium-4 cell">
                 <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
                 <h4>TITULO ANUNCIO</h4>
-                <p>Veces visto</p>
+                <p>Veces click</p>
                 <a href="#" class="button">Seleccionar</a>
               </div>
               <div class="large-4 medium-4 cell">
                 <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
                 <h4>TITULO ANUNCIO</h4>
-                <p>Veces visto</p>
+                <p>Veces click</p>
                 <a href="#" class="button">Seleccionar</a>
               </div>
             </div>
           </div>
         </div>
         <!-- //Administración de anuncios -->
+        <!-- Administración de suscripciones -->
+         <div class="large-6 cell">
+          <div class="callout">
+            <h1>SUSCRIPCIONES</h1>
+            <table>
+              <tr>
+                <th>Numero</th>
+                <th>Tipo</th>
+                <th>Descripcion</th>
+                <th>Costo</th>
+              </tr>
+              <?php 
+              $sql="SELECT * FROM suscripcion";
+              $result=mysqli_query($conexion,$sql);
+              while ($mostrar=mysqli_fetch_array($result)){
+              ?>
+              <tr>
+                <td><?php echo $mostrar['id'] ?></td>
+                <td><?php echo $mostrar['tipo'] ?></td>
+                <td><?php echo $mostrar['descripcion'] ?></td>
+                <td>Q<?php echo $mostrar['costo'] ?></td>
+              </tr>
+              <?php 
+              }
+
+               ?>    
+            </table>
+            <h5>Nueva suscripcion</h5>
+          <form role="form" method="post" action="admin.php">
+            <input type="text" name="tipo" required placeholder="Ingrese tipo de suscripcion">
+            <input type="text" name="descripcion" required placeholder="Ingrese descripcion">
+            <input type="text" name="costo" required placeholder="Ingrese costo">
+            <input type="submit" name="nuevasusc" value="Agregar suscripcion">
+          </form>
+          </div>
+        </div>
+        <!-- //Insertar suscripciones -->
+        <?php 
+          if (isset($_POST['nuevasusc']))
+          {
+            $tipo=$_POST['tipo'];
+            $desc=$_POST['descripcion'];
+            $precio=$_POST['costo'];
+            $sql = "INSERT INTO `suscripcion` (`id`, `tipo`, `descripcion`, `costo`) VALUES (NULL, '$tipo', '$desc', '$precio')";
+            $result = mysqli_query($conexion, $sql);
+            if($result){
+              echo "Se ingresaron correctamente los datos";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
+
+       
+        <!-- //Administración de suscripciones -->
+
+        <!-- Administración de categorías y subcategorías -->
+        <div class="large-8 cell">
+          <div class="callout">
+          <h3>ADMINISTRAR CATEGORIAS</h3>
+          <hr>
+              <h4>CATEGORIAS</h4>
+                <?php include('admin/topics.php'); ?>
+        </div>
+      </div>
+        <!-- //Administración de categorías y subcategorías -->
 
       </div>
     </div>

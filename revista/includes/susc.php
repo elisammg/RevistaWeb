@@ -35,7 +35,7 @@
      <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
 	      	<div class="callout">
-<form class="log-in-form" action="suscripcion.php" method="post" enctype="multipart/form-data">
+			<form class="log-in-form" action="suscripcion.php" method="post" enctype="multipart/form-data">
 	        <h5 class="text-center">Selecciona suscripcion</h5>
 	        <ul>
 	        	<li>
