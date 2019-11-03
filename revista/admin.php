@@ -153,7 +153,7 @@
         <!-- //Administración de suscripciones -->
 
         <!-- Administración de categorías y subcategorías -->
-        <div class="large- cell">
+        <div class="large-12 cell">
           <div class="callout">
           <h3>ADMINISTRAR CATEGORIAS</h3>
           <hr>
