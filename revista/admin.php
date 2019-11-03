@@ -71,30 +71,22 @@
         <!-- Administración de anuncios -->
         <div class="large-6 cell">
           <div class="callout">
-            <h3>ANUNCIOS</h3>
-            <hr>
-            <div class="grid-x grid-padding-x">
-              <div class="large-4 medium-4 cell">
-                <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
-                <h4>TITULO ANUNCIO</h4>
-                <p>Veces click</p>
-                <a href="#" class="button">Seleccionar</a>
-              </div>
-              <div class="large-4 medium-4 cell">
-                <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
-                <h4>TITULO ANUNCIO</h4>
-                <p>Veces click</p>
-                <a href="#" class="button">Seleccionar</a>
-              </div>
-              <div class="large-4 medium-4 cell">
-                <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
-                <h4>TITULO ANUNCIO</h4>
-                <p>Veces click</p>
-                <a href="#" class="button">Seleccionar</a>
-              </div>
-            </div>
+            <?php require_once('includes/anuncioadmin.php') ?>
           </div>
         </div>
+        <?php 
+          if (isset($_POST['este']))
+          {
+            //se pone el post que se seleccione
+            $sql = "UPDATE anuncios SET id_post = '22' WHERE anuncios.id = 1";
+            $result = mysqli_query($conexion, $sql);
+            if($result){
+              echo "Se ingresaron correctamente los datos";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
         <!-- //Administración de anuncios -->
         <!-- Administración de suscripciones -->
          <div class="large-6 cell">
