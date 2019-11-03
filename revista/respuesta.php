@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
 <header>
-  <?php require_once('includes/navbar.php') ?>
-  <?php require_once('includes/header.php') ?>
 </header>
   <body>
-
+    
+    <br>
   <?php require_once('includes/answer.php') ?>
 
     <script src="js/vendor/jquery.js"></script>
@@ -24,8 +23,5 @@
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
   </body>
-  <footer>
-    <?php require_once('includes/footer.php') ?>
-  </footer>
 
 </html>
