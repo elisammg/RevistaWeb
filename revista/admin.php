@@ -78,7 +78,8 @@
           if (isset($_POST['este']))
           {
             //se pone el post que se seleccione
-            $sql = "UPDATE anuncios SET id_post = '22' WHERE anuncios.id = 1";
+            $opcion=$_GET['opcion'];
+            $sql = "UPDATE anuncios SET id_post = '$opcion' WHERE anuncios.id = 2";
             $result = mysqli_query($conexion, $sql);
             if($result){
               echo "Se ingresaron correctamente los datos";
