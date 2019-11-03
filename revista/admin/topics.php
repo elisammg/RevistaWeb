@@ -8,14 +8,22 @@
 		<!-- Si no se está haciendo nada -->
 		<?php if($isNewTopic === false && $isEditingTopic === false){ ?>
 			<?php if(count($topics)>0):?>
-				<ul>
+				<table>
+					<tr>
+					<td><center>Categoria</center></td>
+					<td><center>SubCategorias</center></td>
+					</tr>
 				<?php foreach($topics as $topic):?>
-					<li><?php echo $topic["name"]; ?><a href="admin.php?edit-topic-id=<?php echo $topic['id'] ?>">Editar</a> </li>
-					<?php
+					<td><center><?php echo $topic["name"]; ?></center>
+					<center><a href="admin.php?edit-topic-id=<?php echo $topic['id'] ?>">Editar</a></center>
+					</td>
+					<td><center><?php
 						category_tree($topic["id"]);
-					?>
+					?></center></td>
+					</tr>
+					
 				<?php endforeach;?>
-				</ul>
+				</table>
 			<?php else:?>
 				<p class="alert alert-danger">No hay categorias</p>
 			<?php endif;?>
