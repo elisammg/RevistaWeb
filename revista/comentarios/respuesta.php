@@ -1,4 +1,4 @@
-<?php include('conexion.php'); ?>
+
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 
 <!doctype html>
