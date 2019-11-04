@@ -2,12 +2,15 @@
 <br>
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
-      <div class="large-9 cell">
-      <h1>TITULO ARTÍCULO</h1>
+      <div class="large-4 cell">
+      <h1><?php echo $post['title']; ?></h1>
       </div>
-      <div class="large-3 cell">
-        <h3>Datos de Autor</h3>
-        <p>Fecha publicacion</p>
+      <div class="large-4 cell">
+        <h3><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></h3>
+        <p><?php echo $post['created_at']; ?></p>
+      </div>
+      <div class="large-4 cell">
+      <h1><img src="<?php echo $post['user']['foto']; ?>"></h1>
       </div>
     </div>
   </div>

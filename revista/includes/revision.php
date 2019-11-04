@@ -1,13 +1,29 @@
 <div class="grid-container">
   <div class="grid-x grid-padding-x">
     <div class="large-12 cell">
-      <h5>Moderacion</h5>
-      <div class="alert callout">
+      <h5>Moderación y Comentarios</h5>
+      <div class="alert callout"> 
+      <div class="grid-x grid-padding-x">
+      <div class="large-6 medium-6 cell">     
+      <h6>¿Consideras que este articulo puede dañar la sensibilidad del lector?</h6>
+      <p>Puedes dar click al boton "reportar" y será evaluado por un moderador</p>
+      </div>
+      <div class="large-6 medium-6 cell"> 
+      <h6>¿Quierés dejar un comentario?</h6>
+      <p>Da click al boton "comentar" para dejar un comentario</p>
+      </div>
       
-      <p>¿Consideras que este articulo puede dañar la sensibilidad del lector?</p>
-      <p>Puedes dar click al boton "revisión" y será evaluado por un moderador</p>
-      <a href="revision.php" class="button">Revision</a>
        </div>
+       <hr>
+       <center>
+        <form action="comentarios/answer.php" method="get">
+        <input type="submit" class="tiny success button" name="contestar" value="Comentar">
+        <input type="submit" class="tiny alert button" name="reportarartc" value="Reportar Articulo">
+        </form>          
+        </center>
+     </div>
+     <!-- -->
+      
     </div>
   </div>
 </div>

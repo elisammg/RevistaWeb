@@ -26,7 +26,8 @@ $categoria=$_GET['categoria'];
 $autor=$_GET['nombre'];
 $creado=$_GET['created_at'];
 $texto=$_GET['body'];
-  $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
+//query de busqueda
+$sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
 
     . "INNER JOIN mydb.users \n"
 

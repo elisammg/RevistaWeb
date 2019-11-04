@@ -22,9 +22,9 @@
   </div>
 </div>
 </div>
-  <?php require_once('includes/modartc.php') ?>
+  <?php require_once('includes/modreporteartc.php') ?>
   
- 
+
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

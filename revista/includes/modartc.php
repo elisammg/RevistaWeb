@@ -18,7 +18,7 @@
        </tr> 
        
     <?php
-    $sql = "SELECT * FROM mydb.modartc";
+    $sql = "SELECT * FROM mydb.modenewartc";
     
        $result = mysqli_query($conexion, $sql);
 
@@ -27,12 +27,14 @@
        {
            ?> 
            <tr>
-               <td class="estilo-tabla" align="center"><?=$row['Titulo']?></td>
+               <td class="estilo-tabla" align="center"><?=$row['Titulo']?></td></a>
                <td class="estilo-tabla" align="center"><?=$row['Autor']?></td>
                <td class="estilo-tabla" align="center"><?=$row['Contenido']?></td>
+               <form action="modarticulo.php" method="get">
                <td class="estilo-tabla" align="center"><input type="submit" value="Publicar" name="publicar"></td>
                <td class="estilo-tabla" align="center"><input type="submit" value="Modificar" name="modificar"></td>
                <td class="estilo-tabla" align="center"><input type="submit" value="No publicar" name="draft"></td>
+             </form>
            </tr> 
            <?php 
        }//fin blucle

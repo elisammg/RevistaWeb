@@ -27,7 +27,7 @@
       </div>
       <div class="large-4 cell">
         <div class="callout">
-          <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+          <img src="<?php echo $_SESSION['users']['foto'] ?>" alt="">
           <h3>DATOS USUARIO</h3>
           <form class="" action="index.html" method="post">
           <ul>
@@ -47,17 +47,18 @@
       <h3>Modulo de moderación</h3>
       <hr>
       <div class="grid-x grid-padding-x">
-         <div class="large-6 medium-6 cell">
-          <h4>Moderación de Articulos</h4>
+         <div class="large-4 medium-4 cell">
+        <!--Moderacion de articulos para publicar -->  
+          <h4>Publicación de Articulos</h4>
           <?php  
-          $sql = "SELECT count(Id) FROM mydb.modartc"; 
+          $sql = "SELECT count(Id) FROM mydb.modenewartc"; 
            $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0){ 
        while($row = mysqli_fetch_assoc($result)) 
        {
            ?>
-           <p>La cantidad de comentarios reportados son: <b><?=$row['count(Id)']?></b></p>
+           <p>La cantidad de articulos por revisar son: <b><?=$row['count(Id)']?></b></p>
            <a href="modarticulo.php" class="button">Revisar</a>            
            <?php 
        }//fin blucle
@@ -67,7 +68,9 @@
       }
           ?>
         </div>
-        <div class="large-6 medium-6 cell">
+        <div class="large-4 medium-4 cell">
+
+      <!--Moderacion de comentarios cuenta cuantos hay -->    
           <h4>Moderación de comentarios</h4>
           <?php  
           $sql = "SELECT count(id) FROM mydb.modcomment"; 
@@ -87,6 +90,31 @@
           }
               ?>
         </div>
+
+       <div class="large-4 medium-4 cell">
+      <!--Moderacion de Artículos cuenta cuantos hay -->    
+          <h4>Moderación de Artículos</h4>
+          <?php  
+          $sql = "SELECT count(id) FROM mydb.modartc;"; 
+           $result = mysqli_query($conexion, $sql);
+
+           if (mysqli_num_rows($result) > 0){ 
+           while($row = mysqli_fetch_assoc($result)) 
+           {
+               ?>
+               <p>La cantidad de comentarios reportados son: <b><?=$row['count(id)']?></b></p>
+               <a href="reporteartc.php" class="button">Revisar</a>            
+               <?php 
+           }//fin blucle
+          } else
+          {
+            echo "0 resultados";
+          }
+              ?>
+        </div>
+
+
+
       </div>
       </div>
       <!--Veces visto articulo-->

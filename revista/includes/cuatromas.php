@@ -18,7 +18,10 @@
           <h2><?=$row['title']?></h2>
           <h3>AUTOR</h3>
           <p><?=$row['body']?></p>
-          <a href="articulo.php?post-slug=<?php echo $row['slug']; ?>" class="button">Leer más</a>
+          <a href="articulo.php?post-slug=<?php echo $row['slug'];?>" class="button">Leer mas</a>
+          <!--<form action="includes/leermas.php" method="get">
+              <input type="submit" class="button" name="leer" value="Leer mas">
+              </form> -->
          
         </div>
       </div>
@@ -30,3 +33,5 @@
     </div>
   </div>
   <hr>
+
+

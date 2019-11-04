@@ -9,7 +9,8 @@
             <td width="100" align="center"><strong>Titulo</strong></td>
             <td width="100" align="center"><strong>Autor</strong></td>
             <td width="100" align="center"><strong>Resumen</strong></td>
-            <td width="100" align="center"><strong>Fecha de publicacion</strong></td>
+            <td width="100" align="center"><strong>Fecha de publicacion</strong></td>            
+            <td width="100" align="center"><strong>Leer mas</strong></td>
           </tr> 
         
           <?php
@@ -24,12 +25,16 @@
           <tr>
               <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
               cadena insertada en nuestro formulario-->
-              <td class="estilo-tabla" align="center">
-              <a href="articulo.php?post-slug=<?php echo $row['slug']; ?>"><?=$row['title']?></a>
-            </td>
+              <td class="estilo-tabla" align="center"><?=$row['title']?></td>
               <td class="estilo-tabla" align="center"><?=$row['username']?></td>
               <td class="estilo-tabla" align="center"><?=$row['slug']?></td>
               <td class="estilo-tabla" align="center"><?=$row['created_at']?></td>
+              <td class="estilo-tabla" align="center">
+                <a href="articulo.php?post-slug=<?php echo $row['slug'];?>" class="button">Leer mas</a>
+              <!--<form action="includes/leermas.php" method="get">
+              <input type="submit" class="button" name="leer" value="Leer mas">
+              </form> -->
+            </td>
           </tr> 
           <?php 
             }//fin blucle if

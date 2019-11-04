@@ -3,14 +3,19 @@
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
           <h1><?php echo $post['title']; ?></h1>
-          <?php if (isset($_SESSION['users'])) { ?>
             <div class="callout">
+            <div class="grid-x grid-padding-x">
+              <div class="large-6 medium-6 cell">
               <p><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></p>
               <p><?php echo $post['created_at']; ?></p>
-              <p><?php echo $post['topic']['nombre']; ?></p>
+              <p><?php echo $post['topic']['nombre']; ?>Topic</p>
               <span class="primary label">FREE</span>
             </div>
-          <?php } ?>
+            <div class="large-6 medium-6 cell">
+              <center><img src="<?php echo $post['user']['foto']; ?>"></center>
+            </div>
+          </div>
+        </div>
 
           <?php 
             if($post['published'] == false){ ?>

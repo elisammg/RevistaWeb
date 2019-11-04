@@ -1,7 +1,8 @@
-<!--Este para admin-->
+<!--Este para que admin selecciones que anuncion en que pagina -->
 <h3>ANUNCIOS</h3>
 <hr>
 <div class="grid-x grid-padding-x">
+	<!--Se muestran los anuncios -->
 	<?php 
 		$sql="SELECT * FROM anuncios";
 		$result=mysqli_query($conexion,$sql);

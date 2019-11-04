@@ -37,6 +37,7 @@
             echo "El articulo no tiene plantilla.";
         }
     ?>
+    
     <?php require_once('includes/revision.php') ?>
     <?php require_once('comentarios/comentarios.php') ?>
     <script src="js/vendor/jquery.js"></script>

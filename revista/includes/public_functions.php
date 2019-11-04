@@ -20,8 +20,9 @@ function getPublishedPosts() {
 //Función para tomar la categoría del artículo
 function getPostTopic($post_id){
 	global $conexion;
-	$sql = "SELECT * FROM subtopic WHERE id=
-			(SELECT topic_id FROM post_topic WHERE post_id=$post_id) LIMIT 1";
+	//subquery 1
+	$sql = "SELECT * FROM subtopic WHERE id= 
+			(SELECT topic_id FROM post_topic WHERE post_id= $post_id) LIMIT 1";
 	$result = mysqli_query($conexion, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	return $topic;
@@ -29,8 +30,9 @@ function getPostTopic($post_id){
 
 function getAuthorName($post_id){
 	global $conexion;
+	//subquery 2
 	$sql = "SELECT * FROM `users` WHERE id=
-		(SELECT user_id FROM posts WHERE id = 39)";
+		(SELECT user_id FROM posts WHERE id = $post_id)";
 	$result = mysqli_query($conexion, $sql);
 	$authorName = mysqli_fetch_assoc($result);
 	return $authorName;
