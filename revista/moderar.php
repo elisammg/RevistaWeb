@@ -42,18 +42,50 @@
         </form>
       </div>
     </div>
-    <div class="large-12 cell">
+    <div class="large-8 cell">
       <div class="callout">
       <h3>Modulo de moderación</h3>
       <hr>
       <div class="grid-x grid-padding-x">
-        <div class="large-6 medium-6 cell">
-          <h4>Moderación de articulos</h4>
-          <?php require_once('includes/modartc.php') ?>
+         <div class="large-6 medium-6 cell">
+          <h4>Moderación de Articulos</h4>
+          <?php  
+          $sql = "SELECT count(Id) FROM mydb.modartc"; 
+           $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?>
+           <p>La cantidad de comentarios reportados son: <b><?=$row['count(Id)']?></b></p>
+           <a href="modarticulo.php" class="button">Revisar</a>            
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "0 resultados";
+      }
+          ?>
         </div>
         <div class="large-6 medium-6 cell">
           <h4>Moderación de comentarios</h4>
-          <?php require_once('includes/modcomment.php') ?>
+          <?php  
+          $sql = "SELECT count(id) FROM mydb.modcomment"; 
+           $result = mysqli_query($conexion, $sql);
+
+           if (mysqli_num_rows($result) > 0){ 
+           while($row = mysqli_fetch_assoc($result)) 
+           {
+               ?>
+               <p>La cantidad de comentarios reportados son: <b><?=$row['count(id)']?></b></p>
+               <a href="modcomentarios.php" class="button">Revisar</a>            
+               <?php 
+           }//fin blucle
+          } else
+          {
+            echo "0 resultados";
+          }
+              ?>
         </div>
       </div>
       </div>
