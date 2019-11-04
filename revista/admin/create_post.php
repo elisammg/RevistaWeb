@@ -41,6 +41,14 @@
               </select>
 
               <?php require_once('templates.php') ?>
+
+              <!-- Only author users can view publish input field -->
+              <?php if ($_SESSION['users']['role'] == "Author"): ?>
+                  <label for="publish">
+                    Publish
+                    <input type="checkbox" value="1" name="publish">&nbsp;
+                  </label>
+              <?php endif ?>
               
               <!-- if editing post, display the update button instead of create button -->
               <?php if ($isEditingPost === true): ?> 

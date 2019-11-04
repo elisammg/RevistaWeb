@@ -36,7 +36,7 @@
 
         <?php if (isset($_SESSION['users'])) { ?>
           <div class="logged_in_info">
-            <span><a href="logout.php">LOGOUT</a></span>
+            <a href="logout.php"><span><?php echo $_SESSION['users']['username'] ?> : LOGOUT</span></a>
           </div>
         <?php }else{ ?>
 

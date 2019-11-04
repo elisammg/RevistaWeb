@@ -2,8 +2,6 @@
 <?php include('includes/registrar_loggear.php'); ?>
 
 <?php 
-	// Get all admin users from DB
-	//$admins = getAdminUsers();
   $roles = ['Admin', 'Author', 'Lector', 'Moderador'];
   $isEditingUser = false;		
 ?>
@@ -103,20 +101,17 @@
                 <th>Costo</th>
               </tr>
               <?php 
-              $sql="SELECT * FROM suscripcion";
-              $result=mysqli_query($conexion,$sql);
-              while ($mostrar=mysqli_fetch_array($result)){
+                $sql="SELECT * FROM suscripcion";
+                $result=mysqli_query($conexion,$sql);
+                while ($mostrar=mysqli_fetch_array($result)){
               ?>
-              <tr>
-                <td><?php echo $mostrar['id'] ?></td>
-                <td><?php echo $mostrar['tipo'] ?></td>
-                <td><?php echo $mostrar['descripcion'] ?></td>
-                <td>Q<?php echo $mostrar['costo'] ?></td>
-              </tr>
-              <?php 
-              }
-
-               ?>    
+                  <tr>
+                    <td><?php echo $mostrar['id'] ?></td>
+                    <td><?php echo $mostrar['tipo'] ?></td>
+                    <td><?php echo $mostrar['descripcion'] ?></td>
+                    <td>Q<?php echo $mostrar['costo'] ?></td>
+                  </tr>
+                <?php } ?>    
             </table>
             <h5>Nueva suscripcion</h5>
           <form role="form" method="post" action="admin.php">

@@ -1,4 +1,3 @@
-<?php  //include('../conexion.php'); ?>
 <?php 
 	// Get all admin users from DB
 	$admins = getAdminUsers();
