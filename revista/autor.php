@@ -1,10 +1,8 @@
 <?php include('conexion.php'); ?>
 <?php include('includes/registrar_loggear.php'); ?>
+<?php  include(ROOT_PATH . '/includes/public_functions.php'); ?>
 
-<?php 
-  $roles = ['Admin', 'Author', 'Lector', 'Moderador'];
-  $isEditingPost = false;		
-?>
+<?php $posts = getPublishedPosts(); ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -18,7 +16,6 @@
   </head>
 <header>
   <?php require_once('includes/navbar.php') ?>
-  <?php //$posts = getAllPosts(); ?>
 </header>
   <body>
     <div class="grid-container">
@@ -51,21 +48,32 @@
     </div>
 
     <div class="large-8 cell">
-      <?php require_once('includes/vvartc.php') ?>
-    </div>
-
-    <!-- Posts area -->
-    <div class="large-12 cell">
       <div class="callout">
-          <?php include('admin/posts.php'); ?>
+        <div class="grid-x grid-padding-x">
+          <div class="large-4 medium-4 cell">
+            <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+            <h4>ARTICULO</h4>
+            <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
+                <div class="post_info">
+                    <h3><?php echo $post['title'] ?></h3>
+                    <div class="info">
+                        <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
+                        <span class="read_more">Read more...</span>
+                    </div>
+                </div>
+            </a>
+          </div>
         </div>
       </div>
+      <!-- <a href="newartc.php" class="button">Nuevo Articulo</a> -->
     </div>
-    
+    <div class="large-12 cell">
+      <?php require_once('includes/vvartc.php') ?>
+    </div>
     <!--crear articulo -->
     <div class="large-12 cell">
       <div class="callout">
-        <?php //include('admin/create_post.php'); ?>
+        <?php include('admin/create_post.php'); ?>
       </div>
     </div>
   </div>
