@@ -32,7 +32,7 @@ function getAuthorName($post_id){
 	global $conexion;
 	//subquery 2
 	$sql = "SELECT * FROM `users` WHERE id=
-		(SELECT user_id FROM posts WHERE id = 39)";
+		(SELECT user_id FROM posts WHERE id = $post_id)";
 	$result = mysqli_query($conexion, $sql);
 	$authorName = mysqli_fetch_assoc($result);
 	return $authorName;
