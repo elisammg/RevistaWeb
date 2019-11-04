@@ -8,16 +8,16 @@
 		<!-- Si no se está haciendo nada. Este muestra el arbol de categorías. -->
 		<?php if($isNewTopic === false && $isEditingTopic === false){ ?>
 			<?php if(count($topics)>0):?>
-				<ul>
+				<ol>
 				<?php foreach($topics as $topic):?>
 					<li><?php echo $topic["name"]; ?><a href="admin.php?edit-topic=<?php echo $topic['id'] ?>"> Editar</a> </li>
 					<?php
 						category_tree($topic["id"]);
-					?></center></td>
+					?></td>
 					</tr>
 					
 				<?php endforeach;?>
-				</ul>
+				</ol>
 			<?php else:?>
 				<p class="alert alert-danger">No hay categorias</p>
 			<?php endif;?>
