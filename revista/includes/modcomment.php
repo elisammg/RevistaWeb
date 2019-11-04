@@ -35,7 +35,7 @@
                <form action="modcomentarios.php" method="get">
                <td class="estilo-tabla" align="center"><input type="submit" value="Censurar" name="censurar"></td>
                <td class="estilo-tabla" align="center"><input type="submit" value="No Censurar" name="nocensurar"></td>
-             </form>
+               </form>
            </tr> 
            <?php 
        }//fin blucle

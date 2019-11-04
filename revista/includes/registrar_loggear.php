@@ -14,6 +14,7 @@ if (isset($_POST['reg_user'])) {
   $username = mysqli_real_escape_string($conexion, $_POST['username']);
   $email = mysqli_real_escape_string($conexion, $_POST['email']);
   $password = mysqli_real_escape_string($conexion, $_POST['password']);
+  $foto = mysqli_real_escape_string($conexion, $_POST['foto']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -46,7 +47,7 @@ if (isset($_POST['reg_user'])) {
   	$password = md5($password);//encrypt the password before saving in the database
 
   	$query = "INSERT INTO users (nombre, apellido, username, email, role, password, created_at, updated_at, foto, suscripcion) 
-  			  VALUES('$nombre', '$apellido', '$username', '$email', 'Lector', '$password', now(), now(), NULL, 0)";
+  			  VALUES('$nombre', '$apellido', '$username', '$email', 'Lector', '$password', now(), now(), '$foto', 0)";
     mysqli_query($conexion, $query);
     
     // get id of created user

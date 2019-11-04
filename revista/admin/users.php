@@ -43,7 +43,7 @@
 			<?php else: ?>
 				<table class="table">
 					<thead>
-						<th>ID</th>
+						<th>No</th>
 						<th>Nombre de usuario, Email</th>
 						<th>Rol</th>
 						<th colspan="2">Acciones</th>

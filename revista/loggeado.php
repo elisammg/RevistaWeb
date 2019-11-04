@@ -28,7 +28,7 @@
       </div>
       <div class="large-4 cell">
         <div class="callout">
-          <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+          <img src="<?php echo $_SESSION['users']['foto'] ?>" alt="">
           <h3>DATOS USUARIO</h3>
           <form class="" action="index.html" method="post">
           <ul>

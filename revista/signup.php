@@ -30,6 +30,10 @@
 						<input type="password" name="password" 
 						requiered placeholder="Ingrese contraseña">
 
+					<label for="password">Imagen perfil</label>
+						<input type="text" name="foto" 
+						requiered placeholder="Ingrese fotografia">
+
 					<button type="submit" class="btn" name="reg_user">Register</button>
 				</form>
 
