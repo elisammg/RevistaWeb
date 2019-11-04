@@ -13,7 +13,9 @@
 					<li><?php echo $topic["name"]; ?><a href="admin.php?edit-topic=<?php echo $topic['id'] ?>"> Editar</a> </li>
 					<?php
 						category_tree($topic["id"]);
-					?>
+					?></center></td>
+					</tr>
+					
 				<?php endforeach;?>
 				</ul>
 			<?php else:?>

@@ -21,93 +21,32 @@
     <div class="large-12 cell">
     <h1>Preguntas frecuentes</h1>
     <div class="callout warning">
-      <h5>This is a warning callout</h5>
-      <p>It has an easy to override visual style, and is appropriately subdued.</p>
+      <h5>¿Cómo puedo escribir un artículo?</h5>
+      <p>Para escribir un articulo, debes formar parte de nuesro equipo y solicitar ser un autor.</p>
       <a href="#0">It's dangerous to go alone, take this.</a>
     </div>
-    <div class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/square-1.jpg">
-    </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
-    </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/rectangle-1.jpg">
-    </div>
-  </div>
-</div>  
-<div class="callout warning">
-      <h5>This is a warning callout</h5>
-      <p>It has an easy to override visual style, and is appropriately subdued.</p>
+     <div class="callout warning">
+      <h5>¿Cómo puedo escribir un artículo?</h5>
+      <p>Para escribir un articulo, debes formar parte de nuesro equipo y solicitar ser un autor.</p>
       <a href="#0">It's dangerous to go alone, take this.</a>
     </div>
-    <div class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/square-1.jpg">
-    </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
-    </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/rectangle-1.jpg">
-    </div>
-  </div>
-</div>  
-<div class="callout warning">
-      <h5>This is a warning callout</h5>
-      <p>It has an easy to override visual style, and is appropriately subdued.</p>
+     <div class="callout warning">
+      <h5>¿Cómo puedo escribir un artículo?</h5>
+      <p>Para escribir un articulo, debes formar parte de nuesro equipo y solicitar ser un autor.</p>
       <a href="#0">It's dangerous to go alone, take this.</a>
     </div>
-    <div class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/square-1.jpg">
-    </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
-    </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/rectangle-1.jpg">
-    </div>
-  </div>
-</div>  
-<div class="callout warning">
-      <h5>This is a warning callout</h5>
-      <p>It has an easy to override visual style, and is appropriately subdued.</p>
+     <div class="callout warning">
+      <h5>¿Cómo puedo escribir un artículo?</h5>
+      <p>Para escribir un articulo, debes formar parte de nuesro equipo y solicitar ser un autor.</p>
       <a href="#0">It's dangerous to go alone, take this.</a>
     </div>
-    <div class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/square-1.jpg">
+     <div class="callout">
+      <div class="form">
+        
+      </div>
     </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
-    </div>
-  </div>
-  <div class="cell medium-4">
-    <div class="callout" data-equalizer-watch>
-      <img src= "assets/img/generic/rectangle-1.jpg">
-    </div>
-  </div>
-</div>    
+
+    </div>    
     </div>
     </div>
     </div>

@@ -25,29 +25,35 @@
 			<td><?php echo $mostrar['descripcion'] ?></td>
 			<td>Q<?php echo $mostrar['costo'] ?></td>
 		</tr>
-		<?php 
+
+	      <?php 
 		}
 
-		 ?>		 
+		 ?>  
+				 
 	</table>
 
 	
      <div class="grid-x grid-padding-x">
           <div class="large-12 cell">
 	      	<div class="callout">
-<form class="log-in-form" action="suscripcion.php" method="post" enctype="multipart/form-data">
+			<form class="log-in-form" action="suscripcion.php" method="post" enctype="multipart/form-data">
 	        <h5 class="text-center">Selecciona suscripcion</h5>
 	        <ul>
+	        	<?php 
+					$sql="SELECT id, tipo FROM suscripcion";
+					$result=mysqli_query($conexion,$sql);
+					while ($mostrar=mysqli_fetch_array($result)){
+					?>
 	        	<li>
-	        		<input type="radio" name="pokemon" value="1" id="pokemon1"><label for="pokemon1">Semestral</label>
+	        		<input type="radio" name="pokemon" value="<?php echo $mostrar['id'];?>" id="pokemon<?php echo $mostrar['id'];?>">
+	        		<label for="pokemon<?php echo $mostrar['id'];?>"><?php echo $mostrar['tipo'];?></label>
 	        	</li>
-	        	<li>
-	        		<input type="radio" name="pokemon" value="2" id="pokemon2"><label for="pokemon2">Anual</label>
-	        	</li>
-	        	<li>
-	        		<input type="radio" name="pokemon" value="3" id="pokemon3"><label for="pokemon3">Mensual</label>
-	        	</li>
-	        </ul>	      
+	        	 <?php 
+					}
+
+					 ?>
+	        </ul>    
 
 		  <h5 class="text-center">Datos de cobro</h5>
 		  <label for="notarjeta">No. de Tarjeta</label>

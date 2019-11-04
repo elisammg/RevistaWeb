@@ -14,6 +14,7 @@
         </button>
       </div>
     </li>
+
     <li><a data-open="exampleModal2">Registrarse</a>
       <div class="reveal" id="exampleModal2" data-reveal>
         <h1>Sign up</h1>
@@ -25,6 +26,7 @@
         </button>
       </div>
     </li>
+    
     <li><a data-open="exampleModal3">Buscar</a>
       <div class="reveal" id="exampleModal3" data-reveal>
         <h1>Buscar</h1>

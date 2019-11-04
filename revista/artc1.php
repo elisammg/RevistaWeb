@@ -37,9 +37,6 @@
           <hr>
           </div>
         </div>
-        <p>¿Consideras que este articulo puede dañar la sensibilidad del lector?</p>
-      <p>Puedes dar click al boton "revisión" y será evaluado por un moderador</p>
-      <a href="#" class="button">Revision</a>
       </div>
 
         </div>

@@ -2,8 +2,8 @@
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
 <?php
-    if (isset($_GET['post-slug'])) {
-        $post = getPost($_GET['post-slug']);
+    if (isset($_GET['topic-plantilla'])) {
+        $subtopic = $_GET['topic-plantilla'];
     }
     
 ?>
@@ -14,11 +14,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $post['title'] ?> | RevistaWeb</title>
+    <title>Categorias</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/artc2.css">
-    <link rel="stylesheet" href="css/artc3.css">
   </head>
 <header>
   <?php require_once(ROOT_PATH . '/includes/navbar.php') ?>
@@ -27,18 +25,16 @@
 <body>
 
     <?php
-        if($post['plantilla'] == 0){
-            require_once('artc1.php');
-        }else if($post['plantilla'] == 1){
-            require_once('artc2.php');
-        }else if($post['plantilla'] == 2){
-            require_once('artc3.php');
+        if($subtopic == 0){
+            require_once('categoria1.php');
+        }else if($subtopic == 1){
+            require_once('categoria2.php');
         }else{
-            echo "El articulo no tiene plantilla.";
+            echo "Sub categoria sin plantilla";
         }
     ?>
-    <?php require_once('includes/revision.php') ?>
-    <?php require_once('comentarios/comentarios.php') ?>
+
+    
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
