@@ -158,4 +158,26 @@
 				}
 			endwhile;
 		}
+
+	//Despliega el arbol de categorías
+	function navcat($catid){
+			global $conexion;
+			
+			$sql = "SELECT * FROM subtopic WHERE id_topic ='$catid'";
+			$result = mysqli_query($conexion, $sql);
+			
+			while($row = mysqli_fetch_assoc($result)):
+				$i = 0;
+				if ($i == 0){
+					echo '<ul>';
+						echo '<li>' . $row['nombre'] . '</li>';
+				}
+				
+				$i++;
+				
+				if ($i > 0){ 
+					echo '</ul>';
+				}
+			endwhile;
+		}
 ?>
