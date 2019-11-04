@@ -21,7 +21,8 @@
      ?>
         <li>
           <!--Navegacion categorias -->
-          <a href="categoria.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a>
+          <a href="categoria.php?topics-slug=<?php echo $row['slug'];?>"><?=$row['name']?></a>
+          <!--a href="categoria.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a-->
           <ul class="menu">
             <!--Navegacion subcategorias -->
           <li><a href="subcategoria.php">
