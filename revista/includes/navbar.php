@@ -24,8 +24,7 @@
           <a href="categoria.php?topics-slug=<?php echo $row['slug'];?>"><?=$row['name']?></a>
           <!--a href="categoria.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a-->
           <ul class="menu">
-            <!--Navegacion subcategorias -->
-          <li><a href="subcategoria.php">
+            <li><a href="subcategoria.php?subtopic-plantilla=0"> <!-- Arreglar problema de la subcategoria. Comentario sigue en subcategoria.php. --> 
               <?php category_tree($row["id"]); ?></a></li>
           </ul>
         </li>
