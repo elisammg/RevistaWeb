@@ -92,10 +92,10 @@
         </div>
 
        <div class="large-4 medium-4 cell">
-      <!--Moderacion de comentarios cuenta cuantos hay -->    
-          <h4>Moderación de comentarios</h4>
+      <!--Moderacion de Artículos cuenta cuantos hay -->    
+          <h4>Moderación de Artículos</h4>
           <?php  
-          $sql = "SELECT count(id) FROM mydb.modcomment"; 
+          $sql = "SELECT count(id) FROM mydb.modartc;"; 
            $result = mysqli_query($conexion, $sql);
 
            if (mysqli_num_rows($result) > 0){ 
@@ -103,7 +103,7 @@
            {
                ?>
                <p>La cantidad de comentarios reportados son: <b><?=$row['count(id)']?></b></p>
-               <a href="modcomentarios.php" class="button">Revisar</a>            
+               <a href="reporteartc.php" class="button">Revisar</a>            
                <?php 
            }//fin blucle
           } else

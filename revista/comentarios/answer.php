@@ -20,7 +20,7 @@
           }
     //boton para reportar articulos
            if (isset($_GET['reportarartc'])) {
-            $sql1 = "UPDATE posts SET vecesreporte = vecesreporte+'1' WHERE comentarios.id = '12'";
+            $sql1 = "UPDATE posts SET reportes = reportes+'1' WHERE posts.id = '9'";
             $result1 = mysqli_query($conexion, $sql1);
             if($result1){
               echo "Gracias por reportar";

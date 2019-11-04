@@ -18,13 +18,13 @@
   	<div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-  	<h1>Listado de articulos para moderar</h1>
+  	<h1>Listado de comentarios para moderar</h1>
   </div>
 </div>
 </div>
-  <?php require_once('includes/modartc.php') ?>
+  <?php require_once('includes/modreporteartc.php') ?>
   
- 
+
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
