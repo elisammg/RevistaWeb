@@ -37,7 +37,7 @@
             echo "El articulo no tiene plantilla.";
         }
     ?>
-
+<!--Anuncios -->
     <?php
     $postid = $post['id'];
     $sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
@@ -62,9 +62,13 @@
       {
         echo "no hay anuncios";
       }
-    ?>    
+    ?> 
+<!--Anuncios -->  
+
+ 
     <!--Revision y comentarios -->
     <?php require_once('includes/revision.php') ?>
+
 
 
     <!--Comentarios y respuestas -->
