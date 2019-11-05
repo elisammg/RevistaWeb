@@ -1,8 +1,3 @@
-<?php  //include('../conexion.php'); ?>
-<?php  //include('includes/admin_functions.php'); ?>
-<?php  //include('includes/post_functions.php'); ?>
-<?php //include('includes/head_section.php'); ?>
-
 <!-- Get all admin posts from DB -->
 <?php $posts = getAllPosts(); ?>
 <?php $drafts = getAllDrafts(); ?>
@@ -151,7 +146,7 @@
 
 									<td>
 										<a class="buton"
-											href="autor.php?edit-draft=<?php echo $draft['id'] ?>">Editar
+											href="admin/create_post.php?edit-draft=<?php echo $draft['id'] ?>">Editar
 										</a>
 									</td>
 								</tr>
@@ -161,6 +156,9 @@
 					<?php } ?>
 				<!-- Final tabla draft -->
 			<?php } ?>
+			<a class="button"
+				href="admin/create_post.php">Crear Nuevo artículo
+			</a>
 		</div>
 		<!-- // Display records from DB -->
 	</div>
