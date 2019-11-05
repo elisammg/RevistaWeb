@@ -49,10 +49,10 @@
 				<h6>Seleccione plantilla para categoria o sub categoria</h6>
 					<ul>
 					<li>
-					<input type="radio" name="pokemon" value=0 id="pokemon1"><label for="pokemon1">Primera plantilla</label>
+					<input type="radio" name="pokemon" value="0" id="pokemon1"><label for="pokemon1">Primera plantilla</label>
 					</li>
 					<li>
-					<input type="radio" name="pokemon" value=1 id="pokemon2"><label for="pokemon2">Segunda plantilla</label>
+					<input type="radio" name="pokemon" value="1" id="pokemon2"><label for="pokemon2">Segunda plantilla</label>
 					</li>
 					</ul>
 

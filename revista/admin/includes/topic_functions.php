@@ -41,11 +41,12 @@
 			global $conexion;
 			$topic_name = $request_values["topic_name"];
 			$topic_id = $request_values["topicID"];
+			$topic_template = $request_values["pokemon"];
 			$topic_slug = makeSlug($topic_name); 
 			if($topic_id == 'newCat'){
-				$sql = "INSERT INTO topics (name, slug) VALUE ('$topic_name', '$topic_slug')";
+				$sql = "INSERT INTO topics (name, slug, plantilla) VALUES ('$topic_name', '$topic_slug', '$topic_template')";
 			}else {
-				$sql = "INSERT INTO subtopic (id_topic, nombre, slug) VALUES ('$topic_id', '$topic_name', '$topic_slug')";
+				$sql = "INSERT INTO subtopic (id_topic, nombre, plantilla, slug) VALUES ('$topic_id', '$topic_name', '$topic_template', '$topic_slug')";
 			}
 			
 			$result = mysqli_query($conexion, $sql);
