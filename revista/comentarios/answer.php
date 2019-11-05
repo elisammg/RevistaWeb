@@ -1,6 +1,5 @@
 <?php include('../conexion.php'); ?>
  		<?php 
-    //$postid = $post['id'];
     //boton para contestar
           if (isset($_GET['contestar']))
           {
