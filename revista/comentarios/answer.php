@@ -4,10 +4,8 @@
           if (isset($_GET['contestar']))
           {
             require_once('../comentarios/respuesta.php'); 
-          }else
-          {
-          	echo "ayuda";
-          } ?>
+          }
+           ?>
 
           <?php
     //boton para reportar comentarios
