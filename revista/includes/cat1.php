@@ -14,7 +14,7 @@
                 <hr>
                 <!-- esto se repite -->
 <?php
-$topics['id'] = $topicid;
+$topicid = $topics['id'];
 $sql = "SELECT * FROM mydb.topics WHERE '$topicid' = (SELECT subtopic.id_topic FROM mydb.subtopic LIMIT 1)";
 $result = mysqli_query($conexion, $sql);
 if (mysqli_num_rows($result) > 0)

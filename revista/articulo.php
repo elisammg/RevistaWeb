@@ -37,8 +37,36 @@
             echo "El articulo no tiene plantilla.";
         }
     ?>
+
+    <?php
+    $postid = $post['id'];
+    $sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
     
+       $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?> 
+           
+              <div class="grid-x grid-padding-x">
+                <div class="large-4 cell">
+                    <img src="<?=$row['anuncios_imagen']?>"> 
+                </div>
+              </div>
+        
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "no hay anuncios";
+      }
+    ?>    
+    <!--Revision y comentarios -->
     <?php require_once('includes/revision.php') ?>
+    
+
+    <!--Comentarios y respuestas -->
     <?php require_once('comentarios/comentarios.php') ?>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
