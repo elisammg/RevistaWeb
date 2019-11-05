@@ -48,12 +48,13 @@
        while($row = mysqli_fetch_assoc($result)) 
        {
            ?> 
-           
+           <div class="grid-container">
               <div class="grid-x grid-padding-x">
                 <div class="large-4 cell">
                     <img src="<?=$row['anuncios_imagen']?>"> 
                 </div>
               </div>
+            </div>
         
            <?php 
        }//fin blucle
@@ -64,7 +65,7 @@
     ?>    
     <!--Revision y comentarios -->
     <?php require_once('includes/revision.php') ?>
-    
+
 
     <!--Comentarios y respuestas -->
     <?php require_once('comentarios/comentarios.php') ?>
