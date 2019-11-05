@@ -13,11 +13,25 @@
                 <h2>SubCategorias</h2>
                 <hr>
                 <!-- esto se repite -->
+<?php
+$topics['id'] = $topicid;
+$sql = "SELECT * FROM mydb.topics WHERE '$topicid' = (SELECT subtopic.id_topic FROM mydb.subtopic LIMIT 1)";
+$result = mysqli_query($conexion, $sql);
+if (mysqli_num_rows($result) > 0)
+{
+while($row = mysqli_fetch_assoc($result))
+{
+?>
                 <dl>
-                  <dt>Nombre subcategoria</dt>
+                  <dt><a href="subcategoria.php?topic-slug=<?php echo navcat($row['slug']);?>">
+              <?php navcat($row["id"]); ?></a></dt>
                   <dd>Frase subcategoria</dd>
                   <input type="button" name="leer" value="Leer mas">
                 </dl>
+<?php
+} //end while
+} //end if
+?>
                 <!-- esto se repite -->
               </div>
           </div>
@@ -26,3 +40,7 @@
       </div>
   </div>
 </div>
+
+
+    
+            

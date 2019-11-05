@@ -12,13 +12,27 @@
 <div class="grid-x grid-padding-x">
 <div class="large-6 medium-6 cell">
 <!-- esto se repite -->
+<?php
+$topics['id'] = $topicid;  
+$sql = "SELECT * FROM mydb.topics WHERE '$topicid' = (SELECT subtopic.id_topic FROM mydb.subtopic LIMIT 1)";
+$result = mysqli_query($conexion, $sql);
+if (mysqli_num_rows($result) > 0)
+{
+while($row = mysqli_fetch_assoc($result))
+{
+?>
 <div class="callout">
-<h2>Nombre subcateogria</h2>
+<h2><a href="subcategoria.php?topic-slug=<?php echo navcat($row['slug']);?>">
+              <?php navcat($row["id"]); ?></a></h2>
 <q>Frase subcategoria</q>
 <hr>
 <input type="button" name="mas" value="Leer mas">         
 </div>
 <hr>
+ <?php
+       } //end while
+     } //end if
+       ?>
 <!-- esto se repite -->
 </div>
 <div class="large-6 medium-6 cell">
@@ -27,3 +41,4 @@
 </div>
 <hr>
 </div>
+          
