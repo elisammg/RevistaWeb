@@ -23,7 +23,7 @@
           <!--Navegacion categorias -->
           <a href="categoria.php?topics-slug=<?php echo $row['slug'];?>"><?=$row['name']?></a>
           <ul class="menu">
-            <li><a href="subcategoria.php?subtopic-slug=<?php echo navcat($row['slug']);?>">
+            <li><a href="subcategoria.php?topic-slug=<?php echo navcat($row['slug']);?>">
               <?php navcat($row["id"]); ?></a></li>
           </ul>
         </li>

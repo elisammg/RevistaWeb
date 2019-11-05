@@ -2,10 +2,9 @@
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
 <?php
-    /* El $_GET va a dar errores debido a que la página no toma ningún parametro. 
-    Por eso puse como ejemplo el "?subtopic-plantilla=0" en navbar.php */
-    if (isset($_GET['subtopic-plantilla'])) {
-        $subtopic = $_GET['subtopic-plantilla'];
+
+    if (isset($_GET['topic-slug'])) {
+        $subtopic = getSubTopic($_GET['topic-slug']);
     }
     
 ?>
@@ -16,7 +15,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUB</title>
+    <title><?php echo $subtopic['nombre'] ?> | SUB</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/artc2.css">
@@ -29,9 +28,9 @@
 <body>
 
     <?php
-        if($subtopic == 0){
+        if($subtopic['plantilla'] == 0){
             require_once('sub1.php');
-        }else if($subtopic == 1){
+        }else if($subtopic['plantilla'] == 1){
             require_once('sub2.php');
         }else{
             echo "Sub categoria sin plantilla";
