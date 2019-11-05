@@ -8,7 +8,7 @@
       <span class="full-width-testimonial-source-context"><?php echo $post['created_at']; ?></span>
       <br>
       <img src="<?php echo $post['user']['foto']; ?>">
-      <span class="primary label">Topic</span>
+      <span class="primary label"><?php echo $post['topic']; ?>Topic</span>
       <span class="primary label">PREMIUM</span>
     </div>
     <div class="large-8 cell">

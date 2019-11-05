@@ -159,7 +159,7 @@
 			endwhile;
 		}
 
-	//Despliega el arbol de categorías
+	//Despliega el arbol de categorías para nav
 	function navcat($catid){
 			global $conexion;
 			

@@ -22,9 +22,8 @@
         <li>
           <!--Navegacion categorias -->
           <a href="categoria.php?topics-slug=<?php echo $row['slug'];?>"><?=$row['name']?></a>
-          <!--a href="categoria.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a-->
           <ul class="menu">
-            <li><a href="subcategoria.php?subtopic-plantilla=0"> <!-- Arreglar problema de la subcategoria. Comentario sigue en subcategoria.php. --> 
+            <li><a href="subcategoria.php?subtopic-slug=<?php echo navcat($row['slug']);?>"> <!-- Arreglar problema de la subcategoria. Comentario sigue en subcategoria.php. --> 
               <?php navcat($row["id"]); ?></a></li>
           </ul>
         </li>

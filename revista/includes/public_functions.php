@@ -55,4 +55,19 @@ function getPost($slug){
 	}
 	return $post;
 }
+
+//Funcion para tomar los datos de los topics 
+function getTopic($slug){
+	global $conexion;
+	// Get single topics slug
+	$topic_slug = $_GET['topics-slug'];
+	$sql = "SELECT * FROM topics WHERE slug='$topic_slug'";
+	$result = mysqli_query($conexion, $sql);
+
+	// fetch query results as associative array.
+	$topics = mysqli_fetch_assoc($result);
+	
+	return $topics;
+}
 ?>
+

@@ -8,7 +8,7 @@
               <div class="large-6 medium-6 cell">
               <p><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></p>
               <p><?php echo $post['created_at']; ?></p>
-              <p><?php echo $post['topic']['nombre']; ?>Topic</p>
+              <p><?php echo $post['topic']; ?>Topic</p>
               <span class="primary label">FREE</span>
             </div>
             <div class="large-6 medium-6 cell">
