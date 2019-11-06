@@ -16,7 +16,7 @@
        </tr> 
        
     <?php
-    $sql = "SELECT * FROM mydb.modartc";
+    $sql = "SELECT * FROM modartc";
 
     
        $result = mysqli_query($conexion, $sql);

@@ -12,7 +12,7 @@
     <div class="top-bar-left">
       <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown" data-auto-height="true" data-animate-height="true">
         <?php
-          $sql = "SELECT * FROM mydb.topics";
+          $sql = "SELECT * FROM topics";
           $result = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) { ?>

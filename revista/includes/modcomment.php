@@ -17,7 +17,7 @@
        </tr> 
        
     <?php
-    $sql = "SELECT * FROM mydb.modcomment";
+    $sql = "SELECT * FROM modcomment";
 
     
        $result = mysqli_query($conexion, $sql);

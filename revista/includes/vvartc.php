@@ -2,7 +2,7 @@
       <div class="success callout">
       	<h5>Veces visto artículo</h5>
       	<?php  
-          $sql = "SELECT sum(views) FROM mydb.posts"; 
+          $sql = "SELECT sum(views) FROM posts"; 
            $result = mysqli_query($conexion, $sql);
 
            if (mysqli_num_rows($result) > 0){ 

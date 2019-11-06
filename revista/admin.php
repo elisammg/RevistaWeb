@@ -101,7 +101,7 @@
                 <th>Costo</th>
               </tr>
               <?php 
-                $sql="SELECT * FROM suscripcion";
+                $sql="SELECT * FROM suscripcion;";
                 $result=mysqli_query($conexion,$sql);
                 while ($mostrar=mysqli_fetch_array($result)){
               ?>

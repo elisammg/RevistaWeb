@@ -2,7 +2,7 @@
 	
 	
 	//Cantidad de resultados por página (debe ser INT, no string/varchar)
-	$limit = 5;
+	$limit = 4;
 
 	//Comprueba si está seteado el GET de HTTP
 	if (isset($_GET["pagina"])) {

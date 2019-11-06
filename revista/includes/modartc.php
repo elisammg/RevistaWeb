@@ -18,7 +18,7 @@
        </tr> 
        
     <?php
-    $sql = "SELECT * FROM mydb.modenewartc";
+    $sql = "SELECT * FROM modenewartc";
     
        $result = mysqli_query($conexion, $sql);
 
