@@ -54,17 +54,146 @@
               echo "El articulo no tiene plantilla.";
           }
         }
-      ?>
-
-    </div>
-  </div>
+    ?>
+<!--Anuncios -->
+    <?php
+    $postid = $post['id'];
+    $sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
     
-  <?php require_once('includes/revision.php') ?>
-  <?php require_once('comentarios/comentarios.php') ?>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/what-input.js"></script>
-  <script src="js/vendor/foundation.js"></script>
-  <script src="js/app.js"></script>
+       $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?> 
+           <div class="grid-container">
+              <div class="grid-x grid-padding-x">
+                <div class="large-4 cell">
+                    <img src="<?=$row['anuncios_imagen']?>"> 
+                </div>
+              </div>
+            </div>
+        
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "no hay anuncios";
+      }
+    ?> 
+<!--Anuncios -->  
+
+<!--Reportar -->
+        
+        <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+        <div class="alert callout">
+        <?php $titulopost = $post['title'] ?>
+        <q>Reportar articulo <?php echo $titulopost ?></q>
+        <form action="comentarios/respuesta.php" method="get">
+        <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+<!--Reportar -->
+
+
+
+    <!--Comentarios y respuestas -->
+    <!--?php require_once('comentarios/comentarios.php') ?-->
+    <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+    <div class="large-12 cell">
+    <h5>Comentarios</h5>
+    <div class="warning callout">
+    <dl>
+  <?php
+    $postid = $post['id'];
+    $sql = "SELECT * FROM mydb.comentariosartc WHERE id_post = '$postid' AND censurar = 0";
+    
+       $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?> 
+          
+          <!-- respuesta padre 1 -->
+          <dt>
+            <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+            <p><img src="<?=$row['user_foto']?>"> </p>
+          </div>
+          <div class="large-6 medium-6 cell">
+            <p><?=$row['comentarios_contenido']?></p>
+            <form action="comentarios/respuesta.php" method="get">
+             <?php if (isset($_SESSION['users'])) { ?>
+            <label>Comentario</label>
+            <input type="text" name="respuesta" placeholder="Ingrese respuesta">
+            <input type="submit" class="tiny success button" name="contestar" value="Comentar">
+            <?php }else{
+
+              echo "Inicia sesion para comentar";
+
+              } ?>
+            <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
+            </form> 
+            </div>            
+          </div>
+          </dt>
+          <hr>
+        
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "no hay comentarios";
+      }
+    ?> 
+    </dl>
+    </div>
+    </div>
+    </div>
+    </div>
+<!--Comentarios --> 
+
+<!--Comentar -->
+        <?php if (isset($_SESSION['users'])) { ?>
+        <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+        <div class="callout">
+        <q>Comentar articulo <?php echo $post['title'] ?></q>
+        <hr>
+        <p>Usted está comentado como <?php echo $_SESSION['users']['nombre'] ?></p>
+        <form action="comentarios/respuesta.php" method="get">
+        <h4 class="text-center">Comentar</h4>
+
+        <label>Comentario</label>
+        <input type="text" name="comentario" placeholder="Ingrese comentario">
+
+        <input type="submit" value="Comentar" name="comentar">
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <?php }else{
+
+          echo "Inicia sesion para comentar";
+
+          } ?>
+
+<!--comentar -->
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
 </body>
 <footer>
   <?php require_once('includes/footer.php') ?>

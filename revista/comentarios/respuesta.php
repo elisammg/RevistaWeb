@@ -1,51 +1,62 @@
-
-<?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
-
-<!doctype html>
-<html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comentar</title>
-    <link rel="stylesheet" href="../css/foundation.css">
-    <link rel="stylesheet" href="../css/app.css">
-  </head>
-<header>
-</header>
-  <body>
-    <br>
-    <?php if (isset($_SESSION['users'])) { ?>
-        <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-        <div class="callout">
-          <q>Comentario referenciado</q>
-        <form class="log-in-form" action="respuesta.php" method="get">
-        <h4 class="text-center">Comentar</h4>
-
-        <label>Comentario</label>
-        <input type="text" name="Comentario" placeholder="Ingrese Comentario">
+<?php include('../conexion.php'); ?>
+<?php include( '../includes/registrar_loggear.php'); ?>
+<?php include( '../includes/public_functions.php'); ?> 
 
 
-        <input type="submit" value="Comentar" name="comentar">
-        </form>
-        </div>
-        </div>
-        </div>
-        </div>
+<!-- Insertar nuevo comentario desde articulo -->
+        <?php 
+          if (isset($_GET['comentar']))
+          {
+            $comment = $_GET['comentario'];
+            $sql5 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
+            VALUES (NULL, '11', '9', '$comment', current_timestamp(), '0', '0', '0')";
+            $result5 = mysqli_query($conexion, $sql5);
+            if($result5){
+              echo "Gracias por comentar";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
+<!-- Insertar nuevo comentario desde otro comentario -->
+        <?php 
+          if (isset($_GET['contestar']))
+          {
+            
+            $respuesta = $_GET['respuesta'];
+            $sql9 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
+            VALUES (NULL, '11', '9', '$respuesta', current_timestamp(), '0', '0', '0')";
+            $result9 = mysqli_query($conexion, $sql9);
+            if($result9){
+              echo "Gracias por comentar";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
 
-        <?php }else{
+<!-- Reportar articulos -->
+        <?php
+           if (isset($_GET['reportar'])) {
+            $sql2 = "UPDATE posts SET reportes = reportes+'1' WHERE posts.id = 11";
+            $result2 = mysqli_query($conexion, $sql2);
+            if($result2){
+              echo "Gracias por reportar articulo";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
 
-          echo "Inicia sesion para comentar";
-
-          } ?>
-  
-
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-  </body>
-
-</html>
+<!-- Reportar comentarios -->
+          <?php
+          if (isset($_GET['reportarcoment'])) {
+            $sql1 = "UPDATE comentarios SET vecesreporte = vecesreporte+'1' WHERE comentarios.id = 11";
+            $result1 = mysqli_query($conexion, $sql1);
+            if($result1){
+              echo "Gracias por reportar comentario";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+          ?>

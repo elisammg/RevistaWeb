@@ -32,10 +32,12 @@
                <td class="estilo-tabla" align="center"><?=$row['Comentarios']?></td>
                <td class="estilo-tabla" align="center"><?=$row['Titulo Articulo']?></td>
                <td class="estilo-tabla" align="center"><?=$row['Reportes']?></td>
-               <form action="modcomentarios.php" method="get">
-               <td class="estilo-tabla" align="center"><input type="submit" value="Censurar" name="censurar"></td>
-               <td class="estilo-tabla" align="center"><input type="submit" value="No Censurar" name="nocensurar"></td>
-               </form>
+               <td class="estilo-tabla" align="center">
+                  <a href="modcomentarios.php?censurarcomment=<?php echo $row['id'] ?>">Censurar</a>
+                </td>
+                <td class="estilo-tabla" align="center">
+                  <a href="modcomentarios.php?no-censurarcomment=<?php echo $row['id'] ?>">No Censurar</a>
+                </td>
            </tr> 
            <?php 
        }//fin blucle

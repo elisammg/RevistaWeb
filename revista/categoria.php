@@ -1,9 +1,9 @@
 <?php include('conexion.php'); ?>
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
-<?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
+<?php include( ROOT_PATH . '/includes/public_functions.php'); ?>
 <?php
-    if (isset($_GET['topic-plantilla'])) {
-        $subtopic = $_GET['topic-plantilla'];
+    if (isset($_GET['topics-slug'])) {
+        $topics = getTopic($_GET['topics-slug']);
     }
     
 ?>
@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
+    <title><?php echo $topics['name'] ?> | RevistaWeb</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
@@ -25,9 +25,9 @@
 <body>
 
     <?php
-        if($subtopic == 0){
+        if($topics['plantilla'] == 0){
             require_once('categoria1.php');
-        }else if($subtopic == 1){
+        }else if($topics['plantilla'] == 1){
             require_once('categoria2.php');
         }else{
             echo "Sub categoria sin plantilla";
