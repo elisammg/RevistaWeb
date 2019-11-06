@@ -13,7 +13,7 @@
 <div class="grid-x grid-padding-x">
 	<?php
 $topicid = $topics['id'];
-$sql = "SELECT * FROM mydb.topics WHERE id = (SELECT subtopic.id_topic FROM mydb.subtopic WHERE id_topic = '$topicid' LIMIT 1)";
+$sql = "SELECT * FROM topics WHERE id = (SELECT subtopic.id_topic FROM subtopic WHERE id_topic = '$topicid' LIMIT 1)";
 $result = mysqli_query($conexion, $sql);
 if (mysqli_num_rows($result) > 0)
 {

@@ -58,7 +58,7 @@
 <!--Anuncios -->
     <?php
     $postid = $post['id'];
-    $sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
+    $sql = "SELECT * FROM anunciopost WHERE id_post = '$postid'";
     
        $result = mysqli_query($conexion, $sql);
 
@@ -112,7 +112,7 @@
     <dl>
   <?php
     $postid = $post['id'];
-    $sql = "SELECT * FROM mydb.comentariosartc WHERE id_post = '$postid' AND censurar = 0";
+    $sql = "SELECT * FROM comentariosartc WHERE id_post = '$postid' AND censurar = 0";
     
        $result = mysqli_query($conexion, $sql);
 
