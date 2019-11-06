@@ -3,8 +3,8 @@
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
 <?php
 
-    if (isset($_GET['topic-slug'])) {
-        $subtopic = getSubTopic($_GET['topic-slug']);
+    if (isset($_GET['subtopic-slug'])) {
+        $subtopic = getSubTopic($_GET['subtopic-slug']);
     }
     
 ?>

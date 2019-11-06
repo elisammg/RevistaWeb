@@ -171,7 +171,7 @@
 				$i = 0;
 				if ($i == 0){
 					echo '<ul>';
-						echo '<li>' . $row['nombre'] . '</li>';
+						echo '<li><a href="subcategoria.php?subtopic-plantilla=' . $row['slug'] . '">' . $row['nombre'] . '</a></li>';
 				}
 				
 				$i++;
