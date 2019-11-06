@@ -111,7 +111,6 @@
           </div>
           <div class="large-6 medium-6 cell">
             <p><?=$row['comentarios_contenido']?></p>
-            </div>
             <form action="comentarios/respuesta.php" method="get">
              <?php if (isset($_SESSION['users'])) { ?>
             <label>Comentario</label>
@@ -124,6 +123,7 @@
               } ?>
             <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
             </form> 
+            </div>            
           </div>
           </dt>
           <hr>
