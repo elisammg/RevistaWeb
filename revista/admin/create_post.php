@@ -2,8 +2,6 @@
 <?php include(ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 <?php include(ROOT_PATH . '/includes/public_functions.php'); ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -16,7 +14,7 @@
   </head>
   <header>
     <?php require_once('../includes/navbar.php') ?>
-    <!-- Get all topics -->
+    <!-- Get all subtopics -->
     <?php $subtopics = getAllSubtopics();	?>
     <?php //$posts = getAllPosts(); ?>
   </header>
@@ -26,13 +24,17 @@
       <div class="callout">
         <div class="action create-post-div">
           <h3>Crear nuevo articulo</h3>
-          <form method="post" enctype="multipart/form-data" action="<?php echo 'autor.php'; ?>" >
+          <form method="post" enctype="multipart/form-data" action="<?php echo 'create_post.php'; ?>" >
             <!-- validation errors for the form -->
             <?php include(ROOT_PATH . '/admin/includes/errors.php') ?>
 
             <!-- if editing post, the id is required to identify that post -->
-            <?php if ($isEditingPost === true): ?>
-              <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+            <?php if ($isEditingPost == true): ?>
+              <?php if ($_SESSION['users']['role'] == 'Moderador'){ ?>
+                <input type="text" name="user_id" value="<?php echo $user_id; ?>">
+              <?php } ?>
+            <?php elseif ($isEditingDraft == true): ?>
+              <input type="hidden" name="draft_id" value="<?php echo $draft_id; ?>">
             <?php endif ?>
             
             <input type="text" name="title" value="<?php echo $title; ?>" placeholder="Title">
@@ -50,16 +52,22 @@
 
             <?php require_once('../templates.php') ?>
 
-            <!-- Only author users can view publish input field -->
-            <?php if ($_SESSION['users']['role'] == "Author"): ?>
-              <label for="publish"> Publish
-                <input type="checkbox" value="1" name="publish">&nbsp;
-              </label>
-            <?php endif ?>
+              <!-- display checkbox according to whether post has been published or not -->
+              <?php if ($published == true || $checked == true): ?>
+                <label for="publish">
+                  Publish
+                  <input type="checkbox" value="1" name="publish" checked="checked">&nbsp;
+                </label>
+              <?php else: ?>
+                <label for="publish">
+                  Publish
+                  <input type="checkbox" value="1" name="publish">&nbsp;
+                </label>
+              <?php endif ?>
 
             <!-- if editing post, display the update button instead of create button -->
-            <?php if ($isEditingPost === true): ?> 
-              <button type="submit" class="button" name="update_post">UPDATE</button>
+            <?php if ($isEditingDraft == true): ?> 
+              <button type="submit" class="button" name="update_post">Update</button>
             <?php else: ?>
               <button type="submit" class="button" name="create_post">Save Post</button>
             <?php endif ?>

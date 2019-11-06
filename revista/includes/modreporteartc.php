@@ -26,21 +26,19 @@
        {
            ?> 
            <tr>
-               
-               <td class="estilo-tabla" align="center"><?=$row['Id']?></td>
-               <td class="estilo-tabla" align="center"><?=$row['Titulo']?></td>
-               <td class="estilo-tabla" align="center"><?=$row['Numero de reportes']?></td>
-               <form action="reporteartc.php" method="get">
-               <td class="estilo-tabla" align="center"><input type="submit" value="Censurar" name="censurar"></td>
-               <td class="estilo-tabla" align="center"><input type="submit" value="No Censurar" name="nocensurar"></td>
-               </form>
+              <td class="estilo-tabla" align="center"><?=$row['Id']?></td>
+              <td class="estilo-tabla" align="center"><?=$row['Titulo']?></td>
+              <td class="estilo-tabla" align="center"><?=$row['Numero de reportes']?></td>
+                <td class="estilo-tabla" align="center">
+                  <a href="reporteartc.php?censurar=<?php echo $row['Id'] ?>">Censurar</a>
+                </td>
+                <td class="estilo-tabla" align="center">
+                  <a href="reporteartc.php?no-censurar=<?php echo $row['Id'] ?>">No Censurar</a>
+                </td>
            </tr> 
            <?php 
        }//fin blucle
-      } else
-      {
-        echo "0 resultados";
-      }
+      } 
     ?>
     </table>
     </div>

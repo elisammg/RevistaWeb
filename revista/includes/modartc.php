@@ -38,10 +38,7 @@
            </tr> 
            <?php 
        }//fin blucle
-      } else
-      {
-        echo "0 resultados";
-      }
+      } 
     ?>
     </table>
     </div>
