@@ -22,7 +22,7 @@ function getPostTopic($post_id){
 	global $conexion;
 	//subquery 1
 	$sql = "SELECT * FROM subtopic WHERE id= 
-			(SELECT subtopic_id FROM post_subtopic WHERE post_id= '$post_id') LIMIT 1";
+				(SELECT id_subtopic FROM posts WHERE id= $post_id);";
 	$result = mysqli_query($conexion, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	return $topic;
@@ -32,7 +32,7 @@ function getAuthorName($post_id){
 	global $conexion;
 	//subquery 2
 	$sql = "SELECT * FROM `users` WHERE id=
-		(SELECT user_id FROM posts WHERE id = $post_id)";
+				(SELECT user_id FROM posts WHERE id = $post_id)";
 	$result = mysqli_query($conexion, $sql);
 	$authorName = mysqli_fetch_assoc($result);
 	return $authorName;

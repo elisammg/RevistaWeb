@@ -88,10 +88,6 @@ function createPost($request_values){
 		$query = "INSERT INTO draft (user_id, id_subtopic, title, slug, image, body, published, plantilla, created_at, updated_at, premium, revision) 
 			VALUES('$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 0, '$template', now(), now(), 0, '$published')";
 		if(mysqli_query($conexion, $query)){ // if post created successfully
-			$inserted_post_id = mysqli_insert_id($conn);
-			// create relationship between post and subtopic
-			$sql = "INSERT INTO post_subtopic (post_id, subtopic_id) VALUES($inserted_post_id, $topic_id)";
-			mysqli_query($conn, $sql);
 			if($_SESSION['users']['role'] == "Author" ){
 				header('location: ../autor.php');
 			} elseif ($_SESSION['users']['role'] == "Moderador" ) {
@@ -172,10 +168,6 @@ function updateDraft($request_values){
 						body='$body', updated_at=now(), plantilla='$template', revision='$published'
 					WHERE id=$draft_id";
 		if(mysqli_query($conexion, $query)){ // if post updated successfully
-			$inserted_post_id = mysqli_insert_id($conn);
-			// create relationship between post and subtopic
-			$sql = "INSERT INTO post_subtopic (post_id, subtopic_id) VALUES($inserted_post_id, $topic_id)";
-			mysqli_query($conn, $sql);
 			if($_SESSION['users']['role'] == "Author" ){
 				header('location: ../autor.php');
 			} elseif ($_SESSION['users']['role'] == "Moderador" ) {
