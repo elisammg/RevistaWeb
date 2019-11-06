@@ -111,7 +111,7 @@
        }//fin blucle
       } else
       {
-        echo "no hay anuncios";
+        echo "no hay comentarios";
       }
     ?> 
     </dl>

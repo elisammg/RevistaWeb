@@ -25,6 +25,8 @@
         <h4 class="text-center">Comentar</h4>
 
         <label>Comentario</label>
+        <input type="text" name="comentario" placeholder="Ingrese comentario">
+
         <a href="respuesta.php?respuesta=<?php echo $row['Id'] ?>">No Censurar</a>
 
 
