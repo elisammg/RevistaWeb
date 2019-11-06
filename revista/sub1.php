@@ -15,16 +15,7 @@
   <?php require_once('includes/header.php') ?>
 </head>
   <body>
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h1>SUBCATEGORÍA 1</h1>
-          <div class="callout">
-          <p>Descripcion</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
   <?php require_once('includes/subc1.php') ?>
 
