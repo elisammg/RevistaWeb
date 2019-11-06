@@ -31,7 +31,7 @@
             <!-- if editing post, the id is required to identify that post -->
             <?php if ($isEditingPost == true): ?>
               <?php if ($_SESSION['users']['role'] == 'Moderador'){ ?>
-                <input type="text" name="user_id" value="<?php echo $user_id; ?>">
+                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
               <?php } ?>
             <?php elseif ($isEditingDraft == true): ?>
               <input type="hidden" name="draft_id" value="<?php echo $draft_id; ?>">

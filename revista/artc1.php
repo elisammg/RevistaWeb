@@ -16,15 +16,8 @@
             </div>
           </div>
         </div>
-      <?php if($post['published'] == false){ ?>
-        <h2 class="post-title">Sorry... This post has not been published</h2>
-      <?php }else { ?>
           <p>
             <?php 
-              // $numWords = strlen($post['body']);
-              // $first = intval($numWords * (50/100));
-              // $second = intval($numWords * (50/100));
-
               if (strlen($post['body']) % 2 == 0) {//if lenhth is odd number
                 $numWords = strlen($post['body']) / 2;
               } else {
@@ -41,13 +34,8 @@
               }
               $string1 = substr($post['body'], 0, $point);
               $string2 = substr($post['body'], $point);
-
-              // $first_part = substr($post['body'],0,$first);
-              // $second_part = substr($string,$first,$second);
-              // $third_part = substr($post['body'], ($first + $second));
               
-              echo $string1; 
-              // echo $first_part;
+              echo $string1;
             ?>
             <hr>
             <h2>IMÁGENES DESTACADAS</h2>
@@ -65,10 +53,8 @@
             <hr>
             <?php 
               echo $string2;
-              //echo $third_part;
             ?>
           </p>
-      <?php } ?>
           <hr>
           </div>
         </div>
