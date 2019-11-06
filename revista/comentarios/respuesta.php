@@ -1,21 +1,15 @@
 <?php include('../conexion.php'); ?>
 <?php include( '../includes/registrar_loggear.php'); ?>
 <?php include( '../includes/public_functions.php'); ?> 
-<?php
-    if (isset($_GET['post-slug'])) {
-        $post = getPost($_GET['post-slug']);
-    }
-    
-?>
+
 
 <!-- Insertar nuevo comentario desde articulo -->
         <?php 
           if (isset($_GET['comentar']))
           {
-            $postid = $post['id'];            
             $comment = $_GET['comentario'];
             $sql5 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
-            VALUES (NULL, '11', '13', '$comment', current_timestamp(), '0', '0', '0')";
+            VALUES (NULL, '11', '9', '$comment', current_timestamp(), '0', '0', '0')";
             $result5 = mysqli_query($conexion, $sql5);
             if($result5){
               echo "Gracias por comentar";
@@ -31,7 +25,7 @@
             
             $respuesta = $_GET['respuesta'];
             $sql9 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
-            VALUES (NULL, '11', '13', '$respuesta', current_timestamp(), '0', '0', '0')";
+            VALUES (NULL, '11', '9', '$respuesta', current_timestamp(), '0', '0', '0')";
             $result9 = mysqli_query($conexion, $sql9);
             if($result9){
               echo "Gracias por comentar";
