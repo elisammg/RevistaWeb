@@ -27,7 +27,7 @@
                 <h2>IMÁGENES DESTACADAS</h2>
                 <div class="grid-x grid-padding-x">
                   <div class="large-4 medium-4 cell">
-                    <img src="<?php 'data:static/images;base64,' . base64_encode($post['image']); ?>" alt="Imagen 1">
+                  <img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" class="post_image" alt="Imagen 1">
                   </div>
                   <div class="large-4 medium-4 cell">
                     <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="Imagen 2">

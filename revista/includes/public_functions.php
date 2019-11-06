@@ -22,7 +22,7 @@ function getPostTopic($post_id){
 	global $conexion;
 	//subquery 1
 	$sql = "SELECT * FROM subtopic WHERE id= 
-			(SELECT topic_id FROM post_topic WHERE post_id= $post_id) LIMIT 1";
+			(SELECT subtopic_id FROM post_subtopic WHERE post_id= '$post_id') LIMIT 1";
 	$result = mysqli_query($conexion, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	return $topic;
