@@ -8,7 +8,7 @@
       <span class="full-width-testimonial-source-context"><?php echo $post['created_at']; ?></span>
       <br>
       <img src="<?php echo $post['user']['foto']; ?>">
-      <span class="primary label"><?php echo $post['topic']; ?>Topic</span>
+      <span class="primary label"><?php echo $post['topic']['nombre']; ?></span>
       <span class="primary label">PREMIUM</span>
     </div>
     <div class="large-8 cell">
@@ -38,31 +38,35 @@
       <div class="callout">
           <div class="grid-container">
           <div class="grid-x grid-padding-x">
+            <?php 
+              if (strlen($post['body']) % 2 == 0) {//if lenhth is odd number
+                $numWords = strlen($post['body']) / 2;
+              } else {
+                $numWords = (strlen($post['body']) + 1) / 2; //adjust length
+              }
+              for ($i = $numWords, $j = $numWords; $i > 0; $i--, $j++){ //check towards forward and backward for non-alphabet
+                if (!ctype_alpha($post['body'][$i - 1])){ //forward
+                  $point = $i; //break point
+                  break;
+                } else if (!ctype_alpha($post['body'][$j - 1])){ //backward
+                  $point = $j; //break point
+                  break;
+                }
+              }
+              $string1 = substr($post['body'], 0, $point);
+              $string2 = substr($post['body'], $point);
+            ?>
             <p>
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+              <?php
+                echo $string1;
+              ?>
             </p>
           </div>
           </div>
       </div>
     </div>
     <div class="large-4 cell">
-      <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
-      <h4>Titulo imagen</h4>
-      <label>Descripcion</label>
+      <img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" alt="">
     </div>
   </div>
 </div>
@@ -78,21 +82,9 @@
           <div class="grid-container">
           <div class="grid-x grid-padding-x">
             <p>
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
-              Flank spare ribs capicola, strip steak biltong pancetta bresaola tri-tip cow landjaeger.
-              Short ribs sirloin beef ribs, flank capicola ribeye turducken.
-              Sirloin boudin andouille tail. Ham flank tail sausage t-bone, jerky landjaeger kevin porchetta ground round pork belly.
+              <?php
+                echo $string2;
+              ?>
             </p>
           </div>
           </div>

@@ -63,15 +63,16 @@ function createPost($request_values){
 	if (empty($body)) { array_push($errors, "Post body is required"); }
 	if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
 	// Get image name
-	$featured_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name']));
+	$blob_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name']));
+	$featured_image = $_FILES['featured_image']['name'];
 	if (empty($featured_image)) { 
 		array_push($errors, "Featured image is required"); 
 	}
 	// image file directory
 	$target = "../static/images/" . basename($featured_image);
-	/*if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
+	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 		array_push($errors, "Failed to upload image. Please check file settings for your server");
-	}*/
+	}
 	// Ensure that no post is saved twice. 
 	$post_check_query = "SELECT * FROM draft WHERE slug='$post_slug' LIMIT 1";
 	$result = mysqli_query($conexion, $post_check_query);
@@ -81,6 +82,9 @@ function createPost($request_values){
 	}
 	// create post if there are no errors in the form
 	if (count($errors) == 0) {
+		// Insert blob in DB
+		$blob_query = "INSERT INTO blobimage (image) VALUES ('$blob_image')";
+		mysqli_query($conexion, $blob_query);
 		$query = "INSERT INTO draft (user_id, id_subtopic, title, slug, image, body, published, plantilla, created_at, updated_at, premium, revision) 
 			VALUES('$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 0, '$template', now(), now(), 0, '$published')";
 		if(mysqli_query($conexion, $query)){ // if post created successfully
@@ -138,15 +142,16 @@ function updateDraft($request_values){
 	if (empty($body)) { array_push($errors, "Post body is required"); }
 	if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
 	// Get image name
-	$featured_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name']));
+	$blob_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name']));
+	$featured_image = $_FILES['featured_image']['name'];
 	if (empty($featured_image)) { 
 		array_push($errors, "Featured image is required"); 
 	}
 	// image file directory
 	$target = "../static/images/" . basename($featured_image);
-	/*if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
+	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 		array_push($errors, "Failed to upload image. Please check file settings for your server");
-	}*/
+	}
 	// Ensure that no post is saved twice. 
 	$post_check_query = "SELECT * FROM draft WHERE slug='$post_slug' LIMIT 1";
 	$result = mysqli_query($conexion, $post_check_query);
@@ -156,6 +161,9 @@ function updateDraft($request_values){
 	}
 	// update post if there are no errors in the form
 	if (count($errors) == 0) {
+		// Insert blob in DB
+		$blob_query = "UPDATE blobimage SET image='$blob_image'";
+		mysqli_query($conexion, $blob_query);
 		$query = "UPDATE draft SET title='$title', slug='$post_slug', image='$featured_image', 
 						body='$body', updated_at=now(), plantilla='$template', revision='$published'
 					WHERE id=$draft_id";
@@ -264,10 +272,10 @@ if (isset($_GET['revisar']) || isset($_GET['publicar-draft']) || isset($_GET['no
 		$draft_id = $_GET['publicar-draft'];
 		global $conexion;
 		$update_sql = "UPDATE draft SET published = 1 WHERE id=$draft_id AND revision = 1";
-		if(mysqli_query($conexion, $DelSql)){
-			$update_sql = "DELETE FROM draft WHERE id = $draft_id AND published = 1 AND revision = 1";
+		if(mysqli_query($conexion, $update_sql)){
+			$delete_sql = "DELETE FROM draft WHERE id = $draft_id AND published = 1 AND revision = 1";
 		}
-		$result = mysqli_query($conexion, $update_sql);
+		$result = mysqli_query($conexion, $delete_sql);
 	}else if (isset($_GET['no-publicar-draft'])) {
 		$draft_id = $_GET['no-publicar-draft'];
 		global $conexion;

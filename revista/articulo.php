@@ -25,16 +25,34 @@
   <?php require_once('includes/header.php') ?>
 </header>
 <body>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <?php if($_SESSION['users']['role'] != 'Moderador'){ ?>
+        <?php if($post['published'] == false): ?>
+          <h2 class="post-title">Sorry... This post has not been published</h2>
+        <?php 
+          else: 
+            if($post['plantilla'] == 0){
+                require_once('artc1.php');
+            }else if($post['plantilla'] == 1){
+                require_once('artc2.php');
+            }else if($post['plantilla'] == 2){
+                require_once('artc3.php');
+            }else{
+                echo "El articulo no tiene plantilla.";
+            }
+          endif;
 
-    <?php
-        if($post['plantilla'] == 0){
+        } else { 
+          if($post['plantilla'] == 0){
             require_once('artc1.php');
-        }else if($post['plantilla'] == 1){
-            require_once('artc2.php');
-        }else if($post['plantilla'] == 2){
-            require_once('artc3.php');
-        }else{
-            echo "El articulo no tiene plantilla.";
+          }else if($post['plantilla'] == 1){
+              require_once('artc2.php');
+          }else if($post['plantilla'] == 2){
+              require_once('artc3.php');
+          }else{
+              echo "El articulo no tiene plantilla.";
+          }
         }
     ?>
 <!--Anuncios -->

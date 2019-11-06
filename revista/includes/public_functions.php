@@ -22,7 +22,7 @@ function getPostTopic($post_id){
 	global $conexion;
 	//subquery 1
 	$sql = "SELECT * FROM subtopic WHERE id= 
-			(SELECT topic_id FROM post_topic WHERE post_id= $post_id) LIMIT 1";
+				(SELECT id_subtopic FROM posts WHERE id= $post_id);";
 	$result = mysqli_query($conexion, $sql);
 	$topic = mysqli_fetch_assoc($result);
 	return $topic;
@@ -32,7 +32,7 @@ function getAuthorName($post_id){
 	global $conexion;
 	//subquery 2
 	$sql = "SELECT * FROM `users` WHERE id=
-		(SELECT user_id FROM posts WHERE id = $post_id)";
+				(SELECT user_id FROM posts WHERE id = $post_id)";
 	$result = mysqli_query($conexion, $sql);
 	$authorName = mysqli_fetch_assoc($result);
 	return $authorName;
@@ -43,7 +43,11 @@ function getPost($slug){
 	global $conexion;
 	// Get single post slug
 	$post_slug = $_GET['post-slug'];
-	$sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
+	if($_SESSION['users']['role'] != 'Moderador'){
+		$sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
+	}else{
+		$sql = "SELECT * FROM posts WHERE slug='$post_slug'";
+	}
 	$result = mysqli_query($conexion, $sql);
 
 	// fetch query results as associative array.

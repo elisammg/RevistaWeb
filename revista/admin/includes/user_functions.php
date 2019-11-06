@@ -6,6 +6,7 @@
     $username = "";
     $role = "";
     $email = "";
+    $total_paginas = 0;
 
     // if user clicks the Edit admin button
     if (isset($_GET['edit-admin'])) {
@@ -70,9 +71,22 @@
     }
 
     //Toma los datos de los usuarios registrados
-    function getAdminUsers(){
-        global $conexion, $roles;
-        $sql = "SELECT * FROM users WHERE role IS NOT NULL";
+    function getAdminUsers($limit, $offset){
+        global $conexion, $roles, $total_paginas;
+        //Obtiene TODO de la tabla
+        $sqlPag = "SELECT * FROM users WHERE role IS NOT NULL";
+
+        //Realiza la consulta
+        $resultPag = mysqli_query($conexion, $sqlPag);
+
+        //Cuenta el número total de registros
+        $total_registros = mysqli_num_rows($resultPag);
+
+        //Obtiene el total de páginas existentes
+        $total_paginas = ceil($total_registros / $limit); 
+
+        
+        $sql = "SELECT * FROM users WHERE role IS NOT NULL LIMIT $offset, $limit";
         $result = mysqli_query($conexion, $sql);
         $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     
