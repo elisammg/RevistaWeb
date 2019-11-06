@@ -21,11 +21,11 @@
         <div class="large-12 cell">
         <div class="callout">
           <q>Comentario referenciado</q>
-        <form class="log-in-form" action="respuesta.php" method="get">
+        <form action="respuesta.php" method="get">
         <h4 class="text-center">Comentar</h4>
 
         <label>Comentario</label>
-        <input type="text" name="Comentario" placeholder="Ingrese Comentario">
+        <a href="respuesta.php?respuesta=<?php echo $row['Id'] ?>">No Censurar</a>
 
 
         <input type="submit" value="Comentar" name="comentar">

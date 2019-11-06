@@ -72,7 +72,55 @@
 
 
     <!--Comentarios y respuestas -->
-    <?php require_once('comentarios/comentarios.php') ?>
+    <!--?php require_once('comentarios/comentarios.php') ?-->
+    <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+    <div class="large-12 cell">
+    <h5>Comentarios</h5>
+    <div class="warning callout">
+    <dl>
+  <?php
+    $postid = $post['id'];
+    $sql = "SELECT * FROM mydb.comentariosartc WHERE id_post = '$postid' AND censurar = 0";
+    
+       $result = mysqli_query($conexion, $sql);
+
+       if (mysqli_num_rows($result) > 0){ 
+       while($row = mysqli_fetch_assoc($result)) 
+       {
+           ?> 
+          
+          <!-- respuesta padre 1 -->
+          <dt>
+            <div class="grid-x grid-padding-x">
+            <div class="large-6 medium-6 cell">
+            <p><img src="<?=$row['user_foto']?>"> </p>
+          </div>
+          <div class="large-6 medium-6 cell">
+            <p><?=$row['comentarios_contenido']?></p>
+            </div>
+            <form action="comentarios/answer.php" method="get">
+            <input type="submit" class="tiny success button" name="contestar" value="Comentar">
+            <input type="submit" class="tiny alert button" name="reportar" value="Reportar">
+            </form> 
+          </div>
+          </dt>
+          <hr>
+        
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "no hay anuncios";
+      }
+    ?> 
+    </dl>
+    </div>
+    </div>
+    </div>
+    </div>
+<!--Comentarios --> 
+
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
