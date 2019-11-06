@@ -65,9 +65,22 @@
     ?> 
 <!--Anuncios -->  
 
- 
-    <!--Revision y comentarios -->
-    <?php require_once('includes/revision.php') ?>
+<!--Reportar -->
+        
+        <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+        <div class="alert callout">
+        <?php $titulopost = $post['title'] ?>
+        <q>Reportar articulo <?php echo $titulopost ?></q>
+        <form action="comentarios/respuesta.php" method="get">
+        <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+<!--Reportar -->
 
 
 
@@ -99,9 +112,17 @@
           <div class="large-6 medium-6 cell">
             <p><?=$row['comentarios_contenido']?></p>
             </div>
-            <form action="comentarios/answer.php" method="get">
+            <form action="comentarios/respuesta.php" method="get">
+             <?php if (isset($_SESSION['users'])) { ?>
+            <label>Comentario</label>
+            <input type="text" name="respuesta" placeholder="Ingrese respuesta">
             <input type="submit" class="tiny success button" name="contestar" value="Comentar">
-            <input type="submit" class="tiny alert button" name="reportar" value="Reportar">
+            <?php }else{
+
+              echo "Inicia sesion para comentar";
+
+              } ?>
+            <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
             </form> 
           </div>
           </dt>
@@ -120,6 +141,36 @@
     </div>
     </div>
 <!--Comentarios --> 
+
+<!--Comentar -->
+        <?php if (isset($_SESSION['users'])) { ?>
+        <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+        <div class="callout">
+        <q>Comentar articulo <?php echo $post['title'] ?></q>
+        <hr>
+        <p>Usted está comentado como <?php echo $_SESSION['users']['nombre'] ?></p>
+        <form action="comentarios/respuesta.php" method="get">
+        <h4 class="text-center">Comentar</h4>
+
+        <label>Comentario</label>
+        <input type="text" name="comentario" placeholder="Ingrese comentario">
+
+        <input type="submit" value="Comentar" name="comentar">
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <?php }else{
+
+          echo "Inicia sesion para comentar";
+
+          } ?>
+
+<!--comentar -->
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
