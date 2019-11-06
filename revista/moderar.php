@@ -96,7 +96,7 @@
           <h4>Moderación de Artículos</h4>
           <?php  
           $sql = "SELECT count(id) FROM mydb.modartc;"; 
-           $result = mysqli_query($conexion, $sql);
+          $result = mysqli_query($conexion, $sql);
 
            if (mysqli_num_rows($result) > 0){ 
            while($row = mysqli_fetch_assoc($result)) 

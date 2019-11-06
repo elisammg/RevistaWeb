@@ -140,45 +140,45 @@
 
 	//Despliega el arbol de categorías
 	function category_tree($catid){
-			global $conexion;
+		global $conexion;
+		
+		$sql = "SELECT * FROM subtopic WHERE id_topic ='$catid'";
+		$result = mysqli_query($conexion, $sql);
+		
+		while($row = mysqli_fetch_assoc($result)):
+			$i = 0;
+			if ($i == 0){
+				echo '<ul>';
+					echo '<li>' . $row['nombre'] . '<a href="admin.php?edit-subtopic=' . $row['id'] .' "> Editar</a>' . '</li>';
+			}
 			
-			$sql = "SELECT * FROM subtopic WHERE id_topic ='$catid'";
-			$result = mysqli_query($conexion, $sql);
+			$i++;
 			
-			while($row = mysqli_fetch_assoc($result)):
-				$i = 0;
-				if ($i == 0){
-					echo '<ul>';
-						echo '<li>' . $row['nombre'] . '<a href="admin.php?edit-subtopic=' . $row['id'] .' "> Editar</a>' . '</li>';
-				}
-				
-				$i++;
-				
-				if ($i > 0){ 
-					echo '</ul>';
-				}
-			endwhile;
-		}
+			if ($i > 0){ 
+				echo '</ul>';
+			}
+		endwhile;
+	}
 
 	//Despliega el arbol de categorías para nav
 	function navcat($catid){
-			global $conexion;
+		global $conexion;
+		
+		$sql = "SELECT * FROM subtopic WHERE id_topic ='$catid'";
+		$result = mysqli_query($conexion, $sql);
+		
+		while($row = mysqli_fetch_assoc($result)):
+			$i = 0;
+			if ($i == 0){
+				echo '<ul>';
+					echo '<li><a href="subcategoria.php?subtopic-plantilla=' . $row['slug'] . '">' . $row['nombre'] . '</a></li>';
+			}
 			
-			$sql = "SELECT * FROM subtopic WHERE id_topic ='$catid'";
-			$result = mysqli_query($conexion, $sql);
+			$i++;
 			
-			while($row = mysqli_fetch_assoc($result)):
-				$i = 0;
-				if ($i == 0){
-					echo '<ul>';
-						echo '<li><a href="subcategoria.php?subtopic-plantilla=' . $row['slug'] . '">' . $row['nombre'] . '</a></li>';
-				}
-				
-				$i++;
-				
-				if ($i > 0){ 
-					echo '</ul>';
-				}
-			endwhile;
-		}
+			if ($i > 0){ 
+				echo '</ul>';
+			}
+		endwhile;
+	}
 ?>
