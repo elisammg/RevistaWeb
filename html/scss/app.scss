@@ -1,4 +1,4 @@
-$variable1: orange;
+$variable1: rgb(227, 255, 227);
 body{
   background: $variable1;
   color: black;
@@ -7,11 +7,32 @@ body{
     background: purple;
     //font-style: oblique;
   }
+
+  
 }
 
-@mixin fortable{
-  table {
-    @extend %responive-tables;
-    @include responive-tables('Heading Col 1', 'Heading Col 2', 'Heading Col 3');
+@mixin color-invertido {
+  background-color: #111;
+  color: #eee;
+  font-family: cursive;
 }
+
+h2 {
+  font-size: 1.3em;
+  padding: 15px;
+  @include color-invertido;
 }
+
+@mixin callouts {
+  background-color: purple;
+  color: #eee;
+  font-family: cursive;
+}
+
+div.callout {
+  font-size: 1.3em;
+  padding: 15px;
+  @include callouts;
+}
+
+
