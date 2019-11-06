@@ -64,37 +64,15 @@
     <div class="large-4">
       <div class="callout">
         <?php 
-          /*if (strlen($post['body']) % 2 == 0) {//if lenhth is odd number
-            $numWords = strlen($post['body']) / 2;
-          } else {
-            $numWords = (strlen($post['body']) + 1) / 2; //adjust length
-          }
-          for ($i = $numWords, $j = $numWords; $i > 0; $i--, $j++){ //check towards forward and backward for non-alphabet
-            if (!ctype_alpha($post['body'][$i - 1])){ //forward
-              $point = $i; //break point
-              break;
-            } else if (!ctype_alpha($post['body'][$j - 1])){ //backward
-              $point = $j; //break point
-              break;
-            }
-          }
-          $string1 = substr($post['body'], 0, $point);
-          $string2 = substr($post['body'], $point); */
-
           $numWords = strlen($post['body']);
           $first = intval($numWords * (35/100));
           $second = intval($numWords * (65/100));
-          // $third = intval($numWords * (25/100));
-          // $fourth = intval($numWords * (25/100));
 
-          $first_part=substr($post['body'],0,$first);
-          $second_part=substr($post['body'], $first, $second);
-          // $third_part=substr($post['body'], $second, ($second + $third));
-          // $fourth_part=substr($post['body'], ($third + $fourth));
+          $first_part=substr($post['body'],0,850);
+          $second_part=substr($post['body'], 850, strlen($post['body']));
         ?>
         <p>
         <?php
-          // echo $string1;
           echo $first_part;
         ?>
         </p>
@@ -108,7 +86,6 @@
         <div class="callout">
           <p>
             <?php
-              // echo $string2;
               echo $second_part;
             ?>
           </p>
