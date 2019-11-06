@@ -1,6 +1,12 @@
+
+
 <div class="grid-container">
       <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
+        <h1><?php echo $subtopic['nombre'] ?></h1>
+          <div class="callout">
+          <p><?php echo $subtopic['slug'] ?></p>
+          </div>
          <div class="grid-x grid-padding-x">
               <div class="large-6 medium-6 cell">
                 <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg">

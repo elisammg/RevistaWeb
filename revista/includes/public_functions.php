@@ -59,4 +59,33 @@ function getPost($slug){
 	}
 	return $post;
 }
+
+//Funcion para tomar los datos de los topics 
+function getTopic($slug){
+	global $conexion;
+	// Get single topics slug
+	$topic_slug = $_GET['topics-slug'];
+	$sql = "SELECT * FROM topics WHERE slug='$topic_slug'";
+	$result = mysqli_query($conexion, $sql);
+
+	// fetch query results as associative array.
+	$topics = mysqli_fetch_assoc($result);
+	
+	return $topics;
+}
+
+//Funcion para tomar los datos de los subtopics 
+function getSubTopic($slug){
+	global $conexion;
+	// Get single topics slug
+	$subtopic_slug = $_GET['subtopic-slug'];
+	$sql = "SELECT * FROM subtopic WHERE slug='$subtopic_slug'";
+	$result = mysqli_query($conexion, $sql);
+
+	// fetch query results as associative array.
+	$subtopic = mysqli_fetch_assoc($result);
+	
+	return $subtopic;
+}
 ?>
+
