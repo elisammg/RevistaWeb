@@ -58,8 +58,8 @@
 <!--Anuncios -->
     <?php
     $postid = $post['id'];
-    $sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
-    
+    //$sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
+    $sql = "SELECT * FROM mydb.anuncios ORDER BY RAND() LIMIT 1";
        $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0){ 
@@ -69,7 +69,7 @@
            <div class="grid-container">
               <div class="grid-x grid-padding-x">
                 <div class="large-4 cell">
-                    <img src="<?=$row['anuncios_imagen']?>"> 
+                    <img src="<?=$row['imagen']?>"> 
                 </div>
               </div>
             </div>

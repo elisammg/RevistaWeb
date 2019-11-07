@@ -1,3 +1,4 @@
+
 <?php 
 
 //Función para tomar los articulos que han sido publicados.
