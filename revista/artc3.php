@@ -8,6 +8,16 @@
       <div class="large-4 cell">
         <h3><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></h3>
         <p><?php echo $post['created_at']; ?></p>
+        <span class="success label"><?php echo $post['topic']['nombre']; ?></span>
+              <span class="primary label">
+                <?php 
+                if ($post['premium'] == 0) {
+                  echo "Free";
+                }else{
+                  echo "Premium";
+                }
+                 ?>
+              </span>
       </div>
       <div class="large-4 cell">
       <h1><img src="<?php echo $post['user']['foto']; ?>"></h1>

@@ -8,8 +8,17 @@
       <span class="full-width-testimonial-source-context"><?php echo $post['created_at']; ?></span>
       <br>
       <img src="<?php echo $post['user']['foto']; ?>">
-      <span class="primary label"><?php echo $post['topic']['nombre']; ?></span>
-      <span class="primary label">PREMIUM</span>
+      <span class="success label"><?php echo $post['topic']['nombre']; ?></span>
+      <span class="primary label">
+      <?php 
+      if ($post['premium'] == 0) {
+      echo "Free";
+      }else{
+      echo "Premium";
+      }
+
+      ?>
+      </span>
     </div>
     <div class="large-8 cell">
       <div class="full-width-testimonial">

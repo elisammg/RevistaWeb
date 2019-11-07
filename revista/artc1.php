@@ -1,3 +1,4 @@
+
     <br>
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
@@ -8,8 +9,17 @@
               <div class="large-6 medium-6 cell">
               <p><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></p>
               <p><?php echo $post['created_at']; ?></p>
-              <p><?php echo $post['topic']['nombre']; ?></p>
-              <span class="primary label">FREE</span>
+              <span class="success label"><?php echo $post['topic']['nombre']; ?></span>
+              <span class="primary label">
+                <?php 
+                if ($post['premium'] == 0) {
+                  echo "Free";
+                }else{
+                  echo "Premium";
+                }
+
+                 ?>
+              </span>
             </div>
             <div class="large-6 medium-6 cell">
               <center><img src="<?php echo $post['user']['foto']; ?>"></center>
