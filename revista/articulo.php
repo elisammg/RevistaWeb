@@ -83,15 +83,17 @@
     ?> 
 <!--Anuncios -->  
 
-<!--Reportar -->
+<!--Reportar --> 
         
         <div class="grid-container">
         <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
         <div class="alert callout">
-        <?php $titulopost = $post['title'] ?>
+        <?php $titulopost = $post['title'];
+        $postid = $post['id']; ?>
         <q>Reportar articulo <?php echo $titulopost ?></q>
         <form action="comentarios/respuesta.php" method="get">
+        <input type="hidden" name="postid" value="<?php echo $postid ?>">
         <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
         </form>
         </div>
@@ -173,6 +175,10 @@
         <h4 class="text-center">Comentar</h4>
 
         <label>Comentario</label>
+         <?php $postid = $post['id']; 
+         $userid = $_SESSION['users']['id'];?>
+         <input type="hidden" name="useridcomment" value="<?php echo $userid ?>">
+        <input type="hidden" name="postidcomment" value="<?php echo $postid ?>">
         <input type="text" name="comentario" placeholder="Ingrese comentario">
 
         <input type="submit" value="Comentar" name="comentar">

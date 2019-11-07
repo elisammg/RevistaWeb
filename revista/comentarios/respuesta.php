@@ -7,9 +7,11 @@
         <?php 
           if (isset($_GET['comentar']))
           {
+            $userommentid = $_GET['useridcomment'];
+            $artcommentid = $_GET['postidcomment'];
             $comment = $_GET['comentario'];
             $sql5 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
-            VALUES (NULL, '11', '9', '$comment', current_timestamp(), '0', '0', '0')";
+            VALUES (NULL, '$userommentid', '$artcommentid', '$comment', current_timestamp(), '0', '0', '0')";
             $result5 = mysqli_query($conexion, $sql5);
             if($result5){
               echo "Gracias por comentar";
@@ -37,8 +39,9 @@
 
 <!-- Reportar articulos -->
         <?php
+        $artcid = $_GET['postid'];
            if (isset($_GET['reportar'])) {
-            $sql2 = "UPDATE posts SET reportes = reportes+'1' WHERE posts.id = 11";
+            $sql2 = "UPDATE posts SET reportes = reportes+'1' WHERE posts.id = $artcid";
             $result2 = mysqli_query($conexion, $sql2);
             if($result2){
               echo "Gracias por reportar articulo";
