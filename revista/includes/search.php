@@ -15,7 +15,7 @@
 <input type="text" name="created_at" placeholder="Ingrese fecha de publicacion"-->
 
 <label>Texto</label>
-<input type="text" name="body" placeholder="Ingrese texto similar">
+<input type="text" name="body" placeholder="Ingrese texto">
 
 <input type="submit" value="Consultar" name="buscar">
 </form>
