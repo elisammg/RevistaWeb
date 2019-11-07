@@ -1,4 +1,8 @@
-
+ <?php 
+$usersusc = $_SESSION['users']['suscripcion'];
+$postsusc = $post['premium'];
+if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
+?>
 <br>
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
@@ -8,6 +12,16 @@
       <div class="large-4 cell">
         <h3><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></h3>
         <p><?php echo $post['created_at']; ?></p>
+        <span class="success label"><?php echo $post['topic']['nombre']; ?></span>
+              <span class="primary label">
+                <?php 
+                if ($post['premium'] == 0) {
+                  echo "Free";
+                }else{
+                  echo "Premium";
+                }
+                 ?>
+              </span>
       </div>
       <div class="large-4 cell">
       <h1><img src="<?php echo $post['user']['foto']; ?>"></h1>
@@ -94,3 +108,8 @@
     </div>
     <hr> 
   </div>
+  <?php 
+    }else{
+      echo "articulo solo de paga, adquiere suscripcion para poder ver articulo";
+    }
+?>

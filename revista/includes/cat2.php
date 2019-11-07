@@ -1,3 +1,8 @@
+ <?php 
+$usersusc = $_SESSION['users']['suscripcion'];
+$topicsusc = $topics['premium'];
+if ($usersusc == 1 && $topicsusc == 1 OR $topicsusc == 0) {
+?>
 <div class="grid-container">
   <div class="grid-x grid-padding-x">
 <div class="large-6 medium-6 cell">
@@ -43,4 +48,10 @@ while($row = mysqli_fetch_assoc($result))
 </div>
 <hr>
 </div>
+  <?php 
+    }else{
+      echo "Categoria solo de paga, adquiere suscripcion para poder ver categoria";
+    }
+?>
+
           

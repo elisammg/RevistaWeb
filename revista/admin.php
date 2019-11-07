@@ -72,16 +72,34 @@
             <?php require_once('includes/anuncioadmin.php') ?>
           </div>
         </div>
+        <!-- Insertar anuncios -->
         <?php 
           if (isset($_GET['este']))
           {
             //se pone anuncio en el post que se seleccione
             $opcion=$_GET['carlist']; //opcion de la lista
             $nombre=$_GET['anuncio']; //nombre ingresado
-            $sql3 = "UPDATE anuncios SET id_post = '$opcion' WHERE anuncios.titulo = '$nombre'";
+            $foto=$_GET['imagen']; //imagen ingresado
+            $sql3 = "INSERT INTO `anuncios` (`id`, `id_post`, `titulo`, `imagen`, `click`) 
+                      VALUES (NULL, '$opcion', '$nombre', '$foto', '')";
             $result3 = mysqli_query($conexion, $sql3);
             if($result3){
               echo "Se ingresaron correctamente los datos";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
+        <!-- Eliminar anuncios -->
+        <?php 
+          if (isset($_GET['borrar']))
+          {
+            //se pone anuncio en el post que se seleccione
+            $nombre=$_GET['anuncio']; //nombre ingresado
+            $sql3 = "DELETE FROM `anuncios` WHERE `anuncios`.`titulo` = '$nombre'";
+            $result3 = mysqli_query($conexion, $sql3);
+            if($result3){
+              echo "Se elimino anuncio";
             }else{
               echo "No se ingresaron los datos.";
             }

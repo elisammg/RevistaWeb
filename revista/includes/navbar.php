@@ -1,6 +1,7 @@
 <?php  include(ROOT_PATH . '/admin/includes/user_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/topic_functions.php'); ?>
+
 <div class="top-bar foundation-5-top-bar">
   <div class="top-bar-title">
     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
@@ -16,14 +17,22 @@
           $result = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) { ?>
+              <!--?php 
+                /*$usersusc = $_SESSION['users']['suscripcion'];
+                $topicsusc = $row['premium'];
+                  if ($usersusc == 1 && $topicsusc == 1 OR $topicsusc == 0) { */?-->
               <li>
                 <!--Navegacion categorias -->
+                 
                 <a href="categoria.php?topics-slug=<?php echo $row['slug'];?>"><?=$row['name']?></a>
-                <!--a href="categoria.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a-->
-                <ul class="menu">
-                  <?php navcat($row["id"]); ?>
+                <!--Navegacion subcategorias -->
+                <ul class="menu">                  
+                  <?php navcat($row["id"]); ?>                  
                 </ul>
               </li>
+              <!--?php 
+                // } //end if de paga
+              ?-->
         <?php
             } //end while
           } //end if
