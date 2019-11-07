@@ -24,10 +24,11 @@
         <?php 
           if (isset($_GET['contestar']))
           {
-            
+            $useranswer = $_GET['useridanswer'];
+            $artcanswer = $_GET['postidanswer'];
             $respuesta = $_GET['respuesta'];
             $sql9 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
-            VALUES (NULL, '11', '9', '$respuesta', current_timestamp(), '0', '0', '0')";
+            VALUES (NULL, '$useranswer', '$artcanswer', '$respuesta', current_timestamp(), '0', '0', '0')";
             $result9 = mysqli_query($conexion, $sql9);
             if($result9){
               echo "Gracias por comentar";

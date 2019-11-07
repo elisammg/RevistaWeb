@@ -134,7 +134,14 @@
             <form action="comentarios/respuesta.php" method="get">
              <?php if (isset($_SESSION['users'])) { ?>
             <label>Comentario</label>
-            <input type="text" name="respuesta" placeholder="Ingrese respuesta">
+            <?php $postid = $post['id']; 
+             $userid = $_SESSION['users']['id'];?>
+             <input type="hidden" name="useridanswer" value="<?php echo $userid ?>">
+              <input type="hidden" name="postidanswer" value="<?php echo $postid ?>">
+              <!--falta poner funcion para la variabl $comment[] que trae los datos de la tabla comentarios, podria hacerse un slug tambien para comentarios. los datos que falta traer es respuesta_a y id
+              <input type="hidden" name="commentanswer" value="<?php //echo $answer?>">
+              <input type="hidden" name="postidanswer" value="<?php //echo $postid ?>"> -->
+            <input type="text" name="respuesta" required placeholder="Ingrese respuesta">
             <input type="submit" class="tiny success button" name="contestar" value="Comentar">
             <?php }else{
 
@@ -162,7 +169,7 @@
     </div>
 <!--Comentarios --> 
 
-<!--Comentar -->
+<!--Comentar articulo general-->
         <?php if (isset($_SESSION['users'])) { ?>
         <div class="grid-container">
         <div class="grid-x grid-padding-x">

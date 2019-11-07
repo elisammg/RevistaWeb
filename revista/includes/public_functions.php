@@ -77,7 +77,7 @@ function getTopic($slug){
 //Funcion para tomar los datos de los subtopics 
 function getSubTopic($slug){
 	global $conexion;
-	// Get single topics slug
+	// Get single subtopics slug
 	$subtopic_slug = $_GET['subtopic-slug'];
 	$sql = "SELECT * FROM subtopic WHERE slug='$subtopic_slug'";
 	$result = mysqli_query($conexion, $sql);
