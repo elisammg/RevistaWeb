@@ -7,14 +7,31 @@
           </div>
           <ul class="accordion" data-accordion>
        
-        <li class="accordion-item" data-accordion-item>
-          <a href="#" class="accordion-title">TITULO ARTICULO 2</a>
+          <?php
+          $subtopicid = $subtopic['id'];
+          $sql = "SELECT * FROM mydb.posts WHERE id_subtopic = $subtopicid AND published = 1 LIMIT 3"; 
+          $result = mysqli_query($conexion, $sql);
+          if (mysqli_num_rows($result) > 0)
+          {
+          while($row = mysqli_fetch_assoc($result))
+          {
+          ?>
+
+
+          <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title"><?php echo $row['title'] ?></a>
           <div class="accordion-content" data-tab-content>
-            <h3>DATOS AUTOR</h3>
-            <p>RESUMEN ARTICULO</p>
-            <a href="#">Leer mas...</a>
+          <p><?php echo $row['slug'] ?></p>
+          <a href="articulo.php?post-slug=<?php echo $row['slug'];?>" class="button">Leer mas</a>
           </div>
-        </li>
+          </li>
+
+          <?php
+          } //end while
+          } //end if
+          ?>
+
+
         
       </ul>
         </div>
@@ -40,6 +57,5 @@
       </div>
     </div>
     <hr>
-
 
 
