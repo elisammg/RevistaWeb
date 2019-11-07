@@ -33,6 +33,7 @@ $result = mysqli_query($conexion, $sql);
                       <td><center>Autor</center></td>
                       <td><center>Fecha</center></td>
                       <td><center>Texto</center></td>
+                      <td><center>Leer mas</center></td>
                     </tr>";
      while ($consulta = mysqli_fetch_array($result)) 
      {
@@ -43,6 +44,9 @@ $result = mysqli_query($conexion, $sql);
       <td>".$consulta['usernombre']."</td>
       <td>".$consulta['created_at']."</td>
       <td>".$consulta['posts_body']."</td>
+      <td>"?>
+      <a href="articulo.php?post-slug=<?php echo $consulta['slug'];?>" class="button">Leer mas</a>
+    <?php echo "</td>
     </tr>";
 
       
