@@ -62,10 +62,10 @@
             $creado=$_GET['created_at'];
             $texto=$_GET['body'];
             //query de busqueda
-            $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
-                . "INNER JOIN mydb.users \n"
+            $sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM posts \n"
+                . "INNER JOIN users \n"
                 . "ON posts.user_id = users.id\n"
-                . "JOIN mydb.subtopic\n"
+                . "JOIN subtopic\n"
                 . "ON posts.id_subtopic = subtopic.id\n"
                 . "WHERE users.username LIKE '$autor' or subtopic.nombre LIKE '$categoria' or posts.body LIKE '$texto' or posts.created_at LIKE '$creado' ";
 
@@ -78,10 +78,10 @@
             $total_paginas = ceil($total_registros / $limit);
 
             //query de busqueda con paginación
-            $sqlPag = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
-                . "INNER JOIN mydb.users \n"
+            $sqlPag = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM posts \n"
+                . "INNER JOIN users \n"
                 . "ON posts.user_id = users.id\n"
-                . "JOIN mydb.subtopic\n"
+                . "JOIN subtopic\n"
                 . "ON posts.id_subtopic = subtopic.id\n"
                 . "WHERE users.username LIKE '$autor' or subtopic.nombre LIKE '$categoria' or posts.body LIKE '$texto' or posts.created_at LIKE '$creado' 
                   LIMIT $offset, $limit";

@@ -16,7 +16,7 @@
   $servername= "localhost";
   $user="root";
   $pass="";
-  $dbname="mydb";
+  $dbname="revista_web";
 
   // connect to database
 	$conexion = mysqli_connect($servername, $user, $pass, $dbname);

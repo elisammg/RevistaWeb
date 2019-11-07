@@ -53,8 +53,9 @@
           }else{
               echo "El articulo no tiene plantilla.";
           }
-        }
-    ?>
+        } ?>
+    </div>
+  </div>
 <!--Anuncios -->
     <?php
     $postid = $post['id'];
@@ -74,7 +75,7 @@
               </div>
             </div>
         
-           <?php 
+          <?php 
        }//fin blucle
       } else
       {
@@ -107,14 +108,14 @@
     <!--Comentarios y respuestas -->
     <!--?php require_once('comentarios/comentarios.php') ?-->
     <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-    <div class="large-12 cell">
-    <h5>Comentarios</h5>
-    <div class="warning callout">
-    <dl>
-  <?php
-    $postid = $post['id'];
-    $sql = "SELECT * FROM mydb.comentariosartc WHERE id_post = '$postid' AND censurar = 0";
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h5>Comentarios</h5>
+            <div class="warning callout">
+              <dl>
+                <?php
+                  $postid = $post['id'];
+                  $sql = "SELECT * FROM comentariosartc WHERE id_post = '$postid' AND censurar = 0";
     
        $result = mysqli_query($conexion, $sql);
 
@@ -167,7 +168,7 @@
     </div>
     </div>
     </div>
-<!--Comentarios --> 
+    <!--Comentarios --> 
 
 <!--Comentar articulo general-->
         <?php if (isset($_SESSION['users'])) { ?>
@@ -194,6 +195,10 @@
         </div>
         </div>
         </div>
+      </div>
+    <?php }else{
+      echo "Inicia sesion para comentar";
+      } ?>
 
         <?php }else{
 

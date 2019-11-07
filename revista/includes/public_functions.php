@@ -61,6 +61,28 @@ function getPost($slug){
 	return $post;
 }
 
+//Funcion para verificar el slug del artículo
+function getDraft($slug){
+	global $conexion;
+	// Get single post slug
+	$post_slug = $_GET['post-slug'];
+	if($_SESSION['users']['role'] != 'Moderador'){
+		$sql = "SELECT * FROM draft WHERE slug='$post_slug' AND published=true";
+	}else{
+		$sql = "SELECT * FROM draft WHERE slug='$post_slug'";
+	}
+	$result = mysqli_query($conexion, $sql);
+
+	// fetch query results as associative array.
+	$post = mysqli_fetch_assoc($result);
+	if ($post) {
+		// get the topic to which this post belongs
+		$post['topic'] = getPostTopic($post['id']);
+		$post['user'] = getAuthorName($post['id']);
+	}
+	return $post;
+}
+
 //Funcion para tomar los datos de los topics 
 function getTopic($slug){
 	global $conexion;

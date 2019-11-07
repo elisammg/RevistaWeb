@@ -14,7 +14,7 @@
           </tr> 
         
           <?php
-            $sql = "SELECT * FROM mydb.tenlast LIMIT 10";
+            $sql = "SELECT * FROM tenlast LIMIT 10";
             $result = mysqli_query($conexion, $sql);
 
             if (mysqli_num_rows($result) > 0)

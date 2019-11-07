@@ -51,7 +51,7 @@
         <!--Moderacion de articulos para publicar -->  
           <h4>Publicación de Articulos</h4>
           <?php  
-          $sql = "SELECT count(Id) FROM mydb.modenewartc"; 
+          $sql = "SELECT count(Id) FROM modenewartc"; 
            $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0){ 
@@ -73,7 +73,7 @@
       <!--Moderacion de comentarios cuenta cuantos hay -->    
           <h4>Moderación de comentarios</h4>
           <?php  
-          $sql = "SELECT count(id) FROM mydb.modcomment"; 
+          $sql = "SELECT count(id) FROM modcomment"; 
            $result = mysqli_query($conexion, $sql);
 
            if (mysqli_num_rows($result) > 0){ 
@@ -95,7 +95,7 @@
       <!--Moderacion de Artículos cuenta cuantos hay -->    
           <h4>Moderación de Artículos</h4>
           <?php  
-          $sql = "SELECT count(id) FROM mydb.modartc;"; 
+          $sql = "SELECT count(id) FROM modartc;"; 
           $result = mysqli_query($conexion, $sql);
 
            if (mysqli_num_rows($result) > 0){ 

@@ -20,7 +20,7 @@ if ($usersusc == 1 && $topicsusc == 1 OR $topicsusc == 0) {
                 <!-- esto se repite -->
 <?php
 $topicid = $topics['id'];
-$sql = "SELECT * FROM mydb.topics WHERE id = (SELECT subtopic.id_topic FROM mydb.subtopic WHERE id_topic = '$topicid' LIMIT 1)";
+$sql = "SELECT * FROM topics WHERE id = (SELECT subtopic.id_topic FROM subtopic WHERE id_topic = '$topicid' LIMIT 1)";
 $result = mysqli_query($conexion, $sql);
 if (mysqli_num_rows($result) > 0)
 {
@@ -30,8 +30,6 @@ while($row = mysqli_fetch_assoc($result))
                 <dl>
                   <dt><a href="subcategoria.php?topic-slug=<?php echo navcat($row['slug']);?>">
               <?php navcat($row["id"]); ?></a></dt>
-                  <dd>Frase subcategoria</dd>
-                  <input type="button" name="leer" value="Leer mas">
                 </dl>
 <?php
 } //end while
