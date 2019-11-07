@@ -5,7 +5,7 @@
           <h2>LOS MAS VISTOS</h2>
     </div>
      <?php
-          $sql = "SELECT title, body, views, slug FROM `posts` ORDER BY `posts`.`views` DESC LIMIT 4";
+          $sql = "SELECT title, body, views, slug FROM `posts` WHERE published = 1 ORDER BY `posts`.`views` DESC LIMIT 4";
           $resultado = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($resultado)>0)
           {
