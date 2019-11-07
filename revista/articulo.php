@@ -33,11 +33,11 @@
         <?php 
           else: 
             if($post['plantilla'] == 0){
-                require_once('artc1.php');
+                require('artc1.php');
             }else if($post['plantilla'] == 1){
-                require_once('artc2.php');
+                require('artc2.php');
             }else if($post['plantilla'] == 2){
-                require_once('artc3.php');
+                require('artc3.php');
             }else{
                 echo "El articulo no tiene plantilla.";
             }
@@ -45,11 +45,11 @@
 
         } else { 
           if($post['plantilla'] == 0){
-            require_once('artc1.php');
+            require('artc1.php');
           }else if($post['plantilla'] == 1){
-              require_once('artc2.php');
+              require('artc2.php');
           }else if($post['plantilla'] == 2){
-              require_once('artc3.php');
+              require('artc3.php');
           }else{
               echo "El articulo no tiene plantilla.";
           }

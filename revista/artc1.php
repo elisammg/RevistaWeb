@@ -1,4 +1,8 @@
-
+ <?php 
+$usersusc = $_SESSION['users']['suscripcion'];
+$postsusc = $post['premium'];
+if ($usersusc == 1 && $postsusc == 1) {
+?>
     <br>
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
@@ -69,4 +73,9 @@
           </div>
         </div>
       </div>
+  <?php 
+    }else{
+      echo "articulo solo de paga, adquiere suscripcion para poder ver articulo";
+    }
+?>
   
