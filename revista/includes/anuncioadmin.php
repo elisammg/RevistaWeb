@@ -14,6 +14,7 @@
     <p>Veces click <?php echo $mostrar['click'] ?></p>   
 
   </div>
+
   <?php 
 		}
 
@@ -22,7 +23,11 @@
 	<form action="admin.php" id="carform">
 	  <label>Nombre de anuncio</label>
 	  <input type="text" name="anuncio" required placeholder="Ingrese nombre de anuncio">
-	  <input type="submit" class="button" name="este">
+	  <label>Imagen anuncio</label>
+	  <input type="text" name="imagen" placeholder="Ingrese url de imagen">
+	  <input type="submit" class="button" name="este" value="Insertar">
+	 
+	  <input type="submit" class="button" name="borrar" value="Eliminar">
 	</form>
 	<br>
 
