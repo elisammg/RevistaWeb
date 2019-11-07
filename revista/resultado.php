@@ -23,12 +23,9 @@
 if (isset($_GET['buscar'])) 
 {
   
-$categoria=$_GET['categoria'];
-$autor=$_GET['nombre'];
-$creado=$_GET['created_at'];
 $texto=$_GET['body'];
 //query de busqueda
-$sql = "SELECT * FROM mydb.busqueda WHERE usernombre LIKE '$autor' or subtopic_nombre LIKE '$categoria' or posts_body LIKE '$body'";
+$sql = "SELECT * FROM mydb.busqueda WHERE usernombre LIKE '$texto' or subtopic_nombre LIKE '$texto' or posts_body LIKE '$texto'";
 $result = mysqli_query($conexion, $sql);
      echo "<table>
                     <tr>
