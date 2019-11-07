@@ -1,7 +1,7 @@
  <?php 
 $usersusc = $_SESSION['users']['suscripcion'];
 $postsusc = $post['premium'];
-if ($usersusc == 1 && $postsusc == 0) {
+if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
 ?>
 <br>
   <div class="grid-container">
