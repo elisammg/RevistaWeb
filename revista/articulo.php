@@ -59,8 +59,8 @@
 <!--Anuncios -->
     <?php
     $postid = $post['id'];
-    //$sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
-    $sql = "SELECT * FROM mydb.anuncios ORDER BY RAND() LIMIT 1";
+    //$sql = "SELECT * FROM anunciopost WHERE id_post = '$postid'";
+    $sql = "SELECT * FROM anuncios ORDER BY RAND() LIMIT 1";
        $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0){ 
@@ -196,9 +196,6 @@
         </div>
         </div>
       </div>
-    <?php }else{
-      echo "Inicia sesion para comentar";
-      } ?>
 
         <?php }else{
 

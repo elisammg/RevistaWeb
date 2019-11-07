@@ -43,16 +43,12 @@
 	        	<?php 
 					$sql="SELECT id, tipo FROM suscripcion";
 					$result=mysqli_query($conexion,$sql);
-					while ($mostrar=mysqli_fetch_array($result)){
-					?>
-	        	<li>
-	        		<input type="radio" name="pokemon" value="<?php echo $mostrar['id'];?>" id="pokemon<?php echo $mostrar['id'];?>">
-	        		<label for="pokemon<?php echo $mostrar['id'];?>"><?php echo $mostrar['tipo'];?></label>
-	        	</li>
-	        	 <?php 
-					}
-
-					 ?>
+					while ($mostrar=mysqli_fetch_array($result)){ ?>
+						<li>
+							<input type="radio" name="pokemon" value="<?php echo $mostrar['id'];?>" id="pokemon<?php echo $mostrar['id'];?>">
+							<label for="pokemon<?php echo $mostrar['id'];?>"><?php echo $mostrar['tipo'];?></label>
+						</li>
+	        	 	<?php } ?>
 	        </ul>    
 
 		  <h5 class="text-center">Datos de cobro</h5>

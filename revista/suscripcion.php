@@ -24,7 +24,7 @@
     } 
     ?>
 
-    <?php 
+    <?php
       if (isset($_POST['enviar']))
       {
         $id = $_SESSION['users']['id'];

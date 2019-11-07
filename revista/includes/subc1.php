@@ -14,7 +14,7 @@
           <!--Esto se repite -->
                   <?php
                   $subtopicid = $subtopic['id'];
-                  $sql = "SELECT * FROM mydb.posts WHERE id_subtopic = $subtopicid AND published = 1"; 
+                  $sql = "SELECT * FROM posts WHERE id_subtopic = $subtopicid AND published = 1"; 
                   $result = mysqli_query($conexion, $sql);
                   if (mysqli_num_rows($result) > 0)
                   {

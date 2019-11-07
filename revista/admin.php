@@ -81,7 +81,7 @@
             $nombre=$_GET['anuncio']; //nombre ingresado
             $foto=$_GET['imagen']; //imagen ingresado
             $sql3 = "INSERT INTO `anuncios` (`id`, `id_post`, `titulo`, `imagen`, `click`) 
-                      VALUES (NULL, '$opcion', '$nombre', '$foto', '')";
+                      VALUES (NULL, '$opcion', '$nombre', '$foto', 0)";
             $result3 = mysqli_query($conexion, $sql3);
             if($result3){
               echo "Se ingresaron correctamente los datos";
