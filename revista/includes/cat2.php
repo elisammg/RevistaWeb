@@ -25,10 +25,7 @@ while($row = mysqli_fetch_assoc($result))
 
 <div class="callout">
 <h2><a href="subcategoria.php?topic-slug=<?php echo navcat($row['slug']);?>">
-              <?php navcat($row["id"]); ?></a></a></h2>
-<q>Frase subcategoria</q>
-<hr>
-<input type="button" name="mas" value="Leer mas">         
+              <?php navcat($row["id"]); ?></a></a></h2>       
 </div>
 <hr>
  <?php

@@ -109,10 +109,7 @@
 											<td><?php echo $key + 1; ?></td>
 											<td><?php echo $draft['author']; ?></td>
 											<td>
-												<a 	target="_blank"
-												href="<?php echo BASE_URL . 'articulo.php?post-slug=' . $draft['slug'] ?>">
-													<?php echo $draft['title']; ?>	
-												</a>
+												<?php echo $draft['title']; ?>
 											</td>
 											<td><?php echo $draft['views']; ?></td>
 											

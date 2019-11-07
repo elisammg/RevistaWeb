@@ -33,7 +33,7 @@
                   <a href="reporteartc.php?censurar=<?php echo $row['Id'] ?>">Censurar</a>
                 </td>
                 <td class="estilo-tabla" align="center">
-                  <a href="reporteartc.php?no-censurar=<?php echo $row['Id'] ?>">No Censurar</a>
+                  <a href="reporteartc.php?no-censurar=<?php echo $row['Id'] ?>">Ignorar</a>
                 </td>
            </tr> 
            <?php 

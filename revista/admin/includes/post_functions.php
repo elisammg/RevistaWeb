@@ -304,7 +304,7 @@ if(isset($_GET['censurar']) || isset($_GET['no-censurar'])){
 	} elseif (isset($_GET['no-censurar'])){
 		$post_id = $_GET['no-censurar'];
 		global $conexion;
-		$sql = "UPDATE posts SET reportes = 0 WHERE id = '$post_id' AND reportes > 0";
+		$sql = "UPDATE posts SET reportes = NULL WHERE id = '$post_id' AND reportes > 0";
 		$result = mysqli_query($conexion, $sql);
 	}
 }
