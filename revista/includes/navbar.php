@@ -16,14 +16,25 @@
           $result = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) { ?>
+              <?php 
+                    $usersusc = $_SESSION['users']['suscripcion'];
+                    $topicsusc = $row['premium'];
+                    if ($usersusc == 1 && $topicsusc == 1 OR $topicsusc == 0) {
+                    ?>
               <li>
                 <!--Navegacion categorias -->
+                 
                 <a href="categoria.php?topics-slug=<?php echo $row['slug'];?>"><?=$row['name']?></a>
-                <!--a href="categoria.php?topic-plantilla=<?php echo $row['plantilla']; ?>"><?=$row['name']?></a-->
+
                 <ul class="menu">
+                  <!--Navegacion subcategorias -->
                   <?php navcat($row["id"]); ?>
+                  
                 </ul>
               </li>
+              <?php 
+                        }
+                    ?>
         <?php
             } //end while
           } //end if
