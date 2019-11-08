@@ -1,9 +1,9 @@
   
     <?php
     $postid = $post['id'];
-    $sqlwer = "SELECT posts.id, posts.title, anuncios.id, anuncios.imagen, anuncios.titulo, postanuncio.id FROM mydb.postanuncio 
-    INNER JOIN mydb.posts ON postanuncio.id_post = posts.id 
-    INNER JOIN mydb.anuncios ON postanuncio.id_anuncio = anuncios.id 
+    $sqlwer = "SELECT posts.id, posts.title, anuncios.id, anuncios.imagen, anuncios.titulo, postanuncio.id FROM postanuncio 
+    INNER JOIN posts ON postanuncio.id_post = posts.id 
+    INNER JOIN anuncios ON postanuncio.id_anuncio = anuncios.id 
     WHERE posts.id = '$postid' ORDER BY RAND() LIMIT 1";
        $resultwer = mysqli_query($conexion, $sqlwer);
 

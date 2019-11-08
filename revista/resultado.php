@@ -25,7 +25,7 @@ if (isset($_GET['buscar']))
   
 $texto=$_GET['body'];
 //query de busqueda
-$sql = "SELECT * FROM mydb.busqueda WHERE usernombre LIKE '%$texto%' or subtopic_nombre LIKE '%$texto%' or posts_body LIKE '%$texto%'";
+$sql = "SELECT * FROM busqueda WHERE usernombre LIKE '%$texto%' or subtopic_nombre LIKE '%$texto%' or posts_body LIKE '%$texto%'";
 $result = mysqli_query($conexion, $sql);
      echo "<table>
                     <tr>

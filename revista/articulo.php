@@ -60,23 +60,22 @@
     <?php require_once('includes/veranuncio.php') ?>
 <!--Anuncios -->  
 
-<!--Reportar --> 
-        
-        <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
+<!--Reportar -->     
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
         <div class="alert callout">
         <?php $titulopost = $post['title'];
-        $postid = $post['id']; ?>
-        <q>Reportar articulo <?php echo $titulopost ?></q>
-        <form action="comentarios/respuesta.php" method="get">
-          <input type="hidden" name="postid" value="<?php echo $postid ?>">
-          <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
-        </form>
+          $postid = $post['id']; ?>
+          <q>Reportar articulo <?php echo $titulopost ?></q>
+          <form action="comentarios/respuesta.php" method="get">
+            <input type="hidden" name="postid" value="<?php echo $postid ?>">
+            <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
+          </form>
         </div>
-        </div>
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
 <!--Reportar -->
 
 
