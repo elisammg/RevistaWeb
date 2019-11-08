@@ -45,7 +45,11 @@ $result = mysqli_query($conexion, $sql);
       <td>".$consulta['created_at']."</td>
       <td>".$consulta['posts_body']."</td>
       <td>"?>
-      <a href="articulo.php?post-slug=<?php echo $consulta['slug'];?>" class="button">Leer mas</a>
+      <!--conteo de visitas -->
+          <form action="articulo.php" method="get">
+              <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+              <input type="submit" class="button" name="leer" value="Leer mas">
+          </form>
     <?php echo "</td>
     </tr>";
 

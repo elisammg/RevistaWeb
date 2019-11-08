@@ -30,7 +30,11 @@
                   <p>
                   <?php echo $row['slug'] ?>
                   </p>
-                  <a href="articulo.php?post-slug=<?php echo $row['slug'];?>" class="button">Leer mas</a>
+                  <!--conteo de visitas -->
+          <form action="articulo.php" method="get">
+              <input type="hidden" name="post-slug" value="<?php echo $row['slug'];?>">
+              <input type="submit" class="button" name="leer" value="Leer mas">
+          </form>
                   </div>
                   <hr>
                   <!--Esto se repite -->
