@@ -71,7 +71,7 @@
                   <div class="callout">
                     <?php  
                     $anuncioid = $rowwer['anuncio_id'];
-                    $artcid = $rowwer['post_title'];
+                    $artcid = $rowwer['id_post'];
                     $union = $rowwer['unionid'];?>
                     <p>Ver anuncio <?php echo $anuncioid ?> desde articulo <?php echo $artcid ?>  </p>
                     <form action="includes/veranuncio.php" method="get">
@@ -79,7 +79,7 @@
                     <input type="hidden" name="anunciorandom" value="<?php echo $anuncioid ?>">
                     <input type="hidden" name="artc" value="<?php echo $artcid ?>">
                     <input type="hidden" name="union" value="<?php echo $union ?>">
-                    <input class="button"type="submit" value="Ver auncio" name="veranuncio">                   
+                    <input class="button"type="submit" value="Ver anuncio" name="veranuncio">                   
                   </form>
                   </div>
                 </div>
