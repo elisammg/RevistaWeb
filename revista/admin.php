@@ -20,7 +20,7 @@
     <?php require_once('includes/navbar.php') ?>
   </header>
   <body>
-    <div class="grid-container">
+
       <div class="grid-x grid-padding-x">
 
         <!-- Mensaje de bienvenida -->
@@ -73,14 +73,11 @@
         </div>
         <!-- Insertar anuncios -->
         <?php 
-          if (isset($_GET['este']))
-          {
-            //se pone anuncio en el post que se seleccione
-            $opcion=$_GET['carlist']; //opcion de la lista
+          if (isset($_GET['nuevoanuncio']))
+          {            
             $nombre=$_GET['anuncio']; //nombre ingresado
             $foto=$_GET['imagen']; //imagen ingresado
-            $sql32 = "INSERT INTO anuncios (id, id_post, titulo, imagen, click) 
-            VALUES (NULL, '$opcion', '$nombre', '$foto', 0)";
+            $sql32 = "INSERT INTO anuncios (id, titulo, imagen, click) VALUES (NULL, '$nombre', '$foto', 0)";
             $result32 = mysqli_query($conexion, $sql32);
             if($result32){
               echo "Se ingresaron correctamente los datos";
@@ -91,7 +88,7 @@
         ?>
         <!-- Eliminar anuncios -->
         <?php 
-          if (isset($_GET['borrar']))
+          if (isset($_GET['borraranuncio']))
           {
             //se pone anuncio en el post que se seleccione
             $nombre=$_GET['anuncio']; //nombre ingresado
@@ -99,6 +96,21 @@
             $result3 = mysqli_query($conexion, $sql3);
             if($result3){
               echo "Se elimino anuncio";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
+        <!-- Anuncio en post -->
+        <?php 
+          if (isset($_GET['esteanuncio']))
+          {
+            $opcionanuncio=$_GET['pokemon1'];//se pone anuncio en el post que se seleccione
+            $opcionartc=$_GET['carlist']; //nombre ingresado
+            $sql39 = "INSERT INTO postanuncio (id, id_anuncio, id_post) VALUES (NULL, '$opcionanuncio', '$opcionartc');";
+            $result39 = mysqli_query($conexion, $sql39);
+            if($result39){
+              echo "Se selecciono anuncio";
             }else{
               echo "No se ingresaron los datos.";
             }
@@ -200,7 +212,7 @@
         <!-- Administración de subcategorías para autores -->
 
       </div>
-    </div>
+
 
 
     <script src="js/vendor/jquery.js"></script>

@@ -22,12 +22,25 @@
 <!--seleccionar anuncio para articulo-->
 	<form action="admin.php" id="carform">
 	  <label>Nombre de anuncio</label>
-	  <input type="text" name="anuncio" required placeholder="Ingrese nombre de anuncio">
+	  <input type="text" name="anuncio" placeholder="Ingrese nombre de anuncio">
 	  <label>Imagen anuncio</label>
 	  <input type="text" name="imagen" placeholder="Ingrese url de imagen">
-	  <input type="submit" class="button" name="este" value="Insertar">
-	 
-	  <input type="submit" class="button" name="borrar" value="Eliminar">
+	 <?php 
+		$sqlsql="SELECT id, titulo FROM anuncios";
+		$resultsql=mysqli_query($conexion,$sql);
+		while ($mostrarsql=mysqli_fetch_array($resultsql)){
+		?>
+	
+		<input type="radio" name="pokemon1" value="<?php echo $mostrarsql['id'];?>" id="pokemon<?php echo $mostrarsql['id'];?>">
+		<label for="pokemon<?php echo $mostrarsql['id'];?>"><?php echo $mostrarsql['titulo'];?></label>
+	
+	 <?php 
+		}
+
+		 ?>
+	  <input type="submit" class="button" name="nuevoanuncio" value="Insertar Nuevo">	 
+	  <input type="submit" class="button" name="borraranuncio" value="Eliminar">
+	  <input type="submit" class="button" name="esteanuncio" value="Seleccionar para post">
 	</form>
 	<br>
 
@@ -45,3 +58,4 @@
 		?>
 </select>
 </div>
+
