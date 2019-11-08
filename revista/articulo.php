@@ -56,33 +56,7 @@
         }
     ?>
 <!--Anuncios -->
-    <?php
-    $postid = $post['id'];
-    $sql = "SELECT posts.id, posts.title, anuncios.id, anuncios.imagen, anuncios.titulo, postanuncio.id FROM mydb.postanuncio 
-    INNER JOIN mydb.posts ON postanuncio.id_post = posts.id 
-    INNER JOIN mydb.anuncios ON postanuncio.id_anuncio = anuncios.id 
-    WHERE posts.id = '$postid' ORDER BY RAND() LIMIT 1";
-       $result = mysqli_query($conexion, $sql);
-
-       if (mysqli_num_rows($result) > 0){ 
-       while($row = mysqli_fetch_assoc($result)) 
-       {
-           ?> 
-           <div class="grid-container">
-              <div class="grid-x grid-padding-x">
-                <div class="large-4 cell">
-                    <img src="<?=$row['imagen']?>"> 
-                </div>
-              </div>
-            </div>
-        
-           <?php 
-       }//fin blucle
-      } else
-      {
-        echo "no hay anuncios";
-      }
-    ?> 
+    <?php require_once('includes/veranuncio.php') ?>
 <!--Anuncios -->  
 
 <!--Reportar --> 
