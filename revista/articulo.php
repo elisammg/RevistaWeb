@@ -67,9 +67,10 @@
         <div class="alert callout">
         <?php $titulopost = $post['title'];
           $postid = $post['id']; ?>
-          <q>Reportar articulo <?php echo $titulopost ?></q>
+          <q> Reportar articulo '<?php echo $titulopost ?>' </q>
           <form action="comentarios/respuesta.php" method="get">
             <input type="hidden" name="postid" value="<?php echo $postid ?>">
+            <input type="hidden" name="postSlug" value="<?php echo $post['slug'] ?>">
             <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
           </form>
         </div>
@@ -81,8 +82,8 @@
 
 
 <!-- Comentarios y respuestas -->
-  <?php include( ROOT_PATH . '/comentarios/comentarios.php'); ?>
-<!------------------------------------------------------------------------------------------------>
+  <?php include( ROOT_PATH . '/comments/comentarios.php'); ?>
+<!--  ----------------------  -->
 
 <!--veces visto articulo -->
   <?php 

@@ -4,8 +4,8 @@
       <h5>Comentarios</h5>
       <div class="warning callout">
           <?php
-            $postid = $post['id'];
-            $comments = getPostComments($postid);
+            $postId = $post['id'];
+            $comments = getPostComments($postId);
           
             if(count($comments) > 0):?>
               <ul style="list-style-type:none">
@@ -25,6 +25,7 @@
                             <!-- Hidden inputs -->
                             <input type="hidden" name="useridanswer" value="<?php echo $userid ?>">
                             <input type="hidden" name="postidanswer" value="<?php echo $comment['id_post'] ?>">
+                            <input type="hidden" name="postSlug" value="<?php echo $comment['slug'] ?>">
                             <input type="hidden" name="answerId" value="<?php echo $comment['comentarios_id'] ?>">
                             <!-- Reply section -->
                             <input type="text" name="comment" placeholder="Ingrese comentario">
@@ -54,7 +55,7 @@
                       <form action="comentarios/respuesta.php" method="get">
                         <h4 class="text-center">Comentar</h4>
                         <label>Comentario</label>
-                        <?php $postid = $post['id']; 
+                        <?php $postId = $post['id']; 
                         $userid = $_SESSION['users']['id'];?>
                         <input type="hidden" name="useridcomment" value="<?php echo $userid ?>">
                         <input type="hidden" name="postidcomment" value="<?php echo $postid ?>">

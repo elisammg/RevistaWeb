@@ -42,6 +42,7 @@
                                 <input type="hidden" name="useridanswer" value="<?php echo $userid ?>">
                                 <input type="hidden" name="postidanswer" value="<?php echo $reply['id_post'] ?>">
                                 <input type="hidden" name="answerId" value="<?php echo $reply['comentarios_id'] ?>">
+                                <input type="hidden" name="postSlug" value="<?php echo $reply['slug'] ?>">
                                 <!-- Reply section -->
                                 <input type="text" name="comment" placeholder="Ingrese comentario">
                                 <input type="submit" class="tiny success button" name="contestar" value="Comentar">
