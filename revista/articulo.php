@@ -56,7 +56,44 @@
         }
     ?>
 <!--Anuncios -->
-    <?php require_once('includes/veranuncio.php') ?>
+    <?php
+    $postid = $post['id'];
+    $sqlwer = "SELECT * FROM mydb.anunciosartc WHERE id_post = '$postid' ORDER BY RAND() LIMIT 1";
+       $resultwer = mysqli_query($conexion, $sqlwer);
+
+       if (mysqli_num_rows($resultwer) > 0){ 
+       while($rowwer = mysqli_fetch_assoc($resultwer)) 
+       {
+           ?> 
+           <div class="grid-container">
+              <div class="grid-x grid-padding-x">
+                <div class="large-4 cell">
+                  <div class="callout">
+                    <?php  
+                    $anuncioid = $rowwer['anuncio_id'];
+                    $artcid = $rowwer['post_title'];
+                    $union = $rowwer['unionid'];?>
+                    <p>Ver anuncio <?php echo $anuncioid ?> desde articulo <?php echo $artcid ?>  </p>
+                    <form action="includes/veranuncio.php" method="get">
+                    <img src="<?=$rowwer['imagen']?>"> 
+                    <input type="hidden" name="anunciorandom" value="<?php echo $anuncioid ?>">
+                    <input type="hidden" name="artc" value="<?php echo $artcid ?>">
+                    <input type="hidden" name="union" value="<?php echo $union ?>">
+                    <input class="button"type="submit" value="Ver auncio" name="veranuncio">                   
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+           <?php 
+       }//fin blucle
+      } else
+      {
+        echo "no hay anuncios";
+      }
+    ?>
+
 <!--Anuncios -->  
 
 <!--Reportar --> 

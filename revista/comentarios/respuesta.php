@@ -33,7 +33,7 @@
             if($result9){
               echo "Gracias por comentar";
             }else{
-              echo "No se ingresaron los datos.";
+              echo "No se ingresaron los datos para contestar comentario";
             }
           }
         ?>
@@ -47,7 +47,7 @@
             if($result2){
               echo "Gracias por reportar articulo";
             }else{
-              echo "No se ingresaron los datos.";
+              echo "No se ingresaron los datos para reportar articulo";
             }
           }
         ?>
@@ -64,3 +64,4 @@
             }
           }
           ?>
+
