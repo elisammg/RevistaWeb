@@ -14,8 +14,7 @@
   <?php require_once('includes/navbar.php') ?>
 </header>
   <body>
-    
-    <div class="grid-container">
+  
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
         <?php if (isset($_SESSION['users'])) { ?>
@@ -102,7 +101,7 @@
     </div>
     </div>
   </div>
-</div>
+
 
 	<script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

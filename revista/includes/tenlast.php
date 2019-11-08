@@ -30,10 +30,11 @@
               <td class="estilo-tabla" align="center"><?=$row['slug']?></td>
               <td class="estilo-tabla" align="center"><?=$row['created_at']?></td>
               <td class="estilo-tabla" align="center">
-                <a href="articulo.php?post-slug=<?php echo $row['slug'];?>" class="button">Leer mas</a>
-              <!--<form action="includes/leermas.php" method="get">
-              <input type="submit" class="button" name="leer" value="Leer mas">
-              </form> -->
+              <!--conteo de visitas -->
+              <form action="articulo.php" method="get">
+                  <input type="hidden" name="post-slug" value="<?php echo $row['slug'];?>">
+                  <input type="submit" class="button" name="leer" value="Leer mas">
+              </form>
             </td>
           </tr> 
           <?php 
