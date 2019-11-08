@@ -66,57 +66,30 @@
         </div>
         <!-- //Administración de usuarios -->
 
+        <!-- Administración de subcategorías para autores-->
         <div class="large-6 cell">
           <div class="callout">
-            <?php require_once('includes/anuncioadmin.php') ?>
-          </div>
-        </div>
-        <!-- Insertar anuncios -->
+          <h3>ADMINISTRAR SUBCATEGORIA PARA AUTOR</h3>
+          <hr>
+             <?php require_once('includes/catautor.php') ?> 
+        </div>        
+      </div>
+      <!-- Insertar subcategoria y autor -->
         <?php 
-          if (isset($_GET['nuevoanuncio']))
-          {            
-            $nombre=$_GET['anuncio']; //nombre ingresado
-            $foto=$_GET['imagen']; //imagen ingresado
-            $sql32 = "INSERT INTO anuncios (id, titulo, imagen, click) VALUES (NULL, '$nombre', '$foto', 0)";
-            $result32 = mysqli_query($conexion, $sql32);
-            if($result32){
+          if (isset($_GET['subcatautor']))
+          {           
+            $userid=$_GET['pokemon']; 
+            $subcat=$_GET['lista']; 
+            $sql3a = "INSERT INTO subautor (id, id_user, id_subtopic) VALUES (NULL, '$userid', '$subcat')";
+            $result3a = mysqli_query($conexion, $sql3a);
+            if($result3a){
               echo "Se ingresaron correctamente los datos";
             }else{
               echo "No se ingresaron los datos.";
             }
           }
         ?>
-        <!-- Eliminar anuncios -->
-        <?php 
-          if (isset($_GET['borraranuncio']))
-          {
-            //se pone anuncio en el post que se seleccione
-            $nombre=$_GET['anuncio']; //nombre ingresado
-            $sql3 = "DELETE FROM `anuncios` WHERE `anuncios`.`titulo` = '$nombre'";
-            $result3 = mysqli_query($conexion, $sql3);
-            if($result3){
-              echo "Se elimino anuncio";
-            }else{
-              echo "No se ingresaron los datos.";
-            }
-          }
-        ?>
-        <!-- Anuncio en post -->
-        <?php 
-          if (isset($_GET['esteanuncio']))
-          {
-            $opcionanuncio=$_GET['pokemon1'];//se pone anuncio en el post que se seleccione
-            $opcionartc=$_GET['carlist']; //nombre ingresado
-            $sql39 = "INSERT INTO postanuncio (id, id_anuncio, id_post, click) VALUES (NULL, '$opcionanuncio', '$opcionartc', 0);";
-            $result39 = mysqli_query($conexion, $sql39);
-            if($result39){
-              echo "Se selecciono anuncio";
-            }else{
-              echo "No se ingresaron los datos.";
-            }
-          }
-        ?>
-        <!-- //Administración de anuncios -->
+        <!-- Administración de subcategorías para autores -->
 
         <!-- Administración de suscripciones -->
          <div class="large-6 cell">
@@ -185,31 +158,61 @@
       </div>
         <!-- //Administración de categorías y subcategorías -->
 
-
-        <!-- Administración de subcategorías para autores-->
+                 <!-- //Anuncios -->
         <div class="large-6 cell">
           <div class="callout">
-          <h3>ADMINISTRAR SUBCATEGORIA PARA AUTOR</h3>
-          <hr>
-             <?php require_once('includes/catautor.php') ?> 
-        </div>        
-      </div>
-      <!-- Insertar subcategoria y autor -->
+            <?php require_once('includes/anuncioadmin.php') ?>
+          </div>
+        </div>
+        <!-- Insertar anuncios -->
         <?php 
-          if (isset($_GET['subcatautor']))
-          {           
-            $userid=$_GET['pokemon']; 
-            $subcat=$_GET['lista']; 
-            $sql3a = "INSERT INTO subautor (id, id_user, id_subtopic) VALUES (NULL, '$userid', '$subcat')";
-            $result3a = mysqli_query($conexion, $sql3a);
-            if($result3a){
+          if (isset($_GET['nuevoanuncio']))
+          {            
+            $nombre=$_GET['anuncio']; //nombre ingresado
+            $foto=$_GET['imagen']; //imagen ingresado
+            $sql32 = "INSERT INTO anuncios (id, titulo, imagen, click) VALUES (NULL, '$nombre', '$foto', 0)";
+            $result32 = mysqli_query($conexion, $sql32);
+            if($result32){
               echo "Se ingresaron correctamente los datos";
             }else{
               echo "No se ingresaron los datos.";
             }
           }
         ?>
-        <!-- Administración de subcategorías para autores -->
+        <!-- Eliminar anuncios -->
+        <?php 
+          if (isset($_GET['borraranuncio']))
+          {
+            //se pone anuncio en el post que se seleccione
+            $nombre=$_GET['anuncio']; //nombre ingresado
+            $sql3 = "DELETE FROM `anuncios` WHERE `anuncios`.`titulo` = '$nombre'";
+            $result3 = mysqli_query($conexion, $sql3);
+            if($result3){
+              echo "Se elimino anuncio";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
+        <!-- Anuncio en post -->
+        <?php 
+          if (isset($_GET['esteanuncio']))
+          {
+            $opcionanuncio=$_GET['pokemon1'];//se pone anuncio en el post que se seleccione
+            $opcionartc=$_GET['carlist']; //nombre ingresado
+            $sql39 = "INSERT INTO postanuncio (id, id_anuncio, id_post, click) VALUES (NULL, '$opcionanuncio', '$opcionartc', 0);";
+            $result39 = mysqli_query($conexion, $sql39);
+            if($result39){
+              echo "Se selecciono anuncio";
+            }else{
+              echo "No se ingresaron los datos.";
+            }
+          }
+        ?>
+        <!-- //Administración de anuncios -->
+
+
+        
 
       </div>
 

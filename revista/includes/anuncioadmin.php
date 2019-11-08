@@ -8,10 +8,10 @@
 		$result=mysqli_query($conexion,$sql);
 		while ($mostrar=mysqli_fetch_array($result)){
 		?>
-  <div class="large-4 medium-4 cell">
+  <div class="large-3 medium-3 cell">
   	<div class="success callout">
     <img src="<?php echo $mostrar['imagen'] ?>" alt="">
-    <h4><?php echo $mostrar['titulo'] ?></h4>  
+    <p><?php echo $mostrar['titulo'] ?></p>  
     </div>
   </div>
 
