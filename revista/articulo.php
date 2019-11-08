@@ -58,8 +58,10 @@
 <!--Anuncios -->
     <?php
     $postid = $post['id'];
-    //$sql = "SELECT * FROM mydb.anunciopost WHERE id_post = '$postid'";
-    $sql = "SELECT * FROM mydb.anuncios ORDER BY RAND() LIMIT 1";
+    $sql = "SELECT posts.id, posts.title, anuncios.id, anuncios.imagen, anuncios.titulo, postanuncio.id FROM mydb.postanuncio 
+    INNER JOIN mydb.posts ON postanuncio.id_post = posts.id 
+    INNER JOIN mydb.anuncios ON postanuncio.id_anuncio = anuncios.id 
+    WHERE posts.id = '$postid' ORDER BY RAND() LIMIT 1";
        $result = mysqli_query($conexion, $sql);
 
        if (mysqli_num_rows($result) > 0){ 

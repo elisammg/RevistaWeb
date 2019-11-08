@@ -9,10 +9,10 @@
 		while ($mostrar=mysqli_fetch_array($result)){
 		?>
   <div class="large-4 medium-4 cell">
+  	<div class="success callout">
     <img src="<?php echo $mostrar['imagen'] ?>" alt="">
-    <h4><?php echo $mostrar['titulo'] ?></h4>
-    <p>Veces click <?php echo $mostrar['click'] ?></p>   
-
+    <h4><?php echo $mostrar['titulo'] ?></h4>  
+    </div>
   </div>
 
   <?php 
@@ -21,10 +21,11 @@
 		 ?>   
 <!--seleccionar anuncio para articulo-->
 	<form action="admin.php" id="carform">
-	  <label>Nombre de anuncio</label>
+	  <label>Nombre anuncio nuevo/eliminar</label>
 	  <input type="text" name="anuncio" placeholder="Ingrese nombre de anuncio">
 	  <label>Imagen anuncio</label>
 	  <input type="text" name="imagen" placeholder="Ingrese url de imagen">
+	  <label>Seleccionar anuncio</label>
 	 <?php 
 		$sqlsql="SELECT id, titulo FROM anuncios";
 		$resultsql=mysqli_query($conexion,$sql);
@@ -38,6 +39,7 @@
 		}
 
 		 ?>
+		 <hr>
 	  <input type="submit" class="button" name="nuevoanuncio" value="Insertar Nuevo">	 
 	  <input type="submit" class="button" name="borraranuncio" value="Eliminar">
 	  <input type="submit" class="button" name="esteanuncio" value="Seleccionar para post">

@@ -107,7 +107,7 @@
           {
             $opcionanuncio=$_GET['pokemon1'];//se pone anuncio en el post que se seleccione
             $opcionartc=$_GET['carlist']; //nombre ingresado
-            $sql39 = "INSERT INTO postanuncio (id, id_anuncio, id_post) VALUES (NULL, '$opcionanuncio', '$opcionartc');";
+            $sql39 = "INSERT INTO postanuncio (id, id_anuncio, id_post, click) VALUES (NULL, '$opcionanuncio', '$opcionartc', 0);";
             $result39 = mysqli_query($conexion, $sql39);
             if($result39){
               echo "Se selecciono anuncio";
