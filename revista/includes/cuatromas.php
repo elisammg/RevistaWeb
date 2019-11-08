@@ -5,7 +5,7 @@
           <h2>LOS MAS VISTOS</h2>
     </div>
      <?php
-          $sql = "SELECT posts.title, posts.body, posts.views, posts.slug, users.foto FROM mydb.posts INNER JOIN mydb.users ON posts.user_id = users.id WHERE published = 1 ORDER BY `posts`.`views` DESC LIMIT 4";
+          $sql = "SELECT posts.title, posts.body, posts.views, posts.slug, users.foto FROM posts INNER JOIN users ON posts.user_id = users.id WHERE published = 1 ORDER BY `posts`.`views` DESC LIMIT 4";
           $resultado = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($resultado)>0)
           {

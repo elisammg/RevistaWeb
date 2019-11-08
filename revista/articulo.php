@@ -97,79 +97,43 @@
 
 <!--Anuncios -->  
 
-<!--Reportar --> 
-        
-        <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
+<!--Reportar -->     
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
         <div class="alert callout">
         <?php $titulopost = $post['title'];
-        $postid = $post['id']; ?>
-        <q>Reportar articulo <?php echo $titulopost ?></q>
-        <form action="comentarios/respuesta.php" method="get">
-          <input type="hidden" name="postid" value="<?php echo $postid ?>">
-          <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
-        </form>
+          $postid = $post['id']; ?>
+          <q> Reportar articulo '<?php echo $titulopost ?>' </q>
+          <form action="comentarios/respuesta.php" method="get">
+            <input type="hidden" name="postid" value="<?php echo $postid ?>">
+            <input type="hidden" name="postSlug" value="<?php echo $post['slug'] ?>">
+            <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
+          </form>
         </div>
-        </div>
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
 <!--Reportar -->
 
 
 
-<!--Comentarios y respuestas -->
-  <?php include( ROOT_PATH . '/comentarios/comentarios.php'); ?>
-<!--Comentarios --> 
+<!-- Comentarios y respuestas -->
+  <?php include( ROOT_PATH . '/comments/comentarios.php'); ?>
+<!--  ----------------------  -->
 
-<!--Comentar articulo general-->
-        <?php if (isset($_SESSION['users'])) { ?>
-        <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-        <div class="callout">
-        <q>Comentar articulo <?php echo $post['title'] ?></q>
-        <hr>
-        <p>Usted está comentado como <?php echo $_SESSION['users']['nombre'] ?></p>
-        <form action="comentarios/respuesta.php" method="get">
-        <h4 class="text-center">Comentar</h4>
-
-        <label>Comentario</label>
-         <?php $postid = $post['id']; 
-         $userid = $_SESSION['users']['id'];?>
-         <input type="hidden" name="useridcomment" value="<?php echo $userid ?>">
-        <input type="hidden" name="postidcomment" value="<?php echo $postid ?>">
-        <input type="text" name="comentario" placeholder="Ingrese comentario">
-
-        <input type="submit" value="Comentar" name="comentar">
-        </form>
-        </div>
-        </div>
-        </div>
-        </div>
-      </div>
-
-        <?php }else{
-
-          echo "Inicia sesion para comentar";
-
-          } ?>
-
-<!--comentar -->
 <!--veces visto articulo -->
   <?php 
     $postid = $post['id']; 
     if (isset($_GET['leer'])) {
-    $sql1 = "UPDATE posts SET views = views+'1' WHERE posts.id = '$postid'";
-    $result1 = mysqli_query($conexion, $sql1);
-    if($result1){
-    echo "Gracias por Visitar articulo";
-    ?>
-    <a href="articulo.php?post-slug=<?php echo $row['slug'];?>"></a>
-    <?php
-    }else{
-    echo "No se ingresaron los datos.";
-    }
+      $sql1 = "UPDATE posts SET views = views+'1' WHERE posts.id = '$postid'";
+      $result1 = mysqli_query($conexion, $sql1);
+      if($result1){
+        echo "Gracias por Visitar articulo"; ?>
+        <a href="articulo.php?post-slug=<?php echo $row['slug'];?>"></a>
+      <?php }else{
+        echo "No se ingresaron los datos.";
+      }
     }
   ?>
 </div>
