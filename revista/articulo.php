@@ -203,9 +203,10 @@
 
 <!--comentar -->
 <!--veces visto articulo -->
-  <?php  
+  <?php 
+    $postid = $post['id']; 
     if (isset($_GET['leer'])) {
-    $sql1 = "UPDATE posts SET views = views+'1' WHERE posts.id = '12'";
+    $sql1 = "UPDATE posts SET views = views+'1' WHERE posts.id = '$postid'";
     $result1 = mysqli_query($conexion, $sql1);
     if($result1){
     echo "Gracias por Visitar articulo";
