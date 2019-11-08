@@ -1,11 +1,11 @@
 <?php include('conexion.php'); ?>
 <?php include( ROOT_PATH . '/includes/registrar_loggear.php'); ?>
 <?php include( ROOT_PATH . '/includes/public_functions.php'); ?> 
+
 <?php
     if (isset($_GET['post-slug'])) {
         $post = getPost($_GET['post-slug']);
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -94,8 +94,8 @@
         $postid = $post['id']; ?>
         <q>Reportar articulo <?php echo $titulopost ?></q>
         <form action="comentarios/respuesta.php" method="get">
-        <input type="hidden" name="postid" value="<?php echo $postid ?>">
-        <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
+          <input type="hidden" name="postid" value="<?php echo $postid ?>">
+          <input class="alert button"type="submit" value="Reportar articulo" name="reportar">
         </form>
         </div>
         </div>
@@ -105,70 +105,9 @@
 
 
 
-    <!--Comentarios y respuestas -->
-    <!--?php require_once('comentarios/comentarios.php') ?-->
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h5>Comentarios</h5>
-            <div class="warning callout">
-              <dl>
-                <?php
-                  $postid = $post['id'];
-                  $sql = "SELECT * FROM comentariosartc WHERE id_post = '$postid' AND censurar = 0";
-    
-       $result = mysqli_query($conexion, $sql);
-
-       if (mysqli_num_rows($result) > 0){ 
-       while($row = mysqli_fetch_assoc($result)) 
-       {
-           ?> 
-          
-          <!-- respuesta padre 1 -->
-          <dt>
-            <div class="grid-x grid-padding-x">
-            <div class="large-6 medium-6 cell">
-            <p><img src="<?=$row['user_foto']?>"> </p>
-          </div>
-          <div class="large-6 medium-6 cell">
-            <p><?=$row['comentarios_contenido']?></p>
-            <form action="comentarios/respuesta.php" method="get">
-             <?php if (isset($_SESSION['users'])) { ?>
-            <label>Comentario</label>
-            <?php $postid = $post['id']; 
-             $userid = $_SESSION['users']['id'];?>
-             <input type="hidden" name="useridanswer" value="<?php echo $userid ?>">
-              <input type="hidden" name="postidanswer" value="<?php echo $postid ?>">
-              <!--falta poner funcion para la variabl $comment[] que trae los datos de la tabla comentarios, podria hacerse un slug tambien para comentarios. los datos que falta traer es respuesta_a y id
-              <input type="hidden" name="commentanswer" value="<?php //echo $answer?>">
-              <input type="hidden" name="postidanswer" value="<?php //echo $postid ?>"> -->
-            <input type="text" name="respuesta" required placeholder="Ingrese respuesta">
-            <input type="submit" class="tiny success button" name="contestar" value="Comentar">
-            <?php }else{
-
-              echo "Inicia sesion para comentar";
-
-              } ?>
-            <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
-            </form> 
-            </div>            
-          </div>
-          </dt>
-          <hr>
-        
-           <?php 
-       }//fin blucle
-      } else
-      {
-        echo "no hay comentarios";
-      }
-    ?> 
-    </dl>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!--Comentarios --> 
+<!--Comentarios y respuestas -->
+  <?php include( ROOT_PATH . '/comentarios/comentarios.php'); ?>
+<!--Comentarios --> 
 
 <!--Comentar articulo general-->
         <?php if (isset($_SESSION['users'])) { ?>

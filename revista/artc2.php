@@ -9,7 +9,7 @@ if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
     <div class="large-4 cell">
       <h1><?php echo $post['title']; ?></h1>
       <p class="full-width-testimonial-source"><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></p>
-      <span class="full-width-testimonial-source-context"><?php echo $post['created_at']; ?></span>
+      <span class="full-width-testimonial-source-context"><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
       <br>
       <img src="<?php echo $post['user']['foto']; ?>">
       <span class="success label"><?php echo $post['topic']['nombre']; ?></span>

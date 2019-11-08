@@ -44,11 +44,7 @@ function getPost($slug){
 	global $conexion;
 	// Get single post slug
 	$post_slug = $_GET['post-slug'];
-	if($_SESSION['users']['role'] != 'Moderador'){
-		$sql = "SELECT * FROM posts WHERE slug='$post_slug' AND published=true";
-	}else{
-		$sql = "SELECT * FROM posts WHERE slug='$post_slug'";
-	}
+	$sql = "SELECT * FROM posts WHERE slug='$post_slug'";
 	$result = mysqli_query($conexion, $sql);
 
 	// fetch query results as associative array.

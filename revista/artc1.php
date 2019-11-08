@@ -1,7 +1,7 @@
- <?php 
-$usersusc = $_SESSION['users']['suscripcion'];
-$postsusc = $post['premium'];
-if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
+<?php 
+  $usersusc = $_SESSION['users']['suscripcion'];
+  $postsusc = $post['premium'];
+  if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
 ?>
     <br>
     <div class="grid-container">
@@ -12,7 +12,7 @@ if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
             <div class="grid-x grid-padding-x">
               <div class="large-6 medium-6 cell">
               <p><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></p>
-              <p><?php echo $post['created_at']; ?></p>
+              <p><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></p>
               <span class="success label"><?php echo $post['topic']['nombre']; ?></span>
               <span class="primary label">
                 <?php 

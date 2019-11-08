@@ -26,9 +26,10 @@
           {
             $useranswer = $_GET['useridanswer'];
             $artcanswer = $_GET['postidanswer'];
-            $respuesta = $_GET['respuesta'];
+            $comment = $_GET['comment'];
+            $reply = $_GET['answerId'] != "" ? $_GET['answerId'] : "0";
             $sql9 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
-            VALUES (NULL, '$useranswer', '$artcanswer', '$respuesta', current_timestamp(), '0', '0', '0')";
+            VALUES (NULL, '$useranswer', '$artcanswer', '$comment', current_timestamp(), '0', '$reply', '0')";
             $result9 = mysqli_query($conexion, $sql9);
             if($result9){
               echo "Gracias por comentar";

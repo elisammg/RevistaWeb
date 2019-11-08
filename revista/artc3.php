@@ -11,7 +11,7 @@ if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
       </div>
       <div class="large-4 cell">
         <h3><?php echo $post['user']['nombre']; echo " "; echo $post['user']['apellido'];?></h3>
-        <p><?php echo $post['created_at']; ?></p>
+        <p><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></p>
         <span class="success label"><?php echo $post['topic']['nombre']; ?></span>
               <span class="primary label">
                 <?php 

@@ -1,6 +1,5 @@
 <!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
-<?php $subtopic = getAllSubtopics(); ?>
 
 <body>
 	<div class="action">
@@ -13,8 +12,7 @@
 					<li><?php echo $topic["name"]; ?><a href="admin.php?edit-topic=<?php echo $topic['id'] ?>"> Editar</a> </li>
 					<?php
 						category_tree($topic["id"]);
-					?></td>
-					</tr>
+					?>
 					
 				<?php endforeach;?>
 				</ol>

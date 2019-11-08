@@ -43,11 +43,15 @@
             <textarea name="body" id="body" cols="30" rows="5"><?php echo $body; ?></textarea>
             <select name="topic_id">
               <option value="" selected disabled>Choose topic</option>
-                <?php foreach ($subtopics as $topic): ?>
-                  <option value="<?php echo $topic['id']; ?>">
-                <?php echo $topic['nombre']; ?>
-              </option>
-                <?php endforeach ?>
+              <?php 
+                $userid = $_SESSION['users']['id'];
+                  $sql1w="SELECT users.role roll, users.nombre , subtopic.id subid, subtopic.nombre subtopic, subautor.id FROM subautor
+                  INNER JOIN subtopic ON subtopic.id = subautor.id_subtopic 
+                  INNER JOIN users ON users.id = subautor.id_user WHERE role = 'Author' and users.id = '$userid'";
+                  $result1w = mysqli_query($conexion,$sql1w);
+                  while ($mostrar1w = mysqli_fetch_array($result1w)){ ?>
+                    <option value="<?php echo $mostrar1w['subid'] ?>"><?php echo $mostrar1w['subtopic'] ?></option>
+                  <?php } ?>
             </select>
 
             <?php require_once('../templates.php') ?>
