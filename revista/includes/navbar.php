@@ -1,7 +1,7 @@
 <?php  include(ROOT_PATH . '/admin/includes/user_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/post_functions.php'); ?>
 <?php  include(ROOT_PATH . '/admin/includes/topic_functions.php'); ?>
-<?php  include(ROOT_PATH . '/comments/includes/comment_functions.php'); ?>
+<?php  include(ROOT_PATH . '/comentarios/includes/comment_functions.php'); ?>
 
 <div class="top-bar foundation-5-top-bar">
   <div class="top-bar-title">

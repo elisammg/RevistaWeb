@@ -1,5 +1,6 @@
 <?php include('conexion.php'); ?>
 <?php include('includes/registrar_loggear.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -102,7 +103,7 @@
            while($row = mysqli_fetch_assoc($result)) 
            {
                ?>
-               <p>La cantidad de comentarios reportados son: <b><?=$row['count(id)']?></b></p>
+               <p>La cantidad de artículos reportados son: <b><?=$row['count(id)']?></b></p>
                <a href="reporteartc.php" class="button">Revisar</a>            
                <?php 
            }//fin blucle

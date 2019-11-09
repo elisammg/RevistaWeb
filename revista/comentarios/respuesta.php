@@ -10,7 +10,7 @@
     $comment = $_GET['comentario'];
     $postSlug = $_GET['postSlug'];
     $sql5 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
-    VALUES (NULL, '$userommentid', '$artcommentid', '$comment', current_timestamp(), '0', '0', '0')";
+      VALUES (NULL, '$userommentid', '$artcommentid', '$comment', current_timestamp(), '0', '0', '0')";
     $result5 = mysqli_query($conexion, $sql5);
     if($result5){
       echo "Gracias por comentar";
@@ -28,7 +28,7 @@
     $reply = $_GET['answerId'] != "" ? $_GET['answerId'] : "0"; 
     $postSlug = $_GET['postSlug'];
     $sql9 = "INSERT INTO `comentarios` (`id`, `id_users`, `id_posts`, `Contenido`, `created_at`, `vecesreporte`, `respuesta_a`, `censurar`) 
-    VALUES (NULL, '$useranswer', '$artcanswer', '$comment', current_timestamp(), '0', '$reply', '0')";
+      VALUES (NULL, '$useranswer', '$artcanswer', '$comment', current_timestamp(), '0', '$reply', '0')";
     $result9 = mysqli_query($conexion, $sql9);
     if($result9){
       echo "Gracias por comentar";
@@ -65,5 +65,24 @@
       echo "No se ingresaron los datos.";
     }
   }
+
+  // if para las funciones de comentarios
+  if (isset($_GET['censurar-comment']) || isset($_GET['no-censurar-comment']) || isset($_GET['ignorar'])){
+    if (isset($_GET['censurar-comment'])){
+        global $conexion;
+        $comment_id = $_GET['answerId'];
+        $postSlug = $_GET['postSlug'];
+        $sql = "UPDATE comentarios SET censurar = 1 WHERE id = $comment_id";
+        $result = mysqli_query($conexion, $sql);
+        header("Location: ../articulo.php?post-slug=$postSlug");
+    } elseif (isset($_GET['ignorar'])){
+        global $conexion;
+        $comment_id = $_GET['answerId'];
+        $postSlug = $_GET['postSlug'];
+        $sql = "UPDATE comentarios SET vecesreporte = null WHERE id = $comment_id";
+        $result = mysqli_query($conexion, $sql);
+        header("Location: ../articulo.php?post-slug=$postSlug");
+    }
+}
 
 ?>

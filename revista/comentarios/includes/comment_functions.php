@@ -64,5 +64,28 @@
         $sql = "SELECT username FROM users WHERE id='$id' LIMIT 1";
 		$result = mysqli_query($conexion, $sql);
 		return mysqli_fetch_assoc($result)['username'];
-	}
+    }
+    
+    // if para las funciones de comentarios
+    if (isset($_GET['censurar-comment']) || isset($_GET['no-censurar-comment']) || isset($_GET['ignorar'])){
+        if (isset($_GET['censurar-comment'])){
+            global $conexion;
+            $comment_id = $_GET['censurar-comment'];
+            $sql = "UPDATE comentarios SET censurar = 1 WHERE id = $comment_id";
+            $result = mysqli_query($conexion, $sql);
+            header("Location: modcomentarios.php");
+        } elseif (isset($_GET['no-censurar-comment'])){
+            global $conexion;
+            $comment_id = $_GET['no-censurar-comment'];
+            $sql = "UPDATE comentarios SET censurar = 0 WHERE id = $comment_id";
+            $result = mysqli_query($conexion, $sql);
+            header("Location: modcomentarios.php");
+        } elseif (isset($_GET['ignorar'])){
+            global $conexion;
+            $comment_id = $_GET['ignorar'];
+            $sql = "UPDATE comentarios SET vecesreporte = null WHERE id = $comment_id";
+            $result = mysqli_query($conexion, $sql);
+            header("Location: modcomentarios.php");
+        }
+    }
 ?>

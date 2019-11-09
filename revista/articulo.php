@@ -30,10 +30,22 @@
       <?php if($_SESSION['users']['role'] != 'Moderador'){ ?>
         <?php if($post['published'] == false): ?>
           <h2 class="post-title">Sorry... This post has not been published</h2>
-        <?php 
-          else: 
+          <?php 
+            else: 
+              if($post['plantilla'] == 0){
+                  require('artc1.php');
+              }else if($post['plantilla'] == 1){
+                  require('artc2.php');
+              }else if($post['plantilla'] == 2){
+                  require('artc3.php');
+              }else{
+                  echo "El articulo no tiene plantilla.";
+              }
+            endif;
+
+          } else { 
             if($post['plantilla'] == 0){
-                require('artc1.php');
+              require('artc1.php');
             }else if($post['plantilla'] == 1){
                 require('artc2.php');
             }else if($post['plantilla'] == 2){
@@ -41,30 +53,17 @@
             }else{
                 echo "El articulo no tiene plantilla.";
             }
-          endif;
-
-        } else { 
-          if($post['plantilla'] == 0){
-            require('artc1.php');
-          }else if($post['plantilla'] == 1){
-              require('artc2.php');
-          }else if($post['plantilla'] == 2){
-              require('artc3.php');
-          }else{
-              echo "El articulo no tiene plantilla.";
-          }
-        } ?>
+          } ?>
     </div>
   </div>
 <!--Anuncios -->
     <?php
     $postid = $post['id'];
-    $sqlwer = "SELECT * FROM mydb.anunciosartc WHERE id_post = '$postid' ORDER BY RAND() LIMIT 1";
+    $sqlwer = "SELECT * FROM anunciosartc WHERE id_post = '$postid' ORDER BY RAND() LIMIT 1";
        $resultwer = mysqli_query($conexion, $sqlwer);
 
        if (mysqli_num_rows($resultwer) > 0){ 
-       while($rowwer = mysqli_fetch_assoc($resultwer)) 
-       {
+       while($rowwer = mysqli_fetch_assoc($resultwer)) {
            ?> 
            <div class="grid-container">
               <div class="grid-x grid-padding-x">
@@ -119,7 +118,7 @@
 
 
 <!-- Comentarios y respuestas -->
-  <?php include( ROOT_PATH . '/comments/comentarios.php'); ?>
+  <?php include( ROOT_PATH . '/comentarios/comentarios.php'); ?>
 <!--  ----------------------  -->
 
 <!--veces visto articulo -->

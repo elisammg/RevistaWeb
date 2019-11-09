@@ -30,7 +30,15 @@
                             <!-- Reply section -->
                             <input type="text" name="comment" placeholder="Ingrese comentario">
                             <input type="submit" class="tiny success button" name="contestar" value="Comentar">
-                            <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
+                            <?php if($comment['reporte'] != NULL){ ?>
+                              <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
+                            <?php } ?>
+                            <?php if($comment['reporte'] > 0){ ?>
+                              <?php if($_SESSION['users']['role'] == 'Moderador') { ?>
+                                <input type="submit" class="tiny warning button" name="censurar-comment" value="Censurar comentario">
+                                <input type="submit" class="tiny warning button" name="ignorar" value="Ignorar reportes">
+                              <?php } ?>
+                            <?php } ?>
                           </form>
                         <?php } ?>
                       </div>
