@@ -145,17 +145,16 @@
         <div class="large-12 cell">
           <div class="success callout">
             <h3>Seleccionar articulos destacados</h3>
-          <form action="index.php" method="get">
+          <form action="includes/destacados.php" method="get">
           <?php 
-          $sqllkj="SELECT posts.id, posts.title, posts.slug, users.foto FROM posts INNER JOIN users ON posts.user_id = users.id";
+          $sqllkj="SELECT posts.id, posts.title, posts.slug FROM posts WHERE published = 1";
           $resultlkj=mysqli_query($conexion,$sqllkj);
           while ($mostrarlkj=mysqli_fetch_array($resultlkj)){
             $titulo = $mostrarlkj['title'];
             $tituloid = $mostrarlkj['id'];
             $postslug = $mostrarlkj['slug'];
-            $userfoto = $mostrarlkj['foto'];
           ?>
-             <input type="checkbox" name="destacar[]" value="<?php echo $postslug, $tituloid?>"> <?php echo $titulo ?> ||
+             <input type="checkbox" name="destacar[]" value="<?php echo $tituloid?>"> <?php echo $titulo ?> ||
            <?php 
           }
 

@@ -16,7 +16,9 @@
   <?php require_once('includes/header.php') ?>
 </header>
   <body>
+
   <?php require_once('includes/cuatromas.php') ?>
+  
   <?php require_once('includes/tenlast.php') ?>
 
     <script src="js/vendor/jquery.js"></script>
