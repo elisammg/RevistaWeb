@@ -52,17 +52,24 @@
 				<!-- if editing user, the id is required to identify that user -->
 				<?php if ($isEditingUser === true): ?>
 					<input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
+					<label>Username</label>
 					<label type="text" name="username"><?php echo $username; ?></label>
-					<label type="email" name="email"><?php echo $email ?></label>
+					<label>Email</label>
+					<label type="email" name="email"><?php echo $email; ?></label>
+					<label>Suscripcion tipo:</label>
+					<label type="text" name="tipo"><?php echo $tipo; ?></label>
 					<!--Selección de rol -->
 					<select name="role">
 						<option value="" selected disabled>Assign role</option>
 						<?php foreach ($roles as $key => $role): ?>
 							<option value="<?php echo $role; ?>"><?php echo $role; ?></option>
 						<?php endforeach ?>
-					</select> 
+					</select>
+	        		<input type="radio" name="pokemonsusc" value="<?php echo $yes; ?>" id="pokemon"><label>Suscripcion activa</label>
+	        		<input type="radio" name="pokemonsusc" value="<?php echo $nop; ?>" id="pokemon"><label>Eliminar suscripcion</label>
+	        		<br>    
 					<button type="submit" class="button" name="update_admin">Actualizar</button>
-					<a href="admin.php" type="submit" class="button">Atrar</a>
+					<a href="admin.php" type="submit" class="button">Atras</a>
 				<?php endif ?>
 			</form>
 		</div>
@@ -80,20 +87,25 @@
 					<thead>
 						<th>No</th>
 						<th>Nombre de usuario, Email</th>
+						<th>Suscripcion</th>
 						<th>Rol</th>
 						<th colspan="2">Acciones</th>
 					</thead>
 					<tbody>
 					<?php foreach ($admins as $key => $admin): ?>
 						<tr>
-							<td><?php echo $key + 1; ?></td>
+							<td><?php echo $admin['id']; ?></td>
 							<td>
 								<?php echo $admin['username']; ?>, &nbsp;
 								<?php echo $admin['email']; ?>	
 							</td>
+							<td><?php echo $admin['tipo']; ?> , &nbsp;
+								<?php echo $admin['iniciosusc']; ?>, &nbsp;
+								<?php echo $admin['suscripcion']; ?>
+								</td>
 							<td><?php echo $admin['role']; ?></td>
 							<td>
-								<a href="admin.php?edit-admin=<?php echo $admin['id'] ?>">Cambiar Rol</a>
+								<a href="admin.php?edit-admin=<?php echo $admin['id'] ?>">Editar usuario</a>
 							</td>
 							<td>
 								<a href="admin.php?delete-admin=<?php echo $admin['id'] ?>">Eliminar Usuario</a>
