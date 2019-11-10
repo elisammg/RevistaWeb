@@ -10,8 +10,6 @@
 	<div class="grid-container">
 		<!-- Display records from DB-->
 		<div class="grid-x grid-padding-x">
-			<!-- Display notification message -->
-			<?php include('includes/messages.php') ?>
 
 			<?php if (empty($posts) && empty($drafts)){ ?>
 				<h1 style="text-align: center; margin-top: 200px;">No hay artículos ni drafts creados.</h1>

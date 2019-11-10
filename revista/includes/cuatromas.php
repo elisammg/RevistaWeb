@@ -6,7 +6,11 @@
     </div>
 
      <?php
-          $sql = "SELECT posts.title, posts.slug, posts.views, posts.slug, users.foto FROM posts INNER JOIN users ON posts.user_id = users.id WHERE destacado = 1 AND published = 1 ORDER BY `posts`.`created_at` DESC LIMIT 4";
+          $sql = "SELECT posts.title, posts.slug, posts.views, users.foto FROM posts 
+                    INNER JOIN users ON posts.user_id = users.id 
+                    WHERE destacado = 1 AND published = 1 
+                    ORDER BY `posts`.`created_at` 
+                    DESC LIMIT 4";
           $resultado = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($resultado)>0)
           {

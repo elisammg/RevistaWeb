@@ -16,10 +16,9 @@
 </header>
   <body>
   	<?php 
-    if (isset($_GET['id']))
-     {
+    if (isset($_GET['id'])){
       $id = ($_GET['id']);
-      $infouser = mysqli_query("SELECT * FROM users WHERE id = '$id'");
+      $infouser = mysqli_query($conexion, "SELECT * FROM users WHERE id = '$id'");
       $use = mysqli_fetch_array($infouser);
     } 
     ?>

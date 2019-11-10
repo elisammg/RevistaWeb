@@ -28,7 +28,12 @@
     {
         global $conexion, $username, $role, $isEditingUser, $admin_id, $email, $tipo, $yes, $nop;
 
-        $sql = "SELECT users.id, users.username, users.email, users.suscripcion, users.role, cobro.iniciosusc, suscripcion.tipo FROM mydb.users LEFT JOIN mydb.cobro ON users.id = cobro.id_users LEFT JOIN mydb.suscripcion on cobro.id_sus = suscripcion.id WHERE users.id=$admin_id LIMIT 1";
+        $sql = "SELECT users.id, users.username, users.email, users.suscripcion, users.role, cobro.iniciosusc, suscripcion.tipo 
+                    FROM users 
+                    LEFT JOIN cobro ON users.id = cobro.id_users 
+                    LEFT JOIN suscripcion on cobro.id_sus = suscripcion.id 
+                    WHERE users.id=$admin_id LIMIT 1";
+                    
         $result = mysqli_query($conexion, $sql);
         $admin = mysqli_fetch_assoc($result);
 
@@ -80,7 +85,10 @@
     function getAdminUsers($limit, $offset){
         global $conexion, $roles, $total_paginas;
         //Obtiene TODO de la tabla
-        $sqlPag = "SELECT users.id, users.username, users.email, users.role, users.suscripcion, cobro.iniciosusc, suscripcion.tipo FROM mydb.users LEFT JOIN mydb.cobro ON users.id = cobro.id_users LEFT JOIN mydb.suscripcion on cobro.id_sus = suscripcion.id";
+        $sqlPag = "SELECT users.id, users.username, users.email, users.role, users.suscripcion, cobro.iniciosusc, suscripcion.tipo 
+                    FROM users 
+                    LEFT JOIN cobro ON users.id = cobro.id_users 
+                    LEFT JOIN suscripcion on cobro.id_sus = suscripcion.id";
 
         //Realiza la consulta
         $resultPag = mysqli_query($conexion, $sqlPag);
@@ -92,7 +100,13 @@
         $total_paginas = ceil($total_registros / $limit); 
 
         
-        $sql = "SELECT users.id, users.username, users.email, users.suscripcion, users.role, cobro.iniciosusc, suscripcion.tipo FROM mydb.users LEFT JOIN mydb.cobro ON users.id = cobro.id_users LEFT JOIN mydb.suscripcion on cobro.id_sus = suscripcion.id WHERE users.role IS NOT NULL LIMIT $offset, $limit";
+        $sql = "SELECT users.id, users.username, users.email, users.suscripcion, users.role, cobro.iniciosusc, suscripcion.tipo 
+                    FROM users 
+                    LEFT JOIN cobro ON users.id = cobro.id_users 
+                    LEFT JOIN suscripcion on cobro.id_sus = suscripcion.id 
+                    WHERE users.role IS NOT NULL 
+                    ORDER BY users.id ASC
+                    LIMIT $offset, $limit";
         $result = mysqli_query($conexion, $sql);
         $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     

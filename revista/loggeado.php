@@ -64,7 +64,7 @@
        </tr> 
        
     <?php
-    if ($_SESSION['users']['suscripcion'] == 1) { 
+    if ($_SESSION['users']['suscripcion'] = 1) { 
        $id = $_SESSION['users']['id'];    
     $sql = "SELECT tarjeta, vencimiento, atras FROM cobro WHERE id_users = '$id'";
     

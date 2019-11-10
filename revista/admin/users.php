@@ -72,15 +72,12 @@
 
 		<!-- Display records from DB-->
 		<div class="table-div">
-			<!-- Display notification message -->
-			<?php include('includes/messages.php') ?>
 
 			<?php if (empty($admins)): ?>
 				<h1>No admins in the database.</h1>
 			<?php else: ?>
 				<table class="table">
 					<thead>
-						<th>No</th>
 						<th>Nombre de usuario, Email</th>
 						<th>Suscripcion</th>
 						<th>Rol</th>
@@ -89,7 +86,6 @@
 					<tbody>
 					<?php foreach ($admins as $key => $admin): ?>
 						<tr>
-							<td><?php echo $admin['id']; ?></td>
 							<td>
 								<?php echo $admin['username']; ?>, &nbsp;
 								<?php echo $admin['email']; ?>	

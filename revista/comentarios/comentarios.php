@@ -67,6 +67,7 @@
                         $userid = $_SESSION['users']['id'];?>
                         <input type="hidden" name="useridcomment" value="<?php echo $userid ?>">
                         <input type="hidden" name="postidcomment" value="<?php echo $postid ?>">
+                        <input type="hidden" name="postSlug" value="<?php echo $comment['slug'] ?>">
                         <input type="text" name="comentario" placeholder="Ingrese comentario">
 
                         <input type="submit" value="Comentar" name="comentar">
