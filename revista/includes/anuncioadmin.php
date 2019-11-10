@@ -59,5 +59,30 @@
 
 		?>
 </select>
+<h6>Reporte de Anuncios</h6>
+	<table>
+		<tr>
+			<th>Anuncio</th>
+			<th>Articulo</th>
+			<th>Veces visto</th>
+		</tr>
+		<?php 
+		$sqlanuncio="SELECT posts.title, anuncios.titulo,  postanuncio.click FROM postanuncio 
+		INNER JOIN posts ON postanuncio.id_post = posts.id INNER JOIN anuncios ON postanuncio.id_anuncio = anuncios.id;";
+		$resultanuncio=mysqli_query($conexion,$sqlanuncio);
+		while ($mostraranuncio=mysqli_fetch_array($resultanuncio)){
+		?>
+		<tr>
+			<td><?php echo $mostraranuncio['titulo'] ?></td>
+			<td><?php echo $mostraranuncio['title'] ?></td>
+			<td><?php echo $mostraranuncio['click'] ?></td>
+		</tr>
+
+	      <?php 
+		}
+
+		 ?>  
+				 
+	</table>
 </div>
 
