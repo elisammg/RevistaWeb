@@ -2,10 +2,11 @@
     <div class="grid-container">
     <div class="grid-x grid-padding-x">
     <div class="large-12 cell">
-          <h2>LOS MAS VISTOS</h2>
+          <h2>DESTACADOS</h2>
     </div>
+
      <?php
-          $sql = "SELECT posts.title, posts.body, posts.views, posts.slug, users.foto FROM posts INNER JOIN users ON posts.user_id = users.id WHERE published = 1 ORDER BY `posts`.`views` DESC LIMIT 4";
+          $sql = "SELECT posts.title, posts.slug, posts.views, posts.slug, users.foto FROM posts INNER JOIN users ON posts.user_id = users.id WHERE destacado = 1 AND published = 1 ORDER BY `posts`.`created_at` DESC LIMIT 4";
           $resultado = mysqli_query($conexion, $sql);
           if (mysqli_num_rows($resultado)>0)
           {
@@ -17,7 +18,7 @@
           <img src="<?=$row['foto']?>" alt="">
           <h2><?=$row['title']?></h2>
           <h3>AUTOR</h3>
-          <p><?=$row['body']?></p>
+          <p><?=$row['slug']?></p>
           <!--conteo de visitas -->
           <form action="articulo.php" method="get">
               <input type="hidden" name="post-slug" value="<?php echo $row['slug'];?>">
@@ -28,6 +29,8 @@
       </div>
        <?php
        } //end while
+     }else{
+      echo "no hay destacados";
      } //end if
        ?>
       </div>

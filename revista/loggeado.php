@@ -64,7 +64,8 @@
        </tr> 
        
     <?php
-    $id = $_SESSION['users']['id'];    
+    if ($_SESSION['users']['suscripcion'] == 1) { 
+       $id = $_SESSION['users']['id'];    
     $sql = "SELECT tarjeta, vencimiento, atras FROM cobro WHERE id_users = '$id'";
     
        $result = mysqli_query($conexion, $sql);
@@ -72,20 +73,24 @@
        if (mysqli_num_rows($result) > 0){ 
        while($row = mysqli_fetch_assoc($result)) 
        {
-           ?> 
-           <tr>
+      ?>
+       <tr>
                <!--mostramos el nombre y apellido de las tuplas que han coincidido con la 
                cadena insertada en nuestro formulario-->
                <td class="estilo-tabla" align="center"><?=$row['tarjeta']?></td>
                <td class="estilo-tabla" align="center"><?=$row['vencimiento']?></td>
                <td class="estilo-tabla" align="center"><?=$row['atras']?></td>
            </tr> 
-           <?php 
-       }//fin blucle
+
+      <?php  }//fin blucle
       } else
       {
         echo "0 resultados";
       }
+    } else {
+      echo "No tiene suscripcion, adquiere una!";
+    }
+    
     ?>
     </table>
         <a href="updatecobro.php?id=<?php echo $_SESSION['users']['id'] ?>" class="button">Cambiar datos</a>

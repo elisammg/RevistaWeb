@@ -120,7 +120,7 @@
             <input type="text" name="tipo" required placeholder="Ingrese tipo de suscripcion">
             <input type="text" name="descripcion" required placeholder="Ingrese descripcion">
             <input type="text" name="costo" required placeholder="Ingrese costo">
-            <input type="submit" name="nuevasusc" value="Agregar suscripcion">
+            <input type="submit" name="nuevasusc" value="Agregar suscripcion" class="button">
           </form>
           </div>
         </div>
@@ -141,8 +141,33 @@
           }
         ?>
 
+        <!-- // Articulos destacados-->
+        <div class="large-12 cell">
+          <div class="success callout">
+            <h3>Seleccionar articulos destacados</h3>
+          <form action="includes/destacados.php" method="get">
+          <?php 
+          $sqllkj="SELECT posts.id, posts.title, posts.slug FROM posts WHERE published = 1";
+          $resultlkj=mysqli_query($conexion,$sqllkj);
+          while ($mostrarlkj=mysqli_fetch_array($resultlkj)){
+            $titulo = $mostrarlkj['title'];
+            $tituloid = $mostrarlkj['id'];
+            $postslug = $mostrarlkj['slug'];
+          ?>
+             <input type="checkbox" name="destacar[]" value="<?php echo $tituloid?>"> <?php echo $titulo ?> ||
+           <?php 
+          }
+
+          ?>
+            <hr>
+              <center><input type="submit" name="destacado" value="Seleccionar" class="button"></center>
+            </form>
+
+          </div>
+        </div>
+
        
-        <!-- //Administración de suscripciones -->
+        <!-- //Veces visto articulos -->
         <div class="large-12 cell">
           <?php require_once('includes/vvartc.php') ?>
         </div>
