@@ -10,19 +10,13 @@ if(isset($_GET['destacado'])){
 
 
     foreach($_GET['destacar'] as $selected) {
-      if ($selected == true) {
       $sqldestacado = "UPDATE `posts` SET `destacado` = 1 WHERE `posts`.`id` = '$selected'";
        $resultado0 = mysqli_query($conexion, $sqldestacado);
        echo "<p>" . $selected . "</p>";
-    }elseif ($selected == false) {
-       $sqlnodestacado = "UPDATE `posts` SET `destacado` = 0 WHERE `posts`.`id` = '$selected'";
-       $resultadono0 = mysqli_query($conexion, $sqlnodestacado);
-    }
         }
-      }else{
+      
+        }else{
       echo "<b>Please Select Atleast One Option.</b>";
         }
       }
-    
-
 ?>
