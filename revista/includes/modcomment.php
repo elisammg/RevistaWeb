@@ -22,7 +22,11 @@
                   <td class="estilo-tabla" align="center">
                     <a href="articulo.php?post-slug=<?=$row['slug'] ?>"><?=$row['Titulo Articulo']?></a>
                   </td>
-                  <td class="estilo-tabla" align="center"><?=$row['Reportes']?></td>
+                  <?php if($row['Reportes'] >= 25){ ?>
+                    <td class="estilo-tabla" align="center">Comentario no revisado (Censurado automático)</td>
+                  <?php } else { ?>
+                    <td class="estilo-tabla" align="center"><?=$row['Reportes']?></td>
+                  <?php } ?>
                   <?php if($row['censurado'] == false){ ?>
                     <td class="estilo-tabla" align="center">
                       <a href="modcomentarios.php?censurar-comment=<?php echo $row['id'] ?>">Censurar</a>
