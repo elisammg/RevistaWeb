@@ -52,15 +52,17 @@
               echo $string1;
             ?>
             <hr>
-
             <h2>IMÁGENES DESTACADAS</h2>
-
             <div class="grid-x grid-padding-x">
-              <?php foreach($images as $image){?>
-                <div class="large-4 medium-4 cell">
-                  <img src="<?php echo BASE_URL . '/static/images/' . $image['images']; ?>" class="post_image" alt="">
-                </div>
-              <?php } ?>
+              <div class="large-4 medium-4 cell">
+                <img src="<?php echo BASE_URL . '/static/images/' . $images[0]['images']; ?>" class="post_image" alt="Imagen 1">
+              </div>
+              <div class="large-4 medium-4 cell">
+                <img src="<?php echo BASE_URL . '/static/images/' . $images[1]['images']; ?>" class="post_image" alt="Imagen 2">
+              </div>
+              <div class="large-4 medium-4 cell">
+                <img src="<?php echo BASE_URL . '/static/images/' . $images[2]['images']; ?>" class="post_image" alt="Imagen 3">
+              </div>
             </div>
             <hr>
             <?php 

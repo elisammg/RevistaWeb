@@ -57,7 +57,7 @@ function getPost($post_id){
 
 function getImages($post_id){
 	global $conexion;
-	$sql = "SELECT * FROM post_images WHERE post_id = $post_id";
+	$sql = "SELECT * FROM post_images WHERE post_id = $post_id ORDER BY id DESC";
 	$result = mysqli_query($conexion, $sql);
 
 	$image = mysqli_fetch_all($result,  MYSQLI_ASSOC);
