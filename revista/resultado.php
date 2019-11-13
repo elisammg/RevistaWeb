@@ -36,7 +36,7 @@
     //ordenar por categoria
        
         //query de busqueda
-        $sqluno = "SELECT * FROM mydb.busqueda 
+        $sqluno = "SELECT * FROM busqueda 
         WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '$fechahoy'";
         $resultuno = mysqli_query($conexion, $sqluno);
             
@@ -48,11 +48,11 @@
               <td>".$consultauno['subtopic_nombre']."</td>
               <td>".$consultauno['usernombre']."</td>
               <td>".$consultauno['created_at']."</td>
-              <td>".$consultauno['posts_body']."</td>
+              <td>".substr($consultauno['posts_body'], 0, 100)."...</td>
               <td>"?>
               <!--conteo de visitas -->
                   <form action="articulo.php" method="get">
-                      <input type="hidden" name="post-slug" value="<?php echo $consultauno['slug'];?>">
+                      <input type="hidden" name="post-slug" value="<?php echo $consultauno['post_slug'];?>">
                       <input type="submit" class="button" name="leer" value="Leer mas">
                   </form>
             <?php echo "</td>
@@ -85,7 +85,7 @@
     if(in_array('categoriartc', $_GET['search'])){
        
         //query de busqueda
-        $sql = "SELECT * FROM mydb.busqueda 
+        $sql = "SELECT * FROM busqueda 
         WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY subtopic_nombre ASC";
         $result = mysqli_query($conexion, $sql);
             
@@ -97,11 +97,11 @@
               <td>".$consulta['subtopic_nombre']."</td>
               <td>".$consulta['usernombre']."</td>
               <td>".$consulta['created_at']."</td>
-              <td>".$consulta['posts_body']."</td>
+              <td>".substr($consulta['posts_body'], 0, 100)."...</td>
               <td>"?>
               <!--conteo de visitas -->
                   <form action="articulo.php" method="get">
-                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="hidden" name="post-slug" value="<?php echo $consulta['post_slug'];?>">
                       <input type="submit" class="button" name="leer" value="Leer mas">
                   </form>
             <?php echo "</td>
@@ -127,11 +127,11 @@
               <td>".$consulta['subtopic_nombre']."</td>
               <td>".$consulta['usernombre']."</td>
               <td>".$consulta['created_at']."</td>
-              <td>".$consulta['posts_body']."</td>
+              <td>".substr($consulta['posts_body'], 0, 100)."...</td>
               <td>"?>
               <!--conteo de visitas -->
                   <form action="articulo.php" method="get">
-                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="hidden" name="post-slug" value="<?php echo $consulta['post_slug'];?>">
                       <input type="submit" class="button" name="leer" value="Leer mas">
                   </form>
             <?php echo "</td>
@@ -143,7 +143,7 @@
       //ordenar por fecha
       elseif (in_array('fechaartc', $_GET['search'])) {
         //query de busqueda
-        $sql = "SELECT * FROM mydb.busqueda 
+        $sql = "SELECT * FROM busqueda 
         WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY created_at ASC";
         $result = mysqli_query($conexion, $sql);
             
@@ -155,11 +155,11 @@
               <td>".$consulta['subtopic_nombre']."</td>
               <td>".$consulta['usernombre']."</td>
               <td>".$consulta['created_at']."</td>
-              <td>".$consulta['posts_body']."</td>
+              <td>".substr($consulta['posts_body'], 0, 100)."...</td>
               <td>"?>
               <!--conteo de visitas -->
                   <form action="articulo.php" method="get">
-                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="hidden" name="post-slug" value="<?php echo $consulta['post_slug'];?>">
                       <input type="submit" class="button" name="leer" value="Leer mas">
                   </form>
             <?php echo "</td>
