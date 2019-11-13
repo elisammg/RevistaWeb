@@ -39,10 +39,8 @@
               <input type="hidden" name="draft_id" value="<?php echo $draft_id; ?>">
             <?php endif ?>
             
-            <input type="text" name="title" value="<?php echo $title; ?>" placeholder="Title">
-            <label style="float: left; margin: 5px auto 5px;">Featured image</label>
-            <input type="file" name="featured_image" >
-            <textarea name="body" id="body" cols="30" rows="20"><?php echo $body; ?></textarea>
+            <input type="text" name="title" value="<?php echo $title; ?>" placeholder="Título">
+            <textarea name="body" id="body" cols="30" rows="20" placeholder="Contenido"><?php echo $body; ?></textarea>
            
             <!--subcategorias -->
             <?php if ($isEditingPost == true): ?>
@@ -51,7 +49,7 @@
               <input type="hidden" name="topic_id" value="<?php echo $subtopic['id']; ?>"></input>
             <?php else: ?>
               <select name="topic_id">
-                <option value="" selected disabled>Choose topic</option>
+                <option value="" selected disabled>Selecciona una categoría</option>
                 <?php 
                   $userid = $_SESSION['users']['id'];
                     $sql1w="SELECT users.role roll, users.nombre , subtopic.id subid, subtopic.nombre subtopic, subautor.id FROM subautor
@@ -64,6 +62,9 @@
               </select>
             <?php endif; ?>
             <!--subcategorias -->
+
+            <label style="float: left; margin: 5px auto 5px;">Selecciona imágenes (ver selección de templates)</label>
+            <input type="file" name="featured_image[]" multiple>
 
             <?php require_once('../templates.php') ?>
 

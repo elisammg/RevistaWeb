@@ -48,20 +48,16 @@ if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
           <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
           <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
           <li class="is-active orbit-slide">
-            <img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" alt="Space">
-            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+            <img src="<?php echo BASE_URL . '/static/images/' . $images[0]['images']; ?>" alt="">
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="//i.imgur.com/V7zk0Y3.jpg" alt="Space">
-            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+          <img src="<?php echo BASE_URL . '/static/images/' . $images[1]['images']; ?>" alt="">
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="//i.imgur.com/vivEvd0.jpg" alt="Space">
-            <figcaption class="orbit-caption">Encapsulating</figcaption>
+          <img src="<?php echo BASE_URL . '/static/images/' . $images[2]['images']; ?>" alt="">
           </li>
           <li class="orbit-slide">
-            <img class="orbit-image" src="//i.imgur.com/VKdPzTp.jpg" alt="Space">
-            <figcaption class="orbit-caption">Outta This World</figcaption>
+          <img src="<?php echo BASE_URL . '/static/images/' . $images[3]['images']; ?>" alt="">
           </li>
         </ul>
         <nav class="orbit-bullets">
@@ -78,12 +74,8 @@ if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
     <div class="large-4">
       <div class="callout">
         <?php 
-          $numWords = strlen($post['body']);
-          $first = intval($numWords * (35/100));
-          $second = intval($numWords * (65/100));
-
-          $first_part=substr($post['body'],0,850);
-          $second_part=substr($post['body'], 850, strlen($post['body']));
+          $first_part=substr($post['body'],0,550);
+          $second_part=substr($post['body'], 550, strlen($post['body']));
         ?>
         <p>
         <?php

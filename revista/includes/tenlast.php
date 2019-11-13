@@ -8,7 +8,6 @@
             <!--creamos los títulos de nuestras dos columnas de nuestra tabla -->
             <td width="100" align="center"><strong>Titulo</strong></td>
             <td width="100" align="center"><strong>Autor</strong></td>
-            <td width="100" align="center"><strong>Resumen</strong></td>
             <td width="100" align="center"><strong>Fecha de publicacion</strong></td>            
             <td width="100" align="center"><strong>Leer mas</strong></td>
           </tr> 
@@ -27,7 +26,6 @@
               cadena insertada en nuestro formulario-->
               <td class="estilo-tabla" align="center"><?=$row['title']?></td>
               <td class="estilo-tabla" align="center"><?=$row['username']?></td>
-              <td class="estilo-tabla" align="center"><?=$row['slug']?></td>
               <td class="estilo-tabla" align="center"><?=$row['created_at']?></td>
               <td class="estilo-tabla" align="center">
               <!--conteo de visitas -->

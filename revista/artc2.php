@@ -79,14 +79,14 @@ if ($usersusc == 1 && $postsusc == 1 OR $postsusc == 0) {
       </div>
     </div>
     <div class="large-4 cell">
-      <img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" alt="">
+      <img src="<?php echo BASE_URL . '/static/images/' . $images[0]['images']; ?>" class="post_image" alt="">
     </div>
   </div>
 </div>
 <div class="grid-container">
   <div class="grid-x grid-padding-x">
     <div class="large-4 cell">
-      <img src="https://ipaderos.com/wp-content/uploads/2018/07/macbookpro2018.jpg" alt="">
+      <img src="<?php echo BASE_URL . '/static/images/' . $images[1]['images']; ?>" class="post_image" alt="">
       <h4>Titulo imagen</h4>
       <label>Descripcion</label>
     </div>

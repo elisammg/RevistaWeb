@@ -64,8 +64,10 @@ function createPost($request_values){
 	if (empty($title)) { array_push($errors, "Post title is required"); }
 	if (empty($body)) { array_push($errors, "Post body is required"); }
 	if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
+
+
 	// Get image name
-	$blob_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name']));
+	/*$blob_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name']));
 	$featured_image = $_FILES['featured_image']['name'];
 	if (empty($featured_image)) { 
 		array_push($errors, "Featured image is required"); 
@@ -74,7 +76,10 @@ function createPost($request_values){
 	$target = "../static/images/" . basename($featured_image);
 	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 		array_push($errors, "Failed to upload image. Please check file settings for your server");
-	}
+	}*/
+
+	$blob_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name'][1]));
+
 	// Ensure that no post is saved twice. 
 	$post_check_query = "SELECT * FROM draft WHERE slug='$post_slug' LIMIT 1";
 	$result = mysqli_query($conexion, $post_check_query);
@@ -85,19 +90,48 @@ function createPost($request_values){
 	// create post if there are no errors in the form
 	if (count($errors) == 0) {
 		// Insert blob in DB
-		$blob_query = "INSERT INTO blobimage (image) VALUES ('$blob_image')";
-		mysqli_query($conexion, $blob_query);
+		//$blob_query = "INSERT INTO blobimage (image) VALUES ('$blob_image')";
+		//mysqli_query($conexion, $blob_query);
 		$query = "INSERT INTO draft (id, user_id, id_subtopic, title, slug, image, body, published, plantilla, created_at, updated_at, premium, revision) 
-			VALUES($postId, '$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 0, '$template', now(), now(), 0, '$published')";
+			VALUES($postId, '$userID', '$topic_id', '$title', '$post_slug', '$blob_image', '$body', 0, '$template', now(), now(), 0, '$published')";
 		if(mysqli_query($conexion, $query)){ // if post created successfully
-			if($_SESSION['users']['role'] == "Author" ){
+			// File upload configuration
+			$inserted_post_id = mysqli_insert_id($conexion);
+			$targetDir = "../static/images/";
+			
+			if(!empty(array_filter($_FILES['featured_image']['name']))){
+				foreach($_FILES['featured_image']['name'] as $key=>$val){
+					
+					// File upload path
+					$fileName = basename($_FILES['featured_image']['name'][$key]);
+					$targetFilePath = "../static/images/" . basename($fileName);
+
+					move_uploaded_file($_FILES["featured_image"]["tmp_name"][$key], $targetFilePath);
+					
+					$insert = "INSERT INTO post_images (post_id, images) VALUES ('$inserted_post_id', '$fileName')";
+					$result = mysqli_query($conexion, $insert);
+				}
+			}else {
+				echo "Upload images"; 
+			}
+			
+			if($result){
+				if($_SESSION['users']['role'] == "Author" ){
+					header('location: ../autor.php');
+				} elseif ($_SESSION['users']['role'] == "Moderador" ) {
+					header('location: ../modarticulo.php');
+				}
+				exit(0);
+			}else{
+				echo "Error occured!";
+			}
+
+			/*if($_SESSION['users']['role'] == "Author" ){
 				header('location: ../autor.php');
 			} elseif ($_SESSION['users']['role'] == "Moderador" ) {
 				header('location: ../modarticulo.php');
 			}
-			exit(0);
-		}else{
-			echo "Sfsfsd";
+			exit(0);*/
 		}
 	}
 }
@@ -146,6 +180,8 @@ function updateDraft($request_values){
 	if (empty($title)) { array_push($errors, "Post title is required"); }
 	if (empty($body)) { array_push($errors, "Post body is required"); }
 	if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
+
+	
 	// Get image name
 	$blob_image = addslashes(file_get_contents($_FILES['featured_image']['tmp_name']));
 	$featured_image = $_FILES['featured_image']['name'];
@@ -157,6 +193,8 @@ function updateDraft($request_values){
 	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 		array_push($errors, "Failed to upload image. Please check file settings for your server");
 	}
+
+
 	// Ensure that no post is saved twice. 
 	$post_check_query = "SELECT * FROM draft WHERE slug='$post_slug' LIMIT 1";
 	$result = mysqli_query($conexion, $post_check_query);
@@ -169,10 +207,11 @@ function updateDraft($request_values){
 		// Insert blob in DB
 		$blob_query = "UPDATE blobimage SET image='$blob_image'";
 		mysqli_query($conexion, $blob_query);
-		$query = "UPDATE draft SET title='$title', slug='$post_slug', image='$featured_image', 
-						body='$body', updated_at=now(), plantilla='$template', revision='$published'
+		$query = "UPDATE draft 
+					SET title='$title', slug='$post_slug', body='$body', updated_at=now(), plantilla='$template', revision='$published'
 					WHERE id=$draft_id";
 		if(mysqli_query($conexion, $query)){ // if post updated successfully
+			
 			if($_SESSION['users']['role'] == "Author" ){
 				header('location: ../autor.php');
 			} elseif ($_SESSION['users']['role'] == "Moderador" ) {

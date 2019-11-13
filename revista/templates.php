@@ -4,13 +4,13 @@
                 <h5 class="text-center">Selecciona Template</h5>
           <ul>
             <li>
-              <input type="radio" name="pokemon" value=0 id="pokemon1"><label for="pokemon1">Primera plantilla</label>
+              <input type="radio" name="pokemon" value=0 id="pokemon1"><label for="pokemon1">Primera plantilla (3 imágenes)</label>
             </li>
             <li>
-              <input type="radio" name="pokemon" value=1 id="pokemon2"><label for="pokemon2">Segunda plantilla</label>
+              <input type="radio" name="pokemon" value=1 id="pokemon2"><label for="pokemon2">Segunda plantilla (2 imágenes)</label>
             </li>
             <li>
-              <input type="radio" name="pokemon" value=2 id="pokemon3"><label for="pokemon3">Tercera plantilla</label>
+              <input type="radio" name="pokemon" value=2 id="pokemon3"><label for="pokemon3">Tercera plantilla (4 imágenes)</label>
             </li>
           </ul>
           <h2>Templates</h2>
