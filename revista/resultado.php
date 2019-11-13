@@ -24,6 +24,7 @@
     $autor=$_GET['nombre'];
     $fecha=$_GET['created_at'];  
     $texto=$_GET['body'];
+    $fechahoy=$_GET['fechahoy'];
      echo "<table>
                             <tr>
                               <td><center>Categoria</center></td>
@@ -36,7 +37,7 @@
        
         //query de busqueda
         $sqluno = "SELECT * FROM mydb.busqueda 
-        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59'";
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '$fechahoy'";
         $resultuno = mysqli_query($conexion, $sqluno);
             
              while ($consultauno = mysqli_fetch_array($resultuno)) 

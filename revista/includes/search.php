@@ -12,6 +12,8 @@
 <input type="text" name="nombre" placeholder="Ingrese Autor">
 
 <label>Fecha de Publicacion</label>
+<input type="hidden" name="fechahoy" value="<?php echo "" . date("Y-m-d h:i:s");
+?>">
 <input type="datetime-local" name="created_at" placeholder="Ingrese fecha de publicacion">
 
 <label>Texto</label>
