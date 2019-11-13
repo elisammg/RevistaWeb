@@ -165,7 +165,7 @@
             echo $e->getMessage();
         }
 
-        //header("Location: loggeado.php");
+        header("Location: loggeado.php");
     }
 
 ?>
