@@ -1,4 +1,7 @@
 <?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    require 'C:\wamp64\composer\vendor\autoload.php';
 
     // Admin user variables
     $admin_id = 0;
@@ -112,6 +115,57 @@
         $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     
         return $users;
+    }
+
+    function getAdminEmail(){
+        global $conexion;
+        $sql = "SELECT email FROM users WHERE role='Admin'";
+        $result = mysqli_query($conexion, $sql);
+        $email = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return $email;
+    }
+
+    if(isset($_GET['change-role'])){
+        global $conexion;
+        /* Create a new PHPMailer object. Passing TRUE to the constructor enables exceptions. */
+        $mail = new PHPMailer(TRUE);
+        $from = $_SESSION['users']['email'];
+        $name = $_SESSION['users']['nombre'] .' '. $_SESSION['users']['apellido'];
+        $sql = "SELECT * FROM users WHERE role='Admin'";
+        $result = mysqli_query($conexion, $sql);
+
+        /* Open the try/catch block. */
+        try {
+            /* Set the mail sender. */
+            $mail->setFrom($from, $name);
+
+            while($to = mysqli_fetch_assoc($result)){
+                /* Add a recipient. */
+                $mail->addAddress($to['email'], $to['nombre']. ' ' .$to['apellido']);
+                echo $to['email'];
+                echo $to['nombre']. ' ' .$to['apellido'];
+            }
+
+            /* Set the subject. */
+            $mail->Subject = 'Change rol request';
+
+            /* Set the mail message body. */
+            $mail->Body = 'I\'d like to change my role to Author, please.';
+
+            /* Finally send the mail. */
+            $mail->send();
+        }
+        catch (Exception $e){
+            /* PHPMailer exception. */
+            echo $e->errorMessage();
+        }
+        catch (\Exception $e){
+            /* PHP exception (note the backslash to select the global namespace Exception class). */
+            echo $e->getMessage();
+        }
+
+        //header("Location: loggeado.php");
     }
 
 ?>

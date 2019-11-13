@@ -26,5 +26,5 @@
 	}
   // define global constants
 	define ('ROOT_PATH', realpath(dirname(__FILE__)));
-	define('BASE_URL', 'http://localhost/RevistaWeb/revista/')
+  define('BASE_URL', 'http://localhost/RevistaWeb/revista/');
 ?>
