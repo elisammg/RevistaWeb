@@ -36,7 +36,7 @@
        
         //query de busqueda
         $sqluno = "SELECT * FROM mydb.busqueda 
-        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto'";
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59'";
         $resultuno = mysqli_query($conexion, $sqluno);
             
              while ($consultauno = mysqli_fetch_array($resultuno)) 
@@ -51,7 +51,7 @@
               <td>"?>
               <!--conteo de visitas -->
                   <form action="articulo.php" method="get">
-                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="hidden" name="post-slug" value="<?php echo $consultauno['slug'];?>">
                       <input type="submit" class="button" name="leer" value="Leer mas">
                   </form>
             <?php echo "</td>
@@ -85,7 +85,7 @@
        
         //query de busqueda
         $sql = "SELECT * FROM mydb.busqueda 
-        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' ORDER BY subtopic_nombre ASC";
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY subtopic_nombre ASC";
         $result = mysqli_query($conexion, $sql);
             
              while ($consulta = mysqli_fetch_array($result)) 
@@ -115,7 +115,7 @@
         elseif (in_array('nombreautor', $_GET['search'])) {
         //query de busqueda
         $sql = "SELECT * FROM mydb.busqueda 
-        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' ORDER BY usernombre ASC";
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY usernombre ASC";
         $result = mysqli_query($conexion, $sql);
             
              while ($consulta = mysqli_fetch_array($result)) 
@@ -143,7 +143,7 @@
       elseif (in_array('fechaartc', $_GET['search'])) {
         //query de busqueda
         $sql = "SELECT * FROM mydb.busqueda 
-        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' ORDER BY created_at ASC";
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY created_at ASC";
         $result = mysqli_query($conexion, $sql);
             
              while ($consulta = mysqli_fetch_array($result)) 

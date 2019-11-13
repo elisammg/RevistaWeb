@@ -12,7 +12,7 @@
 <input type="text" name="nombre" placeholder="Ingrese Autor">
 
 <label>Fecha de Publicacion</label>
-<input type="text" name="created_at" placeholder="Ingrese fecha de publicacion">
+<input type="datetime-local" name="created_at" placeholder="Ingrese fecha de publicacion">
 
 <label>Texto</label>
 <input type="text" name="body" placeholder="Ingrese texto">
