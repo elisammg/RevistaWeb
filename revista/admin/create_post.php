@@ -14,8 +14,6 @@
   </head>
   <header>
     <?php require_once('../includes/navbar.php') ?>
-    <!-- Get all subtopics -->
-    <?php $subtopics = getAllSubtopics();	?>
     <?php //$posts = getAllPosts(); ?>
   </header>
   <body>
@@ -27,13 +25,16 @@
           <form method="post" enctype="multipart/form-data" action="<?php echo 'create_post.php'; ?>" >
             <!-- validation errors for the form -->
             <?php include(ROOT_PATH . '/admin/includes/errors.php') ?>
+            
+            <input type="hidden" name="post_id" value="<?php echo $postId ?>">
 
             <!-- if editing post, the id is required to identify that post -->
             <?php if ($isEditingPost == true): ?>
               <?php if ($_SESSION['users']['role'] == 'Moderador'){ ?>
                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
               <?php } ?>
-              <input type="hidden" name="post_id" value="<?php echo $_GET['edit-post']; ?>">
+              <!-- Get all subtopics -->
+              <?php $subtopic = getSubtopics($postId);	?>
             <?php elseif ($isEditingDraft == true): ?>
               <input type="hidden" name="draft_id" value="<?php echo $draft_id; ?>">
             <?php endif ?>
@@ -45,7 +46,9 @@
            
             <!--subcategorias -->
             <?php if ($isEditingPost == true): ?>
-              <input type="label" value="<?php echo $title; ?>">
+              <div style="margin: 5px auto 5px;">Subcategoria</div>
+              <input type="text" value="<?php echo $subtopic['nombre']; ?>" readonly="readonly"></input>
+              <input type="hidden" name="topic_id" value="<?php echo $subtopic['id']; ?>"></input>
             <?php else: ?>
               <select name="topic_id">
                 <option value="" selected disabled>Choose topic</option>

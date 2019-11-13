@@ -1,6 +1,7 @@
 <?php
 // Post variables
 $post_id = 0;
+$postId = 0;
 $draft_id = 0;
 $isEditingPost = false;
 $isEditingDraft = false;
@@ -46,7 +47,8 @@ function createPost($request_values){
 	} else {
 		$userID = $_SESSION['users']['id'];
 	}
-	
+
+	$postId = esc($request_values['post_id']);
 	$title = esc($request_values['title']);
 	$body = esc($request_values['body']);
 	if (isset($request_values['topic_id'])) {
@@ -83,10 +85,10 @@ function createPost($request_values){
 	// create post if there are no errors in the form
 	if (count($errors) == 0) {
 		// Insert blob in DB
-		//$blob_query = "INSERT INTO blobimage (image) VALUES ('$blob_image')";
-		//mysqli_query($conexion, $blob_query);
-		$query = "INSERT INTO draft (user_id, id_subtopic, title, slug, image, body, published, plantilla, created_at, updated_at, premium, revision) 
-			VALUES('$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 0, '$template', now(), now(), 0, '$published')";
+		$blob_query = "INSERT INTO blobimage (image) VALUES ('$blob_image')";
+		mysqli_query($conexion, $blob_query);
+		$query = "INSERT INTO draft (id, user_id, id_subtopic, title, slug, image, body, published, plantilla, created_at, updated_at, premium, revision) 
+			VALUES($postId, '$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 0, '$template', now(), now(), 0, '$published')";
 		if(mysqli_query($conexion, $query)){ // if post created successfully
 			if($_SESSION['users']['role'] == "Author" ){
 				header('location: ../autor.php');
@@ -94,24 +96,27 @@ function createPost($request_values){
 				header('location: ../modarticulo.php');
 			}
 			exit(0);
+		}else{
+			echo "Sfsfsd";
 		}
 	}
 }
 
 // seleccionca campos del artículo para editar
 function editPost($post_id){
-	global $conexion, $user_id, $title, $post_slug, $body, $published, $isEditingPost;
+	global $conexion, $user_id, $postId, $title, $post_slug, $body, $published, $isEditingPost;
 	$sql = "SELECT * FROM posts WHERE id=$post_id LIMIT 1";
 	$result = mysqli_query($conexion, $sql);
 	$post = mysqli_fetch_assoc($result);
 	// set form values on the form to be updated
 	$user_id = $post['user_id'];
+	$postId = $post['id'];
 	$title = $post['title'];
 	$body = $post['body'];
 	$published = $post['published'];
 }
 function editDraft($draft_id){
-	global $conexion, $user_id, $title, $post_slug, $body, $published, $isEditingDraft;
+	global $conexion, $user_id, $draftId, $title, $post_slug, $body, $published, $isEditingDraft;
 	$sql = "SELECT * FROM draft WHERE id=$draft_id LIMIT 1";
 	$result = mysqli_query($conexion, $sql);
 	$draft = mysqli_fetch_assoc($result);
@@ -273,9 +278,11 @@ if (isset($_GET['revisar']) || isset($_GET['publicar-draft']) || isset($_GET['no
 		global $conexion;
 		$update_sql = "UPDATE draft SET published = 1 WHERE id=$draft_id AND revision = 1";
 		if(mysqli_query($conexion, $update_sql)){
-			$delete_sql = "DELETE FROM draft WHERE id = $draft_id AND published = 1 AND revision = 1";
+			$delete_post = "DELETE FROM posts WHERE id = $draft_id";
+			mysqli_query($conexion, $delete_post);
+			$delete_draft = "DELETE FROM draft WHERE id = $draft_id AND published = 1 AND revision = 1";
 		}
-		$result = mysqli_query($conexion, $delete_sql);
+		$result = mysqli_query($conexion, $delete_draft);
 	}else if (isset($_GET['no-publicar-draft'])) {
 		$draft_id = $_GET['no-publicar-draft'];
 		global $conexion;

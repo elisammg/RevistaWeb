@@ -122,11 +122,11 @@
 		return $topics;
 	}
 	
-	function getAllSubtopics(){
+	function getSubtopics($post_id){
 		global $conexion;
-		$sql = "SELECT * FROM subtopic";
+		$sql = "SELECT * FROM subtopic WHERE id = (SELECT id_subtopic FROM posts WHERE id = $post_id);";
 		$result = mysqli_query($conexion, $sql);
-		$subtopics = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		$subtopics = mysqli_fetch_assoc($result);
 		return $subtopics;
 	}
 	

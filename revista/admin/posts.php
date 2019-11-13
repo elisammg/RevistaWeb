@@ -41,7 +41,7 @@
 											<td ><?php echo $post['author']; ?></td>
 											<td >
 												<a 	target="_blank"
-												href="<?php echo BASE_URL . 'articulo.php?post-slug=' . $post['id'] . '&leer=Leer+mas'?>">
+												href="<?php echo BASE_URL . 'articulo.php?post-slug=' . $post['id']?>">
 													<?php echo $post['title']; ?>	
 												</a>
 											</td>
