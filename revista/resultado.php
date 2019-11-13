@@ -47,7 +47,7 @@ $result = mysqli_query($conexion, $sql);
       <td>"?>
       <!--conteo de visitas -->
           <form action="articulo.php" method="get">
-              <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+              <input type="hidden" name="post-slug" value="<?php echo $consulta['post_id'];?>">
               <input type="submit" class="button" name="leer" value="Leer mas">
           </form>
     <?php echo "</td>

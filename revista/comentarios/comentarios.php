@@ -25,7 +25,6 @@
                             <!-- Hidden inputs -->
                             <input type="hidden" name="useridanswer" value="<?php echo $userid ?>">
                             <input type="hidden" name="postidanswer" value="<?php echo $comment['id_post'] ?>">
-                            <input type="hidden" name="postSlug" value="<?php echo $comment['slug'] ?>">
                             <input type="hidden" name="answerId" value="<?php echo $comment['comentarios_id'] ?>">
                             <!-- Reply section -->
                             <input type="text" name="comment" placeholder="Ingrese comentario">
@@ -67,7 +66,6 @@
                         $userid = $_SESSION['users']['id'];?>
                         <input type="hidden" name="useridcomment" value="<?php echo $userid ?>">
                         <input type="hidden" name="postidcomment" value="<?php echo $postid ?>">
-                        <input type="hidden" name="postSlug" value="<?php echo $comment['slug'] ?>">
                         <input type="text" name="comentario" placeholder="Ingrese comentario">
 
                         <input type="submit" value="Comentar" name="comentar">

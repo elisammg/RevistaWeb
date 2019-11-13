@@ -6,7 +6,7 @@
     </div>
 
      <?php
-          $sql = "SELECT posts.title, posts.slug, posts.views, users.foto FROM posts 
+          $sql = "SELECT posts.id, posts.title, posts.slug, posts.views, users.foto FROM posts 
                     INNER JOIN users ON posts.user_id = users.id 
                     WHERE destacado = 1 AND published = 1 
                     ORDER BY `posts`.`created_at` 
@@ -25,7 +25,7 @@
           <p><?=$row['slug']?></p>
           <!--conteo de visitas -->
           <form action="articulo.php" method="get">
-              <input type="hidden" name="post-slug" value="<?php echo $row['slug'];?>">
+              <input type="hidden" name="post-slug" value="<?php echo $row['id'];?>">
               <input type="submit" class="button" name="leer" value="Leer mas">
           </form>
          

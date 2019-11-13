@@ -32,7 +32,7 @@
                   </p>
                   <!--conteo de visitas -->
           <form action="articulo.php" method="get">
-              <input type="hidden" name="post-slug" value="<?php echo $row['slug'];?>">
+              <input type="hidden" name="post-slug" value="<?php echo $row['id'];?>">
               <input type="submit" class="button" name="leer" value="Leer mas">
           </form>
                   </div>

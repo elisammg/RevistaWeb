@@ -55,11 +55,16 @@
 					<label type="text" name="tipo"><?php echo $tipo; ?></label>
 					<!--Selección de rol -->
 					<select name="role">
-						<option value="" selected disabled>Assign role</option>
+						<?php if ($isEditingUser === true): ?>
+							<option value="<?php echo $userRole; ?>"><?php echo $userRole; ?></option>
+						<?php else : ?>
+							<option value="" selected disabled>Assign role</option>
+						<?php endif ?>
 						<?php foreach ($roles as $key => $role): ?>
 							<option value="<?php echo $role; ?>"><?php echo $role; ?></option>
 						<?php endforeach ?>
 					</select>
+					<!--Selección de rol -->
 	        		<input type="radio" name="pokemonsusc" value="<?php echo $yes; ?>" id="pokemon"><label>Suscripcion activa</label>
 	        		<input type="radio" name="pokemonsusc" value="<?php echo $nop; ?>" id="pokemon"><label>Eliminar suscripcion</label>
 	        		<br>    

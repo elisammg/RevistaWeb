@@ -40,11 +40,11 @@ function getAuthorName($post_id){
 }
 
 //Funcion para verificar el slug del artículo
-function getPost($slug){
+function getPost($post_id){
 	global $conexion;
 	// Get single post slug
 	$post_slug = $_GET['post-slug'];
-	$sql = "SELECT * FROM posts WHERE slug='$post_slug'";
+	$sql = "SELECT * FROM posts WHERE id='$post_id'";
 	$result = mysqli_query($conexion, $sql);
 
 	// fetch query results as associative array.

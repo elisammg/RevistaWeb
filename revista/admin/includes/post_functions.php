@@ -83,8 +83,8 @@ function createPost($request_values){
 	// create post if there are no errors in the form
 	if (count($errors) == 0) {
 		// Insert blob in DB
-		$blob_query = "INSERT INTO blobimage (image) VALUES ('$blob_image')";
-		mysqli_query($conexion, $blob_query);
+		//$blob_query = "INSERT INTO blobimage (image) VALUES ('$blob_image')";
+		//mysqli_query($conexion, $blob_query);
 		$query = "INSERT INTO draft (user_id, id_subtopic, title, slug, image, body, published, plantilla, created_at, updated_at, premium, revision) 
 			VALUES('$userID', '$topic_id', '$title', '$post_slug', '$featured_image', '$body', 0, '$template', now(), now(), 0, '$published')";
 		if(mysqli_query($conexion, $query)){ // if post created successfully
@@ -294,7 +294,7 @@ if (isset($_GET['revisar']) || isset($_GET['publicar-draft']) || isset($_GET['no
 	}
 }
 
-// if para funciones censurar/no censurar de artículos.
+// if para funciones censurar/no censurar artículos.
 if(isset($_GET['censurar']) || isset($_GET['no-censurar'])){
 	if (isset($_GET['censurar'])){
 		$post_id = $_GET['censurar'];

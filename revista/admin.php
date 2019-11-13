@@ -161,7 +161,6 @@
           ?>
             <hr>
               <center><input type="submit" name="destacado" value="Seleccionar" class="button"></center>
-              <center><input type="submit" name="nodestacado" value="No Seleccionar" class="button"></center>
             </form>
 
           </div>

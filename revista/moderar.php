@@ -74,14 +74,14 @@
       <!--Moderacion de comentarios cuenta cuantos hay -->    
           <h4>Moderación de comentarios</h4>
           <?php  
-          $sql = "SELECT count(id) FROM modcomment"; 
+          $sql = "SELECT count(comment_id) FROM modcomment"; 
            $result = mysqli_query($conexion, $sql);
 
            if (mysqli_num_rows($result) > 0){ 
            while($row = mysqli_fetch_assoc($result)) 
            {
                ?>
-               <p>La cantidad de comentarios reportados son: <b><?=$row['count(id)']?></b></p>
+               <p>La cantidad de comentarios reportados son: <b><?=$row['count(comment_id)']?></b></p>
                <a href="modcomentarios.php" class="button">Revisar</a>            
                <?php 
            }//fin blucle

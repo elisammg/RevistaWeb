@@ -33,6 +33,7 @@
               <?php if ($_SESSION['users']['role'] == 'Moderador'){ ?>
                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
               <?php } ?>
+              <input type="hidden" name="post_id" value="<?php echo $_GET['edit-post']; ?>">
             <?php elseif ($isEditingDraft == true): ?>
               <input type="hidden" name="draft_id" value="<?php echo $draft_id; ?>">
             <?php endif ?>
@@ -40,21 +41,26 @@
             <input type="text" name="title" value="<?php echo $title; ?>" placeholder="Title">
             <label style="float: left; margin: 5px auto 5px;">Featured image</label>
             <input type="file" name="featured_image" >
-            <textarea name="body" id="body" cols="30" rows="5"><?php echo $body; ?></textarea>
+            <textarea name="body" id="body" cols="30" rows="20"><?php echo $body; ?></textarea>
            
             <!--subcategorias -->
-            <select name="topic_id">
-              <option value="" selected disabled>Choose topic</option>
-              <?php 
-                $userid = $_SESSION['users']['id'];
-                  $sql1w="SELECT users.role roll, users.nombre , subtopic.id subid, subtopic.nombre subtopic, subautor.id FROM subautor
-                  INNER JOIN subtopic ON subtopic.id = subautor.id_subtopic 
-                  INNER JOIN users ON users.id = subautor.id_user WHERE role = 'Author' and users.id = '$userid'";
-                  $result1w = mysqli_query($conexion,$sql1w);
-                  while ($mostrar1w = mysqli_fetch_array($result1w)){ ?>
-                    <option value="<?php echo $mostrar1w['subid'] ?>"><?php echo $mostrar1w['subtopic'] ?></option>
-                  <?php } ?>
-            </select>
+            <?php if ($isEditingPost == true): ?>
+              <input type="label" value="<?php echo $title; ?>">
+            <?php else: ?>
+              <select name="topic_id">
+                <option value="" selected disabled>Choose topic</option>
+                <?php 
+                  $userid = $_SESSION['users']['id'];
+                    $sql1w="SELECT users.role roll, users.nombre , subtopic.id subid, subtopic.nombre subtopic, subautor.id FROM subautor
+                    INNER JOIN subtopic ON subtopic.id = subautor.id_subtopic 
+                    INNER JOIN users ON users.id = subautor.id_user WHERE role = 'Author' and users.id = '$userid'";
+                    $result1w = mysqli_query($conexion,$sql1w);
+                    while ($mostrar1w = mysqli_fetch_array($result1w)){ ?>
+                      <option value="<?php echo $mostrar1w['subid'] ?>"><?php echo $mostrar1w['subtopic'] ?></option>
+                    <?php } ?>
+              </select>
+            <?php endif; ?>
+            <!--subcategorias -->
 
             <?php require_once('../templates.php') ?>
 

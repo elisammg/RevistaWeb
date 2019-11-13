@@ -5,6 +5,7 @@
     $isEditingUser = false;
     $username = "";
     $role = "";
+    $userRole = "";
     $email = "";
     $total_paginas = 0;
 
@@ -24,9 +25,8 @@
         deleteAdmin($admin_id);
     }
 
-    function editAdmin($admin_id)
-    {
-        global $conexion, $username, $role, $isEditingUser, $admin_id, $email, $tipo, $yes, $nop;
+    function editAdmin($admin_id){
+        global $conexion, $username, $role, $userRole, $isEditingUser, $admin_id, $email, $tipo, $yes, $nop;
 
         $sql = "SELECT users.id, users.username, users.email, users.suscripcion, users.role, cobro.iniciosusc, suscripcion.tipo 
                     FROM users 
@@ -41,6 +41,7 @@
         $username = $admin['username'];
         $email = $admin['email'];
         $tipo = $admin['tipo'];
+        $userRole = $admin['role'];
         $yes = $admin['suscripcion'] = 1;
         $nop = $admin['suscripcion'] = 0;
     }

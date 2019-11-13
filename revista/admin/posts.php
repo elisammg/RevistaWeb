@@ -41,7 +41,7 @@
 											<td ><?php echo $post['author']; ?></td>
 											<td >
 												<a 	target="_blank"
-												href="<?php echo BASE_URL . 'articulo.php?post-slug=' . $post['slug'] ?>">
+												href="<?php echo BASE_URL . 'articulo.php?post-slug=' . $post['id'] . '&leer=Leer+mas'?>">
 													<?php echo $post['title']; ?>	
 												</a>
 											</td>
@@ -145,13 +145,13 @@
 					<?php } ?>
 				<!-- Final tabla draft -->
 			<?php } ?>
-			<?php if($_SESSION['users']['role'] == "Author" ): ?>
-				<a class="button"
-					href="admin/create_post.php">Crear Nuevo artículo
-				</a>
-			<?php endif ?>
 		</div>
 		<!-- // Display records from DB -->
+		<?php if($_SESSION['users']['role'] == "Author" ): ?>
+			<a class="button"
+				href="admin/create_post.php">Crear Nuevo artículo
+			</a>
+		<?php endif ?>
 	</div>
 </body>
 </html>

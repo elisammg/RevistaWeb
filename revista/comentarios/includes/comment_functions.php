@@ -42,11 +42,18 @@
                                 <input type="hidden" name="useridanswer" value="<?php echo $userid ?>">
                                 <input type="hidden" name="postidanswer" value="<?php echo $reply['id_post'] ?>">
                                 <input type="hidden" name="answerId" value="<?php echo $reply['comentarios_id'] ?>">
-                                <input type="hidden" name="postSlug" value="<?php echo $reply['slug'] ?>">
                                 <!-- Reply section -->
                                 <input type="text" name="comment" placeholder="Ingrese comentario">
                                 <input type="submit" class="tiny success button" name="contestar" value="Comentar">
-                                <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
+                                <?php if($reply['reporte'] != NULL){ ?>
+                                    <input type="submit" class="tiny alert button" name="reportarcoment" value="Reportar comentario">
+                                <?php } ?>
+                                <?php if($reply['reporte'] > 0){ ?>
+                                    <?php if($_SESSION['users']['role'] == 'Moderador') { ?>
+                                        <input type="submit" class="tiny warning button" name="censurar-comment" value="Censurar comentario">
+                                        <input type="submit" class="tiny warning button" name="ignorar" value="Ignorar reportes">
+                                    <?php } ?>
+                                <?php } ?>
                                 </form>
                             <?php } ?>
                             </div>
@@ -77,7 +84,7 @@
         } elseif (isset($_GET['no-censurar-comment'])){
             global $conexion;
             $comment_id = $_GET['no-censurar-comment'];
-            $sql = "UPDATE comentarios SET censurar = 0 WHERE id = $comment_id";
+            $sql = "UPDATE comentarios SET censurar = 0, vecesreporte = 0 WHERE id = $comment_id";
             $result = mysqli_query($conexion, $sql);
             header("Location: modcomentarios.php");
         } elseif (isset($_GET['ignorar'])){

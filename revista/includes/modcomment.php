@@ -20,7 +20,7 @@
                   <td class="estilo-tabla" align="center"><?=$row['Usuarios']?></td>
                   <td class="estilo-tabla" align="center"><?=$row['Comentarios']?></td>
                   <td class="estilo-tabla" align="center">
-                    <a href="articulo.php?post-slug=<?=$row['slug'] ?>"><?=$row['Titulo Articulo']?></a>
+                    <a href="articulo.php?post-slug=<?=$row['post_id'] ?>"><?=$row['Titulo Articulo']?></a>
                   </td>
                   <?php if($row['Reportes'] >= 25){ ?>
                     <td class="estilo-tabla" align="center">Comentario no revisado (Censurado automático)</td>
@@ -29,18 +29,18 @@
                   <?php } ?>
                   <?php if($row['censurado'] == false){ ?>
                     <td class="estilo-tabla" align="center">
-                      <a href="modcomentarios.php?censurar-comment=<?php echo $row['id'] ?>">Censurar</a>
+                      <a href="modcomentarios.php?censurar-comment=<?php echo $row['comment_id'] ?>">Censurar</a>
                     </td>
                   <?php } else { ?>
                     <td class="estilo-tabla" align="center">Comentario censurado</td>
                   <?php } ?>
                   <?php if($row['censurado'] == true){ ?>
                     <td class="estilo-tabla" align="center">
-                      <a href="modcomentarios.php?no-censurar-comment=<?php echo $row['id'] ?>">Descensurar</a>
+                      <a href="modcomentarios.php?no-censurar-comment=<?php echo $row['comment_id'] ?>">Descensurar</a>
                     </td>
                   <?php } else { ?>
                     <td>
-                      <a href="modcomentarios.php?ignorar=<?php echo $row['id'] ?>">Ignorar reportes</a>
+                      <a href="modcomentarios.php?ignorar=<?php echo $row['comment_id'] ?>">Ignorar reportes</a>
                     </td>
                   <?php } ?>
                 </tr> 
