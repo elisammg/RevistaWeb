@@ -17,55 +17,54 @@
   <body>
 <div class="grid-container">
       <div class="grid-x grid-padding-x">
-        <?php
-        if (isset($_GET['buscaruno'])) 
+
+<?php if (isset($_GET['buscaruno'])) 
 {
-  
-$categoria=$_GET['categoria'];
-$autor=$_GET['nombre'];
-$creado=$_GET['created_at'];
-$texto=$_GET['body'];
-//query de busqueda
-$sql = "SELECT users.username, subtopic.nombre, posts.body, posts.created_at FROM mydb.posts \n"
+   $subcat=$_GET['categoria'];
+    $autor=$_GET['nombre'];
+    $fecha=$_GET['created_at'];  
+    $texto=$_GET['body'];
+     echo "<table>
+                            <tr>
+                              <td><center>Categoria</center></td>
+                              <td><center>Autor</center></td>
+                              <td><center>Fecha</center></td>
+                              <td><center>Texto</center></td>
+                              <td><center>Leer mas</center></td>
+                            </tr>";
+    //ordenar por categoria
+       
+        //query de busqueda
+        $sqluno = "SELECT * FROM mydb.busqueda 
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto'";
+        $resultuno = mysqli_query($conexion, $sqluno);
+            
+             while ($consultauno = mysqli_fetch_array($resultuno)) 
+             {
+              
+              echo "      
+            <tr>
+              <td>".$consultauno['subtopic_nombre']."</td>
+              <td>".$consultauno['usernombre']."</td>
+              <td>".$consultauno['created_at']."</td>
+              <td>".$consultauno['posts_body']."</td>
+              <td>"?>
+              <!--conteo de visitas -->
+                  <form action="articulo.php" method="get">
+                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="submit" class="button" name="leer" value="Leer mas">
+                  </form>
+            <?php echo "</td>
+            </tr>";
 
-    . "INNER JOIN mydb.users \n"
+              
+             }
+              echo "</table>";
+    
+        }
 
-    . "ON posts.user_id = users.id\n"
+  ?>
 
-    . "JOIN mydb.subtopic\n"
-
-    . "ON posts.id_subtopic = subtopic.id\n"
-
-    . "WHERE users.username LIKE '$autor' or subtopic.nombre LIKE '$categoria' or posts.body LIKE '$texto' or posts.created_at LIKE '$creado' ";
-     $result = mysqli_query($conexion, $sql);
-     while ($consulta = mysqli_fetch_array($result)) 
-     {
-      
-      echo "
-      <table>
-    <tr>
-      <td><center>Categoria</center></td>
-      <td><center>Autor</center></td>
-      <td><center>Fecha</center></td>
-      <td><center>Texto</center></td>
-    </tr>
-    <tr>
-      <td>".$consulta['nombre']."</td>
-      <td>".$consulta['username']."</td>
-      <td>".$consulta['created_at']."</td>
-      <td>".$consulta['body']."</td>
-    </tr>
-  </table>
-
-      ";
-
-      
-     }
-}
-
-
-
-?>
 
 <?php if (isset($_GET['buscardos'])) 
 {
