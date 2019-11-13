@@ -88,7 +88,7 @@
         echo "0 resultados";
       }
     } else {
-      echo "No tiene suscripcion, adquiere una!";
+      echo "No tienes suscripcion o caducado, adquiere una!";
     }
     
     ?>

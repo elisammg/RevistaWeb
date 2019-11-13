@@ -17,50 +17,163 @@
   <body>
 <div class="grid-container">
       <div class="grid-x grid-padding-x">
-    <?php 
 
-
-if (isset($_GET['buscar'])) 
+<?php if (isset($_GET['buscaruno'])) 
 {
-  
-$texto=$_GET['body'];
-//query de busqueda
-$sql = "SELECT * FROM busqueda WHERE usernombre LIKE '%$texto%' or subtopic_nombre LIKE '%$texto%' or posts_body LIKE '%$texto%'";
-$result = mysqli_query($conexion, $sql);
+   $subcat=$_GET['categoria'];
+    $autor=$_GET['nombre'];
+    $fecha=$_GET['created_at'];  
+    $texto=$_GET['body'];
+    $fechahoy=$_GET['fechahoy'];
      echo "<table>
-                    <tr>
-                      <td><center>Categoria</center></td>
-                      <td><center>Autor</center></td>
-                      <td><center>Fecha</center></td>
-                      <td><center>Texto</center></td>
-                      <td><center>Leer mas</center></td>
-                    </tr>";
-     while ($consulta = mysqli_fetch_array($result)) 
-     {
-      
-      echo "      
-    <tr>
-      <td>".$consulta['subtopic_nombre']."</td>
-      <td>".$consulta['usernombre']."</td>
-      <td>".$consulta['created_at']."</td>
-      <td>".$consulta['posts_body']."</td>
-      <td>"?>
-      <!--conteo de visitas -->
-          <form action="articulo.php" method="get">
-              <input type="hidden" name="post-slug" value="<?php echo $consulta['post_id'];?>">
-              <input type="submit" class="button" name="leer" value="Leer mas">
-          </form>
-    <?php echo "</td>
-    </tr>";
+                            <tr>
+                              <td><center>Categoria</center></td>
+                              <td><center>Autor</center></td>
+                              <td><center>Fecha</center></td>
+                              <td><center>Texto</center></td>
+                              <td><center>Leer mas</center></td>
+                            </tr>";
+    //ordenar por categoria
+       
+        //query de busqueda
+        $sqluno = "SELECT * FROM mydb.busqueda 
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '$fechahoy'";
+        $resultuno = mysqli_query($conexion, $sqluno);
+            
+             while ($consultauno = mysqli_fetch_array($resultuno)) 
+             {
+              
+              echo "      
+            <tr>
+              <td>".$consultauno['subtopic_nombre']."</td>
+              <td>".$consultauno['usernombre']."</td>
+              <td>".$consultauno['created_at']."</td>
+              <td>".$consultauno['posts_body']."</td>
+              <td>"?>
+              <!--conteo de visitas -->
+                  <form action="articulo.php" method="get">
+                      <input type="hidden" name="post-slug" value="<?php echo $consultauno['slug'];?>">
+                      <input type="submit" class="button" name="leer" value="Leer mas">
+                  </form>
+            <?php echo "</td>
+            </tr>";
 
-      
-     }
-     echo "</table>";
-}
+              
+             }
+              echo "</table>";
+    
+        }
 
+  ?>
+
+
+<?php if (isset($_GET['buscardos'])) 
+{
+   $subcat=$_GET['categoria'];
+    $autor=$_GET['nombre'];
+    $fecha=$_GET['created_at'];  
+    $texto=$_GET['body'];
+     echo "<table>
+                            <tr>
+                              <td><center>Categoria</center></td>
+                              <td><center>Autor</center></td>
+                              <td><center>Fecha</center></td>
+                              <td><center>Texto</center></td>
+                              <td><center>Leer mas</center></td>
+                            </tr>";
+    //ordenar por categoria
+    if(in_array('categoriartc', $_GET['search'])){
+       
+        //query de busqueda
+        $sql = "SELECT * FROM mydb.busqueda 
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY subtopic_nombre ASC";
+        $result = mysqli_query($conexion, $sql);
+            
+             while ($consulta = mysqli_fetch_array($result)) 
+             {
+              
+              echo "      
+            <tr>
+              <td>".$consulta['subtopic_nombre']."</td>
+              <td>".$consulta['usernombre']."</td>
+              <td>".$consulta['created_at']."</td>
+              <td>".$consulta['posts_body']."</td>
+              <td>"?>
+              <!--conteo de visitas -->
+                  <form action="articulo.php" method="get">
+                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="submit" class="button" name="leer" value="Leer mas">
+                  </form>
+            <?php echo "</td>
+            </tr>";
+
+              
+             }
+    
+        }
+
+        //ordenar por nombre autor
+        elseif (in_array('nombreautor', $_GET['search'])) {
+        //query de busqueda
+        $sql = "SELECT * FROM mydb.busqueda 
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY usernombre ASC";
+        $result = mysqli_query($conexion, $sql);
+            
+             while ($consulta = mysqli_fetch_array($result)) 
+             {
+              
+              echo "      
+            <tr>
+              <td>".$consulta['subtopic_nombre']."</td>
+              <td>".$consulta['usernombre']."</td>
+              <td>".$consulta['created_at']."</td>
+              <td>".$consulta['posts_body']."</td>
+              <td>"?>
+              <!--conteo de visitas -->
+                  <form action="articulo.php" method="get">
+                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="submit" class="button" name="leer" value="Leer mas">
+                  </form>
+            <?php echo "</td>
+            </tr>";
+
+              
+             }
+      }
+      //ordenar por fecha
+      elseif (in_array('fechaartc', $_GET['search'])) {
+        //query de busqueda
+        $sql = "SELECT * FROM mydb.busqueda 
+        WHERE usernombre = '$autor' or subtopic_nombre = '$subcat' or posts_body = '$texto' or created_at between '$fecha' and '2020-11-12 23:59:59' ORDER BY created_at ASC";
+        $result = mysqli_query($conexion, $sql);
+            
+             while ($consulta = mysqli_fetch_array($result)) 
+             {
+              
+              echo "      
+            <tr>
+              <td>".$consulta['subtopic_nombre']."</td>
+              <td>".$consulta['usernombre']."</td>
+              <td>".$consulta['created_at']."</td>
+              <td>".$consulta['posts_body']."</td>
+              <td>"?>
+              <!--conteo de visitas -->
+                  <form action="articulo.php" method="get">
+                      <input type="hidden" name="post-slug" value="<?php echo $consulta['slug'];?>">
+                      <input type="submit" class="button" name="leer" value="Leer mas">
+                  </form>
+            <?php echo "</td>
+            </tr>";
+
+              
+             }
+      }
+      echo "</table>";
+    }
 
 
 ?>
+
   </div>
 </div>
  
